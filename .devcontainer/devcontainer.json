@@ -6,15 +6,12 @@
 	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {
-			"installZsh": true,
-			"installOhMyZsh": true,
-			"installOhMyZshConfig": true,
 			"username": "automatic",
 			"userUid": "automatic",
 			"userGid": "automatic",
 			"upgradePackages": false
 		}
-	}
+	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
@@ -23,7 +20,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "yarn install",
+	"postCreateCommand": "echo 'exec zsh' >> /home/node/.bashrc"
 
 	// Configure tool-specific properties.
 	// "customizations": {},
