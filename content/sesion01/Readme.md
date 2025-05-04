@@ -100,18 +100,27 @@ Las características son relativas a un contexto.
 
 # 🍅
 
-```text[1|2|3|4|5|6]
-# Importante para:
-Agricultura: Que crezca saludable y no tenga plagas (plagas y enfermedades)
-Transporte: Que sea fácil de transportar y almacenar (tamaño y peso)
-Nutricional: Que aporte nutrientes y sea saludable (vitaminas y minerales)
-Culinaria: Que sea sabroso y tenga buena textura (sabor y textura)
-Consumidor: Que sea atractivo y tenga buen sabor (color y sabor)
-Finanzas: Que sea rentable y tenga un precio competitivo (costo y tamaño)
+```markdown [2-3|5-6|8-9|11-12|14-15|17-18]
+# Contexto en:
+Agricultura: Que crezca saludable y no tenga plagas 
+- (plagas y enfermedades)
+
+Transporte: Que sea fácil de transportar y almacenar 
+- (tamaño y peso)
+
+Nutricional: Que aporte nutrientes y sea saludable
+- (vitaminas y minerales)
+
+Culinaria: Que sea sabroso y tenga buena textura
+- (sabor y textura)
+
+Consumidor: Que sea atractivo y tenga buen sabor 
+- (color, sabor, precio)
+
+Finanzas: Que sea rentable y tenga un precio competitivo 
+- (costo y tamaño)
 ```
 <!-- .element class="fragment" data-fragment-index="1"-->
-
----
 
 ---
 
@@ -165,11 +174,13 @@ Los visitantes del sitio web deben poder
 
 ---
 
-#### Sí, claro! 
+#### ¡Sí, claro! 
 
 Sería genial si el mundo cumpliera con este ideal y pudiéramos seguir estas etapas una por una, en perfecto orden, 
 
-Como siempre, el mundo real es mucho más confuso.
+como siempre, el mundo real es mucho más confuso.
+
+---
 
 No importa cuánto intentemos separar estas etapas, siempre encontraremos cosas que necesitan un mayor análisis mientras diseñamos.
 
@@ -179,18 +190,40 @@ Cuando programamos, encontramos características que necesitan aclaración en el
 ---
 La mayor parte del desarrollo del siglo XXI ocurre en un modelo de desarrollo iterativo.
 
+---
+
 En el desarrollo iterativo, una pequeña parte de la tarea se modela, diseña y programa, luego se revisa el programa y se expande para mejorar cada característica e incluir nuevas características en una serie de ciclos de desarrollo cortos.
 
 ---
 
-Inserta imagen
+![Iteración](./img/img01.svg) 
 
 ---
-#### Ejemplo 1
+#### Preparando el proyecto para las sesiones
+
+- Crear un repositorio en GitHub con el nombre **psg-oop-2025**
+- Añadir el archivo **README.md** y el archivo **.gitignore** para Python
+- Clonar el repositorio en tu computadora
+- Abrir el proyecto en VSCode
+
+---
+- Crear una carpeta con el nombre **sesion01**
+- Los archivos de esta sesión deben estar dentro de la carpeta **sesion01**
+- Subir el avance al repositorio de GitHub
+
+---
+#### Ejemplo 01
 
 OOA y OOD
 
-Una tienda de frutas
+```text
+Una pequeña frutería de barrio quiere modernizarse
+y comenzar a vender en línea. La dueña quiere un sitio web
+donde sus clientes habituales puedan ver los productos,
+armar su pedido, pagarlo y luego pasar a recogerlo en la tarde
+```
+
+> Crear el archivo **ejemplo01.md** en la carpeta **sesion01**
 
 ---
 Análisis
@@ -200,6 +233,7 @@ Los visitantes del sitio web deben poder
 - *revisar* nuestros **productos**
 - *añadir* productos a su **cesta**
 - *realizar* su **pago**
+- *recoger* su **cesta** después de *pagar*
 
 ---
 
@@ -207,42 +241,57 @@ Los visitantes del sitio web deben poder
 ## 🍅, 🛒, 💸
 
 ### Acciones: 
-## *revisar*, *añadir*, *pagar*
+## *revisar*, *añadir*, *pagar*, *recoger*
+
+---
+
+sesion01/ejemplo01.md
+
+```markdown
+# Una tienda de frutas
+
+## Análisis
+
+Los visitantes del sitio web deben poder
+- *revisar* nuestros **productos**
+- *añadir* productos a su **cesta**
+- *realizar* su **pago**
+
+Los objetos son:
+- 🍅 Producto
+- 🛒 Cesta
+- 💸 Pago
+
+Las acciones son:
+- *revisar*
+- *añadir*
+- *pagar*
+- *recoger*
+```
 
 ---
 Diseño
 
 Diagrama de clases
 
-![Ejemplo 1 ](./img/ejemplo01.svg)
-
----
-#### Diferencia entre Programación procedural y Programación Orientada a Objetos
-
-| Procedural | Orientada a Objetos
-|------------|---------------------|
-| Funciones y Procedimientos | Objetos y clases |
-| Secuencial | Modular |
-| Funciones independientes | Métodos dentro de clases |
-| Ejecución lineal | Interacción entre objetos |
+![Ejemplo 01 ](./img/ejemplo01.svg)
 
 
 ---
-#### Preparando el proyecto para las sesiones
-
-- Crear un repositorio en GitHub con el nombre **psg-oop-2025**
-- Añadir el archivo **README.md** y el archivo **.gitignore**
-- Clonar el repositorio en tu computadora
-- Abrir el proyecto en VSCode
-- Crear una carpeta con el nombre **sesion01**
-- Los archivos de la sesión 01 deben estar dentro de la carpeta **sesion01**
-- Subir el avance al repositorio de GitHub
-
----
-#### Ejemplo 2
+#### Ejemplo 02
 
 OOA y OOD
-Una calculadora de áreas
+
+```text
+Un maestro de primaria está enseñando geometría y quiere
+una herramienta para que sus estudiantes practiquen 
+cómo calcular el área de figuras básicas.
+
+Quiere que los alumnos ingresen medidas, como la base, altura
+y elijan la figura, y ver el resultado inmediatamente.
+```
+
+> Crear el archivo **ejemplo02.md** en la carpeta **sesion01**
 
 ---
 Análisis
@@ -263,18 +312,267 @@ Los visitantes deben poder
 ## *ingresar*, *calcular*
 
 ---
+
+sesion01/ejemplo02.md
+
+```markdown
+# Una calculadora de áreas
+
+## Análisis
+
+Los visitantes deben poder
+
+- *ingresar* la **base** y la **altura**
+- *ingresar* el **tipo** de **polígono**
+- *calcular* el **área** de un **rectángulo**
+- *calcular* el **área** de un **círculo**
+- *calcular* el **área** de un **triángulo**
+
+## Objetos
+
+- 🟥 Rectángulo
+- 🔴 Círculo
+- 🔺 Triángulo
+
+## Acciones
+
+- *ingresar*
+- *calcular*
+
+```
+
+---
 Diseño
 
 Diagrama de clases
 
-![Ejemplo 2 ](./img/ejemplo02.svg)
+![Ejemplo 02 ](./img/ejemplo02.svg)
+
+---
+#### Clase 
+
+¿Qué es?
+
+---
+<!-- definiciones para personas que no saben programar -->
+- Es una plantilla o un modelo para crear objetos.
+- Es una forma de agrupar datos y comportamientos relacionados.
+
+---
+
+#### Ejemplo 03
+
+Galletas en forma de corazón
+
+## 💟 ➡ 💙💚💛💜🧡
+
+- **Clase**: GalletaCorazon 💟 
+- **Objetos**: 
+    - 💙 Galleta de arándano 
+    - 💚 Galleta de menta 
+    - 💛 Galleta de piña 
+    - 💜 Galleta de uva 
+    - 🧡 Galleta de naranja 
+
+---
+
+sesion01/ejemplo03.md
+
+```markdown
+# Galletas en forma de corazón
+
+**Clase**: GalletaCorazon 💟
+
+**Objetos**:
+- 💙 Galleta de arándano
+- 💚 Galleta de menta
+- 💛 Galleta de piña
+- 💜 Galleta de uva
+- 🧡 Galleta de naranja
+```
+
+---
+
+#### Diagrama de clases
+
+¿Qué es?
+
+---
+
+- Es una representación gráfica de las clases y sus relaciones.
+- Es una forma de visualizar el diseño de un sistema orientado a objetos.
+- Es una herramienta para comunicar el diseño a otros programadores.
+- Es una forma de documentar el diseño de un sistema orientado a objetos.
+
+
+---
+Partes de una clase
+
+- **Nombre de la clase**: Galleta
+- **Atributos**: 
+    - color
+    - sabor
+    - tamaño
+- **Métodos**:
+    - hornear()
+    - decorar()
+
+---
+#### Ejemplo 04
+
+Clase de una galleta
+
+## 🍪
+
+---
+#### Diagrama de clases
+
+![Diagrama de clases](./img/ejemplo04.svg) <!-- .element  width="30%"-->
+
+---
+sesion01/ejemplo04.md
+
+```markdown
+
+Diseño
+
+# Clase de una galleta
+## 🍪
+
+**Nombre de la clase**: Galleta
+
+**Atributos**:
+- color
+- sabor
+- tamaño
+
+**Métodos**:
+- hornear()
+- decorar()
+```
+
+---
+#### Ejemplo 05
+
+OOA y OOD
+
+```text
+Una fábrica de galletas está desarrollando 
+un horno controlado por software.
+El panel digital del horno permite seleccionar
+y la temperatura y tiempo, y luego iniciar
+el proceso de horneado.
+
+Cuando las galletas están listas, 
+el horno debe apagarse automáticamente.
+```
+
+> Crear el archivo **ejemplo05.md** en la carpeta **sesion01**
+
+---
+Análisis
+
+Para hacer galletas, el horno debe poder
+- *seleccionar* la **temperatura**
+- *seleccionar* el **tiempo**
+- *hornear* las **galletas** de diferentes **sabores**
+- los sabores son: 
+    - 🍪🍊 Galleta de naranja
+    - 🍪🍋 Galleta de limón
+    - 🍪🍫 Galleta de chocolate
+
+---
+### Objetos
+## 🔥, 🍪🍊, 🍪🍋, 🍪🍫
+
+### Acciones:
+## *seleccionar*, *hornear*
+---
+
+Diseño
+
+![Diagrama de clases](./img/ejemplo05.svg)
+
+---
+sesion01/ejemplo05.md
+
+```markdown
+# Software para un horno de galletas
+
+Análisis
+
+Para hacer galletas, el horno debe poder
+- *seleccionar* la **temperatura**
+- *seleccionar* el **tiempo**
+- *hornear* las **galletas** de diferentes **sabores**
+- los sabores son: 
+    - 🍪🍊 Galleta de naranja
+    - 🍪🍋 Galleta de limón
+    - 🍪🍫 Galleta de chocolate
+    
+## Objetos
+
+- 🔥 Horno
+- 🍪 Galletas
+
+Diseño
+
+![Diagrama de clases](./img/ejemplo05.svg)
+
+# Clase de una galleta
+
+**Nombre de la clase**: Galleta
+
+**Atributos**:
+
+- sabor
+- estado
+
+**Métodos**:
+
+- hornear()
+
+# Clase de un horno
+
+**Nombre de la clase**: Horno
+
+**Atributos**:
+
+- temperatura
+- tiempo
+- galletas[]
+
+**Métodos**:
+
+- seleccionar_temperatura()
+- seleccionar_tiempo()
+- hornear()
+```
+
+---
+#### Diferencia entre Programación procedural y Programación Orientada a Objetos
+
+| Procedural | Orientada a Objetos
+|------------|---------------------|
+| Funciones y Procedimientos | Objetos y clases |
+| Secuencial | Modular |
+| Funciones independientes | Métodos dentro de clases |
+| Ejecución lineal | Interacción entre objetos |
+
+---
+En el ejemplo 02
+
+![Ejemplo 02 ](./img/ejemplo02.svg)
+
+Veamos una solución en programación procedural y otra en programación orientada a objetos.
 
 ---
 
 Programación Procedural
 
+sesion01/ejemplo02procedural.py
+
 ```python[1-2|4-5|7-8|10-18|20-25|27]
-# ejemplo2procedural.py
 def calcular_area_rectangulo(base, altura):
     return base * altura
 
@@ -308,8 +606,9 @@ main()
 
 Programación Orientada a Objetos
 
+sesion01/ejemplo02objetos.py
+
 ```python[1-7|9-14|15-22|24-41|42]
-# ejemplo2objetos.py
 class Rectangulo:
     def __init__(self, base, altura):
         self.base = base
@@ -354,101 +653,6 @@ def main():
 main()
 ```
 
----
-#### Clase 
-
-¿Qué es?
-
----
-<!-- definiciones para personas que no saben programar -->
-- Es una plantilla o un modelo para crear objetos.
-- Es una forma de agrupar datos y comportamientos relacionados.
-
----
-
-#### Ejemplo 3
-
-Galletas en forma de corazón
-
-## 💟 ➡ 💙💚💛💜🧡
-
-- **Clase**: GalletaCorazon 💟 
-- **Objetos**: 
-    - 💙 Galleta de arándano 
-    - 💚 Galleta de menta 
-    - 💛 Galleta de piña 
-    - 💜 Galleta de uva 
-    - 🧡 Galleta de naranja 
-
----
-
-#### Diagrama de clases
-
-¿Qué es?
-
----
-
-- Es una representación gráfica de las clases y sus relaciones.
-- Es una forma de visualizar el diseño de un sistema orientado a objetos.
-- Es una herramienta para comunicar el diseño a otros programadores.
-- Es una forma de documentar el diseño de un sistema orientado a objetos.
-
-
----
-Partes de una clase
-
-- **Nombre de la clase**: Galleta
-- **Atributos**: 
-    - color
-    - sabor
-    - tamaño
-- **Métodos**:
-    - hornear()
-    - decorar()
-
----
-#### Ejemplo 4
-
-Clase de una galleta
-
-## 🍪
-
----
-#### Diagrama de clases
-
-![Diagrama de clases](./img/ejemplo04.svg) <!-- .element  width="30%"-->
-
----
-#### Ejemplo 5
-
-Software para un horno de galletas 
-
-OOA y OOD
-
----
-Análisis
-
-Para hacer galletas, el horno debe poder
-- *seleccionar* la **temperatura**
-- *seleccionar* el **tiempo**
-- *hornear* las **galletas** de diferentes **sabores**
-- los sabores son: 
-    - 🍪🍊 Galleta de naranja
-    - 🍪🍋 Galleta de limón
-    - 🍪🍫 Galleta de chocolate
-
----
-### Objetos
-## 🔥, ⏳, 🍪🍊, 🍪🍋, 🍪🍫
-
-### Acciones:
-## *seleccionar*, *hornear*
----
-
-Diseño
-
-![Diagrama de clases](./img/ejemplo05.svg)
-
 
 ---
 
@@ -458,10 +662,9 @@ Utilizamos la palabra reservada **class**.
 
 ---
 
-La clase galleta del ejemplo 4 se puede representar en python de la siguiente manera:
+La clase galleta del ejemplo04 se puede representar en python de la siguiente manera:
 
 ```python[1-4|6-8]
-# ejemplo5.py
 class Galleta:
     color = "amarillo"
     sabor = "limón"
@@ -484,6 +687,8 @@ Cuenta con valores por defecto.
 - Utilizar nombres descriptivos y significativos.
 - Evitar abreviaciones y siglas.
 
+[Guía PEP 8](https://peps.python.org/pep-0008/#class-names)
+
 ---
 
 - Tratar de utilizar nombres en inglés.
@@ -497,26 +702,32 @@ Cuenta con valores por defecto.
 
 - Un objeto es una entidad que tiene un estado y un comportamiento.
 - El proceso de convertir un objeto del mundo real en un objeto de programación se llama modelado.
-- El proceso de identificar las características y comportamientos de un objeto en el mundo real y representarlos en un programa se llama abstracción.
 
 ---
+- El proceso de identificar las características y comportamientos de un objeto en el mundo real y representarlos en un programa se llama abstracción.
 - El proceso de identificar los requisitos y las interacciones entre los objetos se llama análisis orientado a objetos.
+
+---
 - El proceso de convertir los requisitos en un plan formal de implementación se llama diseño orientado a objetos.
 - El proceso de convertir un diseño perfectamente definido en un programa funcional se llama programación orientada a objetos.
 
 ---
 - La programación iterativa es un modelo de desarrollo en el que una pequeña parte de la tarea se modela, diseña y programa, luego se revisa el programa y se expande para mejorar cada característica e incluir nuevas características en una serie de ciclos de desarrollo cortos.
 - Una clase es una plantilla o un modelo para crear objetos.
+---
+
 - Una clase es una forma de agrupar datos y comportamientos relacionados.
+- Un diagrama de clases es una representación gráfica de las clases y sus relaciones.
 
 ---
-- Un diagrama de clases es una representación gráfica de las clases y sus relaciones.
 - Un diagrama de clases es una forma de visualizar el diseño de un sistema orientado a objetos.
 - En python podemos crear una clase para representar la plantilla de un objeto.
-- Utilizamos la palabra reservada class.
 
 ---
+- Utilizamos la palabra reservada class.
 - Como buenas prácticas para nombrar clases, utilizamos PascalCase
+
+---
 - Utilizamos nombres descriptivos y significativos.
 - Evitamos abreviaciones y siglas.
 
@@ -529,7 +740,9 @@ Cuenta con valores por defecto.
 ---
 #### Retos
 
-Utilizaremos un repositorio de GitHub para almacenar los retos, de todas las sesiones.
+Utilizaremos el repositorio de GitHub creado en esta sesión "psg-oop-2025" 
+
+para almacenar los retos, de todas las sesiones.
 
 De manera iterativa, iremos agregando los retos a medida que avancemos
 
@@ -539,13 +752,17 @@ Como si estuviéramos trabajando en un proyecto real.
 
 Crear una carpeta con el nombre "retos_sesion_01" dentro del proyecto en la raíz, en la cual por cada ejercicio debes crear los siguientes archivos:
 
-```bash
-# Ejemplo carpeta
+```bash[1-2|11-14]
+# Estructura de carpetas
 psg-oop-2025/
     sesion01/
+        ejemplo01.md
+        ejemplo02.md
         ejemplo2procedural.py
         ejemplo2objetos.py
-        ejemplo05.py
+        ejemplo03.md
+        ejemplo04.md
+        ejemplo05.md
     retos_sesion_01/
         ejercicio_01.md
         ejercicio_02.md
@@ -554,7 +771,8 @@ psg-oop-2025/
 
 ---
 
-1. Crear un archivo llamado `ejercicio_01.md` en la carpeta retos_sesion_01 y hacer
+1. Crear un archivo llamado `ejercicio_01.md` en la carpeta retos_sesion_01 y hacer:
+
     - análisis orientado a objetos
     - diseño orientado a objetos
 
@@ -563,7 +781,8 @@ psg-oop-2025/
 ## `Un gato 🐈` 
 
 ---
-2. Crear un archivo llamado `ejercicio_02.md` en la carpeta retos_sesion_01 y hacer
+2. Crear un archivo llamado `ejercicio_02.md` en la carpeta retos_sesion_01 y hacer:
+    
     - análisis orientado a objetos
     - diseño orientado a objetos
 
@@ -572,14 +791,16 @@ psg-oop-2025/
 ## `Una hoja 🍃 y un árbol 🌳`
 
 ---
-3. Crear un archivo llamado `ejercicio_03.md` en la carpeta retos_sesion_01 y hacer
+3. Crear un archivo llamado `ejercicio_03.md` en la carpeta retos_sesion_01 y hacer:
+    
     - análisis orientado a objetos
     - diseño orientado a objetos
 
     Para un o unos objetos a tu elección.
     
 ---
-Los diagramas pueden ser dibujados a mano o con alguna herramienta para diagramas como [draw.io](https://app.diagrams.net/)
+Los diagramas también pueden ser dibujados a mano o con alguna herramienta para diagramas como [draw.io](https://app.diagrams.net/)
+o hechos en markdown con [mermaid](https://www.mermaidchart.com/play)
 
 ---
 <!-- .slide: data-background-image="../../content/psg-bg-dark.png" data-background-size="100%"-->
@@ -590,7 +811,7 @@ Los diagramas pueden ser dibujados a mano o con alguna herramienta para diagrama
 <br>
 <br>
 
-[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/)
+[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/content/sesion01)
 
 Repositorio de la Sesión
 
@@ -598,8 +819,13 @@ Repositorio de la Sesión
 <!--.slide: data-visibility="hidden"-->
 ## Bibliografía y Referencias
 
-https://www.gyata.ai/es/object-oriented-programming/object-oriented-analysis
-https://dmd.unadmexico.mx/contenidos/DCEIT/BLOQUE1/DS/02/DDOO/U1/descargables/DDOO_Unidad_1.pdf
-https://programacionpro.com/programacion-procedural-vs-orientada-a-objetos-diferencias-y-similitudes/
-https://oregoom.com/python/atributos-clase/
-https://diagramasuml.com/diagrama-de-clases/
+- [Object Oriented Analysis](https://www.gyata.ai/es/object-oriented-programming/object-oriented-analysis)
+- [DDOO Unidad 1](https://dmd.unadmexico.mx/contenidos/DCEIT/BLOQUE1/DS/02/DDOO/U1/descargables/DDOO_Unidad_1.pdf)
+- [Programación procedural VS orientada a objetos](https://programacionpro.com/programacion-procedural-vs-orientada-a-objetos-diferencias-y-similitudes/)
+- [Python OOP](https://www.learnpython.org/en/Classes_and_Objects)
+- [Atributos de clase](https://oregoom.com/python/atributos-clase/)
+- [Diagrama de clases](https://diagramasuml.com/diagrama-de-clases/)
+- [Guía PEP 8](https://peps.python.org/pep-0008/#class-names)
+- [Mermaid Charts](https://www.mermaidchart.com/play)
+- [Draw.io](https://app.diagrams.net/)
+- [Python 3 Object-oriented Programming, Second Edition, Dusty PhillipsDusty Phillips](https://github.com/PacktPublishing/Python-3-Object-Oriented-Programming-Second-Edition)
