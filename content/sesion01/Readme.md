@@ -10,6 +10,28 @@
 #### Representando el mundo real en clases
 
 ---
+#### El mundo real
+
+---
+
+Es todo lo que nos rodea.
+
+Compuesto por todo lo que vemos, tocamos, olemos, escuchamos, sentimos e imaginamos.
+
+![Mundo real](./img/img01.jpeg) <!-- .element  width="30%"-->
+
+
+---
+Cada cosa en el mundo real es un objeto. Sea tangible o intangible.
+
+- 👤 Una persona
+- 🌃 Un lugar
+- 🐔 Un animal
+- 😮 Un sentimiento
+- 💡 Una idea
+
+
+---
 
 #### Objeto
 
@@ -17,53 +39,174 @@
 
 ---
 - Es una entidad que tiene un estado y un comportamiento.
-- Es una representación de algo en el mundo real.
-- Es una unidad de programación que agrupa datos y comportamientos relacionados
+
+# 🥚🐣🐤🐔
+
+---
+- Es la representación de algo en el mundo real.
+
+# 🌎 🌃 🎼
+
+- Es una unidad de programación que contiene datos.
+
+# 📦 🍱
 
 ---
 
-Objetos
+Un objeto tiene
 
-# 🍅 🛒 🚗 💸 🎶 🌸  
-
----
-
-Un objeto tiene:
-
-- **Estado**: Es la información que el objeto tiene en un momento dado.
+- **Estado**: Es la información que tiene en un momento del tiempo (Características).       
 - **Comportamiento**: Es lo que el objeto puede hacer o lo que le puede suceder.
 - **Identidad**: Es lo que distingue a un objeto de otro.
 
 ---
 
-Estado de un objeto
+Una canción como un objeto
 
-# 🎼
-
-##  ⏳ 🎹 🎸 🥁 🎤
+🎼 Hello - Lionel Richie
 
 ---
 
-Comportamiento de un objeto
+## Estado
 
-# 🎼
-## ▶ ⏸ ⏹ 🔈 🔊 🔁
+- 🎼 Título: Hello
+- 🎤 Artista: Lionel Richie
+- ⏱️ Duración: 4:14
+- 🎧 Género: Pop / Soul
+- ⏳ Año: 1984
+
+---
+
+## Comportamiento
+
+⚙️ Lo que puede hacer o lo que le puede pasar
+
+- ▶️ Reproducir
+- ⏸️ Pausar
+- ⏹️ Detener
+- 🔊 Subir volumen
+- 🔉 Bajar volumen
+- 🔁 Repetir
+- ➕ Añadir a playlist
 
 ---
 
-Identidad de un objeto
+## Identidad
 
-# 🎼
-### 💿 Hello - Lionel Richie (1984) 
-### 💿 Hello - Adele (2015)
+🆔 Es una canción única
+
+- 💿 Canción: Hello 
+- 🎤 Artista: Lionel Richie (1984) 
+- 💿 Canción: Hello
+- 🎤 Artista: Adele (2015)
 
 ---
-El proceso para convertir un objeto del mundo real en un objeto de programación se llama **modelado**.
+#### Preparando el proyecto para las sesiones
+
+- Crear un repositorio en GitHub con el nombre **psg-oop-2025**
+- Añadir el archivo **README.md** y el archivo **.gitignore** para Python
 
 ---
-#### Modelado
+Clonar el repositorio en tu computadora
 
-Es el proceso de identificar las características y comportamientos de un objeto en el mundo real y representarlos en un programa.
+```bash
+git clone https://github.com/<usuario>/psg-oop-2025.git
+```
+
+Abrir el proyecto en VSCode
+
+```bash
+code psg-oop-2025
+```
+
+---
+Crear una carpeta con el nombre **sesion01**
+
+Los archivos de esta sesión deben estar dentro de la carpeta **sesion01**
+
+Al finalizar la sesión, subiremos los cambios al repositorio en un commit
+
+---
+Ejemplo 01
+
+Crear el archivo **ejemplo01.txt** en la carpeta **sesion01**
+
+```markdown
+Obtener el estado, comportamiento y comparar las identidades de
+
+- "Stay" de Rihanna & Mikky Ekko
+- "Stay" de The Kid LAROI & Justin Bieber
+```
+
+---
+
+🎼 Stay - Rihanna & Mikky Ekko
+
+```text
+Estado:
+Título: Stay
+Artista: Rihanna, Mikky Ekko
+Duración: 4:00
+Género: Pop
+Año: 2013
+
+Comportamiento:
+Reproducir
+Pausar
+Detener
+Subir volumen
+Bajar volumen
+Repetir
+
+Identidad:
+- Stay, Rihanna & Mikky Ekko, Pop, 2013
+```
+
+---
+
+3 Minutos
+
+🎼 Stay - The Kid LAROI & Justin Bieber
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
+🎼 Stay - The Kid LAROI & Justin Bieber
+
+```text
+Estado:
+Título: Stay
+Artista: The Kid LAROI, Justin Bieber
+Duración: 2:21
+Género: Pop, Hip-hop
+Año: 2021
+
+Comportamiento:
+Reproducir
+Pausar
+Detener
+Subir volumen
+Bajar volumen
+Repetir
+
+Identidad:
+- Stay, The Kid LAROI & Justin Bieber, Pop / Hip-hop, 2021
+```
+
+---
+
+```text
+No son la misma canción pueden ser similares
+en algunos aspectos, pero son diferentes.
+```
+
+---
+#### Modelado 
+
+Es el proceso de identificar las características y comportamientos de un objeto del mundo real
+
+Y llevar el objeto con sus características a un objeto programable
 
 Es una forma de **abstracción**.
 
@@ -75,52 +218,125 @@ Es una forma de **abstracción**.
 
 ---
 
-- Es separar lo importante de lo trivial. 
+- Es separar lo importante de lo trivial.
 - Es un proceso mental que nos permite enfocarnos en lo que es relevante para resolver un problema.
 - Es un proceso de simplificación del mundo real a través de la identificación de las características.
 
 ---
+Un tomate ¿qué es?
 
 # 🍅
 
 ```text[1|2|3|4|6]
-Un tomate es una fruta.
-Un tomate es rojo.
-Un tomate es dulce.
-Un tomate es redondo.
+Un tomate es una fruta (tipo)
+Un tomate es rojo (color)
+Un tomate es dulce (sabor)
+Un tomate es redondo (forma)
 
 Un tomate es una fruta roja, dulce y redonda.
 ```
 <!-- .element class="fragment" data-fragment-index="1"-->
 
 ---
-Las características son relativas a un contexto.
+Las características importantes dependen del contexto.
 
 ---
 
+Un tomate para la agricultura ¿qué características importan?
+
 # 🍅
 
-```markdown [2-3|5-6|8-9|11-12|14-15|17-18]
-# Contexto en:
-Agricultura: Que crezca saludable y no tenga plagas 
-- (plagas y enfermedades)
-
-Transporte: Que sea fácil de transportar y almacenar 
-- (tamaño y peso)
-
-Nutricional: Que aporte nutrientes y sea saludable
-- (vitaminas y minerales)
-
-Culinaria: Que sea sabroso y tenga buena textura
-- (sabor y textura)
-
-Consumidor: Que sea atractivo y tenga buen sabor 
-- (color, sabor, precio)
-
-Finanzas: Que sea rentable y tenga un precio competitivo 
-- (costo y tamaño)
+```markdown
+- Especie de tomate (tipo)
+- Color del tomate (color)
+- Presencia de defectos (calidad)
+- Presencia de hongos o insectos (plagas)
+- Uso de pesticidas (pesticidas)
+- Estado de madurez (madurez)
 ```
-<!-- .element class="fragment" data-fragment-index="1"-->
+
+---
+Un tomate en el contexto culinario ¿qué características importan?
+
+# 🍅
+
+```markdown
+- Color del tomate (color)
+- Tamaño del tomate (tamaño)
+- Textura del tomate (textura)
+- Forma del tomate (forma)
+- Porcentaje de azúcar (sabor)
+- Cantidad de jugo (jugosidad)
+```
+
+---
+
+Un tomate en el contexto de la nutrición ¿qué características importan?
+
+# 🍅
+
+```markdown
+- Porcentaje de agua (hidratación)
+- Porcentaje de fibra (fibra)
+- Porcentaje de carbohidratos (carbohidratos)
+- Porcentaje de proteínas (proteínas)
+- Porcentaje de grasas (grasas)
+- Porcentaje de vitaminas (vitaminas)
+```
+
+---
+El mundo real es complejo y está lleno de detalles.
+
+La identificación de las características importantes es un proceso que depende del contexto.
+
+> El contexto define qué es importante y qué no.
+
+---
+Ejercicio 02
+
+Crear el archivo **ejercicio02.txt** en la carpeta **sesion01**
+
+```markdown
+Identifica las características importantes para una canción
+
+- En el contexto del marketing
+- En el contexto del trending en redes
+
+Mínimo 5 para cada contexto
+```
+
+---
+
+```markdown
+Una canción en el contexto del marketing:
+
+- Título de la canción (título)
+- Artista de la canción (artista)
+- Género de la canción (género)
+- Año de lanzamiento (año)
+- Plataformas de streaming (plataformas)
+- Cantidad de ventas (ventas)
+```
+
+---
+
+Una canción en el contexto del trending en redes
+
+3 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
+```markdown
+Una canción en el contexto del trending en redes:
+
+- Título de la canción (título)
+- Artista de la canción (artista)
+- Cantidad de reproducciones (reproducciones)
+- Cantidad de reacciones (reacciones)
+- Cantidad de reutilizaciones (viralidad)
+```
 
 ---
 
@@ -198,18 +414,6 @@ En el desarrollo iterativo, una pequeña parte de la tarea se modela, diseña y 
 
 ![Iteración](./img/img01.svg) 
 
----
-#### Preparando el proyecto para las sesiones
-
-- Crear un repositorio en GitHub con el nombre **psg-oop-2025**
-- Añadir el archivo **README.md** y el archivo **.gitignore** para Python
-- Clonar el repositorio en tu computadora
-- Abrir el proyecto en VSCode
-
----
-- Crear una carpeta con el nombre **sesion01**
-- Los archivos de esta sesión deben estar dentro de la carpeta **sesion01**
-- Subir el avance al repositorio de GitHub
 
 ---
 #### Ejemplo 01
@@ -829,3 +1033,4 @@ Repositorio de la Sesión
 - [Mermaid Charts](https://www.mermaidchart.com/play)
 - [Draw.io](https://app.diagrams.net/)
 - [Python 3 Object-oriented Programming, Second Edition, Dusty PhillipsDusty Phillips](https://github.com/PacktPublishing/Python-3-Object-Oriented-Programming-Second-Edition)
+https://ebac.mx/blog/objeto-en-programacion
