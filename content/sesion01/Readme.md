@@ -67,7 +67,7 @@ Una canción como un objeto
 
 ---
 
-## Estado
+## Características
 
 - 🎼 Título: Hello
 - 🎤 Artista: Lionel Richie
@@ -132,7 +132,7 @@ Ejemplo 01
 Crear el archivo **ejemplo01.txt** en la carpeta **sesion01**
 
 ```markdown
-Obtener el estado, comportamiento y comparar las identidades de
+Obtener las características, comportamiento y comparar las identidades de
 
 - "Stay" de Rihanna & Mikky Ekko
 - "Stay" de The Kid LAROI & Justin Bieber
@@ -143,7 +143,7 @@ Obtener el estado, comportamiento y comparar las identidades de
 🎼 Stay - Rihanna & Mikky Ekko
 
 ```text
-Estado:
+Características:
 Título: Stay
 Artista: Rihanna, Mikky Ekko
 Duración: 4:00
@@ -175,7 +175,7 @@ Identidad:
 🎼 Stay - The Kid LAROI & Justin Bieber
 
 ```text
-Estado:
+Características:
 Título: Stay
 Artista: The Kid LAROI, Justin Bieber
 Duración: 2:21
@@ -201,16 +201,10 @@ No son la misma canción pueden ser similares
 en algunos aspectos, pero son diferentes.
 ```
 
----
-#### Modelado 
-
-Es el proceso de identificar las características y comportamientos de un objeto del mundo real
-
-Y llevar el objeto con sus características a un objeto programable
-
-Es una forma de **abstracción**.
 
 ---
+
+Un concepto importante en la programación orientada a objetos es la
 
 #### Abstracción
 
@@ -292,9 +286,9 @@ La identificación de las características importantes es un proceso que depende
 > El contexto define qué es importante y qué no.
 
 ---
-Ejercicio 02
+Ejemplo 02
 
-Crear el archivo **ejercicio02.txt** en la carpeta **sesion01**
+Crear el archivo **ejemplo02.txt** en la carpeta **sesion01**
 
 ```markdown
 Identifica las características importantes para una canción
@@ -339,6 +333,22 @@ Una canción en el contexto del trending en redes:
 ```
 
 ---
+Hasta el momento identificamos las características de un objeto del mundo real
+
+Separamos lo importante según el contexto
+
+Es parte del proceso de modelado
+
+---
+
+El enfoque orientado a objetos trata de representar el mundo real en un programa
+
+Lo hace mediante un proceso de análisis y diseño orientado a objetos
+
+Para posteriormente programar el diseño en un lenguaje de programación
+
+
+---
 
 #### Análisis Orientado a Objetos (AOO)
 ### OOA
@@ -346,23 +356,111 @@ Una canción en el contexto del trending en redes:
 ---
 
 - Es el proceso que se enfoca en el problema, sistema o tarea que se quiere convertir en una aplicación.
-- Se centra en identificar los objetos y las interacciones entre ellos.
+- Se centra en identificar los objetos y sus interacciones.
 - La etapa de análisis es todo lo que necesita hacerse.
 
 ---
-- El resultado de la etapa de análisis es un conjunto de requisitos.
-- Si completáramos la etapa de análisis, habríamos convertido una tarea, como "necesito un sitio web", en un conjunto de requisitos.
+
+- El resultado de la etapa de análisis son requisitos 
+- Convierte el contexto del problema en un conjunto de requisitos que describen lo que el sistema debe hacer
 
 ---
-Ejemplo
 
-Los visitantes del sitio web deben poder 
+Contiene:
 
-*cursiva* → acciones, **negrita** → objetos
+- **Objetos**: Son las entidades que se van a modelar
+- *Acciones*: Son las acciones que los objetos pueden realizar
 
-- *revisar* nuestros **huertos**
-- *postularse* para **trabajos**
-- *comparar* y *ordenar* **frutas**
+Estructura de los requisitos
+
+*Acciones* de los **Objetos**
+
+---
+
+Ejemplo 03
+
+Crear el archivo **ejemplo03.txt** en la carpeta **sesion01**
+
+```text
+Una granja de tomates quiere dar a conocer su nombre y productos
+Las personas pueden ver fotos y ubicaciones de los huertos
+y comparar los tomates que producen según color, peso y especie
+```
+
+---
+
+Obtendremos los objetos y acciones para obtener los requisitos
+
+```text
+Requisitos:
+
+- ver fotos y ubicaciones de los huertos
+- comparar los tomates según color, peso y especie
+
+Objetos:
+
+- granja 🏡
+- huerto 🌱
+- tomate 🍅
+
+Características:
+
+- Granja: nombre
+- Huerto: ubicación, fotos
+- Tomate: color, peso, especie
+
+Acciones:
+- ver fotos
+- ver ubicaciones
+- comparar tomates
+``` 
+
+---
+
+Ejemplo 04
+
+Crear el archivo **ejemplo04.txt** en la carpeta **sesion01**
+
+```text
+Una aplicación permite descubrir canciones nuevas.
+Las personas pueden escuchar fragmentos aleatoriamente,
+darle "like" para ver el nombre de la canción, artista y carátula
+o "dislike" para pasar a la siguiente.
+Compara las canciones con según género, duración y artista.
+```
+
+5 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+```text
+Requisitos:
+
+- escuchar fragmentos aleatoriamente de canciones
+- dar "like" para ver el nombre de la canción, artista y carátula
+- dar "dislike" para pasar a la siguiente
+- comparar canciones según género, duración y artista
+
+Objetos:
+- Canción 🎼
+
+Características:
+- Canción:
+    - nombre
+    - artista
+    - carátula
+    - género
+    - duración
+    - fragmentos
+
+Acciones:
+- escuchar fragmentos
+- dar "like"
+- dar "dislike"
+- ver información
+- comparar canciones
+```
 
 ---
 
@@ -1034,3 +1132,4 @@ Repositorio de la Sesión
 - [Draw.io](https://app.diagrams.net/)
 - [Python 3 Object-oriented Programming, Second Edition, Dusty PhillipsDusty Phillips](https://github.com/PacktPublishing/Python-3-Object-Oriented-Programming-Second-Edition)
 https://ebac.mx/blog/objeto-en-programacion
+https://1library.co/article/enfoque-orientado-a-objetos-base-te%C3%B3rica.qvld461y
