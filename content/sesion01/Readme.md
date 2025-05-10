@@ -33,31 +33,34 @@ Cada cosa en el mundo real es un objeto. Sea tangible o intangible.
 
 ---
 
-#### Objeto
-
-¿Qué es?
+#### ¿Qué es un Objeto?
 
 ---
 - Es una entidad que tiene un estado y un comportamiento.
 
+
 # 🥚🐣🐤🐔
 
 ---
-- Es la representación de algo en el mundo real.
 
-# 🌎 🌃 🎼
+#### ¿Qué es un Objeto en el contexto de la programación?
 
-- Es una unidad de programación que contiene datos.
+---
+- Es un conjunto de datos que representa algo del mundo real.
 
-# 📦 🍱
+# 🎤 ⏱️ 🎧 ⏳ ➡ 🎼
+
+- Es parte de un programa, de un sistema o de una aplicación.
+
+# 🍱 📦 🧩 📱
 
 ---
 
-Un objeto tiene
+¿Que define a un Objeto?
 
-- **Estado**: Es la información que tiene en un momento del tiempo (Características).       
-- **Comportamiento**: Es lo que el objeto puede hacer o lo que le puede suceder.
-- **Identidad**: Es lo que distingue a un objeto de otro.
+- **Estado**: Son las características que almacena en un momento dado.       
+- **Comportamiento**: Son las acciones que el objeto puede realizar.
+- **Identidad**: Es lo que distingue a un objeto de otro aunque tengan el mismo estado y comportamiento.
 
 ---
 
@@ -67,7 +70,10 @@ Una canción como un objeto
 
 ---
 
-## Características
+## Estado
+
+🔍 Las características del objeto
+
 
 - 🎼 Título: Hello
 - 🎤 Artista: Lionel Richie
@@ -97,42 +103,45 @@ Una canción como un objeto
 
 - 💿 Canción: Hello 
 - 🎤 Artista: Lionel Richie (1984) 
+  
+🆚
+
 - 💿 Canción: Hello
 - 🎤 Artista: Adele (2015)
 
 ---
-#### Preparando el proyecto para las sesiones
+#### Preparemos el proyecto para este Study Group
 
-- Crear un repositorio en GitHub con el nombre **psg-oop-2025**
-- Añadir el archivo **README.md** y el archivo **.gitignore** para Python
+- Crea un repositorio en GitHub con el nombre **psg-oop-2025**
+- Añade el archivo **README.md** y el archivo **.gitignore** para Python
 
 ---
-Clonar el repositorio en tu computadora
+Clona el repositorio en tu computadora
 
 ```bash
 git clone https://github.com/<usuario>/psg-oop-2025.git
 ```
 
-Abrir el proyecto en VSCode
+Abre el proyecto en VSCode
 
 ```bash
 code psg-oop-2025
 ```
 
 ---
-Crear una carpeta con el nombre **sesion01**
+Crea una carpeta con el nombre **sesion01**
 
-Los archivos de esta sesión deben estar dentro de la carpeta **sesion01**
+- Los archivos de esta sesión deben estar dentro de la carpeta **sesion01**
 
-Al finalizar la sesión, subiremos los cambios al repositorio en un commit
+- Al finalizar la sesión, subiremos los cambios al repositorio en un commit
 
 ---
-Ejemplo 01
+### Ejemplo 01
 
-Crear el archivo **ejemplo01.txt** en la carpeta **sesion01**
+Crea el archivo **ejemplo01.txt** en la carpeta **sesion01**
 
 ```markdown
-Obtener las características, comportamiento y comparar las identidades de
+Obtener las características, comportamiento y comparar las identidades de estas dos canciones
 
 - "Stay" de Rihanna & Mikky Ekko
 - "Stay" de The Kid LAROI & Justin Bieber
@@ -197,27 +206,27 @@ Identidad:
 ---
 
 ```text
-No son la misma canción pueden ser similares
-en algunos aspectos, pero son diferentes.
+Aunque ambas canciones se llamen "Stay" el resto de sus características los hacen diferentes.
 ```
 
 
 ---
 
-Un concepto importante en la programación orientada a objetos es la
+Ahora abordaremos un concepto fundamental en la programación orientada a objetos:
 
-#### Abstracción
-
-¿Qué es?
+### Abstracción
 
 ---
 
-- Es separar lo importante de lo trivial.
-- Es un proceso mental que nos permite enfocarnos en lo que es relevante para resolver un problema.
-- Es un proceso de simplificación del mundo real a través de la identificación de las características.
+#### ¿Qué es la **Abstracción**?
 
 ---
-Un tomate ¿qué es?
+
+- Es el proceso de identificar las características y comportamientos relevantes de un objeto.
+- En este proceso se dejan de lado todo aquello que no es relevante para el contexto.
+
+---
+¿Que característica tiene?
 
 # 🍅
 
@@ -236,7 +245,9 @@ Las características importantes dependen del contexto.
 
 ---
 
-Un tomate para la agricultura ¿qué características importan?
+Si soy un granjero que cultiva y vende tomates
+
+¿Qué características me importan?
 
 # 🍅
 
@@ -250,7 +261,9 @@ Un tomate para la agricultura ¿qué características importan?
 ```
 
 ---
-Un tomate en el contexto culinario ¿qué características importan?
+Si soy un chef de alta cocina que utiliza tomates en sus recetas
+
+¿Qué características me importan?
 
 # 🍅
 
@@ -265,7 +278,9 @@ Un tomate en el contexto culinario ¿qué características importan?
 
 ---
 
-Un tomate en el contexto de la nutrición ¿qué características importan?
+Si soy un nutricionista que elabora dietas para personas
+
+¿Qué características me importan?
 
 # 🍅
 
@@ -281,14 +296,14 @@ Un tomate en el contexto de la nutrición ¿qué características importan?
 ---
 El mundo real es complejo y está lleno de detalles.
 
-La identificación de las características importantes es un proceso que depende del contexto.
+Identificar las características importantes según un contexto nos permite delimitar nuestro enfoque.
 
 > El contexto define qué es importante y qué no.
 
 ---
 Ejemplo 02
 
-Crear el archivo **ejemplo02.txt** en la carpeta **sesion01**
+Crea el archivo **ejemplo02.txt** en la carpeta **sesion01**
 
 ```markdown
 Identifica las características importantes para una canción
