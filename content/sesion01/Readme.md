@@ -355,14 +355,13 @@ Para posteriormente programar el diseño en un lenguaje de programación
 
 ---
 
-- Es el proceso que se enfoca en el problema, sistema o tarea que se quiere convertir en una aplicación.
-- Se centra en identificar los objetos y sus interacciones.
-- La etapa de análisis es todo lo que necesita hacerse.
+- En esta etapa se identifican las características, comportamiento e identidad de los objetos según su contexto.
+- También se centra en identificar la interacción entre objetos.
+- La etapa de análisis determina todo lo que se considerara para las siguientes etapas.
 
 ---
 
-- El resultado de la etapa de análisis son requisitos 
-- Convierte el contexto del problema en un conjunto de requisitos que describen lo que el sistema debe hacer
+- El resultado de la etapa de análisis un conjunto de requisitos que describen lo que el sistema debe hacer
 
 ---
 
@@ -854,12 +853,12 @@ Diseño
 ---
 #### Diferencia entre Programación procedural y Programación Orientada a Objetos
 
-| Procedural | Orientada a Objetos
-|------------|---------------------|
-| Funciones y Procedimientos | Objetos y clases |
-| Secuencial | Modular |
-| Funciones independientes | Métodos dentro de clases |
-| Ejecución lineal | Interacción entre objetos |
+| Procedural                 | Orientada a Objetos       |
+| -------------------------- | ------------------------- |
+| Funciones y Procedimientos | Objetos y clases          |
+| Secuencial                 | Modular                   |
+| Funciones independientes   | Métodos dentro de clases  |
+| Ejecución lineal           | Interacción entre objetos |
 
 ---
 En el ejemplo 02
