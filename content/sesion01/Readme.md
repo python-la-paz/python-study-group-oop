@@ -306,45 +306,43 @@ Ejemplo 02
 Crea el archivo **ejemplo02.txt** en la carpeta **sesion01**
 
 ```markdown
-Identifica las características importantes para una canción
+¿Qué características son importantes de una papa 🥔?
 
-- En el contexto del marketing
-- En el contexto del trending en redes
+- Para un ingeniero eléctrico
+- Para un ingeniero de alimentos
 
-Mínimo 5 para cada contexto
 ```
 
 ---
-
 ```markdown
-Una canción en el contexto del marketing:
-
-- Título de la canción (título)
-- Artista de la canción (artista)
-- Género de la canción (género)
-- Año de lanzamiento (año)
-- Plataformas de streaming (plataformas)
-- Cantidad de ventas (ventas)
+Para un ingeniero eléctrico:
+- Cantidad de agua (conductividad)
+- Cantidad de electrolitos (conductividad)
+- Valor de PH ácido (reactivo)
+- Resistencia eléctrica (resistencia)
+- Tamaño de la papa (tamaño)
 ```
 
 ---
 
-Una canción en el contexto del trending en redes
 
 3 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
+5 características
+
+
 ---
 
 ```markdown
-Una canción en el contexto del trending en redes:
+Para un ingeniero de alimentos:
+- Cantidad de agua (conservación)
+- Cantidad de almidón (textura)
+- Presencia de solanina (toxicidad)
+- Valor de PH natural (estabilidad)
 
-- Título de la canción (título)
-- Artista de la canción (artista)
-- Cantidad de reproducciones (reproducciones)
-- Cantidad de reacciones (reacciones)
-- Cantidad de reutilizaciones (viralidad)
+
 ```
 
 ---
@@ -478,19 +476,173 @@ Acciones:
 
 ---
 
-#### Diseño Orientado a Objetos (DOO)
-### OOD
+### Diseño Orientado a Objetos (DOO)
+#### Oriented Object Design (OOD)
 
 ---
 
-- Es el proceso de convertir los requisitos en un plan formal de implementación.
-- El diseñador debe dar nombre a los objetos
-- El diseñador debe definir los comportamientos
-- El diseñador debe decir qué objetos pueden activar comportamientos en otros objetos.
+- Es la etapa en la que se convierte el análisis orientado a objetos en un diseño orientado a objetos.
+- El diseñador debe dar nombre a los objetos y define los comportamientos
+- Crea los diagramas de clases y las relaciones entre los objetos.
 
 ---
 - El resultado de la etapa de diseño es un conjunto de objetos y sus interacciones.
-- Si completáramos la etapa de diseño habríamos convertido los requisitos definidos durante el análisis OOA en un conjunto de clases e interfaces que podrían implementarse en cualquier lenguaje de programación orientado a objetos.
+- Al completar esta etapa se tiene un diseño formal que puede ser implementado en un cualquier lenguaje de programación.
+
+---
+
+#### Diagrama de clases
+
+---
+
+#### ¿Qué es una clase?
+
+- Es una plantilla para crear objetos.
+- Es un modelo que define las características y comportamientos de un objeto.
+
+---
+Una clase esta formada por
+- **Nombre de la clase**: Es el nombre que se le da a la clase.
+- **Atributos**: Son las características de la clase.
+- **Métodos**: Son los comportamientos de la clase.
+
+---
+Ejemplo 05 
+
+Crear el archivo **ejemplo05.txt** en la carpeta **sesion01**
+
+```text
+Un panadero quiere hacer galletas en forma de corazón.
+Las galletas pueden ser de arándano, menta, piña, uva y naranja.
+Deben tener glaseado azul, verde, amarillo, morado y naranja.
+```
+
+Realizar el análisis y obtener las clases necesarias
+
+---
+
+```markdown
+# Analisis
+
+Requisitos:
+- hacer galletas de diferentes sabores
+- galletas en forma de corazón
+- galletas de arándano, menta, piña, uva y naranja
+- glaseado de color azul, verde, amarillo, morado y naranja
+
+Objetos:
+- Galleta
+
+Características:
+- Galleta:
+    - sabor
+    - glaseado
+
+Acciones:
+- (No hay acciones)
+```
+
+---
+```markdown
+# Diseño:
+
+Clases:
+- Galleta 💟:
+    - Nombre: GalletaCorazon
+    - Atributos:
+        - sabor
+        - glaseado
+    - Métodos:
+        - (No hay métodos)
+
+```
+
+Nos da como resultado una clase llamada GalletaCorazon
+que nos permite crear objetos GalletaCorazon de diferentes sabores y glaseados.
+
+---
+
+## 💟 ➡ 💙💚💛💜🧡
+
+- **Clase**: GalletaCorazon 💟
+- **Objetos**: 
+    - 💙 Arándano azul
+    - 💚 Menta verde
+    - 💛 Piña amarilla
+    - 💜 Uva morada
+    - 🧡 Naranja anaranjado
+
+---
+
+Ejemplo 06
+
+Crear el archivo **ejemplo06.txt** en la carpeta **sesion01**
+
+```text
+Una confitería quiere hacer bombones.
+Tienen a disposición chocolate negro o blanco
+y pueden o no tener nueces el chocolate
+Los moldes pueden ser en forma de estrella y circular
+```
+
+---
+
+```markdown
+# Análisis
+
+Requisitos:
+- hacer bombones de chocolate negro y blanco
+- los bombones pueden tener nueces
+- bombones con forma de estrella y circulo
+
+Objetos:
+- Bombón
+
+Características:
+- Bombón
+    - forma
+    - con_nueces
+    - chocolate
+
+Acciones:
+- (No hay acciones)
+```
+
+---
+
+Diseña la clase
+
+3 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
+```markdown
+# Diseño:
+
+Clases:
+- Bombon 🧆:
+    - Nombre: Bombón
+    - Atributos:
+        - forma
+        - chocolate
+        - nueces
+    - Métodos:
+        - (No hay métodos)
+```
+
+---
+
+#### ¿Qué es un diagrama de clases?
+
+- Es la representación gráfica de las clases y sus relaciones.
+- Es una herramienta para comunicar el diseño a otros programadores.
+- Nos permite documentar el diseño
+
+---
+La clase se representa con
+
 
 ---
 #### Programación Orientada a Objetos (POO)
@@ -665,82 +817,7 @@ Diagrama de clases
 ![Ejemplo 02 ](./img/ejemplo02.svg)
 
 ---
-#### Clase 
 
-¿Qué es?
-
----
-<!-- definiciones para personas que no saben programar -->
-- Es una plantilla o un modelo para crear objetos.
-- Es una forma de agrupar datos y comportamientos relacionados.
-
----
-
-#### Ejemplo 03
-
-Galletas en forma de corazón
-
-## 💟 ➡ 💙💚💛💜🧡
-
-- **Clase**: GalletaCorazon 💟 
-- **Objetos**: 
-    - 💙 Galleta de arándano 
-    - 💚 Galleta de menta 
-    - 💛 Galleta de piña 
-    - 💜 Galleta de uva 
-    - 🧡 Galleta de naranja 
-
----
-
-sesion01/ejemplo03.md
-
-```markdown
-# Galletas en forma de corazón
-
-**Clase**: GalletaCorazon 💟
-
-**Objetos**:
-- 💙 Galleta de arándano
-- 💚 Galleta de menta
-- 💛 Galleta de piña
-- 💜 Galleta de uva
-- 🧡 Galleta de naranja
-```
-
----
-
-#### Diagrama de clases
-
-¿Qué es?
-
----
-
-- Es una representación gráfica de las clases y sus relaciones.
-- Es una forma de visualizar el diseño de un sistema orientado a objetos.
-- Es una herramienta para comunicar el diseño a otros programadores.
-- Es una forma de documentar el diseño de un sistema orientado a objetos.
-
-
----
-Partes de una clase
-
-- **Nombre de la clase**: Galleta
-- **Atributos**: 
-    - color
-    - sabor
-    - tamaño
-- **Métodos**:
-    - hornear()
-    - decorar()
-
----
-#### Ejemplo 04
-
-Clase de una galleta
-
-## 🍪
-
----
 #### Diagrama de clases
 
 ![Diagrama de clases](./img/ejemplo04.svg) <!-- .element  width="30%"-->
@@ -1147,3 +1224,5 @@ Repositorio de la Sesión
 - [Python 3 Object-oriented Programming, Second Edition, Dusty PhillipsDusty Phillips](https://github.com/PacktPublishing/Python-3-Object-Oriented-Programming-Second-Edition)
 https://ebac.mx/blog/objeto-en-programacion
 https://1library.co/article/enfoque-orientado-a-objetos-base-te%C3%B3rica.qvld461y
+https://www.tutorialspoint.com/object_oriented_analysis_design/ooad_object_oriented_paradigm.htm
+https://diagramasuml.com/diagrama-de-clases/
