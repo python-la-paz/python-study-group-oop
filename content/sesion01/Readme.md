@@ -306,21 +306,21 @@ Ejemplo 02
 Crea el archivo **ejemplo02.txt** en la carpeta **sesion01**
 
 ```markdown
-¿Qué características son importantes de una papa 🥔?
+¿Qué características de una papa 🥔 son importantes?
 
-- Para un ingeniero eléctrico
-- Para un ingeniero de alimentos
+- Para un ingeniero mecánico que diseña máquinas peladoras de papas
+- Para un distribuidor de papas fritas
 
 ```
 
 ---
 ```markdown
-Para un ingeniero eléctrico:
-- Cantidad de agua (conductividad)
-- Cantidad de electrolitos (conductividad)
-- Valor de PH ácido (reactivo)
-- Resistencia eléctrica (resistencia)
-- Tamaño de la papa (tamaño)
+Para un ingeniero mecánico que diseña máquinas peladoras de papas:
+- Tamaño promedio (tamaño)
+- Dureza de la cáscara (dureza)
+- Resistencia a la presión (resistencia)
+- Forma e irregularidades (uniformidad)
+- Textura de la piel (textura)
 ```
 
 ---
@@ -336,12 +336,12 @@ Para un ingeniero eléctrico:
 ---
 
 ```markdown
-Para un ingeniero de alimentos:
-- Cantidad de agua (conservación)
-- Cantidad de almidón (textura)
-- Presencia de solanina (toxicidad)
-- Valor de PH natural (estabilidad)
-
+Para un distribuidor de papas fritas:
+- Tipo de papa (variedad)
+- Tamaño de las papas (tamaño)
+- Estado de las papas si son frescas congeladas (estado)
+- Tipo o estilo de corte (corte)
+- Precio por kilo (precio)
 
 ```
 
@@ -350,15 +350,15 @@ Hasta el momento identificamos las características de un objeto del mundo real
 
 Separamos lo importante según el contexto
 
-Es parte del proceso de modelado
+> Esto es parte del proceso de modelado
 
 ---
 
-El enfoque orientado a objetos trata de representar el mundo real en un programa
+El **enfoque orientado a objetos** trata de representar el mundo real en un programa
 
 Lo hace mediante un proceso de análisis y diseño orientado a objetos
 
-Para posteriormente programar el diseño en un lenguaje de programación
+Para posteriormente llevar el diseño en un lenguaje de programación
 
 
 ---
@@ -374,7 +374,7 @@ Para posteriormente programar el diseño en un lenguaje de programación
 
 ---
 
-- El resultado de la etapa de análisis un conjunto de requisitos que describen lo que el sistema debe hacer
+- El resultado de la etapa de análisis es el conjunto de requisitos que describen las acciones y funcionalidades que deben implementarse.
 
 ---
 
@@ -394,9 +394,7 @@ Ejemplo 03
 Crear el archivo **ejemplo03.txt** en la carpeta **sesion01**
 
 ```text
-Una granja de tomates quiere dar a conocer su nombre y productos
-Las personas pueden ver fotos y ubicaciones de los huertos
-y comparar los tomates que producen según color, peso y especie
+Una asociación de productores comunitarios de tomates quiere dar a conocer sus productos, para esto quieren una aplicación web donde las personas interesas en comprar sus tomates puedan ver fotos y ubicaciones de los huertos y comparar los tomates que producen según color, peso y especie
 ```
 
 ---
@@ -411,13 +409,11 @@ Requisitos:
 
 Objetos:
 
-- granja 🏡
 - huerto 🌱
 - tomate 🍅
 
 Características:
 
-- Granja: nombre
 - Huerto: ubicación, fotos
 - Tomate: color, peso, especie
 
