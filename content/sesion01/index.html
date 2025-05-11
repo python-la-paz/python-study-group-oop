@@ -26,6 +26,7 @@
     <script src="../../plugin/math/math.js"></script>
     <script src="../../plugin/pointer/pointer.js"></script>
     <script src="../../plugin/zoom/zoom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js-mermaid-plugin@11.4.1/plugin/mermaid/mermaid.js"></script>
     <script>
 
         Reveal.initialize({
@@ -35,7 +36,7 @@
             center: true,
             pdfMaxPagesPerSlide: 1,
             slideNumber: 'c/t',
-            plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX, RevealZoom, RevealPointer],
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX, RevealZoom, RevealPointer, RevealMermaid],
             pointer: {
                 key: "q", // key to enable pointer, default "q", not case-sensitive
                 color: "red", // color of a cursor, default "red" any valid CSS color
