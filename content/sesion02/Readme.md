@@ -263,13 +263,13 @@ classDiagram
 En python podemos representar una clase con la palabra reservada `class`
 
 ```python
-class Nombre:
+class Gato:
     pass
 ```
 
 Donde:
 - `class` es la palabra reservada
-- `Nombre` es el nombre de la clase
+- `Gato` es el nombre de la clase
 - `:` es el separador
 - `pass` es la palabra reservada para indicar que no hay código en la clase
 
@@ -279,16 +279,16 @@ Donde:
 Una instancia es un objeto creado a partir de una clase
 
 ```python
-class Nombre:
+class Gato:
     pass
 
-a = Nombre()
-b = Nombre()
+a = Gato()
+b = Gato()
 ```
 
 Donde:
 - Se instancia utilizando el nombre de la clase seguido de paréntesis
-- `a` y `b` son instancias de la clase `Nombre`
+- `a` y `b` son instancias de la clase `Gato`
 - `a` y `b` son diferentes, aunque sean de la misma clase
 
 ---
@@ -297,18 +297,18 @@ Donde:
 Podemos añadir atributos a una instancia de clase
 
 ```python
-class Nombre:
+class Gato:
     pass
-a = Nombre()
-a.atributo = "valor"
-print(a.atributo)
+a = Gato()
+a.color = "naranja"
+print(a.color)
 ```
 
 Donde:
-- `a` es una instancia de la clase `Nombre`
-- `atributo` es el nombre del atributo a añadir
-- `"valor"` es el valor del atributo
-- `a.atributo` es la forma de asignar y acceder al atributo de la instancia `a`
+- `a` es una instancia de la clase `Gato`
+- `color` es el nombre del atributo a añadir
+- `"naranja"` es el valor del atributo
+- `a.color` es la forma de asignar y acceder al atributo color del objeto `a`
 
 
 ---
@@ -412,89 +412,6 @@ True
 
 ---
 
-### Ejemplo 05
-
-Crea el archivo **ejemplo05.py** en la carpeta **sesion02** 
-
----
-
-```text
-Del ejemplo 02 instanciar dos perros y añadir a cada uno 
-un nombre, propietario, edad, género, raza y si está vacunado o no
-Muestra los atributos de cada perro
-```
-```mermaid
-%%{init: {"theme": "dark", "look": "handDrawn" }}%%
-classDiagram
-    class Perro {
-        String Nombre
-        String Propietario
-        int Edad
-        String Genero
-        String Raza
-        bool Vacunado
-    }
-```
-4 minutos
-
-<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
-
----
-
-```python
-class Perro:
-    pass
-toby = Perro()
-toby.nombre = "Toby"
-toby.propietario = "Jhon"
-toby.edad = 3
-toby.genero = "macho"
-toby.raza = "labrador"
-luna = Perro()
-luna.nombre = "Luna"
-luna.propietario = "Jane"
-luna.edad = 2
-luna.genero = "hembra"
-luna.raza = "pug"
-print("Toby: ",toby)
-print(toby.nombre)
-print(toby.propietario)
-print(toby.edad)
-print(toby.genero)
-print(toby.raza)
-print("Luna: ",luna)
-print(luna.nombre)
-print(luna.propietario)
-print(luna.edad)
-print(luna.genero)
-print(luna.raza)
-```
-
----
-
-```bash
-python ejemplo05.py
-```
-
-```text
-Toby:  <__main__.Perro object at 0x7f7d7c60c8b0>
-Toby
-Juan
-3
-macho
-labrador
-Luna:  <__main__.Perro object at 0x7f7d7c60c430>
-Luna
-Jane
-2
-hembra
-pug
-```
-
-
-
----
-
 Añadir atributos de esta forma no es recomendable 
 
 Añade complejidad al código y no es escalable
@@ -525,17 +442,17 @@ En python se define el método con el nombre especial `__init__`
 ---
 
 ```python
-class Nombre:
-    def __init__(self, atrib1, atrib2):
-        self.atributo1 = atrib1
-        self.atributo2 = atrib2
+class Gato:
+    def __init__(self, color, edad):
+        self.color = color
+        self.edad = edad
 ```
 Donde:
 - `def` es la palabra reservada para definir un método
 - `__init__` es el nombre del método constructor
 - `self` es una referencia a la instancia de la clase
-- `atrib1` y `atrib2` son los parámetros del constructor que se asigna a la instancia
-- `self.atributo1` y `self.atributo2` son los atributos de la instancia
+- `color` y `edad` son los parámetros del constructor que se asigna a la instancia
+- `self.color` y `self.edad` son los atributos de la instancia
 
 ---
 
@@ -552,23 +469,33 @@ Después de definir el constructor al momento de crear una instancia
 
 se le pasan los valores de los atributos
 
+---
+
+#### Ejemplo 05
+
+Crea el archivo **ejemplo05.py** en la carpeta **sesion02** 
+
+```text
+Crearemos la clase Gato con un constructor y un atributo de instancia
+```
+
 ```python
-class Nombre:
-    def __init__(self, atrib1):
-        self.atributo1 = atrib1
-a = Nombre("valor1")
-b = Nombre("valor2")
-print(a.atributo1)
-print(b.atributo1)
+class Gato:
+    def __init__(self, color):
+        self.color = color
+a = Gato("negro")
+b = Gato("blanco")
+print(a.color)
+print(b.color)
 ```
 
 ```bash
-python ejemplo06.py
+python ejemplo05.py
 ```
 
 ```text
-valor1
-valor2
+negro
+blanco
 ```
 
 ---
@@ -584,7 +511,7 @@ instanciaremos dos gatos
 
 ---
 
-```python[1-6|7-8|9-13|14-18]
+```python [1-6|7-8|9-13|14-18]
 class Gato:
     def __init__(self, color, genero, edad, castrado):
         self.color = color
@@ -640,7 +567,7 @@ e instanciaremos dos perros
 
 ---
 
-```python[1-7|8-9|10-15|16-21]
+```python [1-7|8-9|10-15|16-21]
 class Perro:
     def __init__(self, nombre, propietario, edad, genero, raza):
         self.nombre = nombre
@@ -699,39 +626,39 @@ Son atributos que pertenecen a la clase y no a las instancias
 Sirven para definir constantes o valores que no cambian
 
 ```python	
-class Nombre:
-    atributo_clase = "valor"
-    def __init__(self, atrib):
-        self.atributo_instancia = atrib
+class Gato:
+    especie = "felino"
+    def __init__(self, color):
+        self.color = color
 ```
 
 Donde:
 
-- `atributo_clase` es el nombre del atributo de clase
-- `valor` es el valor del atributo de clase
-- `atributo_instancia` es el nombre del atributo de instancia
-- `atrib` es el valor del atributo de instancia
+- `especie` es el nombre del atributo de clase
+- `felino` es el valor del atributo de clase
+- `self.color` es el nombre del atributo de instancia
+- `color` es el valor del atributo de instancia
 
 ---
 
 Las instancias pueden acceder a los atributos de clase
 
-```python[1-4|5-6|7-9]
-class Nombre:
-    atributo_clase = "clase"
-    def __init__(self, atributo_instancia):
-        self.atributo_instancia = atributo_instancia
-a = Nombre("objeto1")
-b = Nombre("objeto2")
-print(a.atributo_clase, a.atributo_instancia)
-print(b.atributo_clase, b.atributo_instancia)
-print(Nombre.atributo_clase)
+```python [1-4|5-6|7-9]
+class Gato:
+    especie = "felino"
+    def __init__(self, color):
+        self.color = color
+a = Gato("negro")
+b = Gato("blanco")
+print(a.especie, a.color)
+print(b.especie, b.color)
+print(Gato.especie)
 ```
 
 ```text
-clase objeto1
-clase objeto2
-clase
+felino negro
+felino blanco
+felino
 ```
 
 ---
@@ -758,7 +685,7 @@ Del ejemplo 06 ahora crearemos la clase Gato
 con un atributo de clase e instanciaremos dos gatos 
 ```
 
-```python[1-8|2-3|4-8|10-11|12-16|17-21|22]
+```python [1-8|2-3|4-8|10-11|12-16|17-21|22]
 class Gato:
     especie = "felino"
     tipo = "mamífero"
@@ -1041,6 +968,7 @@ Características:
     - Origen
     - Especie
     - Peso
+    - Agua
 
 Acciones:
 - (No hay acciones)
@@ -1056,6 +984,7 @@ classDiagram
         String Origen
         String Especie
         float Peso
+        String Agua
     }
 ```
 ````
@@ -1067,6 +996,7 @@ classDiagram
         String Origen
         String Especie
         float Peso
+        String Agua
     }
 ```
 
@@ -1076,15 +1006,16 @@ Programación
 ```python
 class Pez:
     origen = "criado en cautiverio"
-    def __init__(self, especie, peso):
+    def __init__(self, especie, peso, agua):
         self.especie = especie
         self.peso = peso
+        self.agua = agua
 
 print ("Peces encontrados...🐠")
-pez1 = Pez("Pez payaso", 0.5)
-pez2 = Pez("Pez betta", 0.3)
-print("Pez 1: ",pez1.origen, pez1.especie, pez1.peso)
-print("Pez 2: ",pez2.origen, pez2.especie, pez2.peso)
+pez1 = Pez("Pez payaso", 0.5, "agua dulce")
+pez2 = Pez("Pez betta", 0.3, "agua dulce")
+print("Pez 1: ",pez1.origen, pez1.especie, pez1.peso, pez1.agua)
+print("Pez 2: ",pez2.origen, pez2.especie, pez2.peso, pez2.agua)
 
 print("Liberando peces...")
 pez1.peso = 0.6
@@ -1092,8 +1023,8 @@ pez2.peso = 0.4
 Pez.origen = "liberado"
 
 print("Peces liberados...🐟")
-print("Pez 1: ",pez1.origen, pez1.especie, pez1.peso)
-print("Pez 2: ",pez2.origen, pez2.especie, pez2.peso)
+print("Pez 1: ",pez1.origen, pez1.especie, pez1.peso, pez1.agua)
+print("Pez 2: ",pez2.origen, pez2.especie, pez2.peso, pez2.agua)
 ```
 ---
 
@@ -1103,13 +1034,39 @@ python ejemplo11.py
 
 ```text
 Peces encontrados...🐠
-Pez 1:  criado en cautiverio Pez payaso 0.5
-Pez 2:  criado en cautiverio Pez betta 0.3
+Pez 1:  criado en cautiverio Pez payaso 0.5 agua dulce
+Pez 2:  criado en cautiverio Pez betta 0.3 agua dulce
 Liberando peces...
 Peces liberados...🐟
-Pez 1:  liberado Pez payaso 0.6
-Pez 2:  liberado Pez betta 0.4
+Pez 1:  liberado Pez payaso 0.6 agua dulce
+Pez 2:  liberado Pez betta 0.4 agua dulce
 ```
+
+---
+
+#### Resumen
+
+- Los atributos son las características o propiedades de una clase
+- Los atributos tienen un nombre y un valor
+- El valor de un atributo puede ser de cualquier tipo de dato
+
+---
+
+- Los atributos se definen dentro de la clase
+- Los atributos pueden ser de clase o de instancia
+- Los atributos de instancia son únicos para cada instancia
+
+---
+
+- Los atributos de instancia se acceden mediante el nombre del objeto
+- Los atributos de instancia se definen dentro del constructor
+- Los atributos de clase son compartidos entre todas las instancias
+
+---
+
+- Los atributos de clase se acceden mediante el nombre de la clase
+- Los atributos de clase se definen fuera del constructor
+- Los atributos de clase se pueden modificar mediante el nombre de la clase
 
 ---
 
