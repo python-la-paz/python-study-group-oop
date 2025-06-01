@@ -1301,7 +1301,518 @@ classDiagram
 
 ---
 
+Implementando en Python
 
+```python [9|43-48|51-55]
+# Definiendo la clase
+class SistemaOperativo:
+    def __init__(self, nombre, fondo_pantalla, reloj, bateria, pin, telefono):
+        self.nombre = nombre  # Público
+        self.fondo_pantalla = fondo_pantalla  # Público
+        self._reloj = reloj  # Protegido
+        self.__bateria = bateria  # Privado
+        self.__pin = pin  # Privado
+        self.__telefono = telefono  # Privado
+
+    def cambiar_fondo_pantalla(self, nuevo_fondo):  # Público
+        self.fondo_pantalla = nuevo_fondo
+        print(f"Nuevo fondo: {self.fondo_pantalla}")
+        return self.fondo_pantalla
+
+    def ver_hora(self):  # Público
+        print(f"La hora actual es: {self._reloj}")
+        return self._reloj
+
+    def estado_bateria(self):  # Público
+        print(f"Estado de la batería: {self.__bateria}%")
+        return self.__bateria
+
+    def __cargar_bateria(self, cantidad):  # Privado
+        self.__bateria += cantidad
+        print(f"Batería cargada a: {self.__bateria}%")
+
+    def cargador(self, cantidad):  # Público
+        print("Cargador conectado.")
+        self.__cargar_bateria(cantidad)
+        print("Cargador desconectado.")
+
+    def get_pin(self):  # Getter público
+        return self.__pin
+
+    def set_pin(self, nuevo_pin):  # Setter público
+        if len(str(nuevo_pin)) == 4:
+            self.__pin = nuevo_pin
+            print("Pin cambiado exitosamente.")
+        else:
+            print("El pin debe ser un número de 4 dígitos.")
+
+    def get_telefono(self):  # Getter público
+        return self.__telefono
+
+    def set_telefono(self, nuevo_telefono):  # Setter público
+        self.__telefono = nuevo_telefono
+        print("Número telefónico cambiado exitosamente.")
+# Implementando la clase
+so = SistemaOperativo("PyPhoneOS","gatitos.jpg","12:00 PM",50, 1234, "123-456-7890")
+telefono = so.get_telefono()  
+print(f"Número telefónico actual: {telefono}")
+so.set_telefono("098-765-4321")  
+telefono = so.get_telefono()  
+print(f"Número telefónico actualizado: {telefono}")
+```
+
+```bash	
+python ejemplo07.py
+```
+
+```text
+Número telefónico actual: 123-456-7890
+Número telefónico cambiado exitosamente.
+Número telefónico actualizado: 098-765-4321
+```
+
+---
+
+Definir los getters y setters es una buena práctica para mantener la encapsulación
+
+Existe en python una forma de definir getters y setters de manera más elegante y limpia
+
+---
+
+#### Propiedades en Python
+
+Las propiedades en Python permiten definir métodos que se comportan como atributos.
+
+Permiten acceder a los atributos privados de una clase de manera controlada.
+
+Se definen utilizando el decorador `@property` para el getter y `@nombre.setter` para el setter.
+
+---
+
+Se definen sobre los métodos de la clase, y se accede a ellos como si fueran atributos.
+
+---
+
+El decorador `@property` debe ir en la parte superior del método getter.
+
+El nombre del método getter es el nombre del atributo que se quiere acceder.
+
+```python
+@property
+def nombre(self):  # Getter
+    return self.__nombre
+```
+
+---
+
+El decorador `@<nombre>.setter` debe ir en la parte superior del método setter.
+
+Después del `@` se coloca el nombre del atributo que se quiere modificar.
+
+seguido del `.setter`.
+
+```python
+@nombre.setter
+def nombre(self, nuevo_nombre):  # Setter
+    self.__nombre = nuevo_nombre
+```
+
+
+---
+
+Podemos definir una propiedad en Python
+
+```python
+class Persona:
+    def __init__(self, nombre):
+        self.__nombre = nombre  # Atributo privado
+
+    @property
+    def nombre(self):  # Getter
+        return self.__nombre
+
+    @nombre.setter
+    def nombre(self, nuevo_nombre):  # Setter
+        self.__nombre = nuevo_nombre
+# Uso
+persona = Persona("Juan")
+print(persona.nombre)  # Acceso al getter
+persona.nombre = "Pedro"  # Acceso al setter
+```
+
+---
+
+## Ejemplo 08
+
+```markdown
+Del sistema operativo vamos a cambiar el getter y setter
+del pin por una propiedad para que se pueda acceder
+como si fuera un atributo
+```
+
+Crea los archivos **ejemplo08.md** y **ejemplo08.py** en la carpeta **sesion04**
+
+---
+El análisis se mantendrá igual 
+
+```markdown [10-12,26,35-36]
+# Análisis
+Requisitos:
+-  tener un fondo de pantalla
+-  permitir cambiar el fondo de pantalla
+-  tener un reloj
+-  permitir ver la hora
+-  tener una batería
+-  permitir conocer el estado de la batería en porcentaje
+-  permitir cargar la batería a través de un cargador público
+-  tener un pin de desbloqueo
+-  permitir cambiar el pin de desbloqueo máximo 4 dígitos
+-  permitir ver el pin de desbloqueo
+-  tener un número telefónico
+-  permitir ver el número telefónico
+-  permitir cambiar el número telefónico
+
+
+Objetos:
+- SistemaOperativo
+Características:
+- SistemaOperativo:
+    - nombre: String
+    - fondo_pantalla: String
+    - reloj: String
+    - bateria: int
+    - pin: int
+    - telefono: String
+Acciones:
+- SistemaOperativo:
+    - cambiar_fondo_pantalla(nuevo_fondo)
+    - ver_hora()
+    - cargar_bateria(cantidad)
+    - estado_bateria()
+    - cargador(cantidad)
+    - get_pin()
+    - set_pin(nuevo_pin)
+    - get_telefono()
+    - set_telefono(nuevo_telefono)
+```
+
+---
+
+El diseño del diagrama de clases se mantendrá igual
+
+````markdown [7,14,15]
+```mermaid
+classDiagram
+    class SistemaOperativo {
+        +fondo_pantalla: String
+        #reloj: String
+        -bateria: int
+        -pin: int
+        -telefono: String
+        +cambiar_fondo_pantalla(nuevo_fondo)
+        +ver_hora()
+        +estado_bateria()
+        -cargar_bateria(cantidad)
+        +cargador(cantidad)
+        +get_pin()
+        +set_pin(nuevo_pin)
+        +get_telefono()
+        +set_telefono(nuevo_telefono)
+    }
+```
+````
+
+---
+
+```mermaid
+%%{init: {"theme": "dark", "look": "handDrawn" }}%%
+classDiagram
+    class SistemaOperativo {
+        +fondo_pantalla: String
+        #reloj: String
+        -bateria: int
+        -pin: int
+        -telefono: String
+        +cambiar_fondo_pantalla(nuevo_fondo)
+        +ver_hora()
+        +estado_bateria()
+        -cargar_bateria(cantidad)
+        +cargador(cantidad)
+        +get_pin()
+        +set_pin(nuevo_pin)
+        +get_telefono()
+        +set_telefono(nuevo_telefono)
+    }
+```
+
+---
+
+```python [8|33-43|53-59]
+# Definiendo la clase
+class SistemaOperativo:
+    def __init__(self, nombre, fondo_pantalla, reloj, bateria, pin, telefono):
+        self.nombre = nombre  # Público
+        self.fondo_pantalla = fondo_pantalla  # Público
+        self._reloj = reloj  # Protegido
+        self.__bateria = bateria  # Privado
+        self.__pin = pin  # Privado
+        self.__telefono = telefono  # Privado
+
+    def cambiar_fondo_pantalla(self, nuevo_fondo):  # Público
+        self.fondo_pantalla = nuevo_fondo
+        print(f"Nuevo fondo: {self.fondo_pantalla}")
+        return self.fondo_pantalla
+
+    def ver_hora(self):  # Público
+        print(f"La hora actual es: {self._reloj}")
+        return self._reloj
+
+    def estado_bateria(self):  # Público
+        print(f"Estado de la batería: {self.__bateria}%")
+        return self.__bateria
+
+    def __cargar_bateria(self, cantidad):  # Privado
+        self.__bateria += cantidad
+        print(f"Batería cargada a: {self.__bateria}%")
+
+    def cargador(self, cantidad):  # Público
+        print("Cargador conectado.")
+        self.__cargar_bateria(cantidad)
+        print("Cargador desconectado.")
+
+    @property
+    def pin(self):  # Getter público como propiedad
+        return self.__pin
+
+    @pin.setter
+    def pin(self, nuevo_pin):  # Setter público como propiedad
+        if len(str(nuevo_pin)) == 4:
+            self.__pin = nuevo_pin
+            print("Pin cambiado exitosamente.")
+        else:
+            print("El pin debe ser un número de 4 dígitos.")
+
+    def get_telefono(self):  # Getter público
+        return self.__telefono
+
+    def set_telefono(self, nuevo_telefono):  # Setter público
+        self.__telefono = nuevo_telefono
+        print("Número telefónico cambiado exitosamente.")
+# Implementando la clase
+so = SistemaOperativo("PyPhoneOS", "gatitos.jpg", "12:00 PM",50, 1234, "123-456-7890")
+pin = so.pin  
+print(f"Pin actual: {pin}")
+so.pin = 123  
+print(f"Pin después del intento de cambio: {so.pin}")
+so.pin = 5678  
+pin = so.pin 
+print(f"Pin actualizado: {pin}")
+```
+
+```bash
+python ejemplo08.py
+```
+
+```text
+Pin actual: 1234
+El pin debe ser un número de 4 dígitos.
+Pin después del intento de cambio: 1234
+Pin cambiado exitosamente.
+Pin actualizado: 5678
+```
+
+---
+Diferencia Getters 
+
+```python
+def get_pin(self):  # Getter público
+    return self.__pin
+# objeto.get_pin()
+```
+
+```python
+@property
+def pin(self):  # Getter público como propiedad
+    return self.__pin
+# objeto.pin
+```
+
+---
+
+Diferencia Setters
+
+```python
+def set_pin(self, nuevo_pin):  # Setter público
+    if len(str(nuevo_pin)) == 4:
+        self.__pin = nuevo_pin
+        print("Pin cambiado exitosamente.")
+    else:
+        print("El pin debe ser un número de 4 dígitos.")
+# objeto.set_pin(5678)
+```
+
+```python
+@pin.setter
+def pin(self, nuevo_pin):  # Setter público como propiedad
+    if len(str(nuevo_pin)) == 4:
+        self.__pin = nuevo_pin
+        print("Pin cambiado exitosamente.")
+    else:
+        print("El pin debe ser un número de 4 dígitos.")
+# objeto.pin = 5678
+```
+
+---
+
+#### Ejemplo 09
+
+```markdown
+El sistema operativo debe definir el telefono como una propiedad,
+y se debe poder acceder al telefono como si fuera un atributo
+```
+
+Crea los archivos **ejemplo09.md** y **ejemplo09.py** en la carpeta **sesion04**
+
+3 Minutos (Análisis, diagrama y solución en Python)
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+El análisis y el diagrama se mantendrán igual
+
+---
+
+```python [9|45-52|55-59]
+# Definiendo la clase
+class SistemaOperativo:
+    def __init__(self, nombre, fondo_pantalla, reloj, bateria, pin, telefono):
+        self.nombre = nombre  # Público
+        self.fondo_pantalla = fondo_pantalla  # Público
+        self._reloj = reloj  # Protegido
+        self.__bateria = bateria  # Privado
+        self.__pin = pin  # Privado
+        self.__telefono = telefono  # Privado
+
+    def cambiar_fondo_pantalla(self, nuevo_fondo):  # Público
+        self.fondo_pantalla = nuevo_fondo
+        print(f"Nuevo fondo: {self.fondo_pantalla}")
+        return self.fondo_pantalla
+
+    def ver_hora(self):  # Público
+        print(f"La hora actual es: {self._reloj}")
+        return self._reloj
+
+    def estado_bateria(self):  # Público
+        print(f"Estado de la batería: {self.__bateria}%")
+        return self.__bateria
+
+    def __cargar_bateria(self, cantidad):  # Privado
+        self.__bateria += cantidad
+        print(f"Batería cargada a: {self.__bateria}%")
+
+    def cargador(self, cantidad):  # Público
+        print("Cargador conectado.")
+        self.__cargar_bateria(cantidad)
+        print("Cargador desconectado.")
+
+    @property
+    def pin(self):  # Getter público como propiedad
+        return self.__pin
+
+    @pin.setter
+    def pin(self, nuevo_pin):  # Setter público como propiedad
+        if len(str(nuevo_pin)) == 4:
+            self.__pin = nuevo_pin
+            print("Pin cambiado exitosamente.")
+        else:
+            print("El pin debe ser un número de 4 dígitos.")
+
+    @property
+    def telefono(self):  # Getter público como propiedad
+        return self.__telefono
+
+    @telefono.setter
+    def telefono(self, nuevo_telefono):  # Setter público como propiedad
+        self.__telefono = nuevo_telefono
+        print("Número telefónico cambiado exitosamente.")
+# Implementando la clase
+so = SistemaOperativo("PyPhoneOS", "gatitos.jpg", "12:00 PM", 50, 1234, "123-456-7890")
+telefono = so.telefono
+print(f"Número telefónico actual: {telefono}")
+so.telefono = "098-765-4321"
+telefono = so.telefono
+print(f"Número telefónico actualizado: {telefono}")
+```
+
+```bash
+python ejemplo09.py
+```
+
+```text
+Número telefónico actual: 123-456-7890
+Número telefónico cambiado exitosamente.
+Número telefónico actualizado: 098-765-4321
+```
+
+---
+
+#### Resumen
+
+- El encapsulamiento es un principio de la programación orientada a objetos que restringe el acceso directo a los datos y métodos de una clase para proteger su integridad y ocultar su implementación interna.
+- Es importante porque protege los datos, permite la abstracción y controla el acceso a los atributos y métodos.
+
+---
+
+- Existen tres niveles de acceso: público (accesible desde cualquier parte), protegido (accesible solo desde la clase y sus subclases) y privado (accesible solo desde la propia clase).
+- Los diagramas de clases usan símbolos para representar los niveles de acceso: + para público, # para protegido y - para privado.
+
+---
+
+- En Python, los niveles de acceso se indican por convención usando guiones bajos: sin guión para público, un guión bajo para protegido y dos guiones bajos para privado.
+- Los getters y setters son métodos que permiten obtener y modificar atributos privados de manera controlada, y pueden incluir validaciones.
+
+---
+
+- Es buena práctica usar encapsulamiento, definir getters y setters para atributos privados y seguir las convenciones de Python para indicar el nivel de acceso.
+- En Python, se pueden definir getters y setters de forma tradicional o usando propiedades con los decoradores `@property` y `@<nombre>.setter`.
+
+---
+
+- Las propiedades permiten acceder a métodos como si fueran atributos, haciendo el código más limpio y fácil de usar.
+- La diferencia entre métodos tradicionales y propiedades es la forma de acceso: los métodos tradicionales usan llamadas explícitas y las propiedades permiten acceder como si fueran atributos.
+
+---
+
+- El uso de propiedades y encapsulamiento ayuda a mantener la integridad de los datos y facilita el mantenimiento del código.
+
+
+
+
+---
+#### Retos
+
+Crear una carpeta con el nombre "retos_sesion_04" dentro del proyecto en la raíz, en la cual por cada ejercicio debes crear los siguientes archivos:
+
+```bash
+# Estructura de carpetas
+psg-oop-2025/
+    sesion04/
+    retos_sesion_04/
+        ejercicio_01.md
+        ejercicio_01.py
+        ejercicio_02.md
+        ejercicio_02.py
+```
+
+---
+
+1. Diseñas el software para una cuenta bancaria, el saldo es privado y solo se puede consultar, se puede depositar dinero y retirar dinero siempre y cuando el saldo sea suficiente. El número de cuenta es privado y se puede consultar, pero no se puede cambiar, el nombre del titular es público y se puede cambiar. 
+
+Utiliza encapsulamiento, getters y setters, y propiedades
+
+---
+2. Creas una simulación de una célula, esta tiene ADN se puede consultar, pero no se puede cambiar, el tipo de célula cualquiera puede verlo y cambiarlo, la energia de la celula es privada, puede aumentar o disminuir pero mediante la accion de comer o dividirse.
+
+Utiliza encapsulamiento, getters y setters, y propiedades
 
 ---
 <!-- .slide: data-background-image="../../content/psg-bg-dark.png" data-background-size="100%"-->
@@ -1312,7 +1823,7 @@ classDiagram
 <br>
 <br>
 
-[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/content/sesion01)
+[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/content/sesion04)
 
 Repositorio de la Sesión
 
@@ -1320,6 +1831,14 @@ Repositorio de la Sesión
 <!--.slide: data-visibility="hidden"-->
 ## Bibliografía y Referencias
 
+- [La importancia del encapsulamiento en la POO](https://elblogpython.com/tecnologia/la-importancia-del-encapsulamiento-en-la-poo/)
+- [Method names and instance variables](https://peps.python.org/pep-0008/#method-names-and-instance-variables)
+- [Python Double Underscore](https://realpython.com/python-double-underscore/)
+- [Descriptive naming styles](https://peps.python.org/pep-0008/#descriptive-naming-styles)
+- [Getters y Setters en programación](https://www.luisllamas.es/que-son-getters-y-setters-en-programacion/)
+- [Getters y Setters](https://codigonautas.com/que-son-getters-setters/)
+- [Python Property](https://realpython.com/python-property/)
+- [Python Property Function](https://docs.python.org/3/library/functions.html#property)
 - [Object Oriented Analysis](https://www.gyata.ai/es/object-oriented-programming/object-oriented-analysis)
 - [DDOO Unidad 1](https://dmd.unadmexico.mx/contenidos/DCEIT/BLOQUE1/DS/02/DDOO/U1/descargables/DDOO_Unidad_1.pdf)
 - [Programación procedural VS orientada a objetos](https://programacionpro.com/programacion-procedural-vs-orientada-a-objetos-diferencias-y-similitudes/)
@@ -1333,9 +1852,3 @@ Repositorio de la Sesión
 - [Objetos en programación](https://ebac.mx/blog/objeto-en-programacion)
 - [Enfoque orientado a objetos](https://1library.co/article/enfoque-orientado-a-objetos-base-te%C3%B3rica.qvld461y)
 - [OOAD](https://www.tutorialspoint.com/object_oriented_analysis_design/ooad_object_oriented_analysis.htm)
-https://elblogpython.com/tecnologia/la-importancia-del-encapsulamiento-en-la-poo/
-https://peps.python.org/pep-0008/#method-names-and-instance-variables
-https://realpython.com/python-double-underscore/
-https://peps.python.org/pep-0008/#descriptive-naming-styles
-https://www.luisllamas.es/que-son-getters-y-setters-en-programacion/
-https://codigonautas.com/que-son-getters-setters/
