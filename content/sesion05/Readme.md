@@ -6,7 +6,7 @@
 <br>
 
 ### Sesión  05
-#### Herencia y Composición
+#### Herencia
 #### Relaciones y reutilización de objetos
 
 
@@ -637,11 +637,13 @@ Cocodrilo se arrastra 🐍
 
 ---
 
-#### Personalización de métodos
+#### Sobreescritura de métodos
 
-Podemos personalizar los métodos de la clase padre en la clase hija
+Podemos sobreescribir los métodos de la clase padre en la clase hija
 
-Redefiniendo los métodos de la clase padre en la clase hija
+Redefiniendo los métodos con el mismo nombre
+
+Haciendo que la clase hija tenga su propia implementación del método
 
 ---
 
@@ -934,7 +936,7 @@ class Mamifero(Animal):
     def amamantar(self):
         print(f"{self.especie} amamanta 🍼 a sus crías")
     
-    def mostrar(self): # Método personalizado
+    def mostrar(self): # Método sobreescrito
         print(f"Tipo: {self.tipo}")
         self.amamantar()
 
@@ -1005,7 +1007,7 @@ class Mamifero(Animal):
     def amamantar(self):
         print(f"{self.especie} amamanta 🍼 a sus crías")
     
-    def mostrar(self): # Método personalizado
+    def mostrar(self): # Método sobreescrito
         super().mostrar()  # Llamada al método del padre
         print(f"Tipo: {self.tipo}")
         self.amamantar()
@@ -1193,7 +1195,7 @@ class Mamifero(Animal):
     def amamantar(self):
         print(f"{self.especie} amamanta 🍼 a sus crías")
     
-    def mostrar(self): # Método personalizado
+    def mostrar(self): # Método sobreescrito
         super().mostrar()  # Llamada al método del padre
         print(f"Tipo: {self.tipo}")
         self.amamantar()
@@ -1205,7 +1207,7 @@ class Ave(Animal):
     def ovoponer(self):
         print(f"{self.especie} pone huevos 🥚")
     
-    def mostrar(self): # Método personalizado
+    def mostrar(self): # Método sobreescrito
         super().mostrar()  # Llamada al método del padre
         print(f"Puede volar: {self.volar}")
         self.ovoponer()
@@ -1218,7 +1220,7 @@ class Reptil(Animal):
     def reptar(self):
         print(f"{self.especie} se arrastra 🐍")
 
-    def mostrar(self): # Método personalizado
+    def mostrar(self): # Método sobreescrito
         super().mostrar()  # Llamada al método del padre
         print(f"Tipo: {self.tipo} - Venenoso: {self.venenoso}")
         self.reptar()
@@ -1284,7 +1286,7 @@ class Mamifero(Animal):
     def amamantar(self):
         print(f"{self.especie} amamanta 🍼 a sus crías")
     
-    def mostrar(self): # Método personalizado
+    def mostrar(self): # Método sobreescrito
         super().mostrar()  # Llamada al método del padre
         print(f"Tipo: {self.tipo}")
         self.amamantar()
@@ -1296,7 +1298,7 @@ class Ave(Animal):
     def ovoponer(self):
         print(f"{self.especie} pone huevos 🥚")
     
-    def mostrar(self): # Método personalizado
+    def mostrar(self): # Método sobreescrito
         super().mostrar()  # Llamada al método del padre
         print(f"Puede volar: {self.volar}")
         self.ovoponer()
@@ -1309,7 +1311,7 @@ class Reptil(Animal):
     def reptar(self):
         print(f"{self.especie} se arrastra 🐍")
 
-    def mostrar(self): # Método personalizado
+    def mostrar(self): # Método sobreescrito
         super().mostrar()  # Llamada al método del padre
         print(f"Tipo: {self.tipo} - Venenoso: {self.venenoso}")
         self.reptar()
@@ -1381,7 +1383,7 @@ class Mamifero(Animal):
     def amamantar(self):
         print(f"{self.especie} amamanta 🍼 a sus crías")
     
-    def mostrar(self): # Método personalizado
+    def mostrar(self): # Método sobreescrito
         super().mostrar()  # Llamada al método del padre
         print(f"Tipo: {self.tipo}")
         self.amamantar()
@@ -1393,7 +1395,7 @@ class Ave(Animal):
     def ovoponer(self):
         print(f"{self.especie} pone huevos 🥚")
     
-    def mostrar(self): # Método personalizado
+    def mostrar(self): # Método sobreescrito
         super().mostrar()  # Llamada al método del padre
         print(f"Puede volar: {self.volar}")
         self.ovoponer()
@@ -1406,7 +1408,7 @@ class Reptil(Animal):
     def reptar(self):
         print(f"{self.especie} se arrastra 🐍")
 
-    def mostrar(self): # Método personalizado
+    def mostrar(self): # Método sobreescrito
         super().mostrar()  # Llamada al método del padre
         print(f"Tipo: {self.tipo} - Venenoso: {self.venenoso}")
         self.reptar()
