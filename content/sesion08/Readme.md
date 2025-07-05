@@ -99,15 +99,6 @@ El uso de Dunder Methods es una práctica común en Python, y su comprensión es
 Es parte de hacer que tu código sea más elegante, eficiente y fácil de mantener.
 
 ---
-
-Se puede clasificar en:
-
-- **Métodos de Inicialización y Destrucción**: `__init__`, `__del__`
-- **Métodos de Representación y Conversión**: `__str__`, `__repr__`, `__int__`, `__float__`
-- **Métodos de Comparación**: `__eq__`, `__lt__`, `__gt__`, `__le__`, `__ge__`, `__ne__`
-- **Operadores Aritméticos**: `__add__`, `__sub__`, `__mul__`, `__truediv__`
-
----
 #### Notación de Dunder Methods
 
 Los Dunder Methods se definen con dos guiones bajos al principio y al final del nombre del método.
@@ -122,107 +113,457 @@ def __str__(self):
 
 ---
 
-#### Métodos de Inicialización y Destrucción
+Se puede clasificar en:
 
-Permiten definir el comportamiento de una clase al ser creada o destruida.
+- **Métodos de Inicialización y Destrucción**
+- **Métodos de Representación y Conversión**
+- **Métodos de Comparación**
+- **Operadores Aritméticos**
 
-Son utilizados para inicializar atributos o liberar recursos.
-
-No retornan ningún valor.
-
-Los más comunes son:
-
-- `__init__` : Método de inicialización, se llama al crear una instancia de la clase.
-- `__del__` : Método de destrucción, se llama al eliminar una instancia de la clase.
 
 ---
-#### `__init__` - Método de Inicialización
 
-El método `__init__` se utiliza para inicializar los atributos de una instancia de la clase.
+#### Métodos de Inicialización y Destrucción
 
-Se utiliza al instanciar un objeto de la clase.
+Permiten definir el comportamiento de una clase al ser creada o destruida
 
-recibe como primer parámetro `self`, que es una referencia a la instancia de la clase.
+Son utilizados para inicializar atributos o liberar recursos
 
-Los siguientes parámetros son los atributos que se desean inicializar.
+No retornan ningún valor
 
-También se lo conoce como constructor de la clase.
+---
 
-```python
-class Persona:
-    def __init__(self, nombre, edad):
-        self.nombre = nombre
-        self.edad = edad
+Métodos más comunes:
+
+| Método     | Descripción                            |
+| ---------- | -------------------------------------- |
+| `__init__` | Método de inicialización (constructor) |
+| `__del__`  | Método de destrucción (destructor)     |
+
+---
+
+#### `__init__`
+
+| Característica     | Descripción                          |
+| ------------------ | ------------------------------------ |
+| Propósito          | Inicializa atributos de la instancia |
+| Cuándo se llama    | Al crear un objeto de la clase       |
+| Primer parámetro   | `self` (instancia)                   |
+| Otros parámetros   | Valores para inicializar atributos   |
+| Nombre alternativo | Constructor                          |
+
+---
+
+Su uso es fundamental para establecer el estado inicial de un objeto
+
+Se usa en todos los contextos para preparar un objeto antes de su uso
+
+---
+
+#### Ejemplo 01
+
+Crear el archivo `persona.py` en la carpeta `sesion07`
+
+```markdown
+Tenemos la clase `Persona` que representa a una persona
+con un nombre y una edad.
+Cada que creamos una persona, queremos inicializar
+sus atributos `nombre` y `edad` y puede saludar
+```
+
+---
+#### Análisis
+
+```markdown
+# Análisis
+Requisitos
+- La clase debe tener un constructor que reciba `nombre` y `edad`
+- La clase debe almacenar estos valores en atributos de instancia
+- La clase debe llamarse `Persona`
+- La Persona debe poder saludar
+
+Objetos
+- Persona
+
+Características
+- Persona: nombre, edad
+
+Acciones
+- Persona: saludar
 ```
 
 ---
 
-Su uso es fundamental para establecer el estado inicial de un objeto.
+#### Diagrama de clases
 
-Se usa profesionalmente para definir los atributos de una clase y establecer su estado inicial.
+````
+```mermaid
+classDiagram
+    class Persona {
+        + nombre
+        + edad
+        + saludar()
+    }
+```	
+````
+
+```mermaid
+%%{init: {"theme": "dark", "look": "handDrawn"  }}%%
+classDiagram
+    class Persona {
+        + nombre
+        + edad
+        + saludar()
+    }
+```	
 
 ---
 
-#### `__del__` - Método de Destrucción
+En el archivo `persona.py`
+
+```python [1-7|8-10]
+# Definición
+class Persona:
+    def __init__(self, nombre, edad): # Constructor
+        self.nombre = nombre
+        self.edad = edad
+    def saludar(self):
+        print(f"Hola, soy {self.nombre} con {self.edad} años")
+# Uso
+jhon = Persona('Jhon', 30)
+jhon.saludar()
+```
+
+```text
+Hola, soy Jhon con 30 años
+```
+
+---
+
+#### `__del__`
+
+| Característica     | Descripción                                          |
+| ------------------ | ---------------------------------------------------- |
+| Propósito          | Realiza acción antes de destruir                     |
+| Cuándo se llama    | Al eliminar una instancia o al finalizar el programa |
+| Primer parámetro   | `self` (instancia)                                   |
+| Otros parámetros   | Ninguno                                              |
+| Nombre alternativo | Destructor                                           |
+
+---
 
 El método `__del__` se utiliza para liberar recursos o realizar acciones antes de que una instancia de la clase sea destruida.
 
-Se llama automáticamente cuando el recolector de basura de Python elimina la instancia o cuando se utiliza la función `del` para eliminar una referencia a la instancia.
+---
 
-Recibe como único parámetro `self`, que es una referencia a la instancia de la clase.
+Se llama automáticamente cuando el recolector de basura de Python elimina la instancia o cuando se utiliza la función "`del`" para eliminar una referencia a la instancia.
 
 Su uso es menos común, ya que Python maneja automáticamente la memoria.
 
-```python
-class Persona:
-    def __init__(self, nombre, edad):
-        self.nombre = nombre
-        self.edad = edad
+---
 
-    def __del__(self):
-        print(f"{self.nombre} ha sido destruido.")
+Es útil para liberar recursos externos, como archivos abiertos o conexiones de red
+
+---
+
+#### Ejemplo 02
+
+En el archivo `persona.py`
+
+```markdown
+Tenemos la clase `Persona` que representa a una persona
+con un nombre y una edad y queremos que al eliminar una persona
+se despida con un mensaje y su nombre.
+```
+
+---
+#### Análisis
+
+```markdown
+# Análisis
+Requisitos
+- La clase debe tener un constructor que reciba `nombre` y `edad`
+- La clase debe almacenar estos valores en atributos de instancia
+- La clase debe llamarse `Persona`
+- La Persona debe poder saludar
+- La Persona debe despedirse al ser destruida
+
+Objetos
+- Persona
+
+Características
+- Persona: nombre, edad
+
+Acciones
+- Persona: saludar, despedirse
 ```
 
 ---
 
-Es útil para liberar recursos externos, como archivos abiertos o conexiones de red.
+#### Diagrama de clases
 
-Se usa profesionalmente para realizar limpieza de recursos antes de que un objeto sea destruido.
+````
+```mermaid
+classDiagram
+    class Persona {
+        + nombre
+        + edad
+        + saludar()
+        + despedirse()
+    }
+```	
+````
+
+```mermaid
+%%{init: {"theme": "dark", "look": "handDrawn"  }}%%
+classDiagram
+    class Persona {
+        + nombre
+        + edad
+        + saludar()
+        + despedirse()
+    }
+```	
 
 ---
-#### Métodos de Representación y Conversión
 
-Permiten definir cómo se representa una instancia de la clase como cadena de texto o cómo se convierte a otros tipos de datos.
+En el archivo `persona.py` 
 
-Son utilizados para mejorar la legibilidad del código y facilitar la depuración.
+Cuando se termina la ejecución del programa
 
-Los más comunes son:
-
-- `__repr__` : Método de representación oficial, se llama al utilizar la función `repr()`.
-- `__str__` : Método de representación en cadena, se llama al utilizar la función `print()` o `str()`.
-
----
-
-#### `__repr__` - Método de Representación Oficial
-
-El método `__repr__` se utiliza para definir una representación oficial de la instancia de la clase.
-Se utiliza al llamar a la función `repr()` o al imprimir la instancia en un entorno interactivo.
-Recibe como único parámetro `self`, que es una referencia a la instancia de la clase.
-Debe retornar una cadena que represente el objeto de manera clara y precisa.
-Con oficial se refiere a que debe ser una representación que pueda ser utilizada para recrear el objeto.
-Se utiliza principalmente para depuración y desarrollo.
-```python
+```python [1-14|15-17]
+# Definición
 class Persona:
-    def __init__(self, nombre, edad):
+    def __init__(self, nombre, edad): # Constructor
         self.nombre = nombre
         self.edad = edad
-    def __repr__(self):
-        return f"Persona(nombre='{self.nombre}', edad={self.edad})"
+
+    def saludar(self):
+        print(f"Hola, soy {self.nombre} con {self.edad} años")
+    
+    def despedirse(self):
+        print(f"Adiós, soy {self.nombre}")
+
+    def __del__(self): # Destructor
+        self.despedirse()
+# Uso
+jhon = Persona('Jhon', 30)
+jhon.saludar()
+```
+```text
+Hola, soy Jhon con 30 años
+Adiós, soy Jhon
 ```
 
 ---
-Su uso es fundamental para proporcionar una representación clara y precisa de un objeto.
-Se usa profesionalmente para facilitar la depuración y el desarrollo, ya que permite ver el estado de un objeto de manera clara.
+
+La palabra reservada "`del`" se utiliza para eliminar una referencia a un objeto
+
+Después de eliminar la referencia, la instancia se destruye y ya no se puede acceder a ella.
+
+Antes de que la instancia sea destruida, se llama al método `__del__` si está definido.
+
+---
+
+#### Uso de "`del`"
+
+```python
+edad = 10
+print(edad) 
+del edad  # Elimina la referencia a 'edad'
+print(edad) # Esto generará un error porque 'edad' ya no existe
+```
+
+```text
+10
+ERROR!
+Traceback (most recent call last):
+  File "<main.py>", line 4, in <module>
+NameError: name 'edad' is not defined
+```
+
+---
+
+En el archivo `persona.py`
+
+Cuando se elimina la instancia
+
+```python [1-14|15-18]
+# Definición
+class Persona:
+    def __init__(self, nombre, edad): # Constructor
+        self.nombre = nombre
+        self.edad = edad
+
+    def saludar(self):
+        print(f"Hola, soy {self.nombre} con {self.edad} años")
+    
+    def despedirse(self):
+        print(f"Adiós, soy {self.nombre}")
+
+    def __del__(self): # Destructor
+        self.despedirse()
+# Uso
+jhon = Persona('Jhon', 30)
+jhon.saludar()
+del jhon  # Eliminación
+```
+
+```text
+Hola, soy Jhon con 30 años
+Adiós, soy Jhon
+```
+
+---
+#### Métodos de Representación
+
+Permiten definir cómo se representa una instancia de la clase cuando se imprime o se convierte a una cadena.
+
+Se utilizan para facilitar la depuración y la visualización de objetos
+
+---
+
+Métodos más comunes:
+
+| Método     | Descripción                         |
+| ---------- | ----------------------------------- |
+| `__repr__` | Representación oficial del objeto   |
+| `__str__`  | Representación en cadena del objeto |
+
+
+---
+
+#### `__repr__`
+
+| Característica   | Descripción                                   |
+| ---------------- | --------------------------------------------- |
+| Propósito        | Representación oficial del objeto             |
+| Cuándo se llama  | Al usar "`repr()`" o en entornos interactivos |
+| Primer parámetro | `self` (instancia)                            |
+| Retorno          | Cadena que representa el objeto               |
+
+---
+
+Se utiliza principalmente para proporcionar una representación clara y precisa de un objeto, que puede ser utilizada para depuración o desarrollo.
+
+---
+
+#### Uso de "`repr()`"
+
+Es un método que devuelve una cadena que representa el objeto de manera que pueda ser evaluada por Python.	
+
+Significa que pueda ser evaluada por la función `eval()` para recrear el objeto original.
+
+---
+
+Se utiliza al llamar a la función `repr()` o al imprimir un objeto en un entorno interactivo.
+
+Es diferente del `str()` que se utiliza para mostrar una representación legible del objeto.
+
+```python
+edad = 'Hola\nMundo'
+print(repr(edad))  # Representación oficial del objeto
+print(str(edad))   # Representación en cadena del objeto
+```
+
+```text
+'Hola\nMundo'
+Hola
+Mundo
+```
+
+---
+#### Ejemplo 03
+
+En el archivo `persona.py`
+
+```markdown
+Tenemos la clase `Persona` que representa a una persona
+con un nombre y una edad.
+La representación oficial del objeto debe mostrar
+su nombre y edad de manera clara.
+```
+
+---
+
+#### Análisis
+
+```markdown
+# Análisis
+Requisitos
+- La clase debe tener un constructor que reciba `nombre` y `edad`
+- La clase debe almacenar estos valores en atributos de instancia
+- La clase debe llamarse `Persona`
+- La Persona debe poder saludar
+- La Persona debe despedirse al ser destruida
+- Debe tener una representación oficial del objeto
+
+Objetos
+- Persona
+
+Características
+- Persona: nombre, edad
+
+Acciones
+- Persona: saludar, despedirse, representación oficial
+```
+
+---
+
+#### Diagrama de clases
+
+````
+```mermaid
+classDiagram
+    class Persona {
+        + nombre
+        + edad
+        + saludar()
+        + despedirse()
+        + __repr__()
+    }
+```	
+````
+
+```mermaid
+%%{init: {"theme": "dark", "look": "handDrawn"  }}%%
+classDiagram
+    class Persona {
+        + nombre
+        + edad
+        + saludar()
+        + despedirse()
+        + __repr__()
+    }
+```	
+
+---
+
+```python [1-13|14-17]
+# Definición
+class Persona:
+    def __init__(self, nombre, edad): # Constructor
+        self.nombre = nombre
+        self.edad = edad
+    def saludar(self):
+        print(f"Hola, soy {self.nombre} con {self.edad} años")
+    def despedirse(self):
+        print(f"Adiós, soy {self.nombre}")
+    def __del__(self): 
+        self.despedirse()
+    def __repr__(self):  # Método de representación oficial
+        return f"Persona('{self.nombre}', {self.edad})"
+# Uso
+jhon = Persona('Jhon', 30)
+jhon.saludar()
+print(repr(jhon))  # Representación oficial
+```
+
+```text
+Hola, soy Jhon con 30 años
+Persona('Jhon', 30)
+Adiós, soy Jhon
+```
 
 ---
 
@@ -245,7 +586,9 @@ Su uso es fundamental para proporcionar una representación legible de un objeto
 Se usa profesionalmente para mostrar información al usuario de manera clara y concisa.
 
 ---
+
 #### Métodos de Conversión
+
 Permiten definir cómo se convierte una instancia de la clase a otros tipos de datos.
 Son utilizados para facilitar la conversión de objetos a tipos de datos nativos de Python.
 Los más comunes son:
