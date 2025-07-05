@@ -567,93 +567,504 @@ Adiós, soy Jhon
 
 ---
 
-#### `__str__` - Método de Representación en Cadena
-El método `__str__` se utiliza para definir una representación en cadena de la instancia de la clase.
-Se utiliza al llamar a la función `print()` o `str()`.
-Recibe como único parámetro `self`, que es una referencia a la instancia de la clase.
-Debe retornar una cadena que represente el objeto de manera legible.
-Se utiliza principalmente para mostrar información al usuario o para imprimir el objeto.
-```python
+#### `__str__`
+
+| Característica   | Descripción                         |
+| ---------------- | ----------------------------------- |
+| Propósito        | Representación en cadena del objeto |
+| Cuándo se llama  | Al usar "`print()`" o "`str()`"     |
+| Primer parámetro | `self` (instancia)                  |
+| Retorno          | Cadena que representa el objeto     |
+
+---
+
+El método `__str__` se utiliza para proporcionar una representación legible del objeto, que es más amigable para el usuario.
+
+Se utiliza al llamar a la función `print()` o al convertir un objeto a una cadena con `str()`.
+
+---
+
+Es útil para mostrar información al usuario de manera clara y concisa, como en la impresión de objetos en la consola o en la interfaz de usuario.
+
+---
+
+#### Ejemplo 04
+
+En el archivo `persona.py`
+
+```markdown
+Tenemos la clase `Persona` que representa a una persona
+con un nombre y una edad.
+La representación en cadena del objeto debe mostrar el
+ nombre y la edad de manera legible.
+Con el formato `"[Nombre] ➡ [Edad] años"`
+```
+
+---
+
+#### Análisis
+
+```markdown
+# Análisis
+Requisitos
+- La clase debe tener un constructor que reciba `nombre` y `edad`
+- La clase debe almacenar estos valores en atributos de instancia
+- La clase debe llamarse `Persona`
+- La Persona debe poder saludar
+- La Persona debe despedirse al ser destruida
+- Debe tener una representación oficial del objeto
+- Debe tener una representación en cadena del objeto
+
+Objetos
+- Persona
+
+Características
+- Persona: nombre, edad
+
+Acciones
+- Persona: saludar, despedirse, 
+- Persona: representación oficial, representación en cadena
+```
+
+---
+
+#### Diagrama de clases
+
+````
+```mermaid
+classDiagram
+    class Persona {
+        + nombre
+        + edad
+        + saludar()
+        + despedirse()
+        + __repr__()
+        + __str__()
+    }
+```	
+````
+
+```mermaid
+%%{init: {"theme": "dark", "look": "handDrawn"  }}%%
+classDiagram
+    class Persona {
+        + nombre
+        + edad
+        + saludar()
+        + despedirse()
+        + __repr__()
+        + __str__()
+    }
+```	
+
+---
+
+```python [1-15|16-20]
+# Definición
 class Persona:
-    def __init__(self, nombre, edad):
+    def __init__(self, nombre, edad): # Constructor
         self.nombre = nombre
         self.edad = edad
-    def __str__(self):
-        return f"{self.nombre}, {self.edad} años"
+    def saludar(self):
+        print(f"Hola, soy {self.nombre} con {self.edad} años")
+    def despedirse(self):
+        print(f"Adiós, soy {self.nombre}")
+    def __del__(self): 
+        self.despedirse()
+    def __repr__(self):
+        return f"Persona('{self.nombre}', {self.edad})"
+    def __str__(self):  # Método de representación en cadena
+        return f"{self.nombre} ➡ {self.edad} años"
+# Uso
+jhon = Persona('Jhon', 30)
+jhon.saludar()
+print(repr(jhon))
+print(jhon)  # Representación en cadena
 ```
+
+```text
+Hola, soy Jhon con 30 años
+Persona('Jhon', 30)
+Jhon ➡ 30 años
+Adiós, soy Jhon
+```
+
 ---
-Su uso es fundamental para proporcionar una representación legible de un objeto.
-Se usa profesionalmente para mostrar información al usuario de manera clara y concisa.
+
+Al momento de programar
+
+Una buena práctica es definir al menos uno o ambos métodos `__repr__` y `__str__` para proporcionar 
+una representación oficial y una representación amigable del objeto.
 
 ---
 
 #### Métodos de Conversión
 
 Permiten definir cómo se convierte una instancia de la clase a otros tipos de datos.
+
 Son utilizados para facilitar la conversión de objetos a tipos de datos nativos de Python.
-Los más comunes son:
-- `__int__` : Método de conversión a entero, se llama al utilizar la función `int()`.
-- `__float__` : Método de conversión a flotante, se llama al utilizar la función `float()`.
-- `__bool__` : Método de conversión a booleano, se llama al utilizar la función `bool()`.
 
 ---
 
-#### `__int__` - Método de Conversión a Entero
+Métodos más comunes:
 
-El método `__int__` se utiliza para definir cómo se convierte una instancia de la clase a un entero.
-Se utiliza al llamar a la función `int()`.
-Recibe como único parámetro `self`, que es una referencia a la instancia de la clase.
-Debe retornar un valor entero que represente el objeto.
-Se utiliza principalmente para convertir objetos a enteros.
-```python
-class Numero:
-    def __init__(self, valor):
-        self.valor = valor
+
+| Método      | Descripción                          |
+| ----------- | ------------------------------------ |
+| `__int__`   | Conversión a entero                  |
+| `__float__` | Conversión a flotante                |
+| `__bool__`  | Conversión a booleano                |
+| `__str__`   | Conversión a cadena (representación) |
+
+---
+
+#### `__int__`
+
+| Característica   | Descripción                     |
+| ---------------- | ------------------------------- |
+| Propósito        | Conversión a entero             |
+| Cuándo se llama  | Al usar `int()`                 |
+| Primer parámetro | `self` (instancia)              |
+| Retorno          | Entero que representa el objeto |
+
+---
+
+Su uso es fundamental para permitir que los objetos se comporten correctamente al ser convertidos a enteros
+
+Se usa para facilitar la conversión de objetos a tipos de datos nativos de Python.
+
+---
+
+#### Ejemplo 05
+
+Creamos el archivo `vector.py` en la carpeta `sesion07`
+
+```markdown
+Un físico necesita representar un Vector en el espacio
+bidimensional, el vector tiene dos componentes `x` e `y`
+la magnitud del vector es la suma de los componentes
+absolutos de `x` e `y`.
+Se representa visualmente con la forma `[x, y]`
+```
+
+---
+
+#### Análisis
+
+```markdown
+# Análisis
+Requisitos
+- El vector debe tener un constructor que reciba `x` e `y`
+- El vector debe almacenar estos valores en atributos de instancia
+- El vector debe poder convertirse a entero utilizando su magnitud
+- El vector debe poder calcular su magnitud
+- El vector debe poder representarse visualmente como `[x, y]`
+
+Objetos
+- Vector
+
+Características
+- Vector: x, y
+
+Acciones
+- Vector: calcular magnitud, conversión a entero, representación
+
+```
+
+---
+
+````
+```mermaid
+classDiagram
+    class Vector {
+        + x
+        + y
+        + calcular_magnitud()
+        + __int__()
+        + __str__()
+    }
+```	
+````
+
+```mermaid
+%%{init: {"theme": "dark", "look": "handDrawn"  }}%%
+classDiagram
+    class Vector {
+        + x
+        + y
+        + calcular_magnitud()
+        + __int__()
+        + __str__()
+    }
+```
+
+---
+
+En el archivo `vector.py`
+
+```python [1-14|15-19]
+# Definición
+class Vector:
+    def __init__(self, x, y):  # Constructor
+        self.x = x
+        self.y = y
+
+    def calcular_magnitud(self):
+        return abs(self.x) + abs(self.y)
+
+    def __int__(self):  # Método de conversión a entero
+        return int(self.calcular_magnitud())
+
+    def __str__(self):  # Método de representación en cadena
+        return f"[{self.x}, {self.y}]"
+# Uso
+a = Vector(3.1, -4.1)
+print(a)  # Representación visual
+magnitud = int(a)  # Conversión a entero
+print(magnitud) 
+```
+
+```text
+[3.1, -4.1]
+7
+```
+
+---
+#### `__float__`
+
+| Característica   | Descripción                       |
+| ---------------- | --------------------------------- |
+| Propósito        | Conversión a flotante             |
+| Cuándo se llama  | Al usar `float()`                 |
+| Primer parámetro | `self` (instancia)                |
+| Retorno          | Flotante que representa el objeto |
+
+---
+
+Su uso es fundamental para permitir que los objetos se comporten correctamente al ser convertidos a flotantes.
+Se usa para facilitar la conversión de objetos a tipos de datos nativos de Python.
+
+---
+
+#### Ejemplo 06
+
+En el archivo `vector.py`
+
+```markdown
+El vector debe poder convertirse a flotante utilizando su magnitud
+```
+
+---
+
+#### Análisis
+
+```markdown
+# Análisis
+Requisitos
+- El vector debe tener un constructor que reciba `x` e `y`
+- El vector debe almacenar estos valores en atributos de instancia
+- El vector debe poder calcular su magnitud
+- El vector debe poder representarse visualmente como `[x, y]`
+- Debe poder convertirse a entero utilizando su magnitud
+- Debe poder convertirse a flotante utilizando su magnitud
+
+Objetos
+- Vector
+
+Características
+- Vector: x, y
+
+Acciones
+- Vector: calcular magnitud, conversión a entero, representación
+- Vector: conversión a flotante
+
+```
+
+---
+
+````
+```mermaid
+classDiagram
+    class Vector {
+        + x
+        + y
+        + calcular_magnitud()
+        + __int__()
+        + __str__()
+        + __float__()
+    }
+```	
+````
+
+```mermaid
+%%{init: {"theme": "dark", "look": "handDrawn"  }}%%
+classDiagram
+    class Vector {
+        + x
+        + y
+        + calcular_magnitud()
+        + __int__()
+        + __str__()
+        + __float__()
+    }
+```
+
+---
+
+En el archivo `vector.py`
+
+```python [1-13|14-20]
+# Definición
+class Vector:
+    def __init__(self, x, y):  # Constructor
+        self.x = x
+        self.y = y
+    def calcular_magnitud(self):
+        return abs(self.x) + abs(self.y)
     def __int__(self):
-        return int(self.valor)
+        return int(self.calcular_magnitud())
+    def __str__(self):
+        return f"[{self.x}, {self.y}]"
+    def __float__(self):  # Método de conversión a flotante
+        return float(self.calcular_magnitud())
+# Uso
+a = Vector(3.1, -4.1)
+print(a)
+magnitud = int(a) 
+print(magnitud) 
+magnitud = float(a)  # Conversión a flotante
+print(magnitud) 
 ```
----
-Su uso es fundamental para permitir la conversión de objetos a enteros.
-Se usa profesionalmente para facilitar la conversión de objetos a tipos de datos nativos de Python
+
+```text
+[3.1, -4.1]
+7
+7.199999999999999
+```
 
 ---
-#### `__float__` - Método de Conversión a Flotante
-El método `__float__` se utiliza para definir cómo se convierte una instancia de la clase a un flotante.
-Se utiliza al llamar a la función `float()`.
-Recibe como único parámetro `self`, que es una referencia a la instancia de la clase.
-Debe retornar un valor flotante que represente el objeto.
-Se utiliza principalmente para convertir objetos a flotantes.
-```python
-class Numero:
-    def __init__(self, valor):
-        self.valor = valor
+
+#### `__bool__`
+
+| Característica   | Descripción                                                           |
+| ---------------- | --------------------------------------------------------------------- |
+| Propósito        | Conversión a booleano                                                 |
+| Cuándo se llama  | Al usar `bool()` o en contextos booleanos (`if`, operadores lógicos ) |
+| Primer parámetro | `self` (instancia)                                                    |
+| Retorno          | `True` o `False` dependiendo del estado del objeto                    |
+
+---
+
+Se usa para definir el comportamiento de un objeto en condicionales, como en sentencias `if` o bucles `while`.
+
+Permite definir el truthiness de un objeto, es decir, si el objeto se considera verdadero o falso en un contexto booleano.
+
+---
+
+#### Ejemplo 07
+
+En el archivo `vector.py`
+
+```markdown
+Tenemos la clase `Vector` que representa un vector en
+el espacio bidimensional con dos componentes `x` e `y`.
+Un vector se considera "verdadero" si su magnitud es mayor que cero
+```
+
+---
+#### Análisis
+
+```markdown
+# Análisis
+Requisitos
+- El vector debe tener un constructor que reciba `x` e `y`
+- El vector debe almacenar estos valores en atributos de instancia
+- El vector debe poder calcular su magnitud
+- El vector debe poder representarse visualmente como `[x, y]`
+- Debe poder convertirse a entero utilizando su magnitud
+- Debe poder convertirse a flotante utilizando su magnitud
+- El vector debe poder convertirse a booleano, 
+  si su magnitud es mayor que cero
+
+Objetos
+- Vector
+
+Características
+- Vector: x, y
+
+Acciones
+- Vector: calcular magnitud, conversión a entero, representación
+- Vector: conversión a flotante, conversión a booleano
+
+```
+
+---
+
+````
+```mermaid
+classDiagram
+    class Vector {
+        + x
+        + y
+        + calcular_magnitud()
+        + __int__()
+        + __str__()
+        + __float__()
+        + __bool__()
+    }
+```	
+````
+
+```mermaid
+%%{init: {"theme": "dark", "look": "handDrawn"  }}%%
+classDiagram
+    class Vector {
+        + x
+        + y
+        + calcular_magnitud()
+        + __int__()
+        + __str__()
+        + __float__()
+        + __bool__()
+    }
+```
+
+---
+
+En el archivo `vector.py`
+
+```python [1-13|14-20]
+# Definición
+class Vector:
+    def __init__(self, x, y):  # Constructor
+        self.x = x
+        self.y = y
+    def calcular_magnitud(self):
+        return abs(self.x) + abs(self.y)
+    def __int__(self):
+        return int(self.calcular_magnitud())
+    def __str__(self):
+        return f"[{self.x}, {self.y}]"
     def __float__(self):
-        return float(self.valor)
+        return float(self.calcular_magnitud())
+    def __bool__(self):  # Método de conversión a booleano
+        return self.calcular_magnitud() > 0
+# Uso
+a = Vector(3.1, -4.1)
+print(a)
+magnitud = int(a) 
+print(magnitud) 
+magnitud = float(a) 
+print(magnitud) 
+print(bool(a))  # Conversión a booleano
 ```
 
----
-Su uso es fundamental para permitir la conversión de objetos a flotantes.
-Se usa profesionalmente para facilitar la conversión de objetos a tipos de datos nativos de Python
-
----
-#### `__bool__` - Método de Conversión a Booleano
-El método `__bool__` se utiliza para definir cómo se convierte una instancia de la clase a un valor booleano.
-Se utiliza al llamar a la función `bool()` o para definir el comportamiento de un objeto en un contexto booleano, como una condición `if`.
-Como el "truethiness" de un objeto.
-Recibe como único parámetro `self`, que es una referencia a la instancia de la clase.
-Debe retornar `True` o `False` dependiendo del estado del objeto.
-Se utiliza principalmente para determinar si un objeto es "verdadero" o "falso" en un contexto booleano.
-```python
-class Numero:
-    def __init__(self, valor):
-        self.valor = valor
-    def __bool__(self):
-        return self.valor != 0
+```text
+[3.1, -4.1]
+7
+7.199999999999999
+True
 ```
-
----
-Su uso es fundamental para permitir que los objetos se comporten correctamente en contextos booleanos.
-Se usa profesionalmente para definir el comportamiento de un objeto en condicionales, como en sentencias `if` o bucles `while`.
 
 ---
 #### Métodos de Comparación
