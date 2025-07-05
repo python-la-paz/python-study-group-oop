@@ -1033,7 +1033,7 @@ classDiagram
 
 En el archivo `vector.py`
 
-```python [1-13|14-20]
+```python [1-15|16-25]
 # Definición
 class Vector:
     def __init__(self, x, y):  # Constructor
@@ -1056,7 +1056,8 @@ magnitud = int(a)
 print(magnitud) 
 magnitud = float(a) 
 print(magnitud) 
-print(bool(a))  # Conversión a booleano
+truethiness = bool(a)
+print(truethiness)  # Conversión a booleano
 ```
 
 ```text
