@@ -241,6 +241,32 @@ Hola, soy Jhon con 30 años
 
 ---
 
+#### Uso de "`del`"
+
+
+La palabra reservada "`del`" se utiliza para eliminar una referencia a un objeto
+
+Después de eliminar la referencia, la instancia se destruye y ya no se puede acceder a ella.
+
+---
+
+```python
+edad = 10
+print(edad) 
+del edad  # Elimina la referencia a 'edad'
+print(edad) # Esto generará un error porque 'edad' ya no existe
+```
+
+```text
+10
+ERROR!
+Traceback (most recent call last):
+  File "<main.py>", line 4, in <module>
+NameError: name 'edad' is not defined
+```
+
+---
+
 #### `__del__`
 
 | Característica     | Descripción                                          |
@@ -354,33 +380,6 @@ jhon.saludar()
 ```text
 Hola, soy Jhon con 30 años
 Adiós, soy Jhon
-```
-
----
-
-La palabra reservada "`del`" se utiliza para eliminar una referencia a un objeto
-
-Después de eliminar la referencia, la instancia se destruye y ya no se puede acceder a ella.
-
-Antes de que la instancia sea destruida, se llama al método `__del__` si está definido.
-
----
-
-#### Uso de "`del`"
-
-```python
-edad = 10
-print(edad) 
-del edad  # Elimina la referencia a 'edad'
-print(edad) # Esto generará un error porque 'edad' ya no existe
-```
-
-```text
-10
-ERROR!
-Traceback (most recent call last):
-  File "<main.py>", line 4, in <module>
-NameError: name 'edad' is not defined
 ```
 
 ---
