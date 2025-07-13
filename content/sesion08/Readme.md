@@ -119,6 +119,7 @@ Se puede clasificar en:
 - **Métodos de Representación y Conversión**
 - **Métodos de Comparación**
 - **Operadores Aritméticos**
+- **Métodos para colecciones**
 
 
 ---
@@ -2015,7 +2016,7 @@ Ahora detallaremos sus características
 
 ---
 
-#### Métodos para collecciones
+#### Métodos para colecciones
 
 Los métodos especiales para colecciones permiten definir cómo se comportan las instancias de una clase al utilizar operaciones comunes de colecciones, como obtener la longitud, acceder a elementos
 
@@ -2027,12 +2028,13 @@ Los métodos de colecciones se utilizan cuando se trabaja con objetos que actúa
 
 Algunos de los más comunes son:
 
-| Método        | Descripción                                                     |
-| ------------- | --------------------------------------------------------------- |
-| `__len__`     | Longitud, al utilizar `len()`                                   |
-| `__getitem__` | Obtención de elementos, al utilizar `obj[indice]`               |
-| `__setitem__` | Establecimiento de elementos, al utilizar `obj[indice] = valor` |
-| `__delitem__` | Eliminar elementos, al utilizar la palabra `del obj[indice]`    |
+| Método        | Descripción                              |
+| ------------- | ---------------------------------------- |
+| `__len__`     | Longitud, al utilizar, `len()`           |
+| `__getitem__` | Obtener elementos, `obj[indice]`         |
+| `__setitem__` | Asignar elementos, `obj[indice] = valor` |
+| `__delitem__` | Eliminar elementos, `del obj[indice]`    |
+| `__iter__`    | Iterar con, `for elemento in obj`        |
 
 ---
 #### `__len__`
@@ -2474,13 +2476,13 @@ Número de libros: 2
 ---
 #### `__delitem__`
 
-| Característica    | Descripción                          |
-| ----------------- | ------------------------------------ |
-| Propósito         | Definir cómo se eliminan elementos   |
-| Cuándo se llama   | Al usar `del objeto[indice]`         |
-| Primer parámetro  | `self` (instancia)                   |
-| Segundo parámetro | `indice` (índice del elemento)       |
-| Retorno           | No retorna ningún valor              |
+| Característica    | Descripción                        |
+| ----------------- | ---------------------------------- |
+| Propósito         | Definir cómo se eliminan elementos |
+| Cuándo se llama   | Al usar `del objeto[indice]`       |
+| Primer parámetro  | `self` (instancia)                 |
+| Segundo parámetro | `indice` (índice del elemento)     |
+| Retorno           | No retorna ningún valor            |
 
 ---
 
@@ -2643,6 +2645,268 @@ Número de libros: 2
 Número de libros: 1
 ```
 
+---
+
+#### `__iter__`
+
+| Característica   | Descripción                              |
+| ---------------- | ---------------------------------------- |
+| Propósito        | Definir cómo se itera sobre la instancia |
+| Cuándo se llama  | Al usar `for elemento in objeto`         |
+| Primer parámetro | `self` (instancia)                       |
+| Retorno          | Iterador de la instancia                 |
+
+---
+El método `__iter__` se utiliza para definir cómo se itera sobre una instancia de la clase al utilizar un bucle `for`.
+
+Permite que la instancia sea iterable, lo que significa que se puede recorrer elemento por elemento.
+
+---
+
+Se usa en entornos donde se maneja colecciones de datos, como bases de datos, sistemas de archivos.
+
+Un caso de uso común es en carritos de compras, donde se necesita iterar sobre los productos en el carrito.
+
+---
+
+#### Ejemplo 18
+
+En el archivo `biblioteca.py`
+
+```markdown
+La biblioteca almacena una colección de libros.
+Pueden iterar sobre los libros para ver sus títulos y autores.
+```
+
+---
+
+#### Análisis
+
+```markdown
+# Análisis
+Requisitos
+- La biblioteca debe tener una colección de libros
+- Cada libro debe tener un título y un autor
+- La biblioteca debe poder saber cuántos libros hay
+- La clase debe llamarse `Biblioteca`
+- Existe una relación de agregación entre Biblioteca y Libro
+- El libro se representa como `"(título - autor)"`
+- La biblioteca se representa como `"libro1, libro2, ..."`
+- La biblioteca debe poder acceder a los libros por su índice
+- La biblioteca debe poder establecer un libro en un índice 
+- La biblioteca debe poder eliminar un libro por su índice
+- La biblioteca debe poder iterar sobre los libros
+Objetos
+- Biblioteca
+- Libro
+Características
+- Biblioteca: colección de libros
+- Libro: título, autor
+Acciones
+- Biblioteca: longitud, representación
+- Libro: representación
+- Biblioteca: acceso a libros por índice
+- Biblioteca: establecer libro por índice
+- Biblioteca: eliminar libro por índice
+```
+
+---
+
+#### Diagrama de clases
+
+````
+```mermaid
+classDiagram
+    class Libro {
+        + titulo: str
+        + autor: str
+        + __str__()
+    }
+    class Biblioteca {
+        + libros: List[Libro]
+        + __len__()
+        + __str__()
+        + __getitem__()
+        + __setitem__()
+        + __delitem__()
+        + __iter__()
+    }
+    Biblioteca o-- Libro
+```
+````
+
+---
+
+#### Diagrama de clases
+
+```mermaid
+%%{init: {"theme": "dark", "look": "handDrawn"  }}%%
+classDiagram
+    class Libro {
+        + titulo: str
+        + autor: str
+        + __str__()
+    }
+    class Biblioteca {
+        + libros: List[Libro]
+        + __len__()
+        + __str__()
+        + __getitem__()
+        + __setitem__()
+        + __delitem__()
+        + __iter__()
+    }
+    Biblioteca o-- Libro
+```
+
+---
+
+En el archivo `biblioteca.py`
+
+```python [1-32|33-46]
+# Definición
+class Libro:
+    def __init__(self, titulo, autor):  # Constructor
+        self.titulo = titulo
+        self.autor = autor
+    def __str__(self):
+        return f"({self.titulo} - {self.autor})"
+
+class Biblioteca:
+    def __init__(self):  # Constructor
+        self.libros = []
+    def __str__(self):
+        return ', '.join(str(libro) for libro in self.libros) 
+    def __len__(self):
+        return len(self.libros)
+    def __getitem__(self, indice):
+        return self.libros[indice]
+    def __setitem__(self, indice, valor):
+        if not isinstance(valor, Libro):
+                raise ValueError("Debe ser un Libro")
+        if indice < len(self.libros):
+            self.libros[indice] = valor
+        elif indice == len(self.libros):
+            self.libros.append(valor)
+        else:
+            raise IndexError("No puedes dejar huecos en la lista")
+    def __delitem__(self, indice):
+        if indice < 0 or indice >= len(self.libros):
+            raise IndexError("Índice fuera de rango")
+        del self.libros[indice]
+    def __iter__(self):  # Iteración
+        return iter(self.libros)
+# Uso
+biblioteca = Biblioteca()
+biblioteca[0] = Libro("1984", "George Orwell") 
+biblioteca[1] = Libro("La odisea", "Homero")
+print(biblioteca)
+longiud = len(biblioteca)
+print(f"Número de libros: {longiud}")
+print(biblioteca[0])
+del biblioteca[0]
+print(biblioteca)
+longiud = len(biblioteca)
+print(f"Número de libros: {longiud}")
+for libro in biblioteca:
+    print(libro)
+```
+
+```text
+(1984 - George Orwell), (La odisea - Homero)
+Número de libros: 2
+(1984 - George Orwell)
+(La odisea - Homero)
+Número de libros: 1
+(La odisea - Homero)
+```
+
+---
+
+#### Resumen
+
+- Los Dunder Methods son métodos especiales en Python que permiten personalizar el comportamiento de las instancias de una clase.
+- Estos métodos también se conocen como métodos mágicos o métodos especiales y se definen con dos guiones bajos al principio y al final del nombre.
+- Permiten la personalización, legibilidad, integración con funciones y operadores integrados de Python, y la reutilización de código.
+
+---
+
+- Su uso es común en librerías y frameworks como Pandas, Django, SQLAlchemy y Requests para definir el comportamiento de sus objetos.
+- Se pueden clasificar en métodos de inicialización y destrucción, métodos de representación y conversión, métodos de comparación, operadores aritméticos, y métodos para colecciones.
+
+---
+
+- Los métodos de inicialización y destrucción:
+- `__init__` se utiliza para inicializar los atributos de una instancia al crear un objeto de la clase.
+- `__del__` se utiliza para realizar acciones antes de destruir una instancia, como liberar recursos.
+
+---
+
+- Los métodos de representación y conversión:
+- `__repr__` y `__str__` permiten definir la representación oficial y en cadena de los objetos.
+- Los métodos de conversión como `__int__`, `__float__` y `__bool__` permiten convertir objetos personalizados a tipos nativos de Python.
+
+---
+
+- Los métodos de comparación vimos:
+- `__eq__`, `__ne__`, `__lt__`, `__le__`, `__gt__` y `__ge__` que permiten comparar instancias de una clase entre sí.
+
+---
+
+- Los métodos de operadores aritméticos:
+- `__add__`, `__sub__`, `__mul__`, `__truediv__`, `__floordiv__`, `__mod__` y `__pow__` permiten definir operaciones matemáticas entre objetos.
+
+---
+- Los métodos para colecciones:
+- `__len__`, `__getitem__`, `__setitem__`, `__delitem__` y `__iter__` permiten trabajar con objetos personalizados como si fueran colecciones.
+
+---
+
+- Comprender y utilizar los Dunder Methods es esencial para escribir código Python elegante, eficiente y fácil de mantener
+- Permiten que las clases personalizadas se integren de manera fluida con el lenguaje y sus características, mejorando la legibilidad y funcionalidad del código.
+
+---
+
+#### Retos
+
+Crear una carpeta con el nombre "retos_sesion_08" dentro del proyecto en la raíz, en la cual por cada ejercicio debes crear los siguientes archivos:
+
+```bash
+# Estructura de carpetas
+psg-oop-2025/
+    retos_sesion_07/
+        ejercicio_01.md
+        ejercicio_01.py
+        ejercicio_02.md
+        ejercicio_02.py
+```
+
+---
+
+1. Un profesor de matemáticas va enseñar números romanos. Necesita que los alumnos puedan definir un número romano y convertirlo a entero.
+
+- Deben poder sumar, restar, multiplicar y dividir números romanos entre sí. 
+- Además, deben poder comparar números romanos entre sí.
+- Los números romanos deben ser representados como una cadena de caracteres.
+
+```python
+Ejemplo:
+uno = Romano("I")
+dos = Romano("II")
+print(uno + dos)  # III
+```
+
+---
+
+2. Un supermercado quiere llevar un control de sus productos. Necesitan guardar todos los productos que tienen disponibles en un inventario de cada producto tienen el siguiente dato:
+
+```markdown
+nombre, precio, cantidad
+```
+
+- Cuando un cliente añada un producto al carrito, se debe restar la cantidad del inventario
+- Si se elimina un producto del carrito, se debe sumar la cantidad al inventario
+- Si se finaliza la compra se vaciará el carrito sin afectar al inventario
 
 ---
 <!-- .slide: data-background-image="../../content/psg-bg-dark.png" data-background-size="100%"-->
@@ -2661,23 +2925,17 @@ Repositorio de la Sesión
 <!--.slide: data-visibility="hidden"-->
 ## Bibliografía y Referencias
 
+- [Every Dunder Method](https://www.pythonmorsels.com/every-dunder-method/)
+- [Python Operator Module](https://docs.python.org/3/library/operator.html)
+- [Python Data Model](https://docs.python.org/3/reference/datamodel.html#object.__len__)
+- [Dunder Methods](https://www.pythonmorsels.com/terms/#dunder)
+- [Special Method Names](https://docs.python.org/3/reference/datamodel.html#special-method-names)
+- [Dunder Magic Methods](https://diveintopython.org/es/learn/classes/dunder-magic-methods)
+- [Dunder Methods in Python 3](https://web.archive.org/web/20110131211638/http://diveintopython3.org/special-method-names.html)
 - [Object Oriented Analysis](https://www.gyata.ai/es/object-oriented-programming/object-oriented-analysis)
-- [DDOO Unidad 1](https://dmd.unadmexico.mx/contenidos/DCEIT/BLOQUE1/DS/02/DDOO/U1/descargables/DDOO_Unidad_1.pdf)
-- [Programación procedural VS orientada a objetos](https://programacionpro.com/programacion-procedural-vs-orientada-a-objetos-diferencias-y-similitudes/)
 - [Python OOP](https://www.learnpython.org/en/Classes_and_Objects)
-- [Atributos de clase](https://oregoom.com/python/atributos-clase/)
 - [Diagrama de clases](https://diagramasuml.com/diagrama-de-clases/)
 - [Guía PEP 8](https://peps.python.org/pep-0008/#class-names)
 - [Mermaid Charts](https://www.mermaidchart.com/play)
 - [Draw.io](https://app.diagrams.net/)
 - [Python 3 Object-oriented Programming, Second Edition, Dusty PhillipsDusty Phillips](https://github.com/PacktPublishing/Python-3-Object-Oriented-Programming-Second-Edition)
-- [Objetos en programación](https://ebac.mx/blog/objeto-en-programacion)
-- [Enfoque orientado a objetos](https://1library.co/article/enfoque-orientado-a-objetos-base-te%C3%B3rica.qvld461y)
-- [OOAD](https://www.tutorialspoint.com/object_oriented_analysis_design/ooad_object_oriented_analysis.htm)
-https://www.pythonmorsels.com/every-dunder-method/
-https://docs.python.org/3/library/operator.html
-https://docs.python.org/3/reference/datamodel.html#object.__len__
-https://www.pythonmorsels.com/terms/#dunder
-https://docs.python.org/3/reference/datamodel.html#special-method-names
-https://diveintopython.org/es/learn/classes/dunder-magic-methods
-https://web.archive.org/web/20110131211638/http://diveintopython3.org/special-method-names.html
