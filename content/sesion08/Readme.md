@@ -251,18 +251,18 @@ Después de eliminar la referencia, la instancia se destruye y ya no se puede ac
 ---
 
 ```python
-edad = 10
-print(edad) 
-del edad  # Elimina la referencia a 'edad'
-print(edad) # Esto generará un error porque 'edad' ya no existe
+try:
+  edad = 10
+  print(edad) 
+  del edad  # Elimina la referencia a 'edad'
+  print(edad) # Esto generará un error porque 'edad' ya no existe
+except Exception as e:
+  print(e)
 ```
 
 ```text
 10
-ERROR!
-Traceback (most recent call last):
-  File "<main.py>", line 4, in <module>
-NameError: name 'edad' is not defined
+name 'edad' is not defined
 ```
 
 ---
