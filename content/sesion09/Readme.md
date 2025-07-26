@@ -175,6 +175,32 @@ classDiagram
 
 ---
 
+#### Estructura del Singleton en Python
+
+```python
+class Singleton:
+    _instance = None
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+        return cls._instance
+```
+
+```markdown
+- `Singleton`: es la clase que implementa el patrón
+- `_instance`: es un atributo de clase que guarda
+  la instancia única
+- `__new__`: es un método especial que se llama al 
+  crear una nueva instancia de la clase
+- `if cls._instance is None`: verifica si la instancia ya existe
+  si no existe, crea una nueva instancia
+- `super().__new__(cls)`: llama al constructor de la 
+  clase base para crear una nueva instancia
+- `return cls._instance`: devuelve la instancia única de la clase
+```
+
+---
+
 #### Ejemplo 01
 
 ```text
@@ -194,10 +220,13 @@ En el archivo `adivina.md` se realizará el análisis y en el archivo `adivina.p
 
 ```markdown
 Requisitos:
-- El juego debe seleccionar un número secreto al azar entre 1 y 100
+- El juego debe seleccionar un número secreto 
+  al azar entre 1 y 100
 - El jugador debe adivinar el número secreto
-- El juego debe informar si el número es mayor o menor que el número secreto
-- El juego registra un Score con el jugador y el número de intentos
+- El juego debe informar si el número es mayor o
+  menor que el número secreto
+- El juego registra un Score con el jugador y el 
+  número de intentos
 - El juego termina cuando el jugador escribe "salir"
 
 Objetos:
@@ -210,7 +239,9 @@ Características:
 
 Acciones:
 - Juego: iniciar(), adivinar(numero), mostrar_score()
+- Juego: estado(), finalizar()
 - Jugador: jugar(nombre), adivinar(numero)
+- Jugador: finalizar(), jugando()
 ```
 
 ---
@@ -219,20 +250,27 @@ Acciones:
 ````
 ```mermaid
 classDiagram
-    class Jugador {
-        - nombre: str
-        + jugar(nombre)
-        + adivinar(numero)
-    }
     class Juego {
         - instance: Juego
+        - iniciado: bool
+        - intentos: int
         - numero: int
         - score: list[Jugador]
         - Juego()
         + getInstance() Juego
         + iniciar()
         + adivinar(numero)
+        + finalizar()
+        + estado()
         + mostrar_score()
+    }
+    class Jugador {
+        - nombre: str
+        + jugar(nombre)
+        + adivinar(numero)
+        + finalizar()
+        + jugando()
+        + __str__()
     }
     Jugador --o Juego
 ```
@@ -244,41 +282,289 @@ classDiagram
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
-    class Jugador {
-        - nombre: str
-        + jugar(nombre)
-        + adivinar(numero)
-    }
     class Juego {
         - instance: Juego
+        - iniciado: bool
+        - intentos: int
         - numero: int
         - score: list[Jugador]
         - Juego()
         + getInstance() Juego
         + iniciar()
-        + adivinar(numero: int)
+        + adivinar(numero)
+        + finalizar()
+        + estado()
         + mostrar_score()
+    }
+    class Jugador {
+        - nombre: str
+        + jugar(nombre)
+        + adivinar(numero)
+        + finalizar()
+        + jugando()
+        + __str__()
     }
     Jugador --o Juego
 ```
 
 ---
-#### Implementación en Python
+#### Implementación del Juego
+
+Primero tenemos el juego, sera un Singleton, 
+ya que solo debe haber una instancia del juego en curso
+
+```python
+class Juego:
+    _instancia = None
+
+    def __new__(cls):
+        if cls._instancia is None:
+            cls._instancia = super().__new__(cls)
+        return cls._instancia
+```
+
+---
+
+El juego tiene un estado, si está iniciado o no, el numero de intentos y el score de los jugadores
+
+Estos atributos deben ser accesibles desde cualquier parte del juego
+
+```python [3-5]
+class Juego:
+    _instancia = None
+    iniciado = False
+    intentos = 0
+    score = []
+
+    def __new__(cls):
+        if cls._instancia is None:
+            cls._instancia = super().__new__(cls)
+        return cls._instancia
+```
+
+---
+
+Para iniciar el juego se debe generar un número secreto al azar entre 1 y 100
+
+¿Cómo lo hacemos?
+
+Para esto usamos el módulo `random` de Python, que nos permite generar números aleatorios
+
+¿Como lo utilizamos?
+
+---
+
+Para añadir un módulo a nuestro código, usamos la palabra clave `import`
+
+Python ya tiene muchos módulos preinstalados, como `random`, que nos permite generar números aleatorios
+
+Lo importamos al inicio del archivo
+
+```python [1]
+import random
+...
+class Juego:
+```
+
+---
+El método `randint` del módulo `random` genera un número entero aleatorio entre dos valores
+
+```python
+import random
+print(random.randint(1, 100))  
+```
+```text
+3
+```
+
+---
+Ahora si podemos iniciar el juego, 
+1. Si el juego ya está iniciado, no se puede reiniciar
+2. Generamos un número secreto al azar
+3. Los intentos se reinician e inicia el juego
+
+```python [3-10]
+class Juego:
+    ...
+    def iniciar(self):
+        if self.iniciado:
+            print("💢 El juego ya está en curso.")
+            return
+        print("💬 Adivina el número entre 1 y 100.")
+        self.numero = random.randint(1, 100)
+        self.intentos = 0
+        self.iniciado = True
+```
+
+---
+El juego puede mostrar su estado, si está iniciado o no
+El juego puede finalizarse, para poder reiniciarse
+
+```python [3-7]
+class Juego:
+    ...
+    def finalizar(self):
+        print("❗ Juego finalizado.")
+        self.iniciado = False
+    def estado(self):
+        return self.iniciado
+```
+
+---
+El juego puede verificar si el número adivinado es correcto, y dar pistas
+Siempre que el juego esté iniciado
+
+```python [3-17]
+class Juego:
+    ...
+    def adivinar(self, numero, jugador):
+        if not self.iniciado:
+            print("💢 El juego no ha iniciado.")
+            return False
+        self.intentos += 1
+        if numero < self.numero:
+            print("💡 El número es mayor.")
+        elif numero > self.numero:
+            print("💡 El número es menor.")
+        else:
+            print("🎉Adivinaste el número 🎉")
+            self.score.append((jugador, self.intentos))
+            self.finalizar()
+            return True
+        return False
+```
+
+---
+Por último, el juego puede mostrar el score de los jugadores
+
+```python [3-11]
+class Juego:
+    ...
+    def mostrar_score(self):
+        print("🏁 Score")
+        for jugador, intentos in self.score:
+            print(f"{jugador}: {intentos} intentos")
+```
+
+---
+La lógica del juego está completa, el juego tiene sus reglas y pueden jugar
+
+Ahora necesitamos un jugador que pueda interactuar con el juego
+
+---
+#### Implementación del Jugador
+
+El jugador tiene un nombre y una forma amigable de mostrarse
 
 ```python
 class Jugador:
     def __init__(self, nombre):
         self.nombre = nombre
-
-    def jugar(self):
-        print(f"Jugador {self.nombre} ha comenzado a jugar.")
-    
     def __str__(self):
         return f"🕹️ {self.nombre}"
+```
 
+---
+El juego por si solo no hace nada, el jugador es quien interactúa con el juego
+
+Y el patron Singleton nos permite que el jugador pueda acceder al juego
+
+---
+Donde el jugador puede iniciar el juego, adivinar un número, finalizar el juego y verificar si está jugando
+
+Sin acoplarse al juego, ya que el jugador no es parte del juego, solo interactúa con él
+
+```python [3-16]
+class Jugador:
+    ...
+    def jugar(self):
+        Juego().iniciar()
+    
+    def adivinar(self, numero):
+        return Juego().adivinar(numero, self)
+    
+    def finalizar(self):
+        Juego().finalizar()
+
+    def jugando(self):
+        return Juego().estado()
+```
+
+---
+#### Interacción del Jugador
+
+Luego de definir al Juego y al Jugador, podemos crear el ciclo de interacción
+Donde las personas pueden jugar de forma continua
+
+A travez de un bucle `while` infinito, que se detiene cuando el jugador escribe "salir"
+
+```python [5-8]
+class Juego:
+    ...
+class Jugador:
+    ...
+while True:
+    nombre = input("💬 Tu nombre (o 'salir' para terminar): ")
+    if nombre.lower() == "salir":
+        break
+```
+
+---
+Después de obtener el nombre del jugador, creamos al jugador y empezamos el juego
+
+```python [7-8]
+class Juego:
+    ...
+class Jugador:
+    ...
+while True:
+    ...
+    jugador = Jugador(nombre)
+    jugador.jugar()
+```
+
+---
+
+Para iniciar el juego, entra en otro bucle `while` que permite 
+al jugador adivinar números hasta que el juego finalice o el jugador escriba "salir"
+
+Es importante validar la entrada del jugador, para evitar errores
+
+```python [3-12]
+while True:
+    ...
+    while jugador.jugando():
+        numero = input("💬 Adivina el número o 'salir': ")
+        if numero.lower() == "salir":
+            jugador.finalizar()
+        try:
+            jugador.adivinar(int(numero))
+        except ValueError:
+            print("💢 Ingresa un número válido")
+```
+
+---
+
+Finalmente, mostramos el score de los jugadores y agradecemos al jugador por jugar
+
+```python [3-4]
+while True:
+    ...
+    Juego().mostrar_score()
+print("👋 Gracias por jugar. ¡Hasta luego!")
+```
+
+---
+
+#### Código Completo
+
+```python
+import random
 class Juego:
     _instancia = None
-    _score = []
+    iniciado = False
+    intentos = 0
+    score = []
 
     def __new__(cls):
         if cls._instancia is None:
@@ -286,51 +572,77 @@ class Juego:
         return cls._instancia
 
     def iniciar(self):
-        print("Juego iniciado. Adivina el número entre 1 y 100.")
-        self._semilla = {"Hola", "Python", "La Paz", "2025"}
-        self._semilla.add(id(self._semilla))
-        self._semilla |= set(self._score)
-        semilla = (abs(hash(tuple(self._semilla))) * 71 + 79) % 73
-        self.numero = (semilla % 100) + 1
+        if self.iniciado:
+            print("💢 El juego ya está en curso.")
+            return
+        print("💬 Adivina el número entre 1 y 100.")
+        self.numero = random.randint(1, 100)
         self.intentos = 0
+        self.iniciado = True
+    
+    def finalizar(self):
+        print("❗ Juego finalizado.")
+        self.iniciado = False
+
+    def estado(self):
+        return self.iniciado
 
     def adivinar(self, numero, jugador):
+        if not self.iniciado:
+            print("💢 El juego no ha iniciado.")
+            return False
         self.intentos += 1
         if numero < self.numero:
-            print("El número es mayor.")
+            print("💡 El número es mayor.")
         elif numero > self.numero:
-            print("El número es menor.")
+            print("💡 El número es menor.")
         else:
-            print("¡Felicidades! Has adivinado el número.")
-            Juego._score.append((jugador, self.intentos))
+            print("🎉Adivinaste el número 🎉")
+            self.score.append((jugador, self.intentos))
+            self.finalizar()
             return True
         return False
 
     def mostrar_score(self):
-        print("Score:")
-        for jugador, intentos in Juego._score:
+        print("🏁 Score")
+        for jugador, intentos in self.score:
             print(f"{jugador}: {intentos} intentos")
 
+class Jugador:
+    def __init__(self, nombre):
+        self.nombre = nombre
+
+    def __str__(self):
+        return f"🕹️ {self.nombre}"
+
+    def jugar(self):
+        Juego().iniciar()
+
+    def adivinar(self, numero):
+        return Juego().adivinar(numero, self)    
+    
+    def finalizar(self):
+        Juego().finalizar()
+
+    def jugando(self):
+        return Juego().estado()
+
 while True:
-    nombre = input("Ingresa tu nombre (o 'salir' para terminar): ")
+    nombre = input("💬 Tu nombre (o 'salir' para terminar): ")
     if nombre.lower() == "salir":
         break
     jugador = Jugador(nombre)
-    juego = Juego()
-    juego.iniciar()
-    while True:
-        numero = input("Adivina el número: ")
+    jugador.jugar()
+    while jugador.jugando():
+        numero = input("💬 Adivina el número o 'salir': ")
         if numero.lower() == "salir":
-            break
+            jugador.finalizar()
         try:
-            numero = int(numero)
-            finalizo = juego.adivinar(numero, jugador)
-            if finalizo:
-                break
+            jugador.adivinar(int(numero))
         except ValueError:
-            print("Por favor, ingresa un número válido.")
-    juego.mostrar_score()
-print("Gracias por jugar. ¡Hasta luego!")
+            print("💢 Ingresa un número válido")
+    Juego().mostrar_score()
+print("👋 Gracias por jugar. ¡Hasta luego!")
 ```
 
 ---
@@ -341,32 +653,44 @@ print("Gracias por jugar. ¡Hasta luego!")
 python adivina.py
 ```
 ```text
-Ingresa tu nombre (o 'salir' para terminar): Pedro
-Juego iniciado. Adivina el número entre 1 y 100.
-Adivina el número: 50
-¡Felicidades! Has adivinado el número.
-Score:
-🕹️ Pedro: 1 intentos
-Ingresa tu nombre (o 'salir' para terminar): juan
-Juego iniciado. Adivina el número entre 1 y 100.
-Adivina el número: 50
-El número es menor.
-Adivina el número: 25
-El número es mayor.
-Adivina el número: 37
-El número es menor.
-Adivina el número: 32
-El número es mayor.
-Adivina el número: 35
-El número es mayor.
-Adivina el número: 36
-¡Felicidades! Has adivinado el número.
-Score:
-🕹️ Pedro: 1 intentos
-🕹️ juan: 6 intentos
-Ingresa tu nombre (o 'salir' para terminar): salir
-Gracias por jugar. ¡Hasta luego!
+💬 Tu nombre (o 'salir' para terminar): jhon
+💬 Adivina el número entre 1 y 100.
+💬 Adivina el número o 'salir': 56
+🎉Adivinaste el número 🎉
+❗ Juego finalizado.
+🏁 Score
+🕹️ jhon: 1 intentos
+💬 Tu nombre (o 'salir' para terminar): jane
+💬 Adivina el número entre 1 y 100.
+💬 Adivina el número o 'salir': 80
+💡 El número es mayor.
+💬 Adivina el número o 'salir': 86
+🎉Adivinaste el número 🎉
+❗ Juego finalizado.
+🏁 Score
+🕹️ jhon: 1 intentos
+🕹️ jane: 2 intentos
+💬 Tu nombre (o 'salir' para terminar): salir
+👋 Gracias por jugar. ¡Hasta luego!
 ```
+
+---
+
+En el ejemplo anterior los Singletons son útiles para mantener un único
+estado del juego y acceder a él desde cualquier parte del código
+
+---
+
+En los juegos multijugador, el patrón Singleton puede ser útil para gestionar
+el estado del juego y asegurar que todos los jugadores interactúan con la misma
+partida 
+
+---
+#### Ejercicio 02
+
+
+
+---
 
 
 #### Resumen
@@ -412,3 +736,4 @@ https://academia-lab.com/enciclopedia/patron-creacional/
 https://www.codigoycafe.net/patrones-de-diseno-de-software/patrones-de-diseno-creacionales-construyendo-objetos-de-manera-inteligente/560/
 https://www.codigoycafe.net/programacion/cpp/patron-de-diseno-creacional-singleton/574/
 https://academia-lab.com/enciclopedia/generador-lineal-congruente/
+https://www.geeksforgeeks.org/python/python-hash-method/
