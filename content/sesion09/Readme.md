@@ -688,20 +688,505 @@ partida
 ---
 #### Ejercicio 02
 
+```markdown
+Una empresa de cine desea llevar el cine a casa de sus clientes,
+para ello ha creado un sistema  donde los clientes pueden unirse 
+a una sala de cine virtual y ver películas juntos.
+Todos los clientes ven la misma película
+Y si un cliente se une a la sala, se une a la misma sala de
+cine virtual y continua viendo la película desde donde está
+Los clientes tienen un nombre y la película tiene un título
+y un estado de reproducción (en reproducción o detenida)
+Puedes ver cuantas personas hay en la sala y el título
+Al iniciar se debe ingresar el título de la película e iniciará la
+reproducción, después irán ingresando los clientes dando su nombre
+Cada cliente puede saber el estado y título de la película
+Tiene que tener un menú donde: 
 
+1. Iniciar película
+2. Unirse a sala
+3. Ver estado
+4. Ver clientes
+5. Finalizar película
+6. Salir
+```
+
+Realizar el analisis en `cine.md`, 2 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
 ---
 
+Análisis
+
+```markdown
+# Análisis
+Requisitos
+- Debe permitir a los clientes unirse a una sala de cine virtual
+- Debe permitir a los clientes ver una película juntos
+- Debe permitir a los clientes ver el estado de la película
+- Debe permitir a los clientes ver cuantas personas hay en la sala
+- Debe permitir a los clientes ver el título de la película
+Objetos
+- Sala: Representa la sala de cine virtual
+- Cliente: Representa al cliente que se une a la sala
+Características
+- Sala: titulo, reproducciendo, clientes
+- Cliente: nombre
+Acciones
+- Sala: iniciar(titulo), unirse(cliente), estado(), ver_clientes()
+- Cliente: unirse(sala), estado()
+```
+
+---
+
+Ahora que tenemos los requisitos, características y acciones podemos definir el diseño
+
+2 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+Añadir al archivo `cine.md` el diseño
+
+---
+
+#### Diagrama de Clases
+
+````
+```mermaid
+%%{init: {"theme": "dark", "look": "handDrawn"  }}%%
+classDiagram
+    class Sala {
+        - instance: Sala
+        - titulo: str
+        - reproducciendo: bool
+        - clientes: list[Cliente]
+        - Sala()
+        + getInstance() Sala
+        + iniciar(titulo)
+        + unirse(cliente)
+        + estado()
+        + ver_clientes()
+        + finalizar()
+    }
+    class Cliente {
+        - nombre: str
+        + unirse(sala)
+        + estado()
+        + __str__()
+    }
+    Cliente --o Sala
+```
+````
+
+---
+
+```mermaid
+%%{init: {"theme": "dark", "look": "handDrawn"  }}%%
+classDiagram
+    class Sala {
+        - instance: Sala
+        - titulo: str
+        - reproducciendo: bool
+        - clientes: list[Cliente]
+        - Sala()
+        + getInstance() Sala
+        + iniciar(titulo)
+        + unirse(cliente)
+        + estado()
+        + ver_clientes()
+        + finalizar()
+    }
+    class Cliente {
+        - nombre: str
+        + unirse(sala)
+        + estado()
+        + __str__()
+    }
+    Cliente --o Sala
+```
+
+---
+
+#### Implementación de la Sala
+
+Ahora  que tenemos el diseño, podemos implementar primero la sala
+ya que tendrá el estado de la película y los clientes que se unen a la sala
+
+3 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+Añadir al archivo `cine.py` la implementación de la sala
+
+Primero el Singleton y sus atributos ya que solo debe haber una sala de cine virtual
+
+---
+
+```python
+class Sala:
+    _instancia = None
+    titulo = ""
+    reproducciendo = False
+    clientes = []
+
+    def __new__(cls):
+        if cls._instancia is None:
+            cls._instancia = super().__new__(cls)
+        return cls._instancia
+```
+
+---
+Luego los métodos para iniciar la película, unirse a la sala, ver el estado, título y clientes
+
+En el archivo `cine.py` añadir los siguientes métodos
+
+4 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
+```python
+class Sala:
+    ...
+    def iniciar(self, titulo):
+        if self.estado
+            print("💢 La película ya está en reproducción.")
+            return
+        self.titulo = titulo
+        self.reproducciendo = True
+        print(f"🎬 Iniciando la película: {self.titulo}")
+
+    def unirse(self, cliente):
+        self.clientes.append(cliente)
+        print(f"{cliente} se ha unido a la sala.")
+
+    def estado(self):
+        estado = "En reproducción" if self.reproducciendo else "Detenida"
+        print(f"🎥 Película: {self.titulo} | Estado: {estado}")
+
+    def ver_clientes(self):
+        print(f"👥 Clientes en la sala: {len(self.clientes)}")
+        for cliente in self.clientes:
+            print(f"- {cliente}")
+    
+    def finalizar(self):
+        print("❗ Película finalizada.")
+        self.reproducciendo = False
+```
+
+---
+
+#### Implementación del Cliente
+
+Luego de implementar la sala, podemos implementar el cliente
+ya que el cliente interactuará con la sala
+
+El cliente tiene un nombre y una forma amigable de mostrarse
+
+3 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
+```python
+class Cliente:
+    def __init__(self, nombre):
+        self.nombre = nombre
+    def __str__(self):
+        return f"👤 {self.nombre}"
+```
+
+---
+El cliente puede unirse a la sala y ver el estado de la película
+
+Implementar los siguientes métodos en la clase `Cliente`, uniéndose a la sala y viendo el título y estado de la película
+
+2 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+
+---
+```python
+class Cliente:
+    ...
+    def unirse(self):
+        Sala().unirse(self)
+
+    def estado(self):
+        print (f"{self} está viendo:")
+        Sala().estado()
+```
+
+---
+#### Interacción del Cliente
+
+Luego de definir la sala y el cliente, podemos crear el ciclo de interacción
+Donde los clientes pueden unirse a la sala, iniciar la película y ver el estado
+
+3 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
+```python
+while True:
+    print("="*30)
+    print("🎬 Menú de Cine Virtual")
+    print("1. Iniciar película")
+    print("2. Unirse a sala")
+    print("3. Ver estado")
+    print("4. Ver clientes")
+    print("5. Finalizar película")
+    print("6. Salir")
+    print("="*30)
+
+    opcion = input("Selecciona una opción: ")
+
+    if opcion == "1":
+        titulo = input("💬 Título de la película: ")
+        Sala().iniciar(titulo)
+    elif opcion == "2":
+        nombre = input("💬 Tu nombre: ")
+        cliente = Cliente(nombre)
+        cliente.unirse()
+    elif opcion == "3":
+        Sala().estado()
+    elif opcion == "4":
+        Sala().ver_clientes()
+    elif opcion == "5":
+        Sala().finalizar()
+    elif opcion == "6":
+        break
+    else:
+        print("💢 Opción no válida.")
+```
+
+---
+
+#### Código Completo
+
+```python
+class Sala:
+    _instancia = None
+    titulo = ""
+    reproducciendo = False
+    clientes = []
+
+    def __new__(cls):
+        if cls._instancia is None:
+            cls._instancia = super().__new__(cls)
+        return cls._instancia
+
+    def iniciar(self, titulo):
+        if self.reproducciendo:
+            print("💢 La película ya está en reproducción.")
+            return
+        self.titulo = titulo
+        self.reproducciendo = True
+        print(f"🎬 Iniciando la película: {self.titulo}")
+
+    def unirse(self, cliente):
+        self.clientes.append(cliente)
+        print(f"{cliente} se ha unido a la sala.")
+
+    def estado(self):
+        estado = "En reproducción" if self.reproducciendo else "Detenida"
+        print(f"🎥 Película: {self.titulo} | Estado: {estado}")
+
+    def ver_clientes(self):
+        print(f"👥 Clientes en la sala: {len(self.clientes)}")
+        for cliente in self.clientes:
+            print(f"- {cliente}")
+
+    def finalizar(self):
+        print("❗ Película finalizada.")
+        self.reproducciendo = False
+
+class Cliente:
+    def __init__(self, nombre):
+        self.nombre = nombre
+    def __str__(self):
+        return f"👤 {self.nombre}"
+    def unirse(self):
+        Sala().unirse(self)
+
+    def estado(self):
+        print (f"{self} está viendo:")
+        Sala().estado()
+
+while True:
+    print("="*30)
+    print("🎬 Menú de Cine Virtual")
+    print("1. Iniciar película")
+    print("2. Unirse a sala")
+    print("3. Ver estado")
+    print("4. Ver clientes")
+    print("5. Finalizar película")
+    print("6. Salir")
+    print("="*30)
+
+    opcion = input("Selecciona una opción: ")
+
+    if opcion == "1":
+        titulo = input("💬 Título de la película: ")
+        Sala().iniciar(titulo)
+    elif opcion == "2":
+        nombre = input("💬 Tu nombre: ")
+        cliente = Cliente(nombre)
+        cliente.unirse()
+    elif opcion == "3":
+        Sala().estado()
+    elif opcion == "4":
+        Sala().ver_clientes()
+    elif opcion == "5":
+        Sala().finalizar()
+    elif opcion == "6":
+        break
+    else:
+        print("💢 Opción no válida.")
+```
+
+---
+#### Ejecución
+
+```bash
+python cine.py
+```
+```text
+==============================
+🎬 Menú de Cine Virtual
+1. Iniciar película
+2. Unirse a sala
+3. Ver estado
+4. Ver clientes
+5. Finalizar película
+6. Salir
+==============================
+Selecciona una opción: 1
+💬 Título de la película: Juanito y los clonosaurios
+🎬 Iniciando la película: Juanito y los clonosaurios
+==============================
+🎬 Menú de Cine Virtual
+1. Iniciar película
+2. Unirse a sala
+3. Ver estado
+4. Ver clientes
+5. Finalizar película
+6. Salir
+==============================
+Selecciona una opción: 2
+💬 Tu nombre: Jhon
+👤 Jhon se ha unido a la sala.
+==============================
+🎬 Menú de Cine Virtual
+1. Iniciar película
+2. Unirse a sala
+3. Ver estado
+4. Ver clientes
+5. Finalizar película
+6. Salir
+==============================
+Selecciona una opción: 3
+🎥 Película: Juanito y los clonosaurios | Estado: En reproducción
+==============================
+🎬 Menú de Cine Virtual
+1. Iniciar película
+2. Unirse a sala
+3. Ver estado
+4. Ver clientes
+5. Finalizar película
+6. Salir
+==============================
+Selecciona una opción: 4
+👥 Clientes en la sala: 1
+- 👤 Jhon
+==============================
+🎬 Menú de Cine Virtual
+1. Iniciar película
+2. Unirse a sala
+3. Ver estado
+4. Ver clientes
+5. Finalizar película
+6. Salir
+==============================
+Selecciona una opción: 5
+❗ Película finalizada.
+```
+
+---
+    
 
 #### Resumen
+
+- Un patrón de diseño es una solución típica y probada para resolver problemas recurrentes en el desarrollo de software.
+- Los patrones de diseño no son fragmentos de código, librerías ni frameworks, sino conceptos reutilizables para estructurar soluciones.
+- El uso de patrones de diseño facilita la reutilización, mantenibilidad, colaboración y escalabilidad del código.
+
+---
+
+- Los patrones de diseño se clasifican en creacionales, estructurales y de comportamiento, según su propósito.
+- Los patrones creacionales se enfocan en la creación eficiente y flexible de objetos y clases.
+- El patrón Singleton es un patrón creacional que garantiza que una clase tenga una única instancia y proporciona un punto de acceso global a ella.
+
+---
+
+- El Singleton es útil para controlar el acceso a recursos compartidos, asegurar la consistencia y evitar la creación innecesaria de instancias.
+- El Singleton se utiliza en casos como conexiones a bases de datos, configuración global, acceso a recursos compartidos, gestión de claves y autenticación.
+- Las ventajas del Singleton incluyen simplicidad, control centralizado y eficiencia en el uso de memoria.
+
+---
+
+- Las desventajas del Singleton incluyen dificultad en pruebas, alto acoplamiento y posibles problemas de persistencia de estado.
+- El Singleton en Python se implementa usando un atributo de clase para almacenar la instancia única y el método especial __new__ para controlar su creación.
+
+---
+
+- El análisis de requisitos, características y acciones es fundamental para diseñar correctamente las clases y sus relaciones en la aplicación de patrones de diseño.
+- Los diagramas de clases ayudan a visualizar la estructura y relaciones entre las clases al aplicar patrones de diseño como Singleton.
+
+
 
 ---
 
 #### Retos
 
+Crear una carpeta con el nombre "retos_sesion_09" dentro del proyecto en la raíz, en la cual por cada ejercicio debes crear los siguientes archivos:
 
-    
+```bash
+# Estructura de carpetas
+psg-oop-2025/
+    retos_sesion_07/
+        ejercicio_01.md
+        ejercicio_01.py
+```
+
 ---
+
+1. Crear el juego "Piedra, Papel o Tijera" utilizando el patrón Singleton.
+   - El juego debe permitir a un jugador jugar contra la computadora 
+     (la computadora elige al azar entre piedra, papel o tijera).
+   - El juego debe llevar un registro de las partidas ganadas por el jugador y la computadora.
+   - El juego debe permitir reiniciar el juego y mostrar el score.
+   - Debe tener un menú para iniciar el juego, jugar una partida, reiniciar el juego y salir.
+   - El juego debe ser ejecutable desde la terminal.
+ 
+---
+
+2. Crear un sistema de gestión de inventario utilizando el patrón Singleton.
+   - El sistema debe permitir agregar, eliminar y listar productos en el inventario.
+   - Cada producto debe tener un nombre, cantidad y precio.
+   - El sistema debe llevar un registro del total de productos en el inventario.
+   - Debe tener un menú para agregar productos, eliminar productos, listar productos y salir.
+   - El sistema debe ser ejecutable desde la terminal.
+
+---
+
+
 <!-- .slide: data-background-image="../../content/psg-bg-dark.png" data-background-size="100%"-->
 
 <br>
@@ -718,6 +1203,11 @@ Repositorio de la Sesión
 <!--.slide: data-visibility="hidden"-->
 ## Bibliografía y Referencias
 
+- [What is Pattern](https://refactoring.guru/es/design-patterns/what-is-pattern)
+- [Patron creacional](https://academia-lab.com/enciclopedia/patron-creacional/)
+- [Patrones de diseño creacionales](https://www.codigoycafe.net/patrones-de-diseno-de-software/patrones-de-diseno-creacionales-construyendo-objetos-de-manera-inteligente/560/)
+- [Patrón de diseño Singleton](https://www.codigoycafe.net/programacion/cpp/patron-de-diseno-creacional-singleton/)
+- [Python hash method](https://www.geeksforgeeks.org/python/python-hash-method/)
 - [Object Oriented Analysis](https://www.gyata.ai/es/object-oriented-programming/object-oriented-analysis)
 - [DDOO Unidad 1](https://dmd.unadmexico.mx/contenidos/DCEIT/BLOQUE1/DS/02/DDOO/U1/descargables/DDOO_Unidad_1.pdf)
 - [Programación procedural VS orientada a objetos](https://programacionpro.com/programacion-procedural-vs-orientada-a-objetos-diferencias-y-similitudes/)
@@ -731,9 +1221,3 @@ Repositorio de la Sesión
 - [Objetos en programación](https://ebac.mx/blog/objeto-en-programacion)
 - [Enfoque orientado a objetos](https://1library.co/article/enfoque-orientado-a-objetos-base-te%C3%B3rica.qvld461y)
 - [OOAD](https://www.tutorialspoint.com/object_oriented_analysis_design/ooad_object_oriented_analysis.htm)
-https://refactoring.guru/es/design-patterns/what-is-pattern
-https://academia-lab.com/enciclopedia/patron-creacional/
-https://www.codigoycafe.net/patrones-de-diseno-de-software/patrones-de-diseno-creacionales-construyendo-objetos-de-manera-inteligente/560/
-https://www.codigoycafe.net/programacion/cpp/patron-de-diseno-creacional-singleton/574/
-https://academia-lab.com/enciclopedia/generador-lineal-congruente/
-https://www.geeksforgeeks.org/python/python-hash-method/
