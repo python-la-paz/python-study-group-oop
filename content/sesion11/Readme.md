@@ -85,7 +85,7 @@ En Python se recomienda seguir la convención de nombres PEP 8:
 
 ---
 
-#### Ejemplo de organización
+#### Ejemplo 01 
 
 ```markdown
 Juega "Piedra, Papel o Tijera" con un jugador y una computadora.
@@ -229,7 +229,7 @@ class Juego:
         resultado = self.determinar_ganador(eleccion_jugador, eleccion_computadora)
         print(resultado)
 
-print("🎮 Bienvenido al juego de Piedra, Papel o Tijera 🎮")
+print("🎮 Bienvenido al juego de Piedra, Papel o Tijera")
 nombre = input("Introduce tu nombre: ")
 jugador = Jugador(nombre)
 computadora = Computadora()
@@ -467,7 +467,7 @@ from computadora import Computadora
 from juego import Juego
 
 
-print("🎮 Bienvenido al juego de Piedra, Papel o Tijera 🎮")
+print("🎮 Bienvenido al juego de Piedra, Papel o Tijera")
 nombre = input("Introduce tu nombre: ")
 jugador = Jugador(nombre)
 computadora = Computadora()
@@ -498,7 +498,7 @@ python main.py
 ```
 
 ```text
-🎮 Bienvenido al juego de Piedra, Papel o Tijera 🎮
+🎮 Bienvenido al juego de Piedra, Papel o Tijera
 Introduce tu nombre: Jhon
 
 --- Menú ---
@@ -906,7 +906,7 @@ class Juego:
 ---
 Queda así:
 
-```python
+```python [14,15,17,18,23,24]
 class Juego:
     def __init__(self, jugador, computadora):
         self.jugador = jugador
@@ -1099,44 +1099,17 @@ Cuando se importa desde otro módulo, su variable `__name__` se establece en el 
 Esto permite que el código dentro de un bloque `if __name__ == "__main__":` se ejecute solo cuando el módulo se ejecuta directamente,
 y no cuando se importa desde otro módulo.
 
----
 Es una buena práctica utilizar este bloque para definir el punto de entrada del programa.
 
-En nuestro caso, podemos agregarlo al final del archivo `main.py` para que el juego se ejecute solo cuando se ejecuta directamente.
-
-```python
-# main.py
-from clases import Jugador, Computadora
-from logica import Juego
-print("🎮 Bienvenido al juego de Piedra, Papel o Tijera 🎮")
-nombre = input("Introduce tu nombre: ")
-jugador = Jugador(nombre)
-computadora = Computadora()
-juego = Juego(jugador, computadora)
-
-while True:
-    print("\n--- Menú ---")
-    print("1. Jugar")
-    print("2. Salir")
-    opcion = input("Elige una opción: ")
-
-    if opcion == "1":
-        juego.jugar()
-    elif opcion == "2":
-        print("¡Gracias por jugar! 👋")
-        break
-    else:
-        print("Opción inválida, intenta de nuevo.")
-```
-
 ---
-Así, el código dentro de la función `main()` se ejecutará solo cuando el archivo `main.py` se ejecute directamente.
+
+En nuestro caso, agregamos al final del archivo `main.py` y crearemos la función `main()` para encapsular la lógica del juego
 
 ```python
 from clases import Jugador, Computadora
 from logica import Juego
 def main():
-    print("🎮 Bienvenido al juego de Piedra, Papel o Tijera 🎮")
+    print("🎮 Bienvenido al juego de Piedra, Papel o Tijera")
     nombre = input("Introduce tu nombre: ")
     jugador = Jugador(nombre)
     computadora = Computadora()
@@ -1172,14 +1145,230 @@ git push
 
 ---
 
+#### Ejemplo 02
 
-#### Ejemplo 01
+```text
+1. Al ejemplo anterior aún faltan algunas mejoras que podemos hacer.
+Elimina la duplicidad del código en OPCIONES almacenando en una 
+carpeta que se llame `constantes` y crea un archivo `opciones.py`
+donde almacenes las opciones válidas del juego y reglas
+
+2. Ahora el juego debe funcionar con emojis: 🧱, 📄 y ✂️
+sólo cambiando en las constantes sin modificar el resto del código.
+```
+
+Realizar los cambios 4 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
+#### 1. Estructura de carpetas y archivos
+
+```bash
+cd juego
+mkdir constantes
+touch constantes/__init__.py constantes/opciones.py
+tree
+```
+
+```bash
+.
+├── clases
+│   ├── __init__.py
+│   ├── computadora.py
+│   └── jugador.py
+├── constantes
+│   ├── __init__.py
+│   └── opciones.py
+├── logica
+│   ├── __init__.py
+│   └── juego.py
+├── README.md
+└── main.py
+4 directories, 8 files
+```
+
+---
+
+#### 2. Opciones válidas
+
+En el archivo `constantes/opciones.py`, definimos las opciones válidas del juego
+y en el archivo `constantes/__init__.py` importamos las opciones para que estén disponibles al importar el paquete `constantes`.
+
+```python
+# constantes/opciones.py
+PIEDRA = "piedra"
+PAPEL = "papel"
+TIJERA = "tijera"
+OPCIONES = [PIEDRA, PAPEL, TIJERA]
+REGLAS = {
+    PIEDRA: TIJERA,
+    PAPEL: PIEDRA,
+    TIJERA: PAPEL
+}
+```
+
+---
+
+```python
+# constantes/__init__.py
+from .opciones import OPCIONES, REGLAS
+```
+
+---
+
+#### 3. Actualizar el código
+Ahora actualizamos el código en los archivos `jugador.py`, `computadora.py`
+
+```python
+# clases/jugador.py
+from constantes import OPCIONES
+...
+```
+
+```python
+# clases/computadora.py
+from constantes import OPCIONES
+from random import choice
+...
+```
+
+---
+En el archivo `juego.py` actualizamos las importaciones y el método `determinar_ganador` para utilizar las constantes:
+
+```python
+# logica/juego.py
+from constantes import REGLAS
+...
+    def determinar_ganador(self, eleccion_jugador, eleccion_computadora):
+        if eleccion_jugador == eleccion_computadora:
+            return "Empate"
+        if REGLAS[eleccion_jugador] == eleccion_computadora:
+            return f"{self.jugador} gana!"
+        return f"{self.computadora} gana!"
+```
+
+---
+Finalmente, actualizamos el archivo `main.py` para que muestre las opciones válidas al jugador:
+
+```python
+# main.py
+from constantes import OPCIONES
+from clases import Jugador, Computadora
+from logica import Juego
+def main():
+    print(f"🎮 Bienvenido al juego de {', '.join(OPCIONES)}")
+    nombre = input("Introduce tu nombre: ")
+    jugador = Jugador(nombre)
+    computadora = Computadora()
+    juego = Juego(jugador, computadora)
+...
+```
+
+---
+Con esto hemos refactorizado el código para utilizar constantes y mejorar
+la flexibilidad del juego.
+
+Ejecutamos el juego para verificar que todo funciona correctamente:
+
+```bash
+python main.py
+```
+
+```text
+🎮 Bienvenido al juego de 🧱, 📄, ✂️
+Introduce tu nombre: jose
+
+--- Menú ---
+1. Jugar
+2. Salir
+Elige una opción: 1
+jose, elige 🧱, 📄, ✂️: 🧱
+jose eligió: 🧱
+Computadora eligió: 🧱
+Empate
+```
+
+---
+
+Subimos los cambios al repositorio de GitHub:
+
+```bash
+git add .
+git commit -m "Refactorización y uso de constantes"
+git push
+```
+
+---
+
+#### Resumen
+
+- La refactorización es el proceso de mejorar el código existente sin cambiar su funcionalidad externa.
+- Refactorizar mejora la legibilidad, facilita el mantenimiento y reduce la complejidad y el riesgo de errores.
+- La refactorización implica reorganizar el código en módulos y clases, eliminar código duplicado, renombrar variables y funciones, y dividir funciones grandes en funciones más pequeñas.
+
+---
+
+- En Python se recomienda organizar el código en archivos y carpetas para mejorar la estructura del proyecto.
+- Es buena práctica utilizar nombres descriptivos para archivos y carpetas, agrupar archivos relacionados y mantener una estructura coherente.
+- En Python se recomienda seguir la convención de nombres PEP 8 para clases, funciones, variables, constantes, archivos y módulos.
+
+---
+
+- La importación de módulos permite reutilizar código y que es recomendable importar solo lo necesario para evitar conflictos y mejorar la legibilidad.
+- Crear archivos `__init__.py` en las carpetas permite que sean tratados como paquetes de Python y facilita la importación de módulos.
+- Eliminar código duplicado mejora la legibilidad y facilita el mantenimiento del software.
+
+---
+
+- La dependencia circular entre módulos es mala porque dificulta el mantenimiento y puede causar errores de ejecución.
+- La variable especial `__name__` en Python permite determinar si un módulo se ejecuta directamente o se importa desde otro módulo.
+- Es buena práctica encapsular la lógica principal en una función y usar el bloque `if __name__ == "__main__":` para definir el punto de entrada del programa.
+
+---
+
+- El uso de constantes y la organización en paquetes mejora la flexibilidad y mantenibilidad del código.
+- La documentación y la estructura clara de carpetas y archivos son esenciales para proyectos bien organizados.
+
+---
+
+#### Retos
+
+Crear una carpeta con el nombre "retos_sesion_11" dentro del proyecto en la raíz, en la cual por cada ejercicio debes crear las siguientes carpetas y archivos:
+
+```bash
+# Estructura de carpetas
+psg-oop-2025/
+    retos_sesion_11/
+        reto_01/
+            Readme.md
+            <carpetas>
+                <scripts>.py
+            main.py
+        reto_02/
+            Readme.md
+            <carpetas>
+                <scripts>.py
+            main.py
+```
+
+---
+
+#### Reto 01
 
 ```text
 Una aplicación para gestionar una lista de tareas pendientes.
 Permite agregar, eliminar y marcar tareas como completadas.
 También permite eliminar tareas completadas y eliminar todas las tareas.
 ```
+
+Refactoriza el código en una estructura de carpetas y añade la documentación
+en un archivo `README.md` dentro de la carpeta `reto_01`.
+
+
+---
+
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
@@ -1201,8 +1390,6 @@ direction LR
     }
     Tarea --* ListaTareas
 ```
-
-En el archivo `tarea.py` definimos el ejemplo y en el archivo `tareas.md` documentamos el ejemplo
 
 ---
 Código del ejemplo 01
@@ -1282,47 +1469,30 @@ while True:
 ```
 
 ---
+#### Reto 02
 
-#### Ejemplo 02
+```text
+La Biblioteca Municipal va digitalizar su registro 
+de préstamos de libros. Actualmente, los encargados
+ anotan todo en un cuaderno:
 
-```bash
-
-
----
-
-#### Retos
-
-Utilizaremos el repositorio de GitHub creado en esta sesión "psg-oop-2025" 
-
-para almacenar los retos, de todas las sesiones.
-
-Iremos agregando los retos a medida que avancemos
-
-Como si estuviéramos trabajando en un proyecto real
-
----
-
-Crear una carpeta con el nombre "retos_sesion_01" dentro del proyecto en la raíz, en la cual por cada ejercicio debes crear los siguientes archivos:
-
-```bash
-# Estructura de carpetas
-psg-oop-2025/
-    sesion11/
-        ejemplo01.txt
-        ejemplo02.txt
-        ejemplo03.txt
-        ejemplo04.txt
-        ejemplo05.txt
-        ejemplo06.txt
-        ejemplo07.md
-        ejemplo08.md
-    retos_sesion_01/
-        ejercicio_01.md
-        ejercicio_02.md
-        ejercicio_03.md
+Los libros con su título, autor e ISBN.
+Los usuarios tienen un nombre.
+La biblioteca cuenta con un flujo de préstamos que es el siguiente:
+1. Un usuario ingresa su nombre.
+2. Se lista los libros disponibles.
+3. El usuario elige un libro para prestar.
+4. Se registra la lista de prestados con el nombre del usuario y el libro prestado
+5. Puede prestarse más de un libro al mismo usuario.
+6. Los usuarios tienen que devolver todos los libros a la vez.
+7. Se puede ver la lista de libros prestados y los usuarios que los tienen.
+8. Para salir se debe ingresar "salir".
 ```
 
+Realizar el código del reto en una estructura de carpetas y añade la documentación
+
 ---
+
 
 ---
 <!-- .slide: data-background-image="../../content/psg-bg-dark.png" data-background-size="100%"-->
@@ -1341,12 +1511,8 @@ Repositorio de la Sesión
 <!--.slide: data-visibility="hidden"-->
 ## Bibliografía y Referencias
 
-- [Object Oriented Analysis](https://www.gyata.ai/es/object-oriented-programming/object-oriented-analysis)
-- [DDOO Unidad 1](https://dmd.unadmexico.mx/contenidos/DCEIT/BLOQUE1/DS/02/DDOO/U1/descargables/DDOO_Unidad_1.pdf)
-- [Programación procedural VS orientada a objetos](https://programacionpro.com/programacion-procedural-vs-orientada-a-objetos-diferencias-y-similitudes/)
-- [Python OOP](https://www.learnpython.org/en/Classes_and_Objects)
-- [Atributos de clase](https://oregoom.com/python/atributos-clase/)
-- [Diagrama de clases](https://diagramasuml.com/diagrama-de-clases/)
+- [Best Practices for Refactoring Code](https://www.freecodecamp.org/news/best-practices-for-refactoring-code/)
+- [Python Refactoring](https://realpython.com/python-refactoring/)
 - [Guía PEP 8](https://peps.python.org/pep-0008/#class-names)
 - [Mermaid Charts](https://www.mermaidchart.com/play)
 - [Draw.io](https://app.diagrams.net/)
@@ -1354,5 +1520,3 @@ Repositorio de la Sesión
 - [Objetos en programación](https://ebac.mx/blog/objeto-en-programacion)
 - [Enfoque orientado a objetos](https://1library.co/article/enfoque-orientado-a-objetos-base-te%C3%B3rica.qvld461y)
 - [OOAD](https://www.tutorialspoint.com/object_oriented_analysis_design/ooad_object_oriented_analysis.htm)
-
-https://www.freecodecamp.org/news/best-practices-for-refactoring-code/
