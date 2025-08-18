@@ -1063,13 +1063,13 @@ tree
 
 #### Dependencia circular
 
-¿Bueno o malo?
+![Dependencia circular](./img/dependencia_circular.jpeg) <!-- .element width="45%"-->
+
+Ocurre cuando dos o más módulos dependen entre sí directa o indirectamente.
 
 ---
 
 La dependencia circular es mala
-
-Ocurre cuando dos o más módulos dependen entre sí directa o indirectamente.
 
 Esto puede llevar a problemas como:
 - Dificultad para entender y mantener el código.
@@ -1490,9 +1490,6 @@ La biblioteca cuenta con un flujo de préstamos que es el siguiente:
 ```
 
 Realizar el código del reto en una estructura de carpetas y añade la documentación
-
----
-
 
 ---
 <!-- .slide: data-background-image="../../content/psg-bg-dark.png" data-background-size="100%"-->
