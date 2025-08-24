@@ -1018,7 +1018,9 @@ Utiliza algún estilo de documentación
 
 ---
 
-Gracias por Participar del Python Study Group - OOP 2025 🐍
+Gracias por Participar del
+
+🐍 Python Study Group - OOP 2025 🐍
 
 > Un objeto puede ser pequeño, pero bien diseñado puede sostener un sistema entero
 
@@ -1039,6 +1041,16 @@ Repositorio de la Sesión
 <!--.slide: data-visibility="hidden"-->
 ## Bibliografía y Referencias
 
+- [Function Annotations](https://ellibrodepython.com/function-annotations)
+- [Annotations HowTo](https://docs.python.org/es/3/howto/annotations.html)
+- [Python Annotations](https://pywombat.com/articles/python-annotation)
+- [PEP 484](https://peps.python.org/pep-0484/)
+- [PEP 585](https://peps.python.org/pep-0585/#parameters-to-generics-are-available-at-runtime)
+- [KISS Principle](https://fourweekmba.com/kiss-principle/)
+- [Principles of Clean Code: DRY, KISS, and YAGNI](https://medium.com/@curiousraj/the-principles-of-clean-code-dry-kiss-and-yagni-f973aa95fc4d)
+- [DRY Principle](https://www.techtarget.com/whatis/definition/DRY-principle)
+- [The DRY Principle](https://dev.to/ahadalireach/the-dry-principle-50hh)
+- [KISS, DRY, SOLID, YAGNI: A Simple Guide to Some Principles of Software Engineering and Clean Code](https://medium.com/@hlfdev/kiss-dry-solid-yagni-a-simple-guide-to-some-principles-of-software-engineering-and-clean-code-05e60233c79f)
 - [Object Oriented Analysis](https://www.gyata.ai/es/object-oriented-programming/object-oriented-analysis)
 - [DDOO Unidad 1](https://dmd.unadmexico.mx/contenidos/DCEIT/BLOQUE1/DS/02/DDOO/U1/descargables/DDOO_Unidad_1.pdf)
 - [Programación procedural VS orientada a objetos](https://programacionpro.com/programacion-procedural-vs-orientada-a-objetos-diferencias-y-similitudes/)
@@ -1052,14 +1064,3 @@ Repositorio de la Sesión
 - [Objetos en programación](https://ebac.mx/blog/objeto-en-programacion)
 - [Enfoque orientado a objetos](https://1library.co/article/enfoque-orientado-a-objetos-base-te%C3%B3rica.qvld461y)
 - [OOAD](https://www.tutorialspoint.com/object_oriented_analysis_design/ooad_object_oriented_analysis.htm)
-
-https://ellibrodepython.com/function-annotations
-https://docs.python.org/es/3/howto/annotations.html
-https://pywombat.com/articles/python-annotation
-https://peps.python.org/pep-0484/
-https://peps.python.org/pep-0585/#parameters-to-generics-are-available-at-runtime
-https://fourweekmba.com/kiss-principle/
-https://medium.com/@curiousraj/the-principles-of-clean-code-dry-kiss-and-yagni-f973aa95fc4d
-https://www.techtarget.com/whatis/definition/DRY-principle
-https://dev.to/ahadalireach/the-dry-principle-50hh
-https://medium.com/@hlfdev/kiss-dry-solid-yagni-a-simple-guide-to-some-principles-of-software-engineering-and-clean-code-05e60233c79f
