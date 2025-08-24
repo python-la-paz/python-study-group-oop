@@ -547,8 +547,480 @@ Algunos de los principios más importantes son:
 - DRY (Don't Repeat Yourself)
 - YAGNI (You Aren't Gonna Need It)
 
+---
+
+#### KISS (Keep It Simple, Stupid)
+
+El principio KISS enfatiza la importancia de mantener el código simple y fácil de entender.
+
+Un código simple es más fácil de leer, mantener y depurar.
+
+---
+
+Se puede resumir en:
+
+- Simplicidad: Las soluciones deben ser lo más simples posible evitando características innecesarias.
+- Claridad: El código debe ser claro y fácil de entender
+
+---
+
+- Minimalismo: Evitar la complejidad innecesaria y centrarse en lo esencial.
+- Eficiencia: Las soluciones simples son más eficientes
+- Evite la sobreingeniería: No agregue características o funcionalidades innecesarias.
 
 
+---
+
+Una forma de aplicarlo es:
+
+- Dividir problemas complejos en partes más pequeñas y manejables.
+- Evitar la sobreingeniería y centrarse en lo esencial.
+- Utilizar nombres claros y descriptivos para variables, funciones y clases.
+
+---
+
+#### Ejemplo KISS
+
+```python [1-11|13-18]
+# Complejidad innecesaria
+class SumaDeNumeros:
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+    
+    def operar(self):
+        return self.a + self.b
+
+suma = SumaDeNumeros(5, 7)
+print(suma.operar())
+
+# Solución simple
+class Calculadora:
+    def sumar(self, a, b):
+        return a + b
+calc = Calculadora()
+print(calc.sumar(5, 7))
+```
+
+---
+#### Ejercicio 01
+
+```text
+Una calculadora de areas que pueda calcular
+el área de rectángulos y cuadrados.
+Donde el código tiene mucha complejidad
+Simplifica el código aplicando el principio KISS
+```
+
+En el archivo `areas.py` en la carpeta `sesion12`
+
+---
+
+Realizar los cambios 4 minutos
+
+```python
+class Area:
+    def __init__(self, tipo, lado1, lado2=None):
+        self.tipo = tipo
+        self.lado1 = lado1
+        self.lado2 = lado2
+    def calcular(self):
+        if self.tipo == "rectangulo":
+            return self.lado1 * self.lado2
+        elif self.tipo == "cuadrado":
+            return self.lado1 ** 2
+area_rectangulo = Area("rectangulo", 5, 10)
+print(area_rectangulo.calcular())
+area_cuadrado = Area("cuadrado", 5)
+print(area_cuadrado.calcular())
+```
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
+#### Solución simple
+
+```python
+class Calculadora:
+    def area(self, lado1, lado2):
+        return lado1 * lado2
+calc = Calculadora()
+print(calc.area(5, 10))  # Área del rectángulo
+print(calc.area(5, 5))   # Área del cuadrado
+```
+
+```bash
+python areas.py
+```
+
+```text
+50
+25
+```
+
+---
+
+#### DRY (Don't Repeat Yourself)
+
+El principio DRY enfatiza la importancia de evitar la duplicación de código.
+
+El código duplicado puede llevar a errores y dificultades en el mantenimiento.
+
+---
+
+Se puede resumir en:
+
+- Unicidad: Cada pieza de conocimiento o lógica debe tener una única representación en el código.
+- Mantenimiento: El código duplicado es más difícil de mantener y actualizar.
+- Reutilización: Fomenta la reutilización de código a través de funciones, clases y módulos.
+
+---
+
+- Reducción de errores: Menos duplicación significa menos oportunidades para errores.
+- Eficiencia: Un código sin duplicación es más eficiente
+- Claridad: Un código sin duplicación es más claro y fácil de entender.
+
+
+---
+
+Una forma de aplicarlo es:
+
+- Identificar y eliminar código duplicado.
+- Utilizar funciones, clases y módulos para reutilizar código.
+- Mantener el código DRY durante el desarrollo y la refactorización.
+
+---
+
+#### Ejemplo DRY
+
+```python [1-7|9-13]
+# Código duplicado
+def area_rectangulo(lado1, lado2):
+    return lado1 * lado2
+def area_cuadrado(lado):
+    return lado * lado
+print(area_rectangulo(5, 10))
+print(area_cuadrado(5))
+
+# Código sin duplicación
+def area(lado1, lado2):
+    return lado1 * lado2
+print(area(5, 10))  # Área del rectángulo
+print(area(5, 5))      # Área del cuadrado
+```
+
+---
+
+#### Ejercicio 02
+
+```text
+Una tienda en línea permite pagar con diferentes métodos de pago:
+- Tarjeta
+- Transferencia
+- QR
+Y por cada canal aplica un impuesto diferente
+- Tarjeta 5%
+- Transferencia 2%
+- QR 1%
+Simplifica el código aplicando el principio DRY
+```
+
+En el archivo `tienda.py` en la carpeta `sesion12`
+
+---
+
+Realizar los cambios 4 minutos
+
+```python
+class Tienda:
+    def impuesto_tarjeta(self, monto):
+        return monto * 0.05
+    def impuesto_transferencia(self, monto):
+        return monto * 0.02
+    def impuesto_qr(self, monto):
+        return monto * 0.01
+    def pagar_tarjeta(self, monto):
+        impuesto = self.impuesto_tarjeta(monto)
+        total = monto + impuesto
+        print(f"Pago con tarjeta: Monto={monto}, Impuesto={impuesto}, Total={total}")
+    def pagar_transferencia(self, monto):
+        impuesto = self.impuesto_transferencia(monto)
+        total = monto + impuesto
+        print(f"Pago con transferencia: Monto={monto}, Impuesto={impuesto}, Total={total}")
+    def pagar_qr(self, monto):
+        impuesto = self.impuesto_qr(monto)
+        total = monto + impuesto
+        print(f"Pago con QR: Monto={monto}, Impuesto={impuesto}, Total={total}")
+tienda = Tienda()
+tienda.pagar_tarjeta(100)
+tienda.pagar_transferencia(100)
+tienda.pagar_qr(100)
+```
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
+#### Solución simple
+
+```python
+class Tienda:
+    def calcular_impuesto(self, monto, tasa):
+        return monto * tasa
+    def pagar(self, monto, metodo):
+        tasas = {
+            "tarjeta": 0.05,
+            "transferencia": 0.02,
+            "qr": 0.01
+        }
+        tasa = tasas.get(metodo, 0)
+        impuesto = self.calcular_impuesto(monto, tasa)
+        total = monto + impuesto
+        print(f"Pago con {metodo}: Monto={monto}, Impuesto={impuesto}, Total={total}")
+tienda = Tienda()
+tienda.pagar(100, "tarjeta")
+tienda.pagar(100, "transferencia")
+tienda.pagar(100, "qr")
+```
+
+```bash
+python tienda.py
+```
+
+```text
+Pago con tarjeta: Monto=100, Impuesto=5.0, Total=105.0
+Pago con transferencia: Monto=100, Impuesto=2.0, Total=102.0
+Pago con qr: Monto=100, Impuesto=1.0, Total=101.0
+```
+
+---
+
+#### YAGNI (You Aren't Gonna Need It)
+
+El principio YAGNI enfatiza la importancia de no agregar funcionalidades
+o características que no son necesarias en el momento.
+
+Esto ayuda a evitar la sobreingeniería y a mantener el código simple y enfocado.
+
+---
+
+Se puede resumir en:
+
+- Necesidad: No agregue funcionalidades o características que no son necesarias.
+- Simplicidad: Mantenga el código simple y enfocado en el propósito actual.
+- Eficiencia: Evite la complejidad innecesaria que puede afectar el rendimiento.
+
+---
+
+- Mantenimiento: Un código sin características innecesarias es más fácil de mantener.
+- Claridad: Un código sin características innecesarias es más claro y fácil de entender.
+- Flexibilidad: Un código sin características innecesarias es más flexible y adaptable a cambios futuros.
+
+---
+
+Una forma de aplicarlo es:
+
+- Enfocarse en los requisitos actuales y no en posibles requisitos futuros.
+- Evitar la sobreingeniería y centrarse en lo esencial.
+- Revisar y eliminar características innecesarias durante la refactorización.
+
+---
+
+- Priorizar la simplicidad y claridad del código.
+- Mantener el código enfocado en el propósito actual.
+- Evitar la tentación de agregar características "por si acaso".
+
+---
+#### Ejemplo YAGNI
+
+```text
+Un estudiante esta aprendiendo a sumar dos números, y le dieron
+una calculadora para para que pueda practicar la suma, pero
+la calculadora tiene muchas funciones que no va a usar aún.
+```
+
+```python [1-14|15-20]
+# Característica innecesaria
+class Calculadora:
+    def sumar(self, a, b):
+        return a + b
+    def restar(self, a, b):
+        return a - b
+    def multiplicar(self, a, b):
+        return a * b
+    def dividir(self, a, b):
+        if b == 0:
+            raise ValueError("No se puede dividir por cero")
+        return a / b
+calc = Calculadora()
+print(calc.sumar(5, 7))
+# Solución enfocada
+class Calculadora:
+    def sumar(self, a, b):
+        return a + b
+calc = Calculadora()
+print(calc.sumar(5, 7))
+```
+
+---
+#### Ejercicio 03
+
+```text
+Un profesor necesita una forma sencilla de llevar
+el registro de sus estudiantes, con sus nombres y
+las notas de sus exámenes. Quiere poder calcular 
+fácilmente el promedio de cada estudiante y saber 
+de si ha aprobado o no el curso, 
+con nota mayor a  51, además de tener 
+un resumen claro de sus resultados para mostrárselos.
+Simplifica el código aplicando el principio YAGNI
+```
+
+En el archivo `estudiantes.py` en la carpeta `sesion12`
+
+---
+Realizar los cambios 4 minutos
+
+```python
+class Estudiante:
+    def __init__(self, nombre, notas):
+        self.nombre = nombre
+        self.notas = notas
+
+    self.promedio_cache = None
+
+    def calcular_promedio(self):
+        total = 0
+        for n in self.notas:
+            total += n
+        return total / len(self.notas)
+
+    def mostrar_promedio(self):
+        total = 0
+        for n in self.notas:
+            total += n
+        return f"Promedio de {self.nombre}: {total / len(self.notas)}"
+
+    def aprobo(self):
+        promedio = self.calcular_promedio()
+        return promedio > 50 or promedio == 51
+
+    def mejor_nota(self):
+        return max(self.notas)
+
+    def peor_nota(self):
+        return min(self.notas)
+    def resumen(self):
+        return f"Estudiante: {self.nombre}, Notas: {self.notas}, Promedio: {self.calcular_promedio()}, Aprobado: {self.aprobo()}"
+
+estudiante1 = Estudiante("Ana", [85, 90, 78])
+print(estudiante1.mostrar_promedio())
+print(f"Aprobó: {estudiante1.aprobo()}")
+print(estudiante1.resumen())
+```
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+#### Solución simple
+
+```python
+class Estudiante:
+    def __init__(self, nombre, notas):
+        self.nombre = nombre
+        self.notas = notas
+    def calcular_promedio(self):
+        return sum(self.notas) / len(self.notas)
+    def aprobo(self):
+        return self.calcular_promedio() >= 51
+    def resumen(self):
+        mensaje = f"Estudiante: {self.nombre}"
+        mensaje += f", Notas: {self.notas}"
+        mensaje += f", Promedio: {self.calcular_promedio()}"
+        mensaje += f", Aprobado: {self.aprobo()}"
+        return mensaje
+estudiante1 = Estudiante("Ana", [85, 90, 78])
+print(estudiante1.resumen())
+```
+
+```bash
+python estudiantes.py
+```
+```text
+Estudiante: Ana, Notas: [85, 90, 78], Promedio: 84.33333333333333, Aprobado: True
+```
+
+---
+
+#### Resumen
+
+- Python es un lenguaje popular por su facilidad para escribir código y su tipado dinámico, lo que permite flexibilidad pero puede causar errores difíciles de detectar.
+- Las anotaciones de tipo permiten especificar el tipo de datos esperado para variables, parámetros de funciones, valores de retorno y atributos de clases, mejorando la legibilidad y ayudando a detectar errores antes de la ejecución.
+
+---
+
+- Las anotaciones de tipo en Python son opcionales y no afectan el comportamiento del código en tiempo de ejecución, pero son útiles para desarrolladores y herramientas de análisis estático.
+- Existen diferentes estilos para escribir anotaciones, como el uso directo de tipos o el módulo typing, aunque se recomienda el uso directo en versiones recientes.
+
+---
+
+- La documentación es esencial para entender el propósito y funcionamiento del código, y que se puede realizar mediante cadenas de documentación (docstrings) en clases, funciones y métodos.
+- Existen diferentes estilos de documentación en Python, como Google, NumPy y reStructuredText (reST), cada uno con sus ventajas y desventajas, y que es importante elegir uno y ser consistente.
+
+---
+
+- Los principios de desarrollo ayudan a escribir código limpio, mantenible y escalable, proporcionando soluciones a problemas comunes en el desarrollo de software.
+- El principio KISS enfatiza la simplicidad, claridad y eficiencia, evitando la sobreingeniería y manteniendo el código enfocado en lo esencial.
+
+---
+
+- El principio DRY promueve evitar la duplicación de código, fomentando la reutilización y facilitando el mantenimiento.
+- El principio YAGNI recomienda no agregar funcionalidades innecesarias, manteniendo el código simple y enfocado en los requisitos actuales.
+
+---
+
+#### Retos
+
+Crear una carpeta con el nombre "retos_sesion_12" dentro del proyecto en la raíz, en la cual por cada ejercicio debes crear los siguientes archivos:
+
+```bash
+# Estructura de carpetas
+psg-oop-2025/
+    retos_sesion_12/
+        ejercicio_01.md
+        ejercicio_01.py
+        ejercicio_02.md
+        ejercicio_02.py
+```
+
+---
+
+1. Un juego de datos de la suerte, el jugador lanza dos datos y si la suma es 7 o 11 gana, si es 2, 3 o 12 pierde, cualquier otro valor puede volver a lanzar los dados. En un futuro podrías registrar el nombre del jugador y su puntuación más alta.
+
+```markdown
+- Crea el análisis, diagrama de clases y el código.
+- Documenta el código y usa anotaciones de tipo.
+- Utiliza los principios KISS, DRY y YAGNI
+- Utiliza algún estilo de documentación
+```
+
+---
+
+2. Un sistema de gestión de tareas, donde se pueden agregar, eliminar y marcar tareas como completadas. En un futuro podrías agregar fechas de vencimiento y prioridades a las tareas.
+
+```markdown
+Crea el análisis, diagrama de clases y el código.
+Documenta el código y usa anotaciones de tipo.
+Utiliza los principios KISS, DRY y YAGNI
+Utiliza algún estilo de documentación
+```
+
+---
+
+Gracias por Participar del Python Study Group - OOP 2025 🐍
+
+> Un objeto puede ser pequeño, pero bien diseñado puede sostener un sistema entero
 
 ---
 <!-- .slide: data-background-image="../../content/psg-bg-dark.png" data-background-size="100%"-->
@@ -586,3 +1058,8 @@ https://docs.python.org/es/3/howto/annotations.html
 https://pywombat.com/articles/python-annotation
 https://peps.python.org/pep-0484/
 https://peps.python.org/pep-0585/#parameters-to-generics-are-available-at-runtime
+https://fourweekmba.com/kiss-principle/
+https://medium.com/@curiousraj/the-principles-of-clean-code-dry-kiss-and-yagni-f973aa95fc4d
+https://www.techtarget.com/whatis/definition/DRY-principle
+https://dev.to/ahadalireach/the-dry-principle-50hh
+https://medium.com/@hlfdev/kiss-dry-solid-yagni-a-simple-guide-to-some-principles-of-software-engineering-and-clean-code-05e60233c79f
