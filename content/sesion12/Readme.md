@@ -247,7 +247,7 @@ y atributos de instancia `nombre` y `edad`
 
 ```python
 class Persona:
-    especie: str = "Humano"
+    especie: str = "Homo sapiens"
     def __init__(self, nombre: str, edad: int):
         self.nombre: str = nombre
         self.edad: int = edad
@@ -580,6 +580,14 @@ Una forma de aplicarlo es:
 ---
 
 #### Ejemplo KISS
+
+```text
+La primera calculadora de un estudiante sólo sabe
+sumar dos números, tiene una clase SumaDeNumeros 
+con el método operar que realiza la suma.
+Sin embargo, no es muy claro, ni simple.
+Simplifica el código aplicando el principio KISS
+```
 
 ```python [1-11|13-18]
 # Complejidad innecesaria
@@ -996,7 +1004,7 @@ psg-oop-2025/
 
 ---
 
-1. Un juego de datos de la suerte, el jugador lanza dos datos y si la suma es 7 o 11 gana, si es 2, 3 o 12 pierde, cualquier otro valor puede volver a lanzar los dados. En un futuro podrías registrar el nombre del jugador y su puntuación más alta.
+1. Un juego de dados de la suerte, el jugador lanza dos dados y si la suma es 7 o 11 gana, si es 2, 3 o 12 pierde, cualquier otro valor puede volver a lanzar los dados. En un futuro podrías registrar el nombre del jugador y su puntuación más alta.
 
 ```markdown
 - Crea el análisis, diagrama de clases y el código.
