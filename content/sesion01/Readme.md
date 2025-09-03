@@ -110,12 +110,25 @@ Una canción como un objeto
 - 🎤 Artista: Adele (2015)
 
 ---
-#### Preparemos el proyecto para este Study Group
 
-- Crea un repositorio en GitHub con el nombre **psg-oop-2025**
-- Añade el archivo **README.md** y el archivo **.gitignore** para Python
+#### Preparemos el proyecto para el Study Group
 
 ---
+
+#### 1. Crea el repositorio en GitHub
+
+- Crea un repositorio en GitHub con el nombre
+
+ **psg-oop-2025**
+
+- Añade los archivos iniciales
+  - **README.md**
+  - **.gitignore** para Python
+
+---
+
+#### 2. Descarga el repositorio
+
 Clona el repositorio en tu computadora
 
 ```bash
@@ -129,9 +142,14 @@ code psg-oop-2025
 ```
 
 ---
-Crea una carpeta con el nombre **sesion01**
 
-- Los archivos de esta sesión deben estar dentro de la carpeta **sesion01**
+#### 3. Estructura Sesión 01
+
+Crea una carpeta con el nombre 
+
+**sesion01**
+
+- Los archivos de esta sesión deben estar dentro de esta carpeta
 
 - Al finalizar la sesión, subiremos los cambios al repositorio en un commit
 
@@ -141,13 +159,16 @@ Crea una carpeta con el nombre **sesion01**
 Crea el archivo **ejemplo01.txt** en la carpeta **sesion01**
 
 ```markdown
-Obtener las características, comportamiento y comparar las identidades de estas dos canciones
+Obtener las características, comportamiento y 
+comparar las identidades de estas dos canciones
 
 - "Stay" de Rihanna & Mikky Ekko
 - "Stay" de The Kid LAROI & Justin Bieber
 ```
 
 ---
+
+#### Obtener características, comportamiento e identidad
 
 🎼 Stay - Rihanna & Mikky Ekko
 
@@ -173,13 +194,19 @@ Identidad:
 
 ---
 
-3 Minutos
+#### Ejercicio para ti
+
+#### Obtener características, comportamiento e identidad
 
 🎼 Stay - The Kid LAROI & Justin Bieber
+
+3 Minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
 ---
+
+#### Obtener características, comportamiento e identidad
 
 🎼 Stay - The Kid LAROI & Justin Bieber
 
@@ -205,10 +232,12 @@ Identidad:
 
 ---
 
-```text
-Aunque ambas canciones se llamen "Stay" el resto de sus características los hacen diferentes.
-```
+#### Comparación de identidades
 
+```text
+Aunque ambas canciones se llamen "Stay"
+el resto de sus características los hacen diferentes.
+```
 
 ---
 
@@ -222,11 +251,15 @@ Ahora abordaremos un concepto fundamental en la programación orientada a objeto
 
 ---
 
-- Es el proceso de identificar las características y comportamientos relevantes de un objeto.
-- En este proceso se dejan de lado todo aquello que no es relevante para el contexto.
+Es el proceso de identificar las *características* y *comportamientos* relevantes de un *objeto*
+
+En este proceso *se dejan de lado* todo aquello que no es relevante para el *contexto*
+
+El contexto es el *entorno* o *situación* en la que se encuentra el *objeto*
+
 
 ---
-¿Que característica tiene?
+¿Que característica tiene un tomate?
 
 # 🍅
 
@@ -241,7 +274,8 @@ Un tomate es una fruta roja, dulce y redonda.
 <!-- .element class="fragment" data-fragment-index="1"-->
 
 ---
-Las características importantes dependen del contexto.
+
+### Las características importantes dependen del contexto
 
 ---
 
@@ -294,14 +328,15 @@ Si soy un nutricionista que elabora dietas para personas
 ```
 
 ---
-El mundo real es complejo y está lleno de detalles.
+El mundo real es complejo y está lleno de detalles
 
-Identificar las características importantes según un contexto nos permite delimitar nuestro enfoque.
+Identificar las características importantes según un contexto nos permite delimitar nuestro enfoque
 
 > El contexto define qué es importante y qué no.
 
 ---
-Ejemplo 02
+
+### Ejemplo 02
 
 Crea el archivo **ejemplo02.txt** en la carpeta **sesion01**
 
@@ -310,10 +345,12 @@ Crea el archivo **ejemplo02.txt** en la carpeta **sesion01**
 
 - Para un ingeniero mecánico que diseña máquinas peladoras de papas
 - Para un distribuidor de papas fritas
-
 ```
 
 ---
+
+#### Características de una papa 🥔
+
 ```markdown
 Para un ingeniero mecánico que diseña máquinas peladoras de papas:
 - Tamaño promedio (tamaño)
@@ -325,15 +362,22 @@ Para un ingeniero mecánico que diseña máquinas peladoras de papas:
 
 ---
 
+#### Ejercicio para ti
+
+#### Características de una papa 🥔
+
+Para un distribuidor de papas fritas
+
+5 características
 
 3 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-5 características
-
-
 ---
+
+
+#### Características de una papa 🥔
 
 ```markdown
 Para un distribuidor de papas fritas:
@@ -346,6 +390,7 @@ Para un distribuidor de papas fritas:
 ```
 
 ---
+
 Hasta el momento identificamos las características de un objeto del mundo real
 
 Separamos lo importante según el contexto
@@ -360,7 +405,6 @@ Lo hace mediante un proceso de análisis y diseño orientado a objetos
 
 Para posteriormente llevar el diseño en un lenguaje de programación
 
-
 ---
 
 #### Análisis Orientado a Objetos (AOO)
@@ -368,20 +412,24 @@ Para posteriormente llevar el diseño en un lenguaje de programación
 
 ---
 
-- En esta etapa se identifican las características, comportamiento e identidad de los objetos según su contexto.
-- También se centra en identificar la interacción entre objetos.
-- La etapa de análisis determina todo lo que se considerara para las siguientes etapas.
+- En esta etapa se identifican las características, comportamiento e identidad de los objetos según su contexto
+
+- Se centra en identificar la interacción entre objetos
 
 ---
 
-- El resultado de la etapa de análisis es el conjunto de requisitos que describen las acciones y funcionalidades que deben implementarse.
+- La etapa de análisis determina todo lo que se considerará para las siguientes etapas
+
+- El resultado de la etapa de análisis es el conjunto de requisitos que describen las acciones y funcionalidades que deben implementarse
 
 ---
 
-Contiene:
+El análisis contiene:
 
-- **Objetos**: Son las entidades que se van a modelar
-- *Acciones*: Son las acciones que los objetos pueden realizar
+**Objetos** - *Acciones*
+
+- **Objetos**: Son entidades que se van a modelar
+- *Operaciones*: Las actividades que los objetos pueden ejecutar
 
 Estructura de los requisitos
 
@@ -389,34 +437,32 @@ Estructura de los requisitos
 
 ---
 
-Ejemplo 03
+#### Ejemplo 03
 
 Crear el archivo **ejemplo03.txt** en la carpeta **sesion01**
 
 ```text
-Una asociación de productores comunitarios de tomates quiere dar a conocer sus productos, para esto quieren una aplicación web donde las personas interesas en comprar sus tomates puedan ver fotos y ubicaciones de los huertos y comparar los tomates que producen según color, peso y especie
+Una asociación de productores comunitarios de tomates quiere dar
+a conocer sus productos, para esto quieren una aplicación web 
+donde las personas interesas en comprar sus tomates puedan ver
+fotos y ubicaciones de los huertos y comparar los tomates que
+producen según color, peso y especie
 ```
 
 ---
 
 Obtendremos los objetos y acciones para obtener los requisitos
 
-```text
+```markdown
 Requisitos:
-
-- ver fotos y ubicaciones de los huertos
-- comparar los tomates según color, peso y especie
-
+- Ver fotos y ubicaciones de los huertos
+- Comparar los tomates según color, peso y especie
 Objetos:
-
 - huerto 🌱
 - tomate 🍅
-
 Características:
-
 - Huerto: ubicación, fotos
 - Tomate: color, peso, especie
-
 Acciones:
 - ver fotos
 - ver ubicaciones
@@ -425,9 +471,11 @@ Acciones:
 
 ---
 
-Ejemplo 04
+#### Ejemplo 04
 
 Crear el archivo **ejemplo04.txt** en la carpeta **sesion01**
+
+Obtener los objetos y acciones para obtener los requisitos
 
 ```text
 Una aplicación permite descubrir canciones nuevas.
@@ -442,6 +490,9 @@ Compara las canciones con según género, duración y artista.
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
 ---
+
+Obtendremos los objetos y acciones para obtener los requisitos
+
 ```text
 Requisitos:
 
@@ -477,30 +528,33 @@ Acciones:
 
 ---
 
-- Es la etapa en la que se convierte el análisis orientado a objetos en un diseño orientado a objetos.
+- Es la etapa en la que se convierte el análisis orientado a objetos en un diseño orientado a objetos
+
 - El diseñador debe dar nombre a los objetos y define los comportamientos
-- Crea los diagramas de clases y las relaciones entre los objetos.
+
+- Crea los diagramas de clases y las relaciones entre los objetos
 
 ---
-- El resultado de la etapa de diseño es un conjunto de objetos y sus interacciones.
-- Al completar esta etapa se tiene un diseño formal que puede ser implementado en un cualquier lenguaje de programación.
+- El resultado de la etapa de diseño es un conjunto de objetos y sus interacciones
 
----
-
-#### Diagrama de clases
+- Al completar esta etapa se tiene un diseño formal que puede ser implementado en un cualquier lenguaje de programación
 
 ---
 
 #### ¿Qué es una clase?
 
 - Es una plantilla para crear objetos.
+
 - Es un modelo que define las características y comportamientos de un objeto.
 
 ---
 Una clase esta formada por
-- **Nombre de la clase**: Es el nombre que se le da a la clase.
-- **Atributos**: Son las características de la clase.
-- **Métodos**: Son los comportamientos de la clase.
+
+- **Nombre de clase**: Es el nombre que se le da
+- **Atributos**: Son las características de la clase
+- **Métodos**: Son los comportamientos de la clase
+
+![Clase](./img/img07.png) <!-- .element  width="30%"-->
 
 ---
 #### Buenas prácticas para nombrar clases
@@ -513,13 +567,17 @@ Una clase esta formada por
 
 ---
 
-- Tratar de utilizar nombres en inglés.
-- Utilizar nombres en singular.
-- Evitar nombres genéricos como "Clase1" o "Clase2".
-- Utilizar nombres que reflejen el propósito de la clase.
+- Tratar de utilizar nombres en inglés
+
+- Utilizar nombres en singular
+
+- Evitar nombres genéricos como "Clase1" o "Clase2"
+
+- Utilizar nombres que reflejen el propósito de la clase
 
 ---
-Ejemplo 05 
+
+#### Ejemplo 05 
 
 Crear el archivo **ejemplo05.txt** en la carpeta **sesion01**
 
@@ -532,6 +590,8 @@ Deben tener glaseado azul, verde, amarillo, morado y naranja.
 Realizar el análisis y obtener las clases necesarias
 
 ---
+
+Análisis
 
 ```markdown
 # Analisis
@@ -554,7 +614,11 @@ Acciones:
 - (No hay acciones)
 ```
 
+
 ---
+
+Diseño de la clase
+
 ```markdown
 # Diseño:
 
@@ -569,8 +633,16 @@ Clases:
 
 ```
 
-Nos da como resultado una clase llamada GalletaCorazon
-que nos permite crear objetos GalletaCorazon de diferentes sabores y glaseados.
+---
+
+
+Tenemos como resultado una clase llamada `GalletaCorazon`
+
+que nos permite crear objetos `GalletaCorazon`
+
+de diferentes sabores y glaseados.
+
+![Galleta](./img/img08.png) <!-- .element  width="20%"-->
 
 ---
 
@@ -587,7 +659,7 @@ que nos permite crear objetos GalletaCorazon de diferentes sabores y glaseados.
 
 ---
 
-Ejemplo 06
+#### Ejemplo 06
 
 Crear el archivo **ejemplo06.txt** en la carpeta **sesion01**
 
@@ -601,6 +673,8 @@ Los moldes pueden ser en forma de estrella y circular
 Realizar el análisis y obtener las clases necesarias
 
 ---
+
+Análisis 
 
 ```markdown
 # Análisis
@@ -616,7 +690,7 @@ Objetos:
 Características:
 - Bombón
     - forma
-    - con_nueces
+    - nueces
     - chocolate
 
 Acciones:
@@ -625,13 +699,17 @@ Acciones:
 
 ---
 
-Diseña la clase
+#### Ejercicio para ti
+
+Diseña la clase para los bombones
 
 3 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
 ---
+
+Diseño de la clase
 
 ```markdown
 # Diseño:
@@ -646,6 +724,16 @@ Clases:
     - Métodos:
         - (No hay métodos)
 ```
+
+---
+
+El diseño actual es útil para identificar las partes de nuestra clase
+
+Pero existe una forma visual 
+
+Donde las clases forman un diagrama
+
+> Un Diagrama de clases
 
 ---
 
@@ -708,7 +796,7 @@ Buscamos la extensión en el marketplace de VS Code y la instalamos.
 ---
 Desde un archivo markdown podemos crear un diagrama usando mermaid:
 
-<pre><code class="language-mermaid">
+````
 ```mermaid
 classDiagram
     class NombreDeLaClase {
@@ -716,16 +804,16 @@ classDiagram
         Metodo1()
     }
 ```
-</code></pre>
-
-- `classDiagram` indica que es un diagrama de clases
+````
+- `\`` indica que es un bloque de código
 - `mermaid` indica que es un diagrama de mermaid
+- `classDiagram` indica que es diagrama de clases
 - Las llaves `{}` indican el inicio y el fin de la clase
 
 
 ---
 
-<pre><code class="language-mermaid">
+````
 ```mermaid
 classDiagram
     class NombreDeLaClase {
@@ -734,7 +822,7 @@ classDiagram
         Metodo2()
     }
 ```
-</code></pre>
+````
 
 - `class` indica que es una clase
 - `NombreDeLaClase` es el nombre de la clase
@@ -774,7 +862,7 @@ Seleccionamos "Mermaidchart: Preview Diagram"
 
 ---
 
-Ejemplo 07
+#### Ejemplo 07
 
 Crear el archivo **ejemplo07.md** en la carpeta **sesion01**
 
@@ -796,7 +884,7 @@ Clases:
 
 ---
 
-<pre><code class="language-mermaid">
+````
 ```mermaid
 classDiagram
     class Bombon {
@@ -805,7 +893,7 @@ classDiagram
         nueces
     }
 ```
-</code></pre>
+````
 
 ```mermaid
 %%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true }}}%%
@@ -819,11 +907,9 @@ classDiagram
 
 ---
 
-Ejemplo 08
+#### Ejemplo 08
 
 Crear el archivo **ejemplo08.md** en la carpeta **sesion01**
-
----
 
 ```text
 Una heladería ofrece helados
@@ -832,14 +918,16 @@ Pueden agregar chispas de chocolate y caramelo líquido como extra
 Puede llevarse en barquillo o vaso y tener hasta 3 bolitas
 ```
 
-Realizar el análisis y el diagrama de su clase
+Realizar el análisis
 
 
-5 minutos
+4 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
 ---
+
+Análisis
 
 ```markdown
 # Análisis
@@ -869,6 +957,17 @@ Acciones:
 
 ---
 
+Ahora diseña la clase para los helados y obtén el diagrama de clases
+
+utilizando mermaid
+
+3 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
+Diseño de la clase
 
 ```markdown
 # Diseño:
@@ -887,7 +986,7 @@ Clases:
 ```
 
 ---
-<pre><code class="language-mermaid">
+````
 ```mermaid
 classDiagram
     class Helado {
@@ -898,7 +997,7 @@ classDiagram
         porciones
     }
 ```
-</code></pre>
+````
 
 ```mermaid
 %%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true }}}%%
@@ -911,28 +1010,49 @@ classDiagram
         porciones
     }
 ```
+
+---
+
+Por último, llegamos a la etapa final
+
+✅ Ya conocemos el análisis
+
+✅ Tenemos el diagrama de clases
+
+🎯 Ahora toca programar
+
 ---
 
 #### Programación Orientada a Objetos (POO)
 ### Object Oriented Programming (OOP)
 
 ---
-- Es la etapa en la que se implementa el diseño orientado a objetos en un lenguaje de programación.
-- En esta etapa se crean las clases con sus atributos y métodos.
-- El diseño se convierte en código ejecutable.
+
+- Es la etapa en la que se implementa el diseño orientado a objetos en un lenguaje de programación
+
+- En esta etapa se crean las clases con sus atributos y métodos
+
+- El diseño se convierte en código ejecutable
 
 ---
 
-- Se crean los objetos a partir de las clases.
-- Se implementan los métodos y se crean las interacciones entre los objetos.
-- El análisis y diseño se convierten en un programa funcional.
+- Se crean los objetos a partir de las clases
+
+- Se implementan los métodos y se crean las interacciones entre los objetos
+
+- El análisis y diseño se convierten en un programa funcional
 
 ---
 
-# ANÁLISIS ➡ DISEÑO ➡ PROGRAMACIÓN
+## ANÁLISIS 💭
+## ⬇ 
+## DISEÑO 🎨
+## ⬇
+## PROGRAMACIÓN 💻
 
 ---
-Subimos nuestra Sesión al repositorio
+
+Subimos los avances de la sesión al repositorio en GitHub
 
 ```bash
 git add .
@@ -944,15 +1064,31 @@ git push origin main
 
 #### Resumen
 
-- El mundo real está compuesto por objetos.
-- Los objetos tienen estado, comportamiento e identidad.
-- La abstracción es el proceso de identificar las características y comportamientos relevantes de un objeto.
-- El contexto define qué es importante y qué no.
-- El análisis orientado a objetos identifica los objetos y sus interacciones.
-- El diseño orientado a objetos convierte el análisis en un diseño formal.
-- Las clases son plantillas para crear objetos.
-- Los diagramas de clases son la representación gráfica de las clases y sus relaciones.
-- La programación orientada a objetos implementa el diseño en un lenguaje de programación.
+
+- El mundo real está compuesto por objetos
+
+- Los objetos tienen estado, comportamiento e identidad
+
+- La abstracción es el proceso de identificar las características y comportamientos relevantes de un objeto
+
+---
+
+- El contexto define qué es importante y qué no
+
+- El análisis orientado a objetos identifica los objetos y sus interacciones
+
+- El diseño orientado a objetos convierte el análisis en un diseño formal
+
+---
+
+- Las clases son plantillas para crear objetos
+
+- Los diagramas de clases son la representación gráfica de las clases y sus relaciones
+
+---
+
+- La programación orientada a objetos implementa el diseño en un lenguaje de programación
+
 - ANÁLISIS ➡ DISEÑO ➡ PROGRAMACIÓN
 
 ---
@@ -971,8 +1107,7 @@ Como si estuviéramos trabajando en un proyecto real
 
 Crear una carpeta con el nombre "retos_sesion_01" dentro del proyecto en la raíz, en la cual por cada ejercicio debes crear los siguientes archivos:
 
-```bash
-# Estructura de carpetas
+```bash [1-2,11-14]
 psg-oop-2025/
     sesion01/
         ejemplo01.txt
@@ -991,53 +1126,53 @@ psg-oop-2025/
 
 ---
 
-1. Crear un archivo llamado `ejercicio_01.md` en la carpeta retos_sesion_01 y hacer:
+1. Crear un archivo llamado `ejercicio_01.md` en la carpeta `retos_sesion_01` y realiza 
 
-    - análisis y diseño
+Análisis y Diagrama de clases
 
-    Para lo siguiente:
+Para lo siguiente:
 
-    ```text
-    Un restaurante quiere ofrecer hamburguesas
-    Los clientes pueden elegir entre hamburguesa de res, pollo
-    o vegetariana.
-    Agregar lechuga, tomate, cebolla y mayonesa como extras
-    Y comer en el restaurante o para llevar
-    ```
+```text
+Un restaurante quiere ofrecer hamburguesas
+Los clientes pueden elegir entre hamburguesa de res, pollo
+o vegetariana.
+Agregar lechuga, tomate, cebolla y mayonesa como extras
+Y comer en el restaurante o para llevar
+```
 
-
----
-2. Crear un archivo llamado `ejercicio_02.md` en la carpeta retos_sesion_01 y hacer:
-    
-    - análisis y diseño
-
-    Para lo siguiente:
-
-    ```text
-    Una tienda de ropa quiere ofrecer camisetas y pantalones
-    Los clientes pueden elegir entre camiseta
-    de manga corta o larga y pantalón de mezclilla o tela
-    Las camisetas pueden ser de color rojo, azul o verde
-    y los pantalones de color negro, gris o blanco
-    Las camisetas pueden ser tener talas: S, M, L, XL
-    Los pantalones tienen desde la talla 32 hasta la talla 44
-    ```
 
 ---
-3. Crear un archivo llamado `ejercicio_03.md` en la carpeta retos_sesion_01 y hacer:
+2. Crear un archivo llamado `ejercicio_02.md` en la carpeta `retos_sesion_01` y realiza
     
-    - análisis y diseño
+Análisis y Diagrama de clases
 
-    Para lo siguiente
+Para lo siguiente:
 
-    ```text
-        Estas diseñando una app para dibujar de perros con IA 
-        los usuarios pueden seleccionar características como la
-        raza del perro como labrador, pastor alemán, y otros
-        Cambiar el color del pelaje, tamaño y tipo de orejas  
-        Agregar dos accesorios como sombreros o gafas
-        El dibujo final puede ser descargado en PNG o JPG
-    ```
+```text
+Una tienda de ropa quiere ofrecer camisetas y pantalones
+Los clientes pueden elegir entre camiseta
+de manga corta o larga y pantalón de mezclilla o tela
+Las camisetas pueden ser de color rojo, azul o verde
+y los pantalones de color negro, gris o blanco
+Las camisetas pueden ser tener talas: S, M, L, XL
+Los pantalones tienen desde la talla 32 hasta la talla 44
+```
+
+---
+3. Crear un archivo llamado `ejercicio_03.md` en la carpeta `retos_sesion_01` y realiza
+    
+Análisis y Diagrama de clases
+
+Para lo siguiente:
+
+```text
+Estas diseñando una app para dibujar de perros con IA 
+los usuarios pueden seleccionar características como la
+raza del perro como labrador, pastor alemán, y otros
+Cambiar el color del pelaje, tamaño y tipo de orejas  
+Agregar dos accesorios como sombreros o gafas
+El dibujo final puede ser descargado en PNG o JPG
+```
 
     
 ---
