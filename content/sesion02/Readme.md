@@ -27,11 +27,6 @@ mkdir sesion02
 
 Aquí guardaremos los ejemplos de la sesión
 
----
-
-#### Atributos de una clase
-
-Las clases tienen atributos
 
 ---
 
@@ -41,6 +36,21 @@ Las clases tienen atributos
 - Obtenemos los atributos del análisis
 - Los atributos son las variables que se definen dentro de una clase
 
+---
+
+#### Atributos de una clase
+
+```mermaid
+%%{init: {"theme": "dark", "look": "handDrawn" }}%%
+mindmap
+  root((🍎))
+    Color
+    Sabor
+    Tamaño
+    Variedad
+    Semillas
+```
+<!--.element class="center-mermaid"-->
 
 ---
 
@@ -55,9 +65,25 @@ con una sintaxis neutral y no específica de un lenguaje
 
 ---
 
-En el diagrama de clases los atributos se representan
+#### Atributos de una clase
 
-con su tipo de dato al lado del nombre del atributo
+```mermaid
+%%{init: {"theme": "dark", "look": "handDrawn" }}%%
+mindmap
+  root((🍎))
+    Color: String
+    Sabor: String
+    Tamaño: float
+    Variedad: String
+    Semillas: bool
+```
+<!--.element class="center-mermaid"-->
+
+---
+
+#### Diagrama de clases
+
+Los atributos se representan con su *tipo* de dato al lado del *nombre*
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn" }}%% 
@@ -66,6 +92,7 @@ classDiagram
         tipo nombreAtributo
     }
 ```
+<!--.element class="center-mermaid"-->
 
 ---
 
@@ -76,18 +103,19 @@ Crea el archivo **ejemplo01.md** en la carpeta **sesion02**
 ```markdown
 Un coleccionista se dedica a recolectar gatos, las características
 que más le gustan son el color, género, edad y si están
-castrados o no, va registrando cada gato que encuentra.
+castrados o no, va registrando cada gato que encuentra
 ```
 
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
-flowchart LR
+flowchart TD
     C{"😺"} -- 🟠 --> D["Color"]
     C -- ♂️ --> F["Género"]
     C -- ⌛️ --> G["Edad"]
     C -- ✂️ --> H["Castrado"]
 ```
+<!--.element class="center-mermaid"-->
 
 ---
 
@@ -128,7 +156,6 @@ classDiagram
         Castrado
     }
 ```
-
 ````
 
 ```mermaid
@@ -188,7 +215,8 @@ classDiagram
 ```
 
 ---
-### Ejemplo 02
+
+#### Ejercicio para ti
 
 Crea el archivo **ejemplo02.md** en la carpeta **sesion02** 
 
@@ -198,7 +226,9 @@ registran el nombre de la mascota y del propietario,
 la edad, género, raza y si está vacunado o no 
 ```
 
-4 minutos (Análisis y diseño de la clase)
+Obtener el *Análisis de la clase*
+
+3 minutos 
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
@@ -227,7 +257,17 @@ Acciones:
 
 ---
 
-Diseño
+#### Ejercicio para ti
+
+Ahora obtenemos el diseño del *diagrama de clase*
+
+2 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
+#### Diseño
 
 ````markdown
 ```mermaid
@@ -258,6 +298,16 @@ classDiagram
 
 ---
 
+Ya tenemos el *análisis y diseño* de la clase
+
+Ahora podemos pasar a la etapa de **programación**
+
+Con `Python`
+
+Dándole vida a las clases
+
+---
+
 #### Programación
 
 En python podemos representar una clase con la palabra reservada `class`
@@ -274,6 +324,12 @@ Donde:
 - `pass` es la palabra reservada para indicar que no hay código en la clase
 
 ---
+
+De las clases podemos crear *instancias*
+
+Las *instancias* son **objetos** creados a partir de una **clase**
+
+---
 #### Instancia
 
 Una instancia es un objeto creado a partir de una clase
@@ -282,14 +338,14 @@ Una instancia es un objeto creado a partir de una clase
 class Gato:
     pass
 
-a = Gato()
-b = Gato()
+michi = Gato()
+mau = Gato()
 ```
 
 Donde:
 - Se instancia utilizando el nombre de la clase seguido de paréntesis
-- `a` y `b` son instancias de la clase `Gato`
-- `a` y `b` son diferentes, aunque sean de la misma clase
+- `michi` y `mau` son instancias de la clase `Gato`
+- `michi` y `mau` son diferentes, aunque sean de la misma clase
 
 ---
 #### Atributos de instancia
@@ -299,27 +355,50 @@ Podemos añadir atributos a una instancia de clase
 ```python
 class Gato:
     pass
-a = Gato()
-a.color = "naranja"
-print(a.color)
+michi = Gato()
+michi.color = "naranja"
+print(michi.color)
 ```
 
 Donde:
-- `a` es una instancia de la clase `Gato`
+- `michi` es una instancia de la clase `Gato`
 - `color` es el nombre del atributo a añadir
 - `"naranja"` es el valor del atributo
-- `a.color` es la forma de asignar y acceder al atributo color del objeto `a`
+- `michi.color` es la forma de asignar y acceder al atributo color del objeto `michi`
 
 
 ---
 
 ### Ejemplo 03
 
-Crea el archivo **ejemplo03.py** en la carpeta **sesion02** 
+Crea el archivo **ejemplo01.py** en la carpeta **sesion02** 
 
-```text
-Del ejemplo 01 crearemos la primera clase Gato
+```markdown
+Utilizando el análisis y diseño del ejemplo 01
+
+# Análisis
+
+Requisitos:
+- Recolectar gatos
+- Registrar los atributos de cada gato
+
+Objetos:
+- Gato
+
+Características:
+- Gato
+    - Color
+    - Género
+    - Edad
+    - Castrado
+
+Acciones:
+- (No hay acciones)
 ```
+
+---
+
+El diseño del diagrama de clases
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
@@ -331,6 +410,7 @@ classDiagram
         Castrado
     }
 ```
+<!--.element class="center-mermaid"-->
 
 ---
 
@@ -339,13 +419,13 @@ Crearemos primero sólo la clase Gato sin atributos e instanciamos un gato
 ```python
 class Gato:
     pass
-michi = Gato()
-print(michi)
-print(type(michi))
+pelusa = Gato()
+print(pelusa)
+print(type(pelusa))
 ```
 
 ```bash
-python ejemplo03.py
+python ejemplo01.py
 ```
 
 ```text
@@ -356,9 +436,10 @@ python ejemplo03.py
 ---
 
 ### Ejemplo 04
-Crea el archivo **ejemplo04.py** en la carpeta **sesion02** 
 
-```text
+Ahora añadiremos atributos a las instancias
+
+```markdown
 Del ejemplo 03 instanciaremos dos gatos y le añadiremos a
 cada uno un color, género, edad y si está castrado o no
 ```
@@ -366,19 +447,22 @@ cada uno un color, género, edad y si está castrado o no
 ```python
 class Gato:
     pass
+# Instanciar
 pelusa = Gato()
+miauricio = Gato()
+
+# Añadir atributos
 pelusa.color = "negro"
 pelusa.genero = "hembra"
 pelusa.edad = 2
 pelusa.castrado = False
 
-
-miauricio = Gato()
 miauricio.color = "naranja"
 miauricio.genero = "macho"
 miauricio.edad = 1
 miauricio.castrado = True
 
+# Mostrar atributos
 print("Pelusa: ",pelusa)
 print(pelusa.color)
 print(pelusa.genero)
@@ -394,7 +478,7 @@ print(miauricio.castrado)
 ---
 
 ```bash
-python ejemplo04.py
+python ejemplo01.py
 ```
 
 ```text
@@ -412,22 +496,24 @@ True
 
 ---
 
-Añadir atributos de esta forma no es recomendable 
+Podemos añadir atributos asignando directamente a la instancia
 
-Añade complejidad al código y no es escalable
+uno por uno pero de esta forma **no es recomendable**
 
----
-
-¿Existe una forma más sencilla de añadir atributos?
+Añade complejidad al código y **no es escalable**
 
 ---
 
-Sí, mediante el uso de un constructor
+¿Existe una forma más eficiente de añadir atributos?
+
+---
+
+Sí, mediante el uso de un `constructor`
 
 ---
 #### Constructor
 
-Un constructor es un método especial que permite inicializar los atributos de una clase
+Un constructor es un **método** especial que permite **inicializar los atributos** de una clase
 
 Hace que la creación de instancias sea más sencilla y escalable
 
@@ -441,14 +527,16 @@ En python se define el método con el nombre especial `__init__`
 
 ---
 
-```python
+Estructura del constructor
+
+```python [2-4]
 class Gato:
     def __init__(self, color, edad):
         self.color = color
         self.edad = edad
 ```
 Donde:
-- `def` es la palabra reservada para definir un método
+- `def` palabra reservada para definir un método
 - `__init__` es el nombre del método constructor
 - `self` es una referencia a la instancia de la clase
 - `color` y `edad` son los parámetros del constructor que se asigna a la instancia
@@ -461,13 +549,13 @@ Donde:
 - `self` es una convención en python
 - `self` no es una palabra reservada
 - `self` puede ser reemplazada por cualquier otro nombre
-- `self` es el primer parámetro de todos los métodos de la clase
+- `self` es el primer parámetro de todos los métodos de instancia
 
 ---
 
 Después de definir el constructor al momento de crear una instancia
 
-se le pasan los valores de los atributos
+se pasan los valores de los atributos
 
 ---
 
@@ -476,17 +564,19 @@ se le pasan los valores de los atributos
 Crea el archivo **ejemplo05.py** en la carpeta **sesion02** 
 
 ```text
-Crearemos la clase Gato con un constructor y un atributo de instancia
+Crearemos una clase Gato con el atributo color
+Utilizando el constructor para inicializar el atributo
+e instanciar dos gatos con diferente color
 ```
 
 ```python
 class Gato:
     def __init__(self, color):
         self.color = color
-a = Gato("negro")
-b = Gato("blanco")
-print(a.color)
-print(b.color)
+pantera = Gato("negro")
+snowball = Gato("blanco")
+print(pantera.color)
+print(snowball.color)
 ```
 
 ```bash
@@ -505,26 +595,31 @@ blanco
 Crea el archivo **ejemplo06.py** en la carpeta **sesion02** 
 
 ```text
-Del ejemplo 04 ahora crearemos la clase Gato con un constructor e 
-instanciaremos dos gatos 
+Del ejemplo 04 vamos a crear ahora utilizando 
+un constructor en la clase Gato e instanciaremos
+los dos gatos
 ```
 
 ---
 
-```python [1-6|7-8|9-13|14-18]
+Clase con constructor y atributos
+
+```python [1-6|7-9|10-15|16-20]
 class Gato:
     def __init__(self, color, genero, edad, castrado):
         self.color = color
         self.genero = genero
         self.edad = edad
         self.castrado = castrado
-michi = Gato("Negro", "hembra", 2, False)
+# Instanciar
+pelusa = Gato("Negro", "hembra", 2, False)
 miauricio = Gato("Naranja", "macho", 1, True)
-print("Michi: ",michi)
-print(michi.color)
-print(michi.genero)
-print(michi.edad)
-print(michi.castrado)
+# Mostrar atributos
+print("Pelusa: ",pelusa)
+print(pelusa.color)
+print(pelusa.genero)
+print(pelusa.edad)
+print(pelusa.castrado)
 print("Miauricio: ",miauricio)
 print(miauricio.color)
 print(miauricio.genero)
@@ -534,12 +629,14 @@ print(miauricio.castrado)
 
 ---
 
+Ejecutar el script
+
 ```bash
 python ejemplo06.py
 ```
 
 ```text
-Michi:  <__main__.Gato object at 0x7faeb4380f10>
+Pelusa:  <__main__.Gato object at 0x7faeb4380f10>
 Negro
 hembra
 2
@@ -552,22 +649,63 @@ True
 ```
 
 ---
-#### Ejemplo 07
+#### Ejercicio para ti
 
-Crea el archivo **ejemplo07.py** en la carpeta **sesion02** 
+Crea el archivo **ejemplo02.py** en la carpeta **sesion02** 
 
 ```text
-Del ejemplo 05 ahora crearemos la clase Perro con un constructor
+Del ejemplo 02 ahora crearemos la clase Perro con un constructor
 e instanciaremos dos perros 
 ```
 
-3 minutos
+```markdown
+# Análisis
+Requisitos:
+- Registrar perros
+- Registrar los atributos de cada perro
+Objetos:
+- Perro
+Características:
+- Perro
+    - Nombre
+    - Propietario
+    - Edad
+    - Género
+    - Raza
+    - Vacunado
+Acciones:
+- (No hay acciones)
+```
+
+---
+
+Diseño
+
+```mermaid
+%%{init: {"theme": "dark", "look": "handDrawn" }}%%
+classDiagram
+    class Perro {
+        String Nombre
+        String Propietario
+        int Edad
+        String Genero
+        String Raza
+        bool Vacunado
+    }
+```
+<!--.element class="center-mermaid"-->
+
+Crea la clase con el constructor e instancia dos perros
+
+4 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
 ---
 
-```python [1-7|8-9|10-15|16-21]
+Clase con constructor y atributos
+
+```python [1-7|8-10|11-17|18-23]
 class Perro:
     def __init__(self, nombre, propietario, edad, genero, raza):
         self.nombre = nombre
@@ -575,8 +713,10 @@ class Perro:
         self.edad = edad
         self.genero = genero
         self.raza = raza
+# Instanciar
 toby = Perro("Toby", "Jhon", 3, "macho", "labrador")
 luna = Perro("Luna", "Jane", 2, "hembra", "pug")
+# Mostrar atributos
 print("Toby: ",toby)
 print(toby.nombre)
 print(toby.propietario)
@@ -593,8 +733,10 @@ print(luna.raza)
 
 ---
 
+Ejecutar el script
+
 ```bash
-python ejemplo07.py
+python ejemplo02.py
 ```
 
 ```text
@@ -616,7 +758,7 @@ pug
 
 #### Atributos de clase
 
-Son atributos que pertenecen a la clase y no a las instancias
+Son atributos que pertenecen a la **clase** y NO a las instancias
 
 - Se definen dentro de la clase pero fuera de los métodos
 - Se accede a ellos mediante el nombre de la clase
@@ -643,15 +785,16 @@ Donde:
 
 Las instancias pueden acceder a los atributos de clase
 
-```python [1-4|5-6|7-9]
+```python [1-4|5-6|7-8|9-10]
 class Gato:
     especie = "felino"
     def __init__(self, color):
         self.color = color
-a = Gato("negro")
-b = Gato("blanco")
-print(a.especie, a.color)
-print(b.especie, b.color)
+pantera = Gato("negro")
+snowball = Gato("blanco")
+print(pantera.especie, pantera.color)
+print(snowball.especie, snowball.color)
+# Atributo de clase
 print(Gato.especie)
 ```
 
@@ -665,14 +808,11 @@ felino
 
 Diferencia entre atributos de clase e instancia
 
-- Atributos de clase:
-    - Se definen dentro de la clase pero fuera de los métodos
-    - Se accede a ellos mediante el nombre de la clase
-    - Se comparten entre todas las instancias
-- Atributos de instancia:
-    - Se definen dentro de los métodos de la clase
-    - Se accede a ellos mediante el nombre de la instancia
-    - Son únicos para cada instancia de la clase
+| **Clase**                                                   | *Instancia*                                            |
+| ----------------------------------------------------------- | ------------------------------------------------------ |
+| Se definen dentro de la clase pero **fuera** de los métodos | Se definen *dentro* de los métodos de la clase         |
+| Se accede a ellos mediante el nombre de la **clase**        | Se accede a ellos mediante el nombre de la *instancia* |
+| Se **comparten** entre todas las instancias                 | Son *únicos* para cada instancia de la clase           |
 
 ---
 
