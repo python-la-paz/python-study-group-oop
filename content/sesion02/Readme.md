@@ -96,7 +96,7 @@ classDiagram
 
 ---
 
-### Ejemplo 01
+#### Ejemplo 01
 
 Crea el archivo **ejemplo01.md** en la carpeta **sesion02** 
 
@@ -216,7 +216,7 @@ classDiagram
 
 ---
 
-#### Ejercicio para ti
+#### Ejercicio para ti (02)
 
 Crea el archivo **ejemplo02.md** en la carpeta **sesion02** 
 
@@ -234,7 +234,7 @@ Obtener el *Análisis de la clase*
 
 ---
 
-Análisis
+#### Análisis
 
 ```markdown
 # Análisis
@@ -257,11 +257,11 @@ Acciones:
 
 ---
 
-#### Ejercicio para ti
+#### Ejercicio para ti (02)
 
 Ahora obtenemos el diseño del *diagrama de clase*
 
-2 minutos
+3 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
@@ -369,7 +369,7 @@ Donde:
 
 ---
 
-### Ejemplo 03
+#### Ejemplo 03
 
 Crea el archivo **ejemplo01.py** en la carpeta **sesion02** 
 
@@ -404,10 +404,10 @@ El diseño del diagrama de clases
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 classDiagram
     class Gato {
-        Color
-        Genero
-        Edad
-        Castrado
+        String Color
+        String Genero
+        int Edad
+        bool Castrado
     }
 ```
 <!--.element class="center-mermaid"-->
@@ -435,7 +435,7 @@ python ejemplo01.py
 
 ---
 
-### Ejemplo 04
+#### Ejemplo 04
 
 Ahora añadiremos atributos a las instancias
 
@@ -649,7 +649,7 @@ True
 ```
 
 ---
-#### Ejercicio para ti
+#### Ejercicio para ti (07)
 
 Crea el archivo **ejemplo02.py** en la carpeta **sesion02** 
 
@@ -816,19 +816,64 @@ Diferencia entre atributos de clase e instancia
 
 ---
 
-#### Ejemplo 08
+#### Ejemplo 08 
 
 Crea el archivo **ejemplo08.py** en la carpeta **sesion02** 
 
 ```text
 Del ejemplo 06 ahora crearemos la clase Gato 
-con un atributo de clase e instanciaremos dos gatos 
+con un atributo de clase que será la especie
+ya que todos los gatos son felinos
+al final instanciaremos dos gatos
 ```
 
-```python [1-8|2-3|4-8|10-11|12-16|17-21|22]
+```markdown
+# Análisis
+
+Requisitos:
+- Recolectar gatos
+- Registrar los atributos de cada gato
+- Todos los gatos son felinos
+
+Objetos:
+- Gato
+
+Características:
+- Gato
+    - Especie
+    - Color
+    - Género
+    - Edad
+    - Castrado
+
+Acciones:
+- (No hay acciones)
+```
+
+---
+
+El diseño del diagrama de clases
+
+```mermaid
+%%{init: {"theme": "dark", "look": "handDrawn" }}%%
+classDiagram
+    class Gato {
+        String Especie
+        String Color
+        String Genero
+        int Edad
+        bool Castrado
+    }
+```
+<!--.element class="center-mermaid"-->
+
+---
+
+Clase con atributo de clase y atributos de instancia
+
+```python [1-7|2|3-7|9-10|11-15|16-20|21]
 class Gato:
     especie = "felino"
-    tipo = "mamífero"
     def __init__(self, color, genero, edad, castrado):
         self.color = color
         self.genero = genero
@@ -837,48 +882,94 @@ class Gato:
 
 michi = Gato("Negro", "hembra", 2, False)
 miauricio = Gato("Naranja", "macho", 1, True)
-print("Michi: ",michi.tipo, michi.especie)
+print("Michi: ", michi.especie)
 print(michi.color)
 print(michi.genero)
 print(michi.edad)
 print(michi.castrado)
-print("Miauricio: ",miauricio.tipo, miauricio.especie)
+print("Miauricio: ", miauricio.especie)
 print(miauricio.color)
 print(miauricio.genero)
 print(miauricio.edad)
 print(miauricio.castrado)
-print("Gato es: ", Gato.tipo, "Especie: ", Gato.especie)
+print("Gato es: ", Gato.especie)
 ```
 
 ---
+
+Ejecutar el script
 
 ```bash
 python ejemplo08.py
 ```
 
 ```text
-Michi:  mamífero felino
+Michi: felino
 Negro
 hembra
 2
 False
-Miauricio:  mamífero felino
+Miauricio: felino
 Naranja
 macho
 1
 True
-Gato es: mamífero Especie: felino
+Gato es: felino
 ```
 
 ---
 
-#### Ejemplo 09
+#### Ejercicio para ti (09)
 Crea el archivo **ejemplo09.py** en la carpeta **sesion02** 
 
 ```text
 Del ejemplo 07 ahora crearemos la clase Perro con
-tres atributos de clase e instanciaremos dos perros 
+tres atributos de clase e instanciaremos dos perros
+todos los perros son caninos, mamíferos y terrestres
 ```
+
+```markdown
+# Análisis
+Requisitos:
+- Registrar perros
+- Registrar los atributos de cada perro
+Objetos:
+- Perro
+Características:
+- Perro
+    - Especie
+    - Tipo
+    - Habitat
+    - Nombre
+    - Propietario
+    - Edad
+    - Género
+    - Raza
+    - Vacunado
+Acciones:
+- (No hay acciones)
+```
+
+---
+
+El diseño del diagrama de clases
+
+```mermaid
+%%{init: {"theme": "dark", "look": "handDrawn" }}%%
+classDiagram
+    class Perro {
+        String Especie
+        String Tipo
+        String Habitat
+        String Nombre
+        String Propietario
+        int Edad
+        String Genero
+        String Raza
+        bool Vacunado
+    }
+```
+<!--.element class="center-mermaid"-->
 
 3 minutos
 
@@ -937,6 +1028,7 @@ Perro es:  mamífero Especie:  canino Habitat:  terrestre
 ```
 
 ---
+
 #### Modificar los atributos
 
 Podemos modificar los atributos de una instancia
@@ -987,12 +1079,14 @@ después de un tiempo son rescatados
 
 ---
 
+#### Análisis
+
 ```markdown
 # Análisis
 Requisitos:
 - Registrar animales
 - Registrar los atributos de cada animal
-- Actualizar su origen despues de registrarlos
+- Actualizar su origen después de registrarlos
 
 Objetos:
 - Mascota
@@ -1009,12 +1103,12 @@ Acciones:
 
 ---
 
-Diseño
+#### Diseño
 
 ````markdown
 ```mermaid	
 classDiagram
-    class Animal {
+    class Mascota {
         String Origen
         String Nombre
         String Especie
@@ -1024,7 +1118,7 @@ classDiagram
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 classDiagram
-    class Animal {
+    class Mascota {
         String Origen
         String Nombre
         String Especie
@@ -1036,24 +1130,24 @@ classDiagram
 Programación
 
 ```python [1-5|7-11|13-17|18-20]
-class Animal:
+class Mascota:
     origen = "abandonado"
     def __init__(self, nombre, especie):
         self.nombre = nombre
         self.especie = especie
 
-print ("Animales encontrados...")
-perro = Animal("Perro 001", "perro")
-gato = Animal("Gato 002", "gato")
+print ("Mascotas encontradas...")
+perro = Mascota("Perro 001", "perro")
+gato = Mascota("Gato 002", "gato")
 print("Mascota 1: ",perro.origen, perro.nombre, perro.especie)
 print("Mascota 2: ",gato.origen, gato.nombre, gato.especie)
 
-print("Rescatando animales...")
-Animal.origen = "rescatado"
+print("Rescatando mascotas...")
+Mascota.origen = "rescatado"
 perro.nombre = "Milaneso"
 gato.nombre = "Kitty"
 
-print("Animales rescatados...")
+print("Mascotas rescatadas...")
 print("Mascota 1: ",perro.origen, perro.nombre, perro.especie)
 print("Mascota 2: ",gato.origen, gato.nombre, gato.especie)
 ```
@@ -1065,20 +1159,19 @@ python ejemplo10.py
 ```
 
 ```text
-Animales encontrados...
+Mascotas encontradas...
 Mascota 1:  abandonado Perro 001 perro
 Mascota 2:  abandonado Gato 002 gato
-Rescatando animales...
-Animales rescatados...
+Rescatando mascotas...
+Mascotas rescatadas...
 Mascota 1:  rescatado Milaneso perro
 Mascota 2:  rescatado Kitty gato
 ```
 
 ---
-#### Ejemplo 11
+#### Ejercicio para ti (11)
 
-Crea el archivo **ejemplo11.md** y el archivo **ejemplo11.py**
-
+Crea el archivo **ejemplo11.md** y el archivo **ejemplo11.py** 
 en la carpeta **sesion02** 
 
 ```text
@@ -1088,11 +1181,15 @@ especie y el peso, el origen de todos son criados en cautiverio
 Antes de liberarlos se actualiza su peso y luego son liberados
 ```
 
-4 minutos (Análisis, diseño y programación)
+Obtener el *Análisis de la clase*
+
+3 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
 ---
+
+Analisis
 
 ```markdown
 # Análisis
@@ -1115,6 +1212,17 @@ Acciones:
 ```
 
 ---
+
+#### Ejercicio para ti (11)
+
+Ahora obtenemos el diseño del *diagrama de clase*
+
+3 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
 Diseño
 
 ````markdown
@@ -1141,7 +1249,17 @@ classDiagram
 ```
 
 ---
-Programación
+
+
+Ya tenemos el *análisis y diseño* de la clase
+
+Ahora podemos **programar**
+
+4 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
 
 ```python
 class Pez:
@@ -1186,27 +1304,29 @@ Pez 2:  liberado Pez betta 0.4 agua dulce
 
 #### Resumen
 
-- Los atributos son las características o propiedades de una clase
-- Los atributos tienen un nombre y un valor
-- El valor de un atributo puede ser de cualquier tipo de dato
+- Los atributos de una clase representan las características o propiedades de los objetos y se definen dentro de la clase.
+- Es importante analizar y definir los atributos de manera general y con una sintaxis neutral, usando tipos de datos como entero, booleano, número real y cadena de texto.
 
 ---
 
-- Los atributos se definen dentro de la clase
-- Los atributos pueden ser de clase o de instancia
-- Los atributos de instancia son únicos para cada instancia
+- En los diagramas de clases los atributos se representan con su tipo de dato al lado del nombre.
+- Las instancias son objetos creados a partir de una clase y que cada instancia puede tener sus propios atributos.
+- Se pueden añadir atributos a las instancias directamente, pero no es recomendable porque no es escalable.
 
 ---
 
-- Los atributos de instancia se acceden mediante el nombre del objeto
-- Los atributos de instancia se definen dentro del constructor
-- Los atributos de clase son compartidos entre todas las instancias
+- El constructor es un método especial que permite inicializar los atributos de una clase al momento de crear una instancia, y en Python se define con el método __init__.
+- El parámetro self es una convención en Python y se utiliza para referirse a la instancia actual dentro de los métodos de la clase.
 
 ---
 
-- Los atributos de clase se acceden mediante el nombre de la clase
-- Los atributos de clase se definen fuera del constructor
-- Los atributos de clase se pueden modificar mediante el nombre de la clase
+- Los atributos de clase pertenecen a la clase y no a las instancias, se definen fuera de los métodos y se comparten entre todas las instancias.
+- Diferencia entre atributos de clase y atributos de instancia: los de clase son compartidos y los de instancia son únicos para cada objeto.
+
+---
+
+- Se pueden modificar los atributos de instancia y de clase, y que al modificar un atributo de clase, el cambio afecta a todas las instancias.
+- Es importante organizar el análisis y diseño de clases antes de programar, identificando requisitos, objetos, características y acciones.
 
 ---
 
@@ -1227,38 +1347,33 @@ psg-oop-2025/
 
 ---
 
-1. Crear un archivo llamado `ejercicio_01.md` y un archivo `ejercicio_01.py` en la carpeta retos_sesion_02 y hacer:
+1. Crear un archivo llamado `ejercicio_01.md` y un archivo `ejercicio_01.py` en la carpeta `retos_sesion_02`
     
-    - análisis y diseño
-    - programación
+ 
+```text
+Un zoológico quiere registrar a los animales que tienen
+pueden ser mamíferos, reptiles o aves,
+quieren registrar su especie y el lugar donde los encontraron
+El origen de todos los animales son salvajes
+El zoológico cuenta con 2 mamíferos, 1 reptil y 1 ave
 
-    Para lo siguiente:
-
-    ```text
-    Un zoológico quiere registrar a los animales que tienen
-    pueden ser mamíferos, reptiles o aves,
-    quieren registrar su especie y el lugar donde los encontraron
-    El origen de todos son salvajes y después de un tiempo son
-    rescatados
-    El zoológico cuenta con 2 mamíferos, 1 reptil y 1 ave
-    ```
-
+- Realiza el análisis y diseño
+- Programa la clase y crea las instancias
+```
 
 ---
-2. Crear un archivo llamado `ejercicio_02.md` y un archivo `ejercicio_02.py` en la carpeta retos_sesion_02 y hacer:
-    
-    - análisis y diseño
-    - programación
+2. Crear un archivo llamado `ejercicio_02.md` y un archivo `ejercicio_02.py` en la carpeta `retos_sesion_02` y hacer:
 
-    Para lo siguiente:
+```text
+Una vinoteca quiere registrar los vinos y quesos que tienen
+de los vinos importa el nombre, el tipo, la cepa y el año
+de los quesos quieren el nombre, la variedad,
+la edad y si lleva sal.
+Tiene en su inventario 4 vinos y 3 quesos 
 
-    ```text
-    Una vinoteca quiere registrar a los vinos y quesos que tienen
-    de los vinos importa el nombre, el tipo, la cepa y el año
-    de los quesos quieren el nombre, la variedad,
-    la edad y si lleva sal.
-    Tiene en su inventario 4 vinos y 3 quesos 
-    ```
+- Realiza el análisis y diseño
+- Programa las clases y crea las instancias
+```
     
 ---
 <!-- .slide: data-background-image="../../content/psg-bg-dark.png" data-background-size="100%"-->
