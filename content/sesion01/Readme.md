@@ -10,6 +10,71 @@
 #### Representando el mundo real en clases
 
 ---
+
+#### Preparemos el proyecto para este Study Group
+
+---
+
+#### Repositorio en GitHub
+
+- Crea un repositorio en GitHub con el nombre **psg-oop-2025**
+
+- Añade los archivos iniciales
+  - **README.md**
+  - **.gitignore** para Python
+
+---
+
+#### Proyecto en VSCode
+
+- Clona el repositorio en tu computadora
+
+```bash
+git clone https://github.com/<usuario>/psg-oop-2025.git
+```
+
+- Abre el proyecto en VSCode
+
+```bash
+code psg-oop-2025
+```
+
+---
+
+#### Estructura de carpetas para la Sesión 01
+
+- Crea una carpeta con el nombre **sesion01**
+
+- Los archivos de esta sesión deben estar dentro de esta carpeta
+
+- Al finalizar la sesión, sube los cambios al repositorio en un commit
+
+---
+
+#### Herramientas adicionales
+
+---
+
+#### Intalación de Mermaid en VS Code
+
+Bucarmos la extensión de [Mermaid](https://marketplace.visualstudio.com/items?itemName=MermaidChart.vscode-mermaid-chart) en el marketplace de VS Code y la instalamos.
+
+![Extension VS Code](./img/img02.png) <!-- .element  width="70%"-->
+
+---
+
+#### Intalacion de LiveShare en VS Code
+
+Bucarmos la extensión de [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) en el marketplace de VS Code y la instalamos.
+
+![Extension VS Code](./img/img09.png) <!-- .element  width="70%"-->
+
+---
+
+### Ya estamos listos para comenzar
+
+---
+
 #### El mundo real
 
 ---
@@ -111,49 +176,6 @@ Una canción como un objeto
 
 ---
 
-#### Preparemos el proyecto para el Study Group
-
----
-
-#### 1. Crea el repositorio en GitHub
-
-- Crea un repositorio en GitHub con el nombre
-
- **psg-oop-2025**
-
-- Añade los archivos iniciales
-  - **README.md**
-  - **.gitignore** para Python
-
----
-
-#### 2. Descarga el repositorio
-
-Clona el repositorio en tu computadora
-
-```bash
-git clone https://github.com/<usuario>/psg-oop-2025.git
-```
-
-Abre el proyecto en VSCode
-
-```bash
-code psg-oop-2025
-```
-
----
-
-#### 3. Estructura Sesión 01
-
-Crea una carpeta con el nombre 
-
-**sesion01**
-
-- Los archivos de esta sesión deben estar dentro de esta carpeta
-
-- Al finalizar la sesión, subiremos los cambios al repositorio en un commit
-
----
 ### Ejemplo 01
 
 Crea el archivo **identidades.txt** en la carpeta **sesion01**
@@ -786,13 +808,7 @@ a al markdown
 Una de las herramientas más populares es [Mermaid](https://www.mermaidchart.com/play#pako:eNqrVkrOT0lVslJSqgUAFW4DVg)
 
 ---
-En VS Code podemos instalar la extensión de [Mermaid](https://marketplace.visualstudio.com/items?itemName=MermaidChart.vscode-mermaid-chart)
 
-Buscamos la extensión en el marketplace de VS Code y la instalamos.
-
-![Extension VS Code](./img/img02.png) <!-- .element  width="70%"-->
-
----
 Desde un archivo markdown podemos crear un diagrama usando mermaid:
 
 ````
@@ -1095,17 +1111,15 @@ git push origin main
 
 #### Retos
 
-Utilizaremos el repositorio de GitHub creado en esta sesión "psg-oop-2025" 
+- Utilizaremos el repositorio de GitHub creado en esta sesión "psg-oop-2025" para almacenar los retos, de todas las sesiones.
 
-para almacenar los retos, de todas las sesiones.
+- Iremos agregando los retos a medida que avancemos
 
-Iremos agregando los retos a medida que avancemos
-
-Como si estuviéramos trabajando en un proyecto real
+- Como si estuviéramos trabajando en un proyecto real
 
 ---
 
-Crear una carpeta con el nombre "retos_sesion_01" dentro del proyecto en la raíz, en la cual por cada ejercicio debes crear los siguientes archivos:
+Crear una carpeta con el nombre `retos_sesion_01` en la raíz del proyecto. Al finalizar deberas tener la siguiente estructura de carpetas y archivos:
 
 ```bash [1-2,11-14]
 psg-oop-2025/
@@ -1124,52 +1138,42 @@ psg-oop-2025/
 
 ---
 
-1. Crear un archivo llamado `ejercicio_01.md` en la carpeta `retos_sesion_01` y realiza 
-
-Análisis y Diagrama de clases
-
-Para lo siguiente:
+1. Crear el archivo `ejercicio_01.md` en la carpeta `retos_sesion_01` y realiza el **Análisis y el Diagrama de clases** para lo siguiente el siguiente escenario:
 
 ```text
 Un restaurante quiere ofrecer hamburguesas
-Los clientes pueden elegir entre hamburguesa de res, pollo
+Los clientes pueden elegir entre hamburguesa de: res, pollo
 o vegetariana.
-Agregar lechuga, tomate, cebolla y mayonesa como extras
-Y comer en el restaurante o para llevar
+Los clientes pueden agregar extras como: lechuga, tomate, 
+cebolla y mayonesa
+Ademas los clientes pueden decidir comer en el restaurante 
+o llevar su pedido
 ```
 
-
 ---
-2. Crear un archivo llamado `ejercicio_02.md` en la carpeta `retos_sesion_01` y realiza
-    
-Análisis y Diagrama de clases
-
-Para lo siguiente:
+2. Crear el archivo `ejercicio_02.md` en la carpeta `retos_sesion_01` y realiza **Análisis y el Diagrama de clases** para lo siguiente el siguiente escenario:
 
 ```text
 Una tienda de ropa quiere ofrecer camisetas y pantalones
-Los clientes pueden elegir entre camiseta
+Los clientes pueden elegir entre: camiseta
 de manga corta o larga y pantalón de mezclilla o tela
 Las camisetas pueden ser de color rojo, azul o verde
 y los pantalones de color negro, gris o blanco
-Las camisetas pueden ser tener talas: S, M, L, XL
-Los pantalones tienen desde la talla 32 hasta la talla 44
+Las camisetas tienen las tallas: S, M, L, XL
+Los pantalones tienen las tallas desde la 32 hasta la 44
 ```
 
 ---
-3. Crear un archivo llamado `ejercicio_03.md` en la carpeta `retos_sesion_01` y realiza
-    
-Análisis y Diagrama de clases
-
-Para lo siguiente:
+3. Crear el archivo `ejercicio_03.md` en la carpeta `retos_sesion_01` y realiza **Análisis y el Diagrama de clases** para lo siguiente el siguiente escenario:
 
 ```text
 Estas diseñando una app para dibujar de perros con IA 
-los usuarios pueden seleccionar características como la
-raza del perro como labrador, pastor alemán, y otros
-Cambiar el color del pelaje, tamaño y tipo de orejas  
-Agregar dos accesorios como sombreros o gafas
-El dibujo final puede ser descargado en PNG o JPG
+los usuarios pueden seleccionar características como 
+la raza (por ejemplo, labrador o pastor alemán), el color 
+del pelaje, el tamaño y el tipo de orejas.
+Además, pueden agregar hasta dos accesorios, como sombreros 
+o gafas.
+El dibujo final puede descargarse en formato PNG o JPG.
 ```
 
     
