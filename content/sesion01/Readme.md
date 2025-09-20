@@ -156,7 +156,7 @@ Crea una carpeta con el nombre
 ---
 ### Ejemplo 01
 
-Crea el archivo **ejemplo01.txt** en la carpeta **sesion01**
+Crea el archivo **identidades.txt** en la carpeta **sesion01**
 
 ```markdown
 Obtener las características, comportamiento y 
@@ -338,7 +338,7 @@ Identificar las características importantes según un contexto nos permite deli
 
 ### Ejemplo 02
 
-Crea el archivo **ejemplo02.txt** en la carpeta **sesion01**
+Crea el archivo **papas.txt** en la carpeta **sesion01**
 
 ```markdown
 ¿Qué características de una papa 🥔 son importantes?
@@ -439,8 +439,6 @@ Estructura de los requisitos
 
 #### Ejemplo 03
 
-Crear el archivo **ejemplo03.txt** en la carpeta **sesion01**
-
 ```text
 Una asociación de productores comunitarios de tomates quiere dar
 a conocer sus productos, para esto quieren una aplicación web 
@@ -448,6 +446,8 @@ donde las personas interesas en comprar sus tomates puedan ver
 fotos y ubicaciones de los huertos y comparar los tomates que
 producen según color, peso y especie
 ```
+
+Crear el archivo **huerto.txt** en la carpeta **sesion01**
 
 ---
 
@@ -473,10 +473,6 @@ Acciones:
 
 #### Ejemplo 04
 
-Crear el archivo **ejemplo04.txt** en la carpeta **sesion01**
-
-Obtener los objetos y acciones para obtener los requisitos
-
 ```text
 Una aplicación permite descubrir canciones nuevas.
 Las personas pueden escuchar fragmentos aleatoriamente,
@@ -484,6 +480,9 @@ darle "like" para ver el nombre de la canción, artista y carátula
 o "dislike" para pasar a la siguiente.
 Compara las canciones con según género, duración y artista.
 ```
+Obtener los objetos y acciones para obtener los requisitos
+
+Crear el archivo **cancion.txt** en la carpeta **sesion01**
 
 5 minutos
 
@@ -579,8 +578,6 @@ Una clase esta formada por
 
 #### Ejemplo 05 
 
-Crear el archivo **ejemplo05.txt** en la carpeta **sesion01**
-
 ```text
 Un panadero quiere hacer galletas en forma de corazón.
 Las galletas pueden ser de arándano, menta, piña, uva y naranja.
@@ -588,6 +585,8 @@ Deben tener glaseado azul, verde, amarillo, morado y naranja.
 ```
 
 Realizar el análisis y obtener las clases necesarias
+
+Crear el archivo **galleta.txt** en la carpeta **sesion01**
 
 ---
 
@@ -661,8 +660,6 @@ de diferentes sabores y glaseados.
 
 #### Ejemplo 06
 
-Crear el archivo **ejemplo06.txt** en la carpeta **sesion01**
-
 ```text
 Una confitería quiere hacer bombones.
 Tienen a disposición chocolate negro o blanco
@@ -671,6 +668,8 @@ Los moldes pueden ser en forma de estrella y circular
 ```
 
 Realizar el análisis y obtener las clases necesarias
+
+Crear el archivo **bombon.txt** en la carpeta **sesion01**
 
 ---
 
@@ -805,7 +804,7 @@ classDiagram
     }
 ```
 ````
-- `\`` indica que es un bloque de código
+- ` ``` ` indica que es un bloque de código
 - `mermaid` indica que es un diagrama de mermaid
 - `classDiagram` indica que es diagrama de clases
 - Las llaves `{}` indican el inicio y el fin de la clase
@@ -864,10 +863,11 @@ Seleccionamos "Mermaidchart: Preview Diagram"
 
 #### Ejemplo 07
 
-Crear el archivo **ejemplo07.md** en la carpeta **sesion01**
+Crear el archivo **bombon.md** en la carpeta **sesion01**
 
 ```markdown
-Convertir el siguiente diseño a un diagrama de una clase
+Copia el siguiente diseño y 
+crea un diagrama de una clase
 
 # Diseño:
 
@@ -909,7 +909,7 @@ classDiagram
 
 #### Ejemplo 08
 
-Crear el archivo **ejemplo08.md** en la carpeta **sesion01**
+Crear el archivo **helado.md** en la carpeta **sesion01**
 
 ```text
 Una heladería ofrece helados
@@ -959,7 +959,7 @@ Acciones:
 
 Ahora diseña la clase para los helados y obtén el diagrama de clases
 
-utilizando mermaid
+utilizando mermaid en el archivo **helado.md**
 
 3 minutos
 
@@ -1110,14 +1110,12 @@ Crear una carpeta con el nombre "retos_sesion_01" dentro del proyecto en la raí
 ```bash [1-2,11-14]
 psg-oop-2025/
     sesion01/
-        ejemplo01.txt
-        ejemplo02.txt
-        ejemplo03.txt
-        ejemplo04.txt
-        ejemplo05.txt
-        ejemplo06.txt
-        ejemplo07.md
-        ejemplo08.md
+        identidades.txt
+        cancion.txt
+        galleta.txt
+        bombon.txt
+        bombon.md
+        helado.md
     retos_sesion_01/
         ejercicio_01.md
         ejercicio_02.md
