@@ -10,6 +10,71 @@
 #### Representando el mundo real en clases
 
 ---
+
+#### Preparemos el proyecto para este Study Group
+
+---
+
+#### Repositorio en GitHub
+
+- Crea un repositorio en GitHub con el nombre **psg-oop-2025**
+
+- Añade los archivos iniciales
+  - **README.md**
+  - **.gitignore** para Python
+
+---
+
+#### Proyecto en VSCode
+
+- Clona el repositorio en tu computadora
+
+```bash
+git clone https://github.com/<usuario>/psg-oop-2025.git
+```
+
+- Abre el proyecto en VSCode
+
+```bash
+code psg-oop-2025
+```
+
+---
+
+#### Estructura de carpetas para la Sesión 01
+
+- Crea una carpeta con el nombre **sesion01**
+
+- Los archivos de esta sesión deben estar dentro de esta carpeta
+
+- Al finalizar la sesión, sube los cambios al repositorio en un commit
+
+---
+
+#### Herramientas adicionales
+
+---
+
+#### Intalación de Mermaid en VS Code
+
+Bucarmos la extensión de [Mermaid](https://marketplace.visualstudio.com/items?itemName=MermaidChart.vscode-mermaid-chart) en el marketplace de VS Code y la instalamos.
+
+![Extension VS Code](./img/img02.png) <!-- .element  width="70%"-->
+
+---
+
+#### Intalacion de LiveShare en VS Code
+
+Bucarmos la extensión de [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) en el marketplace de VS Code y la instalamos.
+
+![Extension VS Code](./img/img09.png) <!-- .element  width="70%"-->
+
+---
+
+### Ya estamos listos para comenzar
+
+---
+
 #### El mundo real
 
 ---
@@ -111,52 +176,9 @@ Una canción como un objeto
 
 ---
 
-#### Preparemos el proyecto para el Study Group
-
----
-
-#### 1. Crea el repositorio en GitHub
-
-- Crea un repositorio en GitHub con el nombre
-
- **psg-oop-2025**
-
-- Añade los archivos iniciales
-  - **README.md**
-  - **.gitignore** para Python
-
----
-
-#### 2. Descarga el repositorio
-
-Clona el repositorio en tu computadora
-
-```bash
-git clone https://github.com/<usuario>/psg-oop-2025.git
-```
-
-Abre el proyecto en VSCode
-
-```bash
-code psg-oop-2025
-```
-
----
-
-#### 3. Estructura Sesión 01
-
-Crea una carpeta con el nombre 
-
-**sesion01**
-
-- Los archivos de esta sesión deben estar dentro de esta carpeta
-
-- Al finalizar la sesión, subiremos los cambios al repositorio en un commit
-
----
 ### Ejemplo 01
 
-Crea el archivo **ejemplo01.txt** en la carpeta **sesion01**
+Crea el archivo **identidades.txt** en la carpeta **sesion01**
 
 ```markdown
 Obtener las características, comportamiento y 
@@ -338,7 +360,7 @@ Identificar las características importantes según un contexto nos permite deli
 
 ### Ejemplo 02
 
-Crea el archivo **ejemplo02.txt** en la carpeta **sesion01**
+Crea el archivo **papas.txt** en la carpeta **sesion01**
 
 ```markdown
 ¿Qué características de una papa 🥔 son importantes?
@@ -439,8 +461,6 @@ Estructura de los requisitos
 
 #### Ejemplo 03
 
-Crear el archivo **ejemplo03.txt** en la carpeta **sesion01**
-
 ```text
 Una asociación de productores comunitarios de tomates quiere dar
 a conocer sus productos, para esto quieren una aplicación web 
@@ -448,6 +468,8 @@ donde las personas interesas en comprar sus tomates puedan ver
 fotos y ubicaciones de los huertos y comparar los tomates que
 producen según color, peso y especie
 ```
+
+Crear el archivo **huerto.txt** en la carpeta **sesion01**
 
 ---
 
@@ -473,10 +495,6 @@ Acciones:
 
 #### Ejemplo 04
 
-Crear el archivo **ejemplo04.txt** en la carpeta **sesion01**
-
-Obtener los objetos y acciones para obtener los requisitos
-
 ```text
 Una aplicación permite descubrir canciones nuevas.
 Las personas pueden escuchar fragmentos aleatoriamente,
@@ -484,6 +502,9 @@ darle "like" para ver el nombre de la canción, artista y carátula
 o "dislike" para pasar a la siguiente.
 Compara las canciones con según género, duración y artista.
 ```
+Obtener los objetos y acciones para obtener los requisitos
+
+Crear el archivo **cancion.txt** en la carpeta **sesion01**
 
 5 minutos
 
@@ -579,8 +600,6 @@ Una clase esta formada por
 
 #### Ejemplo 05 
 
-Crear el archivo **ejemplo05.txt** en la carpeta **sesion01**
-
 ```text
 Un panadero quiere hacer galletas en forma de corazón.
 Las galletas pueden ser de arándano, menta, piña, uva y naranja.
@@ -588,6 +607,8 @@ Deben tener glaseado azul, verde, amarillo, morado y naranja.
 ```
 
 Realizar el análisis y obtener las clases necesarias
+
+Crear el archivo **galleta.txt** en la carpeta **sesion01**
 
 ---
 
@@ -661,8 +682,6 @@ de diferentes sabores y glaseados.
 
 #### Ejemplo 06
 
-Crear el archivo **ejemplo06.txt** en la carpeta **sesion01**
-
 ```text
 Una confitería quiere hacer bombones.
 Tienen a disposición chocolate negro o blanco
@@ -671,6 +690,8 @@ Los moldes pueden ser en forma de estrella y circular
 ```
 
 Realizar el análisis y obtener las clases necesarias
+
+Crear el archivo **bombon.txt** en la carpeta **sesion01**
 
 ---
 
@@ -787,13 +808,7 @@ a al markdown
 Una de las herramientas más populares es [Mermaid](https://www.mermaidchart.com/play#pako:eNqrVkrOT0lVslJSqgUAFW4DVg)
 
 ---
-En VS Code podemos instalar la extensión de [Mermaid](https://marketplace.visualstudio.com/items?itemName=MermaidChart.vscode-mermaid-chart)
 
-Buscamos la extensión en el marketplace de VS Code y la instalamos.
-
-![Extension VS Code](./img/img02.png) <!-- .element  width="70%"-->
-
----
 Desde un archivo markdown podemos crear un diagrama usando mermaid:
 
 ````
@@ -805,7 +820,7 @@ classDiagram
     }
 ```
 ````
-- `\`` indica que es un bloque de código
+- ` ``` ` indica que es un bloque de código
 - `mermaid` indica que es un diagrama de mermaid
 - `classDiagram` indica que es diagrama de clases
 - Las llaves `{}` indican el inicio y el fin de la clase
@@ -864,10 +879,11 @@ Seleccionamos "Mermaidchart: Preview Diagram"
 
 #### Ejemplo 07
 
-Crear el archivo **ejemplo07.md** en la carpeta **sesion01**
+Crear el archivo **bombon.md** en la carpeta **sesion01**
 
 ```markdown
-Convertir el siguiente diseño a un diagrama de una clase
+Copia el siguiente diseño y 
+crea un diagrama de una clase
 
 # Diseño:
 
@@ -909,7 +925,7 @@ classDiagram
 
 #### Ejemplo 08
 
-Crear el archivo **ejemplo08.md** en la carpeta **sesion01**
+Crear el archivo **helado.md** en la carpeta **sesion01**
 
 ```text
 Una heladería ofrece helados
@@ -959,7 +975,7 @@ Acciones:
 
 Ahora diseña la clase para los helados y obtén el diagrama de clases
 
-utilizando mermaid
+utilizando mermaid en el archivo **helado.md**
 
 3 minutos
 
@@ -1095,29 +1111,25 @@ git push origin main
 
 #### Retos
 
-Utilizaremos el repositorio de GitHub creado en esta sesión "psg-oop-2025" 
+- Utilizaremos el repositorio de GitHub creado en esta sesión "psg-oop-2025" para almacenar los retos, de todas las sesiones.
 
-para almacenar los retos, de todas las sesiones.
+- Iremos agregando los retos a medida que avancemos
 
-Iremos agregando los retos a medida que avancemos
-
-Como si estuviéramos trabajando en un proyecto real
+- Como si estuviéramos trabajando en un proyecto real
 
 ---
 
-Crear una carpeta con el nombre "retos_sesion_01" dentro del proyecto en la raíz, en la cual por cada ejercicio debes crear los siguientes archivos:
+Crear una carpeta con el nombre `retos_sesion_01` en la raíz del proyecto. Al finalizar deberas tener la siguiente estructura de carpetas y archivos:
 
 ```bash [1-2,11-14]
 psg-oop-2025/
     sesion01/
-        ejemplo01.txt
-        ejemplo02.txt
-        ejemplo03.txt
-        ejemplo04.txt
-        ejemplo05.txt
-        ejemplo06.txt
-        ejemplo07.md
-        ejemplo08.md
+        identidades.txt
+        cancion.txt
+        galleta.txt
+        bombon.txt
+        bombon.md
+        helado.md
     retos_sesion_01/
         ejercicio_01.md
         ejercicio_02.md
@@ -1126,52 +1138,42 @@ psg-oop-2025/
 
 ---
 
-1. Crear un archivo llamado `ejercicio_01.md` en la carpeta `retos_sesion_01` y realiza 
-
-Análisis y Diagrama de clases
-
-Para lo siguiente:
+1. Crear el archivo `ejercicio_01.md` en la carpeta `retos_sesion_01` y realiza el **Análisis y el Diagrama de clases** para lo siguiente el siguiente escenario:
 
 ```text
 Un restaurante quiere ofrecer hamburguesas
-Los clientes pueden elegir entre hamburguesa de res, pollo
+Los clientes pueden elegir entre hamburguesa de: res, pollo
 o vegetariana.
-Agregar lechuga, tomate, cebolla y mayonesa como extras
-Y comer en el restaurante o para llevar
+Los clientes pueden agregar extras como: lechuga, tomate, 
+cebolla y mayonesa
+Ademas los clientes pueden decidir comer en el restaurante 
+o llevar su pedido
 ```
 
-
 ---
-2. Crear un archivo llamado `ejercicio_02.md` en la carpeta `retos_sesion_01` y realiza
-    
-Análisis y Diagrama de clases
-
-Para lo siguiente:
+2. Crear el archivo `ejercicio_02.md` en la carpeta `retos_sesion_01` y realiza **Análisis y el Diagrama de clases** para lo siguiente el siguiente escenario:
 
 ```text
 Una tienda de ropa quiere ofrecer camisetas y pantalones
-Los clientes pueden elegir entre camiseta
+Los clientes pueden elegir entre: camiseta
 de manga corta o larga y pantalón de mezclilla o tela
 Las camisetas pueden ser de color rojo, azul o verde
 y los pantalones de color negro, gris o blanco
-Las camisetas pueden ser tener talas: S, M, L, XL
-Los pantalones tienen desde la talla 32 hasta la talla 44
+Las camisetas tienen las tallas: S, M, L, XL
+Los pantalones tienen las tallas desde la 32 hasta la 44
 ```
 
 ---
-3. Crear un archivo llamado `ejercicio_03.md` en la carpeta `retos_sesion_01` y realiza
-    
-Análisis y Diagrama de clases
-
-Para lo siguiente:
+3. Crear el archivo `ejercicio_03.md` en la carpeta `retos_sesion_01` y realiza **Análisis y el Diagrama de clases** para lo siguiente el siguiente escenario:
 
 ```text
 Estas diseñando una app para dibujar de perros con IA 
-los usuarios pueden seleccionar características como la
-raza del perro como labrador, pastor alemán, y otros
-Cambiar el color del pelaje, tamaño y tipo de orejas  
-Agregar dos accesorios como sombreros o gafas
-El dibujo final puede ser descargado en PNG o JPG
+los usuarios pueden seleccionar características como 
+la raza (por ejemplo, labrador o pastor alemán), el color 
+del pelaje, el tamaño y el tipo de orejas.
+Además, pueden agregar hasta dos accesorios, como sombreros 
+o gafas.
+El dibujo final puede descargarse en formato PNG o JPG.
 ```
 
     
@@ -1184,7 +1186,7 @@ El dibujo final puede ser descargado en PNG o JPG
 <br>
 <br>
 
-[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/content/sesion01)
+[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/tree/main/content/sesion01)
 
 Repositorio de la Sesión
 
