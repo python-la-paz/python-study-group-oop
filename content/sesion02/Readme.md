@@ -98,7 +98,7 @@ classDiagram
 
 #### Ejemplo 01
 
-Crea el archivo **ejemplo01.md** en la carpeta **sesion02** 
+Crea el archivo **michi.md** en la carpeta **sesion02** 
 
 ```markdown
 Un coleccionista se dedica a recolectar gatos, las características
@@ -218,7 +218,7 @@ classDiagram
 
 #### Ejercicio para ti (02)
 
-Crea el archivo **ejemplo02.md** en la carpeta **sesion02** 
+Crea el archivo **perro.md** en la carpeta **sesion02** 
 
 ```text
 Una veterinaria va registrar a los perros que llegan a consulta
@@ -371,7 +371,7 @@ Donde:
 
 #### Ejemplo 03
 
-Crea el archivo **ejemplo01.py** en la carpeta **sesion02** 
+Crea el archivo **michi.py** en la carpeta **sesion02** 
 
 ```markdown
 Utilizando el análisis y diseño del ejemplo 01
@@ -425,7 +425,7 @@ print(type(pelusa))
 ```
 
 ```bash
-python ejemplo01.py
+python michi.py
 ```
 
 ```text
@@ -478,7 +478,7 @@ print(miauricio.castrado)
 ---
 
 ```bash
-python ejemplo01.py
+python michi.py
 ```
 
 ```text
@@ -561,7 +561,7 @@ se pasan los valores de los atributos
 
 #### Ejemplo 05
 
-Crea el archivo **ejemplo05.py** en la carpeta **sesion02** 
+Crea el archivo **gato.py** en la carpeta **sesion02** 
 
 ```text
 Crearemos una clase Gato con el atributo color
@@ -580,7 +580,7 @@ print(snowball.color)
 ```
 
 ```bash
-python ejemplo05.py
+python gato.py
 ```
 
 ```text
@@ -590,9 +590,19 @@ blanco
 
 ---
 
+Para utilizar el constructor enviamos los valores de los atributos
+al momento de instanciar la clase
+
+```python
+pantera = Gato("negro")
+snowball = Gato("blanco")
+```
+
+---
+
 #### Ejemplo 06
 
-Crea el archivo **ejemplo06.py** en la carpeta **sesion02** 
+Crea el archivo **michi_constructor.py** en la carpeta **sesion02** 
 
 ```text
 Del ejemplo 04 vamos a crear ahora utilizando 
@@ -632,7 +642,7 @@ print(miauricio.castrado)
 Ejecutar el script
 
 ```bash
-python ejemplo06.py
+python michi_constructor.py
 ```
 
 ```text
@@ -651,7 +661,7 @@ True
 ---
 #### Ejercicio para ti (07)
 
-Crea el archivo **ejemplo02.py** en la carpeta **sesion02** 
+Crea el archivo **perro.py** en la carpeta **sesion02** 
 
 ```text
 Del ejemplo 02 ahora crearemos la clase Perro con un constructor
@@ -736,7 +746,7 @@ print(luna.raza)
 Ejecutar el script
 
 ```bash
-python ejemplo02.py
+python veterinaria.py
 ```
 
 ```text
@@ -818,13 +828,12 @@ Diferencia entre atributos de clase e instancia
 
 #### Ejemplo 08 
 
-Crea el archivo **ejemplo08.py** en la carpeta **sesion02** 
+Modificaremos **michi_constructor.py** en **sesion02** 
 
 ```text
-Del ejemplo 06 ahora crearemos la clase Gato 
-con un atributo de clase que será la especie
-ya que todos los gatos son felinos
-al final instanciaremos dos gatos
+Del ejemplo 06 ahora modificaremos la clase Gato con un 
+atributo de clase que será la especie ya que todos los 
+gatos son felinos al final instanciaremos dos gatos
 ```
 
 ```markdown
@@ -900,7 +909,7 @@ print("Gato es: ", Gato.especie)
 Ejecutar el script
 
 ```bash
-python ejemplo08.py
+python michi_constructor.py
 ```
 
 ```text
@@ -920,10 +929,10 @@ Gato es: felino
 ---
 
 #### Ejercicio para ti (09)
-Crea el archivo **ejemplo09.py** en la carpeta **sesion02** 
+Modifica el archivo **perro.py** en la carpeta **sesion02** 
 
 ```text
-Del ejemplo 07 ahora crearemos la clase Perro con
+Del ejemplo 07 ahora modificaremos la clase Perro con
 tres atributos de clase e instanciaremos dos perros
 todos los perros son caninos, mamíferos y terrestres
 ```
@@ -971,7 +980,7 @@ classDiagram
 ```
 <!--.element class="center-mermaid"-->
 
-3 minutos
+2 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
@@ -1008,7 +1017,7 @@ print("Perro es: ", Perro.tipo, "Especie: ", Perro.especie, "Habitat: ", Perro.h
 ---
 
 ```bash
-python ejemplo09.py
+python perro.py
 ```
 
 ```text
@@ -1066,7 +1075,7 @@ Si modificas el atributo de instancia, sólo esa instancia verá el nuevo valor
 ---
 #### Ejemplo 10
 
-Crea el archivo **ejemplo10.md** y el archivo **ejemplo10.py** 
+Crea el archivo **refugio.md** y el archivo **refugio.py** 
 
 en la carpeta **sesion02** 
 
@@ -1155,7 +1164,7 @@ print("Mascota 2: ",gato.origen, gato.nombre, gato.especie)
 ---
 
 ```bash
-python ejemplo10.py
+python refugio.py
 ```
 
 ```text
@@ -1171,7 +1180,7 @@ Mascota 2:  rescatado Kitty gato
 ---
 #### Ejercicio para ti (11)
 
-Crea el archivo **ejemplo11.md** y el archivo **ejemplo11.py** 
+Crea el archivo **acuario.md** y el archivo **acuario.py** 
 en la carpeta **sesion02** 
 
 ```text
@@ -1287,7 +1296,7 @@ print("Pez 2: ",pez2.origen, pez2.especie, pez2.peso, pez2.agua)
 ---
 
 ```bash
-python ejemplo11.py
+python acuario.py
 ```
 
 ```text
@@ -1315,7 +1324,7 @@ Pez 2:  liberado Pez betta 0.4 agua dulce
 
 ---
 
-- El constructor es un método especial que permite inicializar los atributos de una clase al momento de crear una instancia, y en Python se define con el método __init__.
+- El constructor es un método especial que permite inicializar los atributos de una clase al momento de crear una instancia, y en Python se define con el método `__init__`.
 - El parámetro self es una convención en Python y se utiliza para referirse a la instancia actual dentro de los métodos de la clase.
 
 ---
@@ -1362,7 +1371,7 @@ El zoológico cuenta con 2 mamíferos, 1 reptil y 1 ave
 ```
 
 ---
-2. Crear un archivo llamado `ejercicio_02.md` y un archivo `ejercicio_02.py` en la carpeta `retos_sesion_02` y hacer:
+2. Crear un archivo llamado `ejercicio_02.md` y un archivo `ejercicio_02.py` en la carpeta `retos_sesion_02`
 
 ```text
 Una vinoteca quiere registrar los vinos y quesos que tienen
