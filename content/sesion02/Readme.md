@@ -1003,7 +1003,7 @@ class Perro:
         self.genero = genero
         self.raza = raza
         self.propietario = propietario
-toby = Perro("Toby", 3, "macho", "labrador", "Jhon")
+toby = Perro("Toby", 3, "macho", "labrador", "Juan")
 luna = Perro("Luna", 2, "hembra", "pug", "Jane")
 print("Toby: ",toby.tipo, toby.especie, toby.habitat)
 print(toby.nombre)
