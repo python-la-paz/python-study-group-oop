@@ -1335,7 +1335,7 @@ Crear una carpeta con el nombre "retos_sesion_02" dentro del proyecto en la raí
 # Estructura de carpetas
 psg-oop-2025/
     sesion02/
-    retos_sesion_01/
+    retos_sesion_02/
         ejercicio_01.md
         ejercicio_01.py
         ejercicio_02.md
