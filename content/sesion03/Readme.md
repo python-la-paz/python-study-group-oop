@@ -32,7 +32,7 @@ Aquí guardaremos los ejemplos de la sesión
 
 #### Comportamiento
 
-- Es la forma en la que un objeto actúa o realiza una acción.
+Es la forma en la que un objeto actúa o realiza una acción.
 
 Un perro ladrando
 
@@ -44,24 +44,40 @@ Un auto acelerando
 
 ---
 
-- El comportamiento en programación se refiere a las acciones que un objeto puede realizar
-- Se define a través de métodos
+El *comportamiento* en programación se refiere a las acciones que un *objeto puede realizar*
+
+Se define a través de **métodos**
 
 ---
 #### Métodos
 
-- Un método es una función creada dentro de una clase
-- Los métodos permiten a los objetos ejecutar acciones
-- Los métodos pueden recibir parámetros y devolver valores
+Es una *función* creada dentro de una clase
+
+Permiten a los objetos *ejecutar acciones*
+
+Pueden *recibir parámetros* y *devolver valores*
 
 ---
+
+También pueden ser representados visualmente 
+
+en un diagrama de clases
+
+---
+
 #### Diagrama de clases
 
-- En un diagrama de clases, los métodos se representan dentro de la clase.
-- Los métodos se escriben en la sección inferior de la clase.
-- Se definen con el nombre del método seguido de paréntesis.
+
+En un diagrama de clases, los métodos se representan *dentro de la clase*
+
+Los métodos se escriben en la *sección inferior* de la clase
+
+Se definen con el nombre del método 
+
+*seguido de paréntesis*
 
 ---
+
 #### Ejemplo de un diagrama de clases
 
 ````markdown [5|6]
@@ -84,36 +100,46 @@ classDiagram
         metodoConParametros(parametro1)
     }
 ```
-
----
-Existen tres tipos de métodos
-
-**Métodos de instancia**: Son los más comunes.
-
-Se utilizan para acceder, modificar o utilizar los atributos de una instancia.
+<!--.element class="center-mermaid"-->
 
 ---
 
-Existen tres tipos de métodos
+#### Existen tres tipos de métodos
 
-**Métodos de clase**: Se utilizan para acceder, modificar, o utilizar los atributos de la clase
+**Métodos de instancia**: Son los más comunes
+
+Se utilizan para acceder, modificar o utilizar los atributos de una *instancia*
+
+---
+
+#### Existen tres tipos de métodos
+
+**Métodos de clase**: Se utilizan para acceder, modificar, o utilizar los atributos de la *clase*
 
 Y **NO** de una instancia específica
 
 ---
 
-Existen tres tipos de métodos
+#### Existen tres tipos de métodos
 
 **Métodos estáticos**: No requieren acceso a la instancia o a la clase. 
 
-Se utilizan para realizar acciones que no dependen de la clase o de la instancia
+Se utilizan para realizar acciones que *no dependen* de la *clase* o de la *instancia*
 
 ---
 
-- Pueden no tener parámetros
-- Pueden tener 1 o más parámetros
-- Pueden no devolver nada
-- Pueden devolver 1 o más valores
+Los métodos
+
+- Pueden *no* tener parámetros de entrada
+- Pueden tener parámetros de entrada *1 o más*
+- Pueden *no* devolver valores de salida
+- Pueden devolver valores de salida *1 o más*
+
+---
+
+Veamos cada tipo de método empezando por
+
+**métodos de instancia**
 
 ---
 
@@ -125,45 +151,47 @@ Se utilizan para realizar acciones que no dependen de la clase o de la instancia
 
 ---
 
-- Pueden acceder a los atributos de la instancia
-- Pueden acceder a los atributos de la clase
+- Pueden acceder a los atributos de la *instancia*
+- Pueden acceder a los atributos de la *clase*
 - Ejecutamos la función llamando a la instancia seguida del nombre de la función
+
+`instancia.metodo()`
 
 ---
 
 #### Ejemplo 01
 
-Crea los archivos **ejemplo01.md** y **ejemplo01.py** en la carpeta **sesion03** 
 
 ```markdown
-Estas creando un juego similar a Sims llamado `PyLife`
-donde las personas pueden interactuar,
-tienen un nombre pueden saludar y decir su nombre
+Crearemos un juego similar a Sims llamado `PyLife`
+Las personas creadas tienen un nombre y
+pueden saludar diciendo su nombre
 ```
+
+Crea los archivos **pylife.md** y **pylife.py** en la carpeta **sesion03** 
 
 ---
 
-Análisis y diseño en el archivo **ejemplo01.md**
+Análisis y diseño en el archivo **pylife.md**
 
 ```markdown
 # Análisis
 
 Requisitos:
-- Registrar personas
+- Crear personas
 - Las personas tienen un nombre
 - Las personas pueden saludar
-
+- Tiene un constructor que crea personas con nombre
 Objetos:
 - Persona
-
 Características:
 - Persona: Nombre
-
 Acciones:
 - Persona: Saludar
 ```
 
 ---
+
 Creando el diseño de diagrama de clases
 
 ````markdown
@@ -186,7 +214,7 @@ classDiagram
 ```
 
 ---
-Programación en el archivo **ejemplo01.py**
+Creando el script **pylife.py**
 
 ```python [1-7|8-11]
 # Definiendo la clase
@@ -203,7 +231,7 @@ jhon.saludar()
 ```
 
 ```bash
-python ejemplo01.py
+python pylife.py
 ```
 
 ```text
@@ -211,17 +239,17 @@ Hola, soy Jhon
 ```
 ---
 
-Agregando un nuevo método con parámetros
+Vamos a agregar un nuevo método con parámetros
 
 ```text
-Ahora las personas pueden dormir
+Ahora las personas pueden dormir una cantidad de horas
 ```
 
 ```markdown
 # Análisis
 
 Requisitos:
-- Registrar personas
+- Crear personas
 - Las personas tienen un nombre
 - Las personas pueden saludar
 - Las personas pueden dormir
@@ -238,14 +266,13 @@ Acciones:
 ```
 ---
 
-Creando el diseño de diagrama de clases
+Creando el diagrama de clases
 
 ````markdown
 ```mermaid
 classDiagram
     class Persona {
         String nombre
-        bool cansancio
         saludar()
         dormir(horas)
     }
@@ -257,7 +284,6 @@ classDiagram
 classDiagram
     class Persona {
         String nombre
-        bool cansancio
         saludar()
         dormir(horas)
     }
@@ -265,19 +291,17 @@ classDiagram
 
 ---
 
-```python  [1-13|5|10-13|19]
+```python  [1-11|9-11|19]
 # Definiendo la clase
 class Persona:
     def __init__(self, nombre): # Constructor
         self.nombre = nombre
-        self.cansancio = True # Nuevo
 
     def saludar(self): # Método de instancia
         print(f"Hola, soy {self.nombre}")
 
     def dormir(self, horas): # Nuevo Método de instancia
         print(f"{self.nombre} duerme por {horas} hrs.")
-        self.cansancio = False # Nuevo
         print(f"{self.nombre} se ha despertado")
 
 # Instanciando un objeto
@@ -288,7 +312,7 @@ jhon.dormir(8)
 ```
 
 ```bash
-python ejemplo01.py
+python pylife.py
 ```
 
 ```text
@@ -299,26 +323,29 @@ Jhon se ha despertado
 
 ---
 
-Agregando un nuevo método con parámetros que devuelve un valor
+Podemos agregar un nuevo método con parámetros que devuelve un valor
 
 ```text
-Ahora las personas pueden comer y saciar su hambre
+En el juego ahora las personas pueden
+tener hambre y comer para saciarla
+Cuando duerme la persona despierta con hambre
 ```
 
 ```markdown
 # Análisis
 Requisitos:
-- Registrar personas
+- Crear personas
 - Las personas tienen un nombre
 - Las personas pueden saludar
 - Las personas pueden dormir
 - Las personas pueden comer
+- Al despertar tienen hambre
 
 Objetos:
 - Persona
 
 Características:
-- Persona: Nombre, cansancio, hambre
+- Persona: Nombre, hambre
 
 Acciones:
 - Persona: Saludar, dormir, comer
@@ -333,7 +360,6 @@ Creando el diseño de diagrama de clases
 classDiagram
     class Persona {
         String nombre
-        bool cansancio
         bool hambre
         saludar()
         dormir(horas)
@@ -347,7 +373,6 @@ classDiagram
 classDiagram
     class Persona {
         String nombre
-        bool cansancio
         bool hambre
         saludar()
         dormir(horas)
@@ -357,12 +382,11 @@ classDiagram
 
 ---
 
-```python [1-23|6|16-23|30-33]
+```python [1-22|5|15-22|29-32]
 # Definiendo la clase
 class Persona:
     def __init__(self, nombre): # Constructor
         self.nombre = nombre
-        self.cansancio = True
         self.hambre = True # Nuevo
 
     def saludar(self): # Método de instancia
@@ -370,8 +394,8 @@ class Persona:
 
     def dormir(self, horas): # Método de instancia
         print(f"{self.nombre} duerme por {horas} hrs.")
-        self.cansancio = False
         print(f"{self.nombre} se ha despertado")
+        self.hambre = True # Al despertar tiene hambre
 
     def comer(self, comida): # Nuevo Método de instancia
         if self.hambre:
@@ -394,7 +418,7 @@ print(f"Devolvió: {comida}")
 ```
 
 ```bash
-python ejemplo01.py
+python pylife.py
 ```
 
 ```text
@@ -408,21 +432,20 @@ Devolvió: 🍔
 ```
 
 ---
-#### Ejemplo 02
+#### Ejercicio para ti (02)
 
-Crea los archivos **ejemplo02.md** y **ejemplo02.py** en la carpeta **sesion03** 
+Crea los archivos **vizcacha.md** y **vizcacha.py** en la carpeta **sesion03** 
 
 ```markdown
 Creas un juego de rol donde eres una vizcacha
-
 Puedes comer sólo zanahorias
-
 Puedes excavar agujeros para esconderte cuando tienes miedo
-
-Silvas `iiih iiih` cuando estás feliz
+Silvar `iiih iiih` te hace feliz
 ```
 
-5 minutos (Análisis, diagrama y programación)
+Obtener el *Análisis*
+
+3 minutos 
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
@@ -432,9 +455,10 @@ Silvas `iiih iiih` cuando estás feliz
 # Análisis
 Requisitos:
 - Crear una vizcacha
-- Puede comer zanahorias
-- Puede excavar agujeros cuando esta asustada
-- Puede silvar haciendo `iiih iiih` cuando feliz
+- Come sólo zanahorias
+- Cuando excava un agujero se asusta
+- Cuando excava un agujero se esconde
+- Silvar `iiih iiih` le hace feliz
 
 Objetos:
 - Vizcacha
@@ -447,13 +471,22 @@ Acciones:
 ```
 
 ---
+
+#### Ejercicio para ti (02)
+
+Ahora obtenemos el diseño del *diagrama de clase*
+
+3 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
 Creando el diseño de diagrama de clases
 
 ````markdown
 ```mermaid
 classDiagram
     class Vizcacha {
-        bool hambre
         bool escondido
         String estado
         comer(comida)
@@ -467,7 +500,6 @@ classDiagram
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 classDiagram
     class Vizcacha {
-        bool hambre
         bool escondido
         String estado
         comer(comida)
@@ -475,20 +507,29 @@ classDiagram
         silvar()
     }
 ```
+
 ---
 
-```python [1-24|26-32]
+Ya tenemos el *análisis y diseño* de la clase
+
+Ahora podemos **programar**
+
+3 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
+```python [1-22|24-30]
 # Definiendo la clase
 class Vizcacha:
     def __init__(self): # Constructor
-        self.hambre = True
         self.escondido = False
         self.estado = "feliz"
 
     def comer(self, comida): # Método de instancia
         if comida == "🥕":
             print(f"Vizcacha está comiendo {comida}")
-            self.hambre = False
         else:
             print(f"Vizcacha no come {comida}")
 
@@ -512,7 +553,7 @@ vizcacha.silvar()
 ```
 
 ```bash
-python ejemplo02.py
+python vizcacha.py
 ```
 
 ```text
@@ -525,19 +566,35 @@ Vizcacha esta feliz
 ```
 
 ---
-#### Decoradores
 
-- Los decoradores son funciones que permiten modificar el comportamiento de otras funciones
-- Se utilizan para agregar funcionalidades adicionales a una función sin modificar su código original
-- Se definen con el símbolo `@` seguido del nombre de la función decoradora
+Antes de continuar con los métodos de
+
+*clase* y *estáticos*
+
+vamos a ver los **decoradores**
+
+ya que son muy importantes para estos tipos de métodos
 
 ---
 
-- Es como envolver un regalo
-- El regalo es la función original
-- El envoltorio es el decorador
-- El envoltorio puede agregar un mensaje, una cinta, o un diseño especial
-- Pero el regalo sigue siendo el mismo
+#### Decoradores
+
+Los decoradores son métodos que permiten *modificar* el comportamiento de otros métodos
+
+Se utilizan para *agregar* funcionalidades adicionales a un método *sin modificar* su código original
+
+Se definen con el símbolo `@` seguido del nombre del método decoradora
+
+---
+
+**Es como envolver un regalo**
+
+Un regalo puede ser una pelota
+
+- La *pelota* es el método original
+- El *papel de regalo* es el decorador
+- El *papel de regalo* contiene una etiqueta y un moño
+- Pero el regalo sigue siendo la *pelota*
 
 ---
 
@@ -550,7 +607,55 @@ Son muy importantes para los siguientes métodos
 
 #### Ejemplo 03
 
-En un archivo llamado **ejemplo03.py**
+En un archivo llamado **pelota.py** vamos a crear un decorador
+
+donde vamos a envolver una pelota con papel de regalo
+
+---
+
+Primero definimos el decorador en nuestro caso se llama `envoltura`
+
+La envoltura tiene un `papel` que envuelve un `regalo`
+
+La `envoltura` recibe como parámetro el `regalo` que en este caso es una función
+
+```python
+def envoltura(regalo):
+    def papel():
+        print("🎁🔖")
+        regalo()
+        print("🎁")
+    return papel
+```
+
+---
+
+Luego definimos la función `pelota` que es el `regalo`
+
+La función `pelota` imprime un balón de fútbol
+
+```python
+def pelota():
+    print("⚽")
+
+pelota()
+```
+
+---
+Finalmente aplicamos el decorador `envoltura` a la función `pelota`
+
+Añadimos `@envoltura` encima de la función `pelota`
+
+```python
+@envoltura
+def pelota():
+    print("⚽")
+pelota()
+```
+
+---
+
+Queda así el código completo
 
 ```python
 def envoltura(regalo):
@@ -563,12 +668,11 @@ def envoltura(regalo):
 @envoltura
 def pelota():
     print("⚽")
-
 pelota()
 ```
 
 ```bash
-python ejemplo03.py
+python pelota.py
 ```
 
 ```text
@@ -576,6 +680,17 @@ python ejemplo03.py
 ⚽
 🎁
 ```
+
+---
+
+Entonces los **decoradores** son muy importantes 
+
+Porque nos permiten modificar el comportamiento de los métodos
+
+ya no son solo métodos de instancia sino que ahora tenemos
+
+- Métodos de clase
+- Métodos estáticos
 
 ---
 
