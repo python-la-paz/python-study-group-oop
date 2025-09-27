@@ -679,7 +679,6 @@ Objetos:
 Características:
 - Perro
     - Nombre
-
     - Edad
     - Género
     - Raza
