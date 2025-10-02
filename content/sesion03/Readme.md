@@ -323,7 +323,7 @@ Jhon se ha despertado
 
 ---
 
-Podemos agregar un nuevo método con parámetros que devuelve un valor
+Agregamos un método que devuelve un valor
 
 ```text
 En el juego ahora las personas pueden
@@ -418,10 +418,6 @@ print(f"Devolvió: {comida}")
 ```
 
 ```bash
-python pylife.py
-```
-
-```text
 Hola, soy Jhon
 Jhon duerme por 8 hrs.
 Jhon se ha despertado
@@ -439,7 +435,7 @@ Crea los archivos **vizcacha.md** y **vizcacha.py** en la carpeta **sesion03**
 ```markdown
 Creas un juego de rol donde eres una vizcacha
 Puedes comer sólo zanahorias
-Puedes excavar agujeros para esconderte cuando tienes miedo
+Puedes excavar agujeros para esconderte cuando te asustas
 Silvar `iiih iiih` te hace feliz
 ```
 
@@ -451,6 +447,7 @@ Obtener el *Análisis*
 
 ---
 
+Creando el *análisis*
 ```markdown
 # Análisis
 Requisitos:
@@ -550,10 +547,6 @@ vizcacha.comer("🥕")
 vizcacha.comer("🍔")
 vizcacha.excavar()
 vizcacha.silvar()
-```
-
-```bash
-python vizcacha.py
 ```
 
 ```text
@@ -697,54 +690,57 @@ ya no son solo métodos de instancia sino que ahora tenemos
 
 #### Métodos de clase
 
-- Se definen con el decorador `@classmethod`
-- El decorador `@classmethod` permite que el método sea llamado desde la clase en lugar de una instancia
+Se definen con el decorador `@classmethod`
 
----
-- El primer parámetro es `cls` (clase)  y NO `self`
-- `cls` es una convención, puede utilizarse cualquier nombre
-- Se utilizan para acceder a los atributos de la clase
+El decorador `@classmethod` permite que el método sea llamado desde la clase en lugar de una instancia
 
 ---
 
-- NO pueden acceder a los atributos de la instancia
-- Pueden acceder a los atributos de la clase
+El primer parámetro es `cls` (clase) y NO `self`
+
+`cls` es una convención, puede utilizarse cualquier nombre
+
+Se utilizan para acceder a los *atributos de la clase*
 
 ---
 
-- Sirven para crear constructores alternativos o métodos de fábrica
-- Se utilizan para crear métodos que acceden a atributos de clase
-- Ejecutamos la función llamando a la clase seguida del nombre de la función
+*NO* pueden acceder a los atributos de la *instancia*
+
+**SI** Pueden acceder a los atributos de la **clase**
+
+---
+
+Sirven para crear constructores alternativos o métodos de fábrica
+
+Se utilizan para crear métodos que acceden a atributos de clase
+
+Ejecutamos la función llamando a la clase seguida del nombre de la función
 
 ---
 
 #### Ejemplo 04
 
-Crea los archivos **ejemplo04.md** y **ejemplo04.py** en la carpeta **sesion03**
+En los archivos **pylife.md** y **pylife.py** en la **sesion03**
 
 ```markdown
 En el juego `PyLife` diseñaremos ahora perros que pueden ladrar
-Todos los perros tienen un nombre y deben empezar como cachorros
+Todos los perros tienen un nombre y empiezan como cachorros
 La diferencia entre un perro y un humano en edad es de 7 años
 y los perros pueden crecer con el tiempo
 ```
 
 ```markdown
 # Análisis
-
 Requisitos:
 - Crear un perro
 - Los perros tienen un nombre
 - Los perros pueden ladrar
 - Los perros nacen como cachorros
 - La edad de un perro es 7 veces menor que la de un humano
-
 Objetos:
 - Perro
-
 Características:
 - Perro: nombre, edad
-
 Acciones:
 - Perro: ladrar, nacer, crecer, edad_a_humano
 ```
@@ -766,6 +762,10 @@ classDiagram
 ```
 ````
 
+---
+
+Creando el diseño de diagrama de clases
+
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 classDiagram
@@ -778,8 +778,10 @@ classDiagram
         edad_a_humano(perro)
     }
 ```
-
+<!--.element class="center-mermaid"-->
 ---
+
+Definiendo la clase en **pylife.py**
 
 ```python [1-23|3|14-23|25-29]
 # Definiendo la clase
@@ -813,8 +815,12 @@ rex.crecer(2)
 Perro.edad_a_humano(rex)
 ```
 
+---
+
+Ejecutando el script
+
 ```bash
-python ejemplo04.py
+python pylife.py
 ```
 
 ```text
@@ -825,9 +831,7 @@ En años humanos, Rex tiene 14 años
 ```
 
 ---
-#### Ejemplo 05
-
-Crea los archivos **ejemplo05.md** y **ejemplo05.py** en la carpeta **sesion03**
+#### Ejercicio para ti (03)
 
 ```markdown
 En la simulación de un bosque los arboles pueden crecer
@@ -837,11 +841,17 @@ Cuando llegan a 10 metros de altura pueden dar frutos
 Todos los arboles cuando tiene más de 15 metros mueren
 ```
 
-5 minutos (Análisis, diagrama y programación)
+Crea el archivo **bosque.md** en la carpeta **sesion03**
+
+3 minutos
+
+Realiza el *Análisis*
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
 ---
+
+Creando el *análisis*
 
 ```markdown
 # Análisis
@@ -866,6 +876,17 @@ Acciones:
 ```
 
 ---
+
+#### Ejercicio para ti (03)
+
+Ahora obtenemos el diseño del *diagrama de clase*
+
+3 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
 Creando el diseño de diagrama de clases
 
 ````markdown
@@ -901,7 +922,21 @@ classDiagram
         puede_morir(arbol)
     }
 ```
+<!--.element class="center-mermaid"-->
+
 ---
+
+#### Ejercicio para ti (03)
+
+Ahora programamos la clase en el archivo **bosque.py**
+
+4 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
+Creando el script **bosque.py**
 
 ```python [1-36|38-46]
 # Definiendo la clase
@@ -954,8 +989,10 @@ Arbol.puede_morir(roble)
 
 ---
 
+Ejecutando el script
+
 ```bash
-python ejemplo05.py
+python bosque.py
 ```
 
 ```text
@@ -976,28 +1013,38 @@ El árbol Roble ha muerto
 
 #### Métodos estáticos
 
-- Se definen con el decorador `@staticmethod`
-- No requieren acceso a la instancia o a la clase
-- Se utilizan para realizar acciones que no dependen de la clase o de la instancia
+Se definen con el decorador `@staticmethod`
+
+**No** requieren acceso a la instancia o a la clase
+
+Se utilizan para realizar acciones que **NO** dependen de la clase o de la instancia
 
 ---
 
-- Como no están relacionados con la clase o la instancia NO tienen acceso a `self` o `cls`
-- NO Pueden acceder a los atributos de la instancia
-- NO Pueden acceder a los atributos de la clase
+Como no están relacionados con la clase o la instancia
+
+*NO* tienen acceso a `self` o `cls`
+
+*NO* pueden acceder a los atributos de la *instancia*
+
+*NO* pueden acceder a los atributos de la *clase*
 
 ---
 
-- Se pueden utilizar para crear funciones auxiliares o utilidades
-- Son funciones que están relacionadas con la clase pero no dependen de ella
-- Ejecutamos la función llamando a la clase seguida del nombre de la función
+Se pueden utilizar para crear funciones auxiliares o utilidades
+
+Son funciones que están relacionadas con la clase pero no dependen de ella
+
+Ejecutamos la función llamando a la clase seguida del nombre de la función
 
 ---
+
 #### Ejemplo 06
-Crea los archivos **ejemplo06.md** y **ejemplo06.py**
+
+En los archivos **pylife.md** y **pylife.py** en la **sesion03**
 
 ```markdown
-En el juego `PyLife` diseñaremos ahora gatos que pueden maullar
+En el juego `PyLife` diseñamos gatos que pueden maullar
 Todos los gatos tienen un nombre y color, nacen como cachorros
 los sonidos más comunes de los gatos son `miau` y `ronroneo`
 ```
@@ -1011,13 +1058,10 @@ Requisitos:
 - Los gatos nacen como cachorros
 - Los gatos pueden hacer `miau` y `ronroneo`
 - Los gatos pueden crecer con el tiempo
-
 Objetos:
 - Gato
-
 Características:
 - Gato: nombre, color, edad
-
 Acciones:
 - Gato: nacer, crecer, maullar, sonidos
 ```
@@ -1055,10 +1099,13 @@ classDiagram
         sonidos()
     }
 ```
+<!--.element class="center-mermaid"-->
 
 ---
 
-```python [1-22|8-11|13-18|20-22|24-28]
+Definiendo la clase en **pylife.py**
+
+```python [1-22|8-11|13-18|20-22|24-29]
 # Definiendo la clase
 class Gato:
     def __init__(self, nombre, color): # Constructor
@@ -1076,7 +1123,7 @@ class Gato:
         print(f"{self.nombre} ha crecido {tiempo} años")
 
     def maullar(self): # Método de instancia
-        print(f"{self.nombre} dice: ¡Miau!")
+        print(f"{self.nombre} dice: {Gato.sonidos()[0]}")
 
     @staticmethod # Nuevo Método estático
     def sonidos():
@@ -1090,20 +1137,23 @@ sonidos = Gato.sonidos()
 print(f"Sonidos de {mimi.nombre}: {sonidos}")
 ```
 
+---
+
+Ejecutando el script
+
 ```bash
-python ejemplo06.py
+python pylife.py
 ```
 
 ```text
 Mimi ha nacido como un cachorro
-Mimi dice: ¡Miau!
+Mimi dice: miau
 Mimi ha crecido 2 años
 Sonidos de Mimi: ['miau', 'ronroneo']
 ```
 
 ---
-#### Ejemplo 07
-Crea los archivos **ejemplo07.md** y **ejemplo07.py**
+#### Ejercicio para ti (04)
 
 ```markdown
 En el diseño de pacman el personaje puede comer puntos
@@ -1114,11 +1164,17 @@ Cuando pacman se queda sin vidas el juego se da por terminado
 Si el juego terminó se puede calcula si hay un nuevo record
 ```
 
-6 minutos (Análisis, diagrama y programación)
+Crea el archivo **pacman.md** en la carpeta **sesion03**
+
+3 minutos
+
+Realiza el *Análisis*
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
 ---
+
+Creando el *análisis*
 
 ```markdown
 # Análisis
@@ -1142,6 +1198,17 @@ Acciones:
 ```
 
 ---
+
+#### Ejercicio para ti (04)
+
+Ahora obtenemos el diseño del *diagrama de clase*
+
+3 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
 Creando el diseño de diagrama de clases
 
 ````markdown
@@ -1162,6 +1229,8 @@ classDiagram
 
 ---
 
+Creando el diseño de diagrama de clases
+
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 classDiagram
@@ -1178,6 +1247,18 @@ classDiagram
 ```
 
 ---
+
+#### Ejercicio para ti (04)
+
+Ahora programamos la clase en el archivo **pacman.py**
+
+4 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
+Creando el script **pacman.py**
 
 ```python [1-40|42-53|54-62]
 # Definiendo la clase
@@ -1247,7 +1328,7 @@ else:
 ---
 
 ```bash
-python ejemplo07.py
+python pacman.py
 ```
 
 ```text
@@ -1272,11 +1353,12 @@ Record actual: 3
 ```
 
 ---
+
 #### Métodos especiales o mágicos
 
 Son métodos que permiten definir el comportamiento de los objetos en Python
 
-- Se definen con dos guiones bajos al inicio y al final del nombre
+- Se definen con **dos guiones bajos** al inicio y al final del nombre
 - Se utilizan para extender el comportamiento de las clases
 
 ---
@@ -1296,6 +1378,8 @@ Algunos de los métodos especiales son:
 - Se utiliza para inicializar los atributos de la instancia
 
 ---
+
+Constructor
 
 ```python
 class Persona:
@@ -1322,6 +1406,9 @@ print(jhon.edad) # 30
 - Si no se define, muestra la información por defecto de la clase
 
 ---
+
+Representación en cadena
+
 ```python
 class Persona:
     def __init__(self, nombre, edad): # Constructor
@@ -1340,6 +1427,7 @@ print(detalle) # Nombre: Jane, Edad: 25
 
 ---
 #### `__repr__`
+
 - Se utiliza para definir la representación oficial de la clase
 - Se ejecuta automáticamente al utilizar la función `repr()` en la instancia de la clase
 - repr() se utiliza para obtener una representación más detallada de la instancia
@@ -1350,6 +1438,9 @@ print(detalle) # Nombre: Jane, Edad: 25
 - Cuando no se define, `__str__` se utiliza como respaldo
 
 ---
+
+Representación oficial
+
 ```python
 class Persona:
     def __init__(self, nombre, edad): # Constructor
@@ -1377,6 +1468,9 @@ print(repr(jane)) # Persona(Jane, 25)
 - Se ejecuta automáticamente al utilizar la función `del`
 
 ---
+
+Destructor
+
 ```python
 class Persona:
     def __init__(self, nombre, edad): # Constructor
@@ -1406,6 +1500,9 @@ Existen tambien otros atributos especiales:
 - Permite ver los atributos y sus valores como un diccionario
 
 ---
+
+Atributo especial diccionario
+
 ```python
 class Persona:
     def __init__(self, nombre, edad): # Constructor
@@ -1483,10 +1580,10 @@ psg-oop-2025/
 
 ---
 
-1. Crear un archivo llamado `ejercicio_01.md` y un archivo `ejercicio_01.py` en la carpeta retos_sesion_03 y hacer:
+1. Crear un archivo llamado `ejercicio_01.md` y un archivo `ejercicio_01.py` en la carpeta `retos_sesion_03` y hacer:
 
     - análisis y diagrama
-    - programación (Métodos de instancia y clase)
+    - programación (Métodos de instancia, clase y estáticos)
 
 Para lo siguiente:
 
@@ -1499,7 +1596,7 @@ Los únicos alimentos que puedes comer son hamburguesas
 
 
 ---
-2. Crear un archivo llamado `ejercicio_02.md` y un archivo `ejercicio_02.py` en la carpeta retos_sesion_03 y hacer:
+2. Crear un archivo llamado `ejercicio_02.md` y un archivo `ejercicio_02.py` en la carpeta `retos_sesion_03` y hacer:
 
     - análisis y diagrama
     - programación (Métodos de instancia, clase y estáticos)
@@ -1528,7 +1625,7 @@ Las únicas recetas que pueden preparar son:
 <br>
 <br>
 
-[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/content/sesion03)
+[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/tree/main/content/sesion03)
 
 Repositorio de la Sesión
 
