@@ -694,6 +694,7 @@ ya no son solo métodos de instancia sino que ahora tenemos
 
 ---
 
+
 #### Métodos de clase
 
 - Se definen con el decorador `@classmethod`
