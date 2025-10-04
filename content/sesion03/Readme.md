@@ -114,18 +114,18 @@ classDiagram
 ---
 
 #### Tipos de métodos
-Existen tres tipos de métodos: 
+Existen tres tipos de métodos:
 
-- **Método de Instancia**: Operar sobre los atributos y comportamientos de *una instancia específica* 
-- **Método de Clase**: Manipular o consultar atributos y lógica compartida por *todas las instancias* 
-- **Método Estático**: Ejecutar lógica independiente que *no requiere contexto* de clase ni instancia
+- **Método de Instancia**: Operan sobre los atributos y comportamientos de *una instancia específica*
+- **Método de Clase**: Manipulan o consultan atributos y lógica compartida por *todas las instancias*
+- **Método Estático**: Ejecutan lógica independiente que *no requiere contexto* de clase ni instancia
 
 ---
 ##### En resumen
 
 | Tipo de Método| Acceso a Instancia| Acceso a Clase|
 |---------------------|--------------------|----------------|
-| Método de Instancia | ✅ Sí              | ❌ No |      
+| Método de Instancia | ✅ Sí              | ❌ No          |
 | Método de Clase     | ❌ No              | ✅ Sí          |
 | Método Estático     | ❌ No              | ❌ No          |
 
@@ -152,7 +152,6 @@ Veamos cada uno de estos tipos de métodos a profundidad
 ---
 
 #### Ejemplo 01
-
 
 ```markdown
 Crearemos un juego similar a Sims llamado `PyLife`
@@ -229,6 +228,7 @@ python pylife.py
 ```text
 Hola, soy Jhon
 ```
+
 ---
 
 Vamos a agregar un nuevo método con parámetros
