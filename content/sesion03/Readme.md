@@ -1412,7 +1412,7 @@ class Persona:
         return f"Nombre: {self.nombre}, Edad: {self.edad}"
 
 jhon = Persona("Jhon", 30)
-print(persona) # Nombre: Jhon, Edad: 30
+print(jhon) # Nombre: Jhon, Edad: 30
 jane = Persona("Jane", 25)
 detalle = str(jane)
 print(detalle) # Nombre: Jane, Edad: 25
