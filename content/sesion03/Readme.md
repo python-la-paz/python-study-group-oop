@@ -11,26 +11,31 @@
 
 ---
 
-#### VS Code
+### Antes de empezar
+---
 
-Abrimos el proyecto del Study Group
+#### Proyecto en VSCode
+
+Abre el proyecto en VSCode
 
 ```bash
 code psg-oop-2025
 ```
 
-Creamos una carpeta llamada `sesion03` dentro del proyecto
+Crea una carpeta con el nombre `sesion03`
 
 ```bash
 mkdir sesion03
 cd sesion03
 ```
 
-Aquí guardaremos los ejemplos de la sesión
+- Los archivos de esta sesión deben estar dentro de esta carpeta
+
+- Al finalizar la sesión, sube los cambios al repositorio en un commit
 
 ---
 
-#### Comportamiento
+### Comportamiento
 
 Es la forma en la que un objeto actúa o realiza una acción.
 
@@ -44,18 +49,25 @@ Un auto acelerando
 
 ---
 
-El *comportamiento* en programación se refiere a las acciones que un *objeto puede realizar*
+En programación el *comportamiento* se refiere a las acciones que un *objeto puede realizar*
 
 Se define a través de **métodos**
 
 ---
-#### Métodos
+#### Método
 
-Es una *función* creada dentro de una clase
+- Es una *función* creada dentro de una clase
+- Permiten a los objetos *ejecutar acciones*
+- Pueden *recibir parámetros* y *devolver valores*
+---
+##### Características de los métodos
 
-Permiten a los objetos *ejecutar acciones*
+Los métodos
 
-Pueden *recibir parámetros* y *devolver valores*
+- Pueden *no* tener parámetros de entrada
+- Pueden tener parámetros de entrada *1 o más*
+- Pueden *no* devolver valores de salida
+- Pueden devolver valores de salida *1 o más*
 
 ---
 
@@ -67,14 +79,11 @@ en un diagrama de clases
 
 #### Diagrama de clases
 
+- En un diagrama de clases, los métodos se representan *dentro de la clase*
 
-En un diagrama de clases, los métodos se representan *dentro de la clase*
+- Los métodos se escriben en la *sección inferior* de la clase
 
-Los métodos se escriben en la *sección inferior* de la clase
-
-Se definen con el nombre del método 
-
-*seguido de paréntesis*
+- Se definen con el nombre del método *seguido de paréntesis*
 
 ---
 
@@ -104,42 +113,25 @@ classDiagram
 
 ---
 
-#### Existen tres tipos de métodos
+#### Tipos de métodos
+Existen tres tipos de métodos: 
 
-**Métodos de instancia**: Son los más comunes
+- **Método de Instancia**: Operar sobre los atributos y comportamientos de *una instancia específica* 
+- **Método de Clase**: Manipular o consultar atributos y lógica compartida por *todas las instancias* 
+- **Método Estático**: Ejecutar lógica independiente que *no requiere contexto* de clase ni instancia
 
-Se utilizan para acceder, modificar o utilizar los atributos de una *instancia*
+---
+##### En resumen
+
+| Tipo de Método| Acceso a Instancia| Acceso a Clase|
+|---------------------|--------------------|----------------|
+| Método de Instancia | ✅ Sí              | ❌ No |      
+| Método de Clase     | ❌ No              | ✅ Sí          |
+| Método Estático     | ❌ No              | ❌ No          |
 
 ---
 
-#### Existen tres tipos de métodos
-
-**Métodos de clase**: Se utilizan para acceder, modificar, o utilizar los atributos de la *clase*
-
-Y **NO** de una instancia específica
-
----
-
-#### Existen tres tipos de métodos
-
-**Métodos estáticos**: No requieren acceso a la instancia o a la clase. 
-
-Se utilizan para realizar acciones que *no dependen* de la *clase* o de la *instancia*
-
----
-
-Los métodos
-
-- Pueden *no* tener parámetros de entrada
-- Pueden tener parámetros de entrada *1 o más*
-- Pueden *no* devolver valores de salida
-- Pueden devolver valores de salida *1 o más*
-
----
-
-Veamos cada tipo de método empezando por
-
-**métodos de instancia**
+Veamos cada uno de estos tipos de métodos a profundidad
 
 ---
 
@@ -168,7 +160,7 @@ Las personas creadas tienen un nombre y
 pueden saludar diciendo su nombre
 ```
 
-Crea los archivos **pylife.md** y **pylife.py** en la carpeta **sesion03** 
+En la carpeta **sesion03** crearemos los archivos **pylife.md** y **pylife.py**
 
 ---
 
@@ -264,6 +256,7 @@ Acciones:
 - Persona: Saludar, dormir
 
 ```
+
 ---
 
 Creando el diagrama de clases
@@ -430,7 +423,7 @@ Devolvió: 🍔
 ---
 #### Ejercicio para ti (02)
 
-Crea los archivos **vizcacha.md** y **vizcacha.py** en la carpeta **sesion03** 
+En la carpeta **sesion03** creamos los archivos **vizcacha.md** y **vizcacha.py** 
 
 ```markdown
 Creas un juego de rol donde eres una vizcacha
@@ -841,7 +834,7 @@ Cuando llegan a 10 metros de altura pueden dar frutos
 Todos los arboles cuando tiene más de 15 metros mueren
 ```
 
-Crea el archivo **bosque.md** en la carpeta **sesion03**
+En la carpeta **sesion03** creamos el archivo **bosque.md** 
 
 3 minutos
 
@@ -1164,7 +1157,7 @@ Cuando pacman se queda sin vidas el juego se da por terminado
 Si el juego terminó se puede calcula si hay un nuevo record
 ```
 
-Crea el archivo **pacman.md** en la carpeta **sesion03**
+En la carpeta **sesion03** creamos el archivo **pacman.md**
 
 3 minutos
 
@@ -1580,42 +1573,68 @@ psg-oop-2025/
 
 ---
 
-1. Crear un archivo llamado `ejercicio_01.md` y un archivo `ejercicio_01.py` en la carpeta `retos_sesion_03` y hacer:
+1. Imagina un juego de rol en el que el personaje principal es un atleta. 
 
-    - análisis y diagrama
-    - programación (Métodos de instancia, clase y estáticos)
+Este personaje tiene tres atributos principales:
 
-Para lo siguiente:
+- `nombre`: identifica al atleta
+- `energía`: representa su nivel de energía actual.
+- `fuerza`: indica su capacidad física.
 
-```text
-Un juego de rol donde eres un atleta tiene nombre energía y fuerza
-Puedes entrenar para aumentar tu fuerza pero gastas energía
-Puedes descansar para recuperar energía
-Los únicos alimentos que puedes comer son hamburguesas
-```
-
+*1/3*
 
 ---
-2. Crear un archivo llamado `ejercicio_02.md` y un archivo `ejercicio_02.py` en la carpeta `retos_sesion_03` y hacer:
 
-    - análisis y diagrama
-    - programación (Métodos de instancia, clase y estáticos)
+Cada atleta puede realizar las siguientes acciones:
 
-Para lo siguiente:
+- Entrenar: aumenta su fuerza, pero consume energía.
+- Descansar: recupera energía.
+- Comer: solo puede consumir hamburguesas, lo que también le ayuda a recuperar energía.
 
-```markdown
-Un cocinero tiene una lista de ingredientes y recetas. Puede 
-preparar recetas con ingredientes, cada que prepara una
-receta suma un punto. Si hay más de un cocinero sus puntos se suman
+*2/3*
 
-Las únicas recetas que pueden preparar son:
-- pan: harina, agua
-- pizza: harina, agua, sal, tomate, queso
-- galleta: harina, agua, sal, chocolate
+---
 
-```
+- Realiza el análisis y diagrama de clases de la clase Atleta en el archivo `ejercicio_01.md`.
+- Escribe el codigo en Python para la clase Atleta en el archivo `ejercicio_01.py`.
+- Implementa los métodos de instancia, clase y estáticos según corresponda.
+- Instancia dos Atletas y prueba sus métodos.
 
-    
+*3/3*
+
+---
+
+2. Imagina un sistema que modela el trabajo de cocineros en una cocina profesional. 
+
+Cada cocinero tiene tres elementos clave:
+
+- Una lista de `ingredientes` disponibles.
+- Un conjunto de `recetas` definidas que puede preparar
+- Un contador de `productividad`, que aumenta cada vez que prepara una receta con éxito. Si hay más de un cocinero, sus puntos individuales pueden sumarse para obtener una métrica agregada de productividad.
+
+*1/3*
+
+---
+Las únicas recetas permitidas en el sistema son:
+
+| Receta  | Ingredientes Requeridos    |
+|---------|----------------------------|
+|pan| harina, agua|
+|pizza| harina, agua, sal, tomate, queso|
+|galleta| harina, agua, sal, chocolate|
+
+*2/3*
+
+---
+
+- Realiza el análisis y diagrama de clases de la clase Cocinero en el archivo `ejercicio_02.md`.
+- Escribe el codigo en Python para la clase Cocinero en el archivo `ejercicio_02.py`.
+- Implementa los métodos de instancia, clase y estáticos según corresponda.
+- Instancia tres Cocineros y prueba sus métodos.
+- Muestra la métrica agregada de productividad.
+
+*3/3*
+
 ---
 <!-- .slide: data-background-image="../../content/psg-bg-dark.png" data-background-size="100%"-->
 
