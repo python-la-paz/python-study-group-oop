@@ -382,7 +382,7 @@ La hora actual es: 12:00 PM
 ---
 #### Nivel Protegido
 
-Los atributos y métodos protegidos son accesibles **solo** desde la propia clase y sus subclases
+Los atributos y métodos protegidos son accesibles **solo** desde la propia **clase** y sus **subclases**
 
 Esto significa que *NO* se pueden acceder directamente desde fuera de la clase
 
@@ -675,12 +675,10 @@ class SistemaOperativo:
     def estado_bateria(self):
         print(f"Estado de la batería: {self._bateria}%")
         return self._bateria
-    def _cargar_bateria(self, cantidad): # Protegido
-        self._bateria += cantidad
-        print(f"Batería cargada a: {self._bateria}%")
     def cargador(self, cantidad):
         print("🔌 Cargador conectado.")
-        self._cargar_bateria(cantidad)
+        self._bateria += cantidad
+        print(f"Batería cargada a: {self._bateria}%")
         print("🔌 Cargador desconectado.")
 # Implementando la clase
 so = SistemaOperativo("PyPhoneOS", "gatitos.jpg", "12:00 PM")
@@ -695,6 +693,12 @@ so.estado_bateria()
 ```
 
 ---
+
+Ejecutando el script
+
+```bash
+python sistema.py
+```
 
 ```text
 Fondo de pantalla: gatitos.jpg
@@ -711,22 +715,22 @@ Estado de la batería: 21%
 
 #### Nivel Privado
 
-Los atributos y métodos privados son accesibles solo desde la propia clase.
+Los atributos y métodos privados son accesibles **solo** desde la propia **clase**
 
-Esto significa que no se pueden acceder directamente desde fuera de la clase ni desde sus subclases.
+Esto significa que *NO* se pueden acceder directamente desde fuera de la clase ni desde sus subclases
 
 
 ---
 
 #### Diagrama de clases
 
-Se representa con un símbolo de guion medio `-` antes del nombre del atributo o método.
+Se representa con un símbolo de guion medio `-` antes del nombre del atributo o método
 
 ````
 ```mermaid
 classDiagram
     class Persona {
-        -nombre: str
+        -nombre: String
         -edad: int
         -saludar()
     }
@@ -737,7 +741,7 @@ classDiagram
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 classDiagram
     class Persona {
-        -nombre: str
+        -nombre: String
         -edad: int
         -saludar()
     }
@@ -745,9 +749,7 @@ classDiagram
 
 ---
 
-En Python, los atributos y métodos privados se definen con dos guiones bajos `__` antes del nombre.
-
-Si se intenta acceder a un atributo o método privado desde fuera de la clase, se producirá un error.
+En Python, los atributos y métodos privados se definen con dos guiones bajos `__` antes del nombre
 
 ```python
 class Persona:
@@ -756,35 +758,42 @@ class Persona:
         self.__edad = edad      # Atributo privado
 
     def __saludar(self):       # Método privado
-        print(f"Hola, soy {self.__nombre} y tengo {self.__edad} años.")
+        print(f"Hola, soy {self.__nombre} tengo {self.__edad} años")
+```
+
+Si se intenta acceder a un atributo o método privado desde fuera de la clase, se producirá un error
+
+``` text
+AttributeError: 'Persona' object has no attribute '__nombre'
 ```
 
 ---
 
 #### Ejemplo 05
 
-Crea los archivos **ejemplo05.md** y **ejemplo05.py** en la carpeta **sesion04**
+En la carpeta **sesion04** modifica los archivos **sistema.md** y **sistema.py**
 
 ```markdown
-Ahora vamos a cambiar la batería a un nivel privado, porque absolutamente nadie debe poder cambiar la batería,
-sólo el sistema operativo podrá cargar la batería,
-y que sólo se pueda ver el estado de la batería mediante un método.
+La batería del sistema operativo tendrá que ser privada,
+sólo el sistema podrá cargar la batería, lo cambiamos
+a un nivel privado, y que sólo se pueda ver el estado 
+de la batería mediante un método.
 ```
 ---
 
 El análisis se mantendrá igual, pero cambiaremos el diagrama
 
-```markdown [7-9|18|23-25]
+```markdown
 # Análisis
 Requisitos:
--  tener un fondo de pantalla
--  permitir cambiar el fondo de pantalla
--  tener un reloj
--  permitir ver la hora
--  tener una batería
--  permitir conocer el estado de la batería en porcentaje
--  permitir cargar la batería a través de un cargador público
-
+- Tiene un nombre
+- Tiene un fondo de pantalla
+- Cualquiera puede cambiar el fondo de pantalla
+- Tiene un reloj
+- Existe un método ver hora 
+- Tiene una batería
+- Existe un método estado_batería
+- Existe un método cargador para cargar la batería
 Objetos:
 - SistemaOperativo
 Características:
@@ -795,9 +804,8 @@ Características:
     - bateria: int
 Acciones:
 - SistemaOperativo:
-    - cambiar_fondo_pantalla(nuevo_fondo)
+    - cambiar_fondo_pantalla(imagen)
     - ver_hora()
-    - cargar_bateria(cantidad)
     - estado_bateria()
     - cargador(cantidad)
 ```
@@ -805,17 +813,17 @@ Acciones:
 ---
 Creando el diseño de diagrama de clases
 
-````markdown [6,9-11]
+````markdown [7]
 ```mermaid
 classDiagram
     class SistemaOperativo {
-        +fondo_pantalla: String
+        +nombre: String
         #reloj: String
+        +fondo_pantalla: String
         -bateria: int
-        +cambiar_fondo_pantalla(nuevo_fondo)
+        +cambiar_fondo_pantalla(imagen)
         +ver_hora()
         +estado_bateria()
-        -cargar_bateria(cantidad)
         +cargador(cantidad)
     }
 ```
@@ -823,117 +831,123 @@ classDiagram
 
 ---
 
+Creando el diseño de diagrama de clases
+
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 classDiagram
     class SistemaOperativo {
-        +fondo_pantalla: String
+        +nombre: String
         #reloj: String
+        +fondo_pantalla: String
         -bateria: int
-        +cambiar_fondo_pantalla(nuevo_fondo)
+        +cambiar_fondo_pantalla(imagen)
         +ver_hora()
         +estado_bateria()
-        -cargar_bateria(cantidad)
         +cargador(cantidad)
     }
 ```
+<!--.element class="center-mermaid"-->
 ---
 
-```python [7-8|18-29|35-37|38-47]
+```python [7|15-22|33-36]
 # Definiendo la clase
 class SistemaOperativo:
-    def __init__(self, nombre, fondo_pantalla, reloj, bateria):
-        self.nombre = nombre  # Público
-        self.fondo_pantalla = fondo_pantalla  # Público
-        self._reloj = reloj  # Protegido
-        self.__bateria = bateria  # Privado
-
-    def cambiar_fondo_pantalla(self, nuevo_fondo):  # Público
+    def __init__(self, nombre, fondo_pantalla, reloj):
+        self.nombre = nombre 
+        self.fondo_pantalla = fondo_pantalla 
+        self._reloj = reloj
+        self.__bateria = 1  # Privado
+    def cambiar_fondo_pantalla(self, nuevo_fondo):
         self.fondo_pantalla = nuevo_fondo
         print(f"Nuevo fondo: {self.fondo_pantalla}")
         return self.fondo_pantalla
-
-    def ver_hora(self):  # Público
+    def ver_hora(self):
         print(f"La hora actual es: {self._reloj}")
         return self._reloj
-
-    def estado_bateria(self):  # Público
+    def estado_bateria(self):
         print(f"Estado de la batería: {self.__bateria}%")
         return self.__bateria
-
-    def __cargar_bateria(self, cantidad):  # Privado
+    def cargador(self, cantidad):
+        print("🔌 Cargador conectado.")
         self.__bateria += cantidad
         print(f"Batería cargada a: {self.__bateria}%")
-
-    def cargador(self, cantidad):  # Público
-        print("Cargador conectado.")
-        self.__cargar_bateria(cantidad)
-        print("Cargador desconectado.")
+        print("🔌 Cargador desconectado.")
 # Implementando la clase
-so = SistemaOperativo("PyPhoneOS", "gatitos.jpg", "12:00 PM", 50)
+so = SistemaOperativo("PyPhoneOS", "gatitos.jpg", "12:00 PM")
 print(f"Fondo de pantalla: {so.fondo_pantalla}")
 so.cambiar_fondo_pantalla("perritos.jpg")
+so.fondo_pantalla = "paisajes.jpg"
+print(f"Fondo de pantalla: {so.fondo_pantalla}")
 so.ver_hora()
 so.estado_bateria()
-so.cargador(20)  # Cargando la batería
-# Intentando acceder a la batería directamente
+so.cargador(20)
+so.estado_bateria()
 try:
-    print(f"Batería: {so.__bateria}")  # Esto producirá un error
-except AttributeError as e:
-    print(f"Error: {e}")
-# Intentando acceder al método privado
-try:
-    so.__cargar_bateria(10)  # Esto producirá un error
+    print(f"Batería: {so.__bateria}")  # Error
 except AttributeError as e:
     print(f"Error: {e}")
 ```
 
+---
+
+Ejecutando el script
+
 ```bash
-python ejemplo05.py
+python sistema.py
 ```
+
 
 ```text
 Fondo de pantalla: gatitos.jpg
 Nuevo fondo: perritos.jpg
+Fondo de pantalla: paisajes.jpg
 La hora actual es: 12:00 PM
-Estado de la batería: 50%
-Batería cargada a: 70%
+Estado de la batería: 1%
+🔌 Cargador conectado.
+Batería cargada a: 21%
+🔌 Cargador desconectado.
+Estado de la batería: 21%
 Error: 'SistemaOperativo' object has no attribute '__bateria'
-Error: 'SistemaOperativo' object has no attribute '__cargar_bateria'
 ```
 
 ---
-#### Ejemplo 06
+#### Ejercicio para ti (06)
+
+En la carpeta **sesion04** modifica los archivos **sistema.md** y **sistema.py**
 
 ```markdown
-Ahora el sistema operativo tendrá que almacenar el pin,
+El Sistema Operativo tendrá un pin de desbloqueo,
+Se tiene que almacenar el pin,
 sólo el sistema podrá cambiar el pin de desbloqueo,
-y no se puede ver sólo se puede cambiar.
+y no se puede ver sólo se puede cambiar por
+defecto el pin será 0000
 ```
 
-3 Minutos (Análisis, diagrama y solución en Python)
+Obtener el *Análisis*
+
+2 minutos 
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-Crea los archivos **ejemplo06.md** y **ejemplo06.py** en la carpeta **sesion04**
-
 ---
 
-El análisis se mantendrá igual, pero cambiaremos el diagrama
+Creando el *análisis*
 
-```markdown [10-11|21|29]
+```markdown [11-13|22|29]
 # Análisis
 Requisitos:
--  tener un fondo de pantalla
--  permitir cambiar el fondo de pantalla
--  tener un reloj
--  permitir ver la hora
--  tener una batería
--  permitir conocer el estado de la batería en porcentaje
--  permitir cargar la batería a través de un cargador público
--  tener un pin de desbloqueo
--  permitir cambiar el pin de desbloqueo
-
+- Tiene un nombre
+- Tiene un fondo de pantalla
+- Cualquiera puede cambiar el fondo de pantalla
+- Tiene un reloj
+- Existe un método ver hora 
+- Tiene una batería
+- Existe un método estado_batería
+- Existe un método cargador para cargar la batería
+- Tiene un pin de desbloqueo
+- Sólo el sistema puede cambiar el pin de desbloqueo
+- No se puede ver el pin de desbloqueo
 Objetos:
 - SistemaOperativo
 Características:
@@ -945,29 +959,39 @@ Características:
     - pin: int
 Acciones:
 - SistemaOperativo:
-    - cambiar_fondo_pantalla(nuevo_fondo)
+    - cambiar_fondo_pantalla(imagen)
     - ver_hora()
-    - cargar_bateria(cantidad)
     - estado_bateria()
     - cargador(cantidad)
     - cambiar_pin(nuevo_pin)
 ```
 
 ---
+
+#### Ejercicio para ti (06)
+
+Ahora obtenemos el diseño del *diagrama de clase*
+
+2 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
 Creando el diseño de diagrama de clases
 
-````markdown [7,13]
+````markdown [8,13]
 ```mermaid
 classDiagram
     class SistemaOperativo {
-        +fondo_pantalla: String
+        +nombre: String
         #reloj: String
+        +fondo_pantalla: String
         -bateria: int
         -pin: int
-        +cambiar_fondo_pantalla(nuevo_fondo)
+        +cambiar_fondo_pantalla(imagen)
         +ver_hora()
         +estado_bateria()
-        -cargar_bateria(cantidad)
         +cargador(cantidad)
         +cambiar_pin(nuevo_pin)
     }
@@ -976,104 +1000,126 @@ classDiagram
 
 ---
 
+Creando el diseño de diagrama de clases
+
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 classDiagram
     class SistemaOperativo {
-        +fondo_pantalla: String
+        +nombre: String
         #reloj: String
+        +fondo_pantalla: String
         -bateria: int
         -pin: int
-        +cambiar_fondo_pantalla(nuevo_fondo)
+        +cambiar_fondo_pantalla(imagen)
         +ver_hora()
         +estado_bateria()
-        -cargar_bateria(cantidad)
         +cargador(cantidad)
         +cambiar_pin(nuevo_pin)
     }
 ```
+<!--.element class="center-mermaid"-->
+
 ---
 
-```python [8|32-34|43]
+#### Ejercicio para ti (06)
+
+Ya tenemos el *análisis y diseño* de la clase
+
+Ahora podemos **programar**
+
+2 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
+```python [8|24-26|37]
 # Definiendo la clase
 class SistemaOperativo:
-    def __init__(self, nombre, fondo_pantalla, reloj, bateria, pin):
-        self.nombre = nombre  # Público
-        self.fondo_pantalla = fondo_pantalla  # Público
-        self._reloj = reloj  # Protegido
-        self.__bateria = bateria  # Privado
-        self.__pin = pin  # Privado
-
-    def cambiar_fondo_pantalla(self, nuevo_fondo):  # Público
+    def __init__(self, nombre, fondo_pantalla, reloj):
+        self.nombre = nombre 
+        self.fondo_pantalla = fondo_pantalla 
+        self._reloj = reloj
+        self.__bateria = 1  # Privado
+        self.__pin = 0000  # Privado
+    def cambiar_fondo_pantalla(self, nuevo_fondo):
         self.fondo_pantalla = nuevo_fondo
         print(f"Nuevo fondo: {self.fondo_pantalla}")
         return self.fondo_pantalla
-
-    def ver_hora(self):  # Público
+    def ver_hora(self):
         print(f"La hora actual es: {self._reloj}")
         return self._reloj
-
-    def estado_bateria(self):  # Público
+    def estado_bateria(self):
         print(f"Estado de la batería: {self.__bateria}%")
         return self.__bateria
-
-    def __cargar_bateria(self, cantidad):  # Privado
+    def cargador(self, cantidad):
+        print("🔌 Cargador conectado.")
         self.__bateria += cantidad
         print(f"Batería cargada a: {self.__bateria}%")
-
-    def cargador(self, cantidad):  # Público
-        print("Cargador conectado.")
-        self.__cargar_bateria(cantidad)
-        print("Cargador desconectado.")
-
-    def cambiar_pin(self, nuevo_pin):  # Público
+        print("🔌 Cargador desconectado.")
+    def cambiar_pin(self, nuevo_pin):
         self.__pin = nuevo_pin
         print("Pin cambiado exitosamente.")
 # Implementando la clase
-so = SistemaOperativo("PyPhoneOS", "gatitos.jpg", "12:00 PM", 50, 1234)
+so = SistemaOperativo("PyPhoneOS", "gatitos.jpg", "12:00 PM")
 print(f"Fondo de pantalla: {so.fondo_pantalla}")
 so.cambiar_fondo_pantalla("perritos.jpg")
+so.fondo_pantalla = "paisajes.jpg"
+print(f"Fondo de pantalla: {so.fondo_pantalla}")
 so.ver_hora()
 so.estado_bateria()
-so.cargador(20)  # Cargando la batería
-so.estado_bateria()  # Verificando el estado de la batería
-so.cambiar_pin(5678)  # Cambiando el pin
+so.cargador(20)
+so.estado_bateria()
+so.cambiar_pin(5678) 
+try:
+    print(f"Batería: {so.__bateria}")  # Error
+except AttributeError as e:
+    print(f"Error: {e}")
+```
+
+---
+
+Ejecutando el script
+
+```bash
+python sistema.py
 ```
 
 ```text
 Fondo de pantalla: gatitos.jpg
 Nuevo fondo: perritos.jpg
+Fondo de pantalla: paisajes.jpg
 La hora actual es: 12:00 PM
-Estado de la batería: 50%
-Cargador conectado.
-Batería cargada a: 70%
-Cargador desconectado.
-Estado de la batería: 70%
+Estado de la batería: 1%
+🔌 Cargador conectado.
+Batería cargada a: 21%
+🔌 Cargador desconectado.
+Estado de la batería: 21%
 Pin cambiado exitosamente.
+Error: 'SistemaOperativo' object has no attribute '__bateria'
 ```
 
 ---
 
 #### Getters y Setters
 
-Son métodos que permiten acceder y modificar los atributos privados de una clase.
+Son métodos que permiten acceder y modificar los atributos privados de una clase
 
-Los getters permiten obtener el valor de un atributo privado
+Los getters permiten **obtener el valor** de un atributo privado
 
-Los setters permiten modificar el valor de un atributo privado de manera controlada.
+Los setters permiten **modificar el valor** de un atributo privado de manera controlada
 
 ---
 
 Getters viene del inglés 
 
 - "get" (obtener)
-- "set" (establecer).
+- "set" (establecer)
 
----
+El **getter** devuelve el valor del atributo privado
 
-El getter devuelve el valor del atributo privado
-
-El setter recibe un valor y lo asigna al atributo privado
+El **setter** recibe un valor y lo asigna al atributo privado
 
 ---
 
@@ -1093,51 +1139,38 @@ class Persona:
 ---
 
 #### Ejemplo 06
-Crea los archivos **ejemplo06.md** y **ejemplo06.py** en la carpeta **sesion04**
 
 ```markdown
-Ahora vamos a agregar un getter y un setter para el pin,
-sólo se podrá ver el pin a través del getter,
-y se podrá cambiar el pin a través del setter
-En el getter y setter podemos agregar validaciones
-como que el pin sea un número de 4 dígitos
+Un edificio necesita un sistema de control de acceso,
+existe un pin de desbloqueo privado,
+cualquier persona puede ver el pin de desbloqueo 
+cualquier persona puede cambiar el pin
+el pin de desbloqueo debe ser máximo 4 dígitos
+el pin inicial será 1234
 ```
+
+Crea los archivos **edificio.md** y **edificio.py** en la carpeta **sesion04**
 
 ---
 
-El análisis tendrá que cambiar un poco
+Realizando el análisis
 
-```markdown [10-12|23|31-32]
+```markdown 
 # Análisis
 Requisitos:
--  tener un fondo de pantalla
--  permitir cambiar el fondo de pantalla
--  tener un reloj
--  permitir ver la hora
--  tener una batería
--  permitir conocer el estado de la batería en porcentaje
--  permitir cargar la batería a través de un cargador público
--  tener un pin de desbloqueo
--  permitir cambiar el pin de desbloqueo máximo 4 dígitos
--  permitir ver el pin de desbloqueo
-
-
+- Un edificio necesita un sistema de control de acceso
+- Existe un pin de desbloqueo privado
+- Se puede ver el pin de desbloqueo mediante método público
+- Se puede cambiar el pin de desbloqueo mediante método público
+- El pin de desbloqueo debe ser máximo 4 dígitos
+- El pin inicial será 1234
 Objetos:
-- SistemaOperativo
+- Edificio
 Características:
-- SistemaOperativo:
-    - nombre: String
-    - fondo_pantalla: String
-    - reloj: String
-    - bateria: int
+- Edificio:
     - pin: int
 Acciones:
-- SistemaOperativo:
-    - cambiar_fondo_pantalla(nuevo_fondo)
-    - ver_hora()
-    - cargar_bateria(cantidad)
-    - estado_bateria()
-    - cargador(cantidad)
+- Edificio:
     - get_pin()
     - set_pin(nuevo_pin)
 ```
@@ -1145,39 +1178,22 @@ Acciones:
 ---
 Creando el diseño de diagrama de clases
 
-````markdown [7,13,14]
+````markdown
 ```mermaid
 classDiagram
-    class SistemaOperativo {
-        +fondo_pantalla: String
-        #reloj: String
-        -bateria: int
+    class Edificio {
         -pin: int
-        +cambiar_fondo_pantalla(nuevo_fondo)
-        +ver_hora()
-        +estado_bateria()
-        -cargar_bateria(cantidad)
-        +cargador(cantidad)
         +get_pin()
         +set_pin(nuevo_pin)
     }
 ```
 ````
----
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 classDiagram
-    class SistemaOperativo {
-        +fondo_pantalla: String
-        #reloj: String
-        -bateria: int
+    class Edificio {
         -pin: int
-        +cambiar_fondo_pantalla(nuevo_fondo)
-        +ver_hora()
-        +estado_bateria()
-        -cargar_bateria(cantidad)
-        +cargador(cantidad)
         +get_pin()
         +set_pin(nuevo_pin)
     }
@@ -1187,60 +1203,27 @@ classDiagram
 
 Implementando en Python
 
-```python [8|32-40|41-48]
+```python [1-12|13-18]
 # Definiendo la clase
-class SistemaOperativo:
-    def __init__(self, nombre, fondo_pantalla, reloj, bateria, pin):
-        self.nombre = nombre  # Público
-        self.fondo_pantalla = fondo_pantalla  # Público
-        self._reloj = reloj  # Protegido
-        self.__bateria = bateria  # Privado
-        self.__pin = pin  # Privado
-
-    def cambiar_fondo_pantalla(self, nuevo_fondo):  # Público
-        self.fondo_pantalla = nuevo_fondo
-        print(f"Nuevo fondo: {self.fondo_pantalla}")
-        return self.fondo_pantalla
-
-    def ver_hora(self):  # Público
-        print(f"La hora actual es: {self._reloj}")
-        return self._reloj
-
-    def estado_bateria(self):  # Público
-        print(f"Estado de la batería: {self.__bateria}%")
-        return self.__bateria
-
-    def __cargar_bateria(self, cantidad):  # Privado
-        self.__bateria += cantidad
-        print(f"Batería cargada a: {self.__bateria}%")
-
-    def cargador(self, cantidad):  # Público
-        print("Cargador conectado.")
-        self.__cargar_bateria(cantidad)
-        print("Cargador desconectado.")
-
+class Edificio:
+    def __init__(self):
+        self.__pin = 1234  # Privado
     def get_pin(self):  # Getter público
         return self.__pin
-
     def set_pin(self, nuevo_pin):  # Setter público
         if len(str(nuevo_pin)) == 4:
             self.__pin = nuevo_pin
             print("Pin cambiado exitosamente.")
         else:
-            print("El pin debe ser un número de 4 dígitos.")
+            print("El pin debe ser número de 4 dígitos.")
 # Implementando la clase
-so = SistemaOperativo("PyPhoneOS", "gatitos.jpg", "12:00 PM", 50, 1234)
-pin = so.get_pin()  # Verificando el pin
-print(f"Pin actual: {pin}")
-so.set_pin(123)  # Intentando cambiar el pin
-so.set_pin(5678)  # Cambiando el pin
-pin = so.get_pin()  # Verificando el pin nuevamente
-print(f"Pin actualizado: {pin}")
+edificio = Edificio()
+print(f"Pin actual: {edificio.get_pin()}")
+edificio.set_pin(56789)  # Error
+edificio.set_pin(5678)   # Correcto
+print(f"Pin actualizado: {edificio.get_pin()}")
 ```
 
-```bash
-python ejemplo06.py
-```
 
 ```text
 Pin actual: 1234
@@ -1251,55 +1234,45 @@ Pin actualizado: 5678
 
 ---
 
-#### Ejemplo 07
+#### Ejercicio para ti (07)
 
 ```markdown
-Ahora el sistema operativo tendrá un número telefónico privado,
-se puede ver el número telefónico y cambiarlo
+El edificio tendrá un número telefónico,
+cualquiera puede ver el número telefónico
+cualquiera puede cambiar el número telefónico
+el número telefónico inicial será 123-456-7890
 ```
 
-3 Minutos (Análisis, diagrama y solución en Python)
+Obtener el *Análisis*
+
+2 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
 ---
-Se añade el número telefónico al análisis
 
-```markdown [13-15|27|37-38]
+Creando el *análisis*
+
+```markdown [9-11,17,22-23]
 # Análisis
 Requisitos:
--  tener un fondo de pantalla
--  permitir cambiar el fondo de pantalla
--  tener un reloj
--  permitir ver la hora
--  tener una batería
--  permitir conocer el estado de la batería en porcentaje
--  permitir cargar la batería a través de un cargador público
--  tener un pin de desbloqueo
--  permitir cambiar el pin de desbloqueo máximo 4 dígitos
--  permitir ver el pin de desbloqueo
--  tener un número telefónico
--  permitir ver el número telefónico
--  permitir cambiar el número telefónico
-
-
+- Un edificio necesita un sistema de control de acceso
+- Existe un pin de desbloqueo privado
+- Se puede ver el pin de desbloqueo mediante método público
+- Se puede cambiar el pin de desbloqueo mediante método público
+- El pin de desbloqueo debe ser máximo 4 dígitos
+- El pin inicial será 1234
+- El edificio tendrá un número telefónico
+- Cualquiera puede ver el número telefónico 
+- Cualquiera puede cambiar el número telefónico
 Objetos:
-- SistemaOperativo
+- Edificio
 Características:
-- SistemaOperativo:
-    - nombre: String
-    - fondo_pantalla: String
-    - reloj: String
-    - bateria: int
+- Edificio:
     - pin: int
     - telefono: String
 Acciones:
-- SistemaOperativo:
-    - cambiar_fondo_pantalla(nuevo_fondo)
-    - ver_hora()
-    - cargar_bateria(cantidad)
-    - estado_bateria()
-    - cargador(cantidad)
+- Edificio:
     - get_pin()
     - set_pin(nuevo_pin)
     - get_telefono()
@@ -1308,22 +1281,24 @@ Acciones:
 
 ---
 
+#### Ejercicio para ti (07)
+
+Ahora obtenemos el diseño del *diagrama de clase*
+
+2 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
 Creando el diseño de diagrama de clases
 
-````markdown [8,16,17]
+````markdown [5,8-9]
 ```mermaid
 classDiagram
-    class SistemaOperativo {
-        +fondo_pantalla: String
-        #reloj: String
-        -bateria: int
+    class Edificio {
         -pin: int
         -telefono: String
-        +cambiar_fondo_pantalla(nuevo_fondo)
-        +ver_hora()
-        +estado_bateria()
-        -cargar_bateria(cantidad)
-        +cargador(cantidad)
         +get_pin()
         +set_pin(nuevo_pin)
         +get_telefono()
@@ -1334,124 +1309,112 @@ classDiagram
 
 ---
 
+Creando el diseño de diagrama de clases
+
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 classDiagram
-    class SistemaOperativo {
-        +fondo_pantalla: String
-        #reloj: String
-        -bateria: int
+    class Edificio {
         -pin: int
         -telefono: String
-        +cambiar_fondo_pantalla(nuevo_fondo)
-        +ver_hora()
-        +estado_bateria()
-        -cargar_bateria(cantidad)
-        +cargador(cantidad)
         +get_pin()
         +set_pin(nuevo_pin)
         +get_telefono()
         +set_telefono(nuevo_telefono)
     }
 ```
+<!--.element class="center-mermaid"-->
+
+---
+
+#### Ejercicio para ti (07)
+
+Ya tenemos el *análisis y diseño* de la clase
+
+Ahora podemos **programar**
+
+2 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
 ---
 
 Implementando en Python
 
-```python [9|43-48|51-55]
+```python [5|14-18|25-27]
 # Definiendo la clase
-class SistemaOperativo:
-    def __init__(self, nombre, fondo_pantalla, reloj, bateria, pin, telefono):
-        self.nombre = nombre  # Público
-        self.fondo_pantalla = fondo_pantalla  # Público
-        self._reloj = reloj  # Protegido
-        self.__bateria = bateria  # Privado
-        self.__pin = pin  # Privado
-        self.__telefono = telefono  # Privado
-
-    def cambiar_fondo_pantalla(self, nuevo_fondo):  # Público
-        self.fondo_pantalla = nuevo_fondo
-        print(f"Nuevo fondo: {self.fondo_pantalla}")
-        return self.fondo_pantalla
-
-    def ver_hora(self):  # Público
-        print(f"La hora actual es: {self._reloj}")
-        return self._reloj
-
-    def estado_bateria(self):  # Público
-        print(f"Estado de la batería: {self.__bateria}%")
-        return self.__bateria
-
-    def __cargar_bateria(self, cantidad):  # Privado
-        self.__bateria += cantidad
-        print(f"Batería cargada a: {self.__bateria}%")
-
-    def cargador(self, cantidad):  # Público
-        print("Cargador conectado.")
-        self.__cargar_bateria(cantidad)
-        print("Cargador desconectado.")
-
-    def get_pin(self):  # Getter público
+class Edificio:
+    def __init__(self):
+        self.__pin = 1234 
+        self.__telefono = "123-456-7890" 
+    def get_pin(self):  
         return self.__pin
-
-    def set_pin(self, nuevo_pin):  # Setter público
+    def set_pin(self, nuevo_pin): 
         if len(str(nuevo_pin)) == 4:
             self.__pin = nuevo_pin
             print("Pin cambiado exitosamente.")
         else:
-            print("El pin debe ser un número de 4 dígitos.")
-
-    def get_telefono(self):  # Getter público
+            print("El pin debe ser número de 4 dígitos.")
+    def get_telefono(self):
         return self.__telefono
-
-    def set_telefono(self, nuevo_telefono):  # Setter público
+    def set_telefono(self, nuevo_telefono):
         self.__telefono = nuevo_telefono
         print("Número telefónico cambiado exitosamente.")
 # Implementando la clase
-so = SistemaOperativo("PyPhoneOS","gatitos.jpg","12:00 PM",50, 1234, "123-456-7890")
-telefono = so.get_telefono()  
-print(f"Número telefónico actual: {telefono}")
-so.set_telefono("098-765-4321")  
-telefono = so.get_telefono()  
-print(f"Número telefónico actualizado: {telefono}")
+edificio = Edificio()
+print(f"Pin actual: {edificio.get_pin()}")
+edificio.set_pin(56789)  # Error
+edificio.set_pin(5678)   # Correcto
+print(f"Pin actualizado: {edificio.get_pin()}")
+print(f"# telefónico actual: {edificio.get_telefono()}")
+edificio.set_telefono("098-765-4321")
+print(f"# telefónico actualizado: {edificio.get_telefono()}")
 ```
 
+---
+Ejecutando el script
+
 ```bash	
-python ejemplo07.py
+python edificio.py
 ```
 
 ```text
-Número telefónico actual: 123-456-7890
+Pin actual: 1234
+El pin debe ser número de 4 dígitos.
+Pin cambiado exitosamente.
+Pin actualizado: 5678
+# telefónico actual: 123-456-7890
 Número telefónico cambiado exitosamente.
-Número telefónico actualizado: 098-765-4321
+# telefónico actualizado: 098-765-4321
 ```
 
 ---
 
-Definir los getters y setters es una buena práctica para mantener la encapsulación
+Definir los getters y setters es una buena práctica para mantener la **encapsulación**
 
-Existe en python una forma de definir getters y setters de manera más elegante y limpia
+Existe en Python una forma de definir getters y setters de manera más elegante y limpia
+
+Mediante las **propiedades**
 
 ---
 
 #### Propiedades en Python
 
-Las propiedades en Python permiten definir métodos que se comportan como atributos.
+Las propiedades en Python permiten definir *métodos* que se comportan como **atributos**
 
-Permiten acceder a los atributos privados de una clase de manera controlada.
+Permiten acceder a los atributos privados de una clase de manera controlada
 
-Se definen utilizando el decorador `@property` para el getter y `@nombre.setter` para el setter.
-
----
-
-Se definen sobre los métodos de la clase, y se accede a ellos como si fueran atributos.
+Se definen utilizando el decorador `@property` para el getter y `@nombre.setter` para el setter
 
 ---
 
-El decorador `@property` debe ir en la parte superior del método getter.
+Se definen sobre los métodos de la instancia y se accede a ellos como si fueran atributos
 
-El nombre del método getter es el nombre del atributo que se quiere acceder.
+---
+
+El decorador `@property` debe ir en la parte superior del método getter
+
+El nombre del método getter es el nombre del atributo que se quiere acceder
 
 ```python
 @property
@@ -1461,18 +1424,17 @@ def nombre(self):  # Getter
 
 ---
 
-El decorador `@<nombre>.setter` debe ir en la parte superior del método setter.
+El decorador `@<nombre>.setter` debe ir en la parte superior del método setter
 
-Después del `@` se coloca el nombre del atributo que se quiere modificar.
+Después del `@` se coloca el nombre del atributo que se quiere modificar
 
-seguido del `.setter`.
+seguido del `.setter`
 
 ```python
 @nombre.setter
 def nombre(self, nuevo_nombre):  # Setter
     self.__nombre = nuevo_nombre
 ```
-
 
 ---
 
@@ -1482,11 +1444,9 @@ Podemos definir una propiedad en Python
 class Persona:
     def __init__(self, nombre):
         self.__nombre = nombre  # Atributo privado
-
     @property
     def nombre(self):  # Getter
         return self.__nombre
-
     @nombre.setter
     def nombre(self, nuevo_nombre):  # Setter
         self.__nombre = nuevo_nombre
@@ -1498,54 +1458,39 @@ persona.nombre = "Pedro"  # Acceso al setter
 
 ---
 
-## Ejemplo 08
+#### Ejemplo 08
 
 ```markdown
-Del sistema operativo vamos a cambiar el getter y setter
+Del edificio vamos a cambiar el getter y setter
 del pin por una propiedad para que se pueda acceder
-como si fuera un atributo
+como si fuera un atributo y no como métodos
 ```
 
-Crea los archivos **ejemplo08.md** y **ejemplo08.py** en la carpeta **sesion04**
+En la carpeta **sesion04** modifica los archivos **edificio.md** y **edificio.py**
 
 ---
-El análisis se mantendrá igual 
+El análisis se mantendrá igual ya que no depende del uso de getters o setters
 
-```markdown [10-12,26,35-36]
+```markdown [16,20-21]
 # Análisis
 Requisitos:
--  tener un fondo de pantalla
--  permitir cambiar el fondo de pantalla
--  tener un reloj
--  permitir ver la hora
--  tener una batería
--  permitir conocer el estado de la batería en porcentaje
--  permitir cargar la batería a través de un cargador público
--  tener un pin de desbloqueo
--  permitir cambiar el pin de desbloqueo máximo 4 dígitos
--  permitir ver el pin de desbloqueo
--  tener un número telefónico
--  permitir ver el número telefónico
--  permitir cambiar el número telefónico
-
-
+- Un edificio necesita un sistema de control de acceso
+- Existe un pin de desbloqueo privado
+- Se puede ver el pin de desbloqueo mediante método público
+- Se puede cambiar el pin de desbloqueo mediante método público
+- El pin de desbloqueo debe ser máximo 4 dígitos
+- El pin inicial será 1234
+- El edificio tendrá un número telefónico
+- Cualquiera puede ver el número telefónico 
+- Cualquiera puede cambiar el número telefónico
 Objetos:
-- SistemaOperativo
+- Edificio
 Características:
-- SistemaOperativo:
-    - nombre: String
-    - fondo_pantalla: String
-    - reloj: String
-    - bateria: int
+- Edificio:
     - pin: int
     - telefono: String
 Acciones:
-- SistemaOperativo:
-    - cambiar_fondo_pantalla(nuevo_fondo)
-    - ver_hora()
-    - cargar_bateria(cantidad)
-    - estado_bateria()
-    - cargador(cantidad)
+- Edificio:
     - get_pin()
     - set_pin(nuevo_pin)
     - get_telefono()
@@ -1554,22 +1499,14 @@ Acciones:
 
 ---
 
-El diseño del diagrama de clases se mantendrá igual
+El diseño del diagrama de clases se mantendrá igual, no depende del lenguaje de programación
 
-````markdown [7,14,15]
+````markdown [4,6-7]
 ```mermaid
 classDiagram
-    class SistemaOperativo {
-        +fondo_pantalla: String
-        #reloj: String
-        -bateria: int
+    class Edificio {
         -pin: int
         -telefono: String
-        +cambiar_fondo_pantalla(nuevo_fondo)
-        +ver_hora()
-        +estado_bateria()
-        -cargar_bateria(cantidad)
-        +cargador(cantidad)
         +get_pin()
         +set_pin(nuevo_pin)
         +get_telefono()
@@ -1580,20 +1517,14 @@ classDiagram
 
 ---
 
+El diseño del diagrama de clases se mantendrá igual, no depende del lenguaje de programación
+
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 classDiagram
-    class SistemaOperativo {
-        +fondo_pantalla: String
-        #reloj: String
-        -bateria: int
+    class Edificio {
         -pin: int
         -telefono: String
-        +cambiar_fondo_pantalla(nuevo_fondo)
-        +ver_hora()
-        +estado_bateria()
-        -cargar_bateria(cantidad)
-        +cargador(cantidad)
         +get_pin()
         +set_pin(nuevo_pin)
         +get_telefono()
@@ -1603,78 +1534,56 @@ classDiagram
 
 ---
 
-```python [8|33-43|53-59]
+Cambiando el getter y setter del pin por una propiedad
+
+```python [6-15|23-26]
 # Definiendo la clase
-class SistemaOperativo:
-    def __init__(self, nombre, fondo_pantalla, reloj, bateria, pin, telefono):
-        self.nombre = nombre  # Público
-        self.fondo_pantalla = fondo_pantalla  # Público
-        self._reloj = reloj  # Protegido
-        self.__bateria = bateria  # Privado
-        self.__pin = pin  # Privado
-        self.__telefono = telefono  # Privado
-
-    def cambiar_fondo_pantalla(self, nuevo_fondo):  # Público
-        self.fondo_pantalla = nuevo_fondo
-        print(f"Nuevo fondo: {self.fondo_pantalla}")
-        return self.fondo_pantalla
-
-    def ver_hora(self):  # Público
-        print(f"La hora actual es: {self._reloj}")
-        return self._reloj
-
-    def estado_bateria(self):  # Público
-        print(f"Estado de la batería: {self.__bateria}%")
-        return self.__bateria
-
-    def __cargar_bateria(self, cantidad):  # Privado
-        self.__bateria += cantidad
-        print(f"Batería cargada a: {self.__bateria}%")
-
-    def cargador(self, cantidad):  # Público
-        print("Cargador conectado.")
-        self.__cargar_bateria(cantidad)
-        print("Cargador desconectado.")
-
+class Edificio:
+    def __init__(self):
+        self.__pin = 1234 
+        self.__telefono = "123-456-7890" 
     @property
-    def pin(self):  # Getter público como propiedad
+    def pin(self):  
         return self.__pin
-
     @pin.setter
-    def pin(self, nuevo_pin):  # Setter público como propiedad
+    def pin(self, nuevo_pin): 
         if len(str(nuevo_pin)) == 4:
             self.__pin = nuevo_pin
             print("Pin cambiado exitosamente.")
         else:
-            print("El pin debe ser un número de 4 dígitos.")
-
-    def get_telefono(self):  # Getter público
+            print("El pin debe ser número de 4 dígitos.")
+    def get_telefono(self):
         return self.__telefono
-
-    def set_telefono(self, nuevo_telefono):  # Setter público
+    def set_telefono(self, nuevo_telefono):
         self.__telefono = nuevo_telefono
         print("Número telefónico cambiado exitosamente.")
 # Implementando la clase
-so = SistemaOperativo("PyPhoneOS", "gatitos.jpg", "12:00 PM",50, 1234, "123-456-7890")
-pin = so.pin  
-print(f"Pin actual: {pin}")
-so.pin = 123  
-print(f"Pin después del intento de cambio: {so.pin}")
-so.pin = 5678  
-pin = so.pin 
-print(f"Pin actualizado: {pin}")
+edificio = Edificio()
+print(f"Pin actual: {edificio.pin}")
+edificio.pin = 56789  # Error
+edificio.pin = 5678   # Correcto
+print(f"Pin actualizado: {edificio.pin}")
+print(f"# telefónico actual: {edificio.get_telefono()}")
+edificio.set_telefono("098-765-4321")
+print(f"# telefónico actualizado: {edificio.get_telefono()}")
 ```
 
+---
+
+Ejecutando el script
+
 ```bash
-python ejemplo08.py
+python edificio.py
 ```
 
 ```text
 Pin actual: 1234
-El pin debe ser un número de 4 dígitos.
-Pin después del intento de cambio: 1234
+El pin debe ser número de 4 dígitos.
 Pin cambiado exitosamente.
 Pin actualizado: 5678
+# telefónico actual: 123-456-7890
+Número telefónico cambiado exitosamente.
+# telefónico actualizado: 098-765-4321
 ```
 
 ---
@@ -1714,99 +1623,91 @@ def pin(self, nuevo_pin):  # Setter público como propiedad
         self.__pin = nuevo_pin
         print("Pin cambiado exitosamente.")
     else:
-        print("El pin debe ser un número de 4 dígitos.")
+        print("El pin debe ser número de 4 dígitos.")
 # objeto.pin = 5678
 ```
 
 ---
 
-#### Ejemplo 09
+#### Ejercicio para ti (09)
 
 ```markdown
-El sistema operativo debe definir el telefono como una propiedad,
-y se debe poder acceder al telefono como si fuera un atributo
+Del edificio el número telefónico lo vamos a cambiar
+por una propiedad para que se pueda acceder
+como si fuera un atributo y no como métodos
 ```
 
-Crea los archivos **ejemplo09.md** y **ejemplo09.py** en la carpeta **sesion04**
+Ya tenemos el *análisis y diseño* de la clase se mantiene igual
 
-3 Minutos (Análisis, diagrama y solución en Python)
+Ahora podemos **programar**
+
+2 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-El análisis y el diagrama se mantendrán igual
 
 ---
 
-```python [9|45-52|55-59]
+```python [16-22|29-31]
 # Definiendo la clase
-class SistemaOperativo:
-    def __init__(self, nombre, fondo_pantalla, reloj, bateria, pin, telefono):
-        self.nombre = nombre  # Público
-        self.fondo_pantalla = fondo_pantalla  # Público
-        self._reloj = reloj  # Protegido
-        self.__bateria = bateria  # Privado
-        self.__pin = pin  # Privado
-        self.__telefono = telefono  # Privado
-
-    def cambiar_fondo_pantalla(self, nuevo_fondo):  # Público
-        self.fondo_pantalla = nuevo_fondo
-        print(f"Nuevo fondo: {self.fondo_pantalla}")
-        return self.fondo_pantalla
-
-    def ver_hora(self):  # Público
-        print(f"La hora actual es: {self._reloj}")
-        return self._reloj
-
-    def estado_bateria(self):  # Público
-        print(f"Estado de la batería: {self.__bateria}%")
-        return self.__bateria
-
-    def __cargar_bateria(self, cantidad):  # Privado
-        self.__bateria += cantidad
-        print(f"Batería cargada a: {self.__bateria}%")
-
-    def cargador(self, cantidad):  # Público
-        print("Cargador conectado.")
-        self.__cargar_bateria(cantidad)
-        print("Cargador desconectado.")
-
+class Edificio:
+    def __init__(self):
+        self.__pin = 1234 
+        self.__telefono = "123-456-7890" 
     @property
-    def pin(self):  # Getter público como propiedad
+    def pin(self):  
         return self.__pin
-
     @pin.setter
-    def pin(self, nuevo_pin):  # Setter público como propiedad
+    def pin(self, nuevo_pin): 
         if len(str(nuevo_pin)) == 4:
             self.__pin = nuevo_pin
             print("Pin cambiado exitosamente.")
         else:
-            print("El pin debe ser un número de 4 dígitos.")
-
+            print("El pin debe ser número de 4 dígitos.")
     @property
-    def telefono(self):  # Getter público como propiedad
+    def telefono(self):
         return self.__telefono
-
     @telefono.setter
-    def telefono(self, nuevo_telefono):  # Setter público como propiedad
+    def telefono(self, nuevo_telefono):
         self.__telefono = nuevo_telefono
         print("Número telefónico cambiado exitosamente.")
 # Implementando la clase
-so = SistemaOperativo("PyPhoneOS", "gatitos.jpg", "12:00 PM", 50, 1234, "123-456-7890")
-telefono = so.telefono
-print(f"Número telefónico actual: {telefono}")
-so.telefono = "098-765-4321"
-telefono = so.telefono
-print(f"Número telefónico actualizado: {telefono}")
+edificio = Edificio()
+print(f"Pin actual: {edificio.pin}")
+edificio.pin = 56789  # Error
+edificio.pin = 5678   # Correcto
+print(f"Pin actualizado: {edificio.pin}")
+print(f"# telefónico actual: {edificio.telefono}")
+edificio.telefono = "098-765-4321"
+print(f"# telefónico actualizado: {edificio.telefono}")
 ```
 
+---
+
+Ejecutando el script
+
 ```bash
-python ejemplo09.py
+python edificio.py
 ```
 
 ```text
-Número telefónico actual: 123-456-7890
+Pin actual: 1234
+El pin debe ser número de 4 dígitos.
+Pin cambiado exitosamente.
+Pin actualizado: 5678
+# telefónico actual: 123-456-7890
 Número telefónico cambiado exitosamente.
-Número telefónico actualizado: 098-765-4321
+# telefónico actualizado: 098-765-4321
+```
+
+---
+
+Subimos los avances de la sesión al repositorio en **GitHub**
+
+```bash
+git add .
+git commit -m "Sesión 04"
+git push origin main
 ```
 
 ---
@@ -1840,9 +1741,6 @@ Número telefónico actualizado: 098-765-4321
 
 - El uso de propiedades y encapsulamiento ayuda a mantener la integridad de los datos y facilita el mantenimiento del código.
 
-
-
-
 ---
 #### Retos
 
@@ -1861,12 +1759,12 @@ psg-oop-2025/
 
 ---
 
-1. Diseñas el software para una cuenta bancaria, el saldo es privado y solo se puede consultar, se puede depositar dinero y retirar dinero siempre y cuando el saldo sea suficiente. El número de cuenta es privado y se puede consultar, pero no se puede cambiar, el nombre del titular es público y se puede cambiar. 
+1. Un banco necesita software para una cuenta bancaria, el saldo es privado y solo se puede consultar, se puede depositar dinero y retirar dinero siempre y cuando el saldo sea suficiente. El número de cuenta es privado y se puede consultar, pero no se puede cambiar, el nombre del titular es público y se puede cambiar. 
 
 Utiliza encapsulamiento, getters y setters, y propiedades
 
 ---
-2. Creas una simulación de una célula, esta tiene ADN se puede consultar, pero no se puede cambiar, el tipo de célula cualquiera puede verlo y cambiarlo, la energia de la celula es privada, puede aumentar o disminuir pero mediante la accion de comer o dividirse.
+2. Un médico necesita simular una célula, esta tiene ADN se puede consultar, pero no se puede cambiar, el tipo de célula cualquiera puede verlo y cambiarlo, la energia de la celula es privada, puede aumentar o disminuir pero mediante la accion de comer o dividirse.
 
 Utiliza encapsulamiento, getters y setters, y propiedades
 
@@ -1879,7 +1777,7 @@ Utiliza encapsulamiento, getters y setters, y propiedades
 <br>
 <br>
 
-[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/content/sesion04)
+[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/tree/main/content/sesion04)
 
 Repositorio de la Sesión
 

@@ -1510,6 +1510,16 @@ print(jane.__dict__) # {'nombre': 'Jane', 'edad': 25}
 
 ---
 
+Subimos los avances de la sesión al repositorio en **GitHub**
+
+```bash
+git add .
+git commit -m "Sesión 03"
+git push origin main
+```
+
+---
+
 #### Resumen
 
 - El comportamiento es la forma en que un objeto responde a las acciones

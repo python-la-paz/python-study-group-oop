@@ -1298,6 +1298,16 @@ Pez 2:  liberado Pez betta 0.4 agua dulce
 
 ---
 
+Subimos los avances de la sesión al repositorio en **GitHub**
+
+```bash
+git add .
+git commit -m "Sesión 02"
+git push origin main
+```
+
+---
+
 #### Resumen
 
 - Los atributos de una clase representan las características o propiedades de los objetos y se definen dentro de la clase.
