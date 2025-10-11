@@ -263,9 +263,13 @@ el resto de sus características los hacen diferentes.
 
 ---
 
-Ahora abordaremos un concepto fundamental en la programación orientada a objetos:
+#### Principios fundamentales
 
-### Abstracción
+Ahora abordaremos un principio fundamental en la programación orientada a objetos
+
+El **1º** principio fundamental de la Programación Orientada a Objetos (POO)
+
+### **Abstracción**
 
 ---
 
@@ -1068,7 +1072,7 @@ Por último, llegamos a la etapa final
 
 ---
 
-Subimos los avances de la sesión al repositorio en GitHub
+Subimos los avances de la sesión al repositorio en **GitHub**
 
 ```bash
 git add .
@@ -1207,4 +1211,3 @@ Repositorio de la Sesión
 - [Objetos en programación](https://ebac.mx/blog/objeto-en-programacion)
 - [Enfoque orientado a objetos](https://1library.co/article/enfoque-orientado-a-objetos-base-te%C3%B3rica.qvld461y)
 - [OOAD](https://www.tutorialspoint.com/object_oriented_analysis_design/ooad_object_oriented_analysis.htm)
-

@@ -24,7 +24,7 @@ strong {
   color: var(--yellow);
 }
 
-.slides p code, .slides li code {
+.slides p code, .slides li code, .slides td code {
   color: var(--turquoise-green);
 }
 
