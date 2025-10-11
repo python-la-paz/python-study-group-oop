@@ -32,7 +32,7 @@ cd sesion04
 
 ---
 
-#### Encapuslamiento
+#### Encapsulamiento
 
 ¿Que piensas cuando escuchas la palabra encapsulamiento?
 
@@ -956,7 +956,7 @@ Características:
     - fondo_pantalla: String
     - reloj: String
     - bateria: int
-    - pin: int
+    - pin: String
 Acciones:
 - SistemaOperativo:
     - cambiar_fondo_pantalla(imagen)
@@ -988,7 +988,7 @@ classDiagram
         #reloj: String
         +fondo_pantalla: String
         -bateria: int
-        -pin: int
+        -pin: String
         +cambiar_fondo_pantalla(imagen)
         +ver_hora()
         +estado_bateria()
@@ -1010,7 +1010,7 @@ classDiagram
         #reloj: String
         +fondo_pantalla: String
         -bateria: int
-        -pin: int
+        -pin: String
         +cambiar_fondo_pantalla(imagen)
         +ver_hora()
         +estado_bateria()
@@ -1042,7 +1042,7 @@ class SistemaOperativo:
         self.fondo_pantalla = fondo_pantalla 
         self._reloj = reloj
         self.__bateria = 1  # Privado
-        self.__pin = 0000  # Privado
+        self.__pin = '0000'  # Privado
     def cambiar_fondo_pantalla(self, nuevo_fondo):
         self.fondo_pantalla = nuevo_fondo
         print(f"Nuevo fondo: {self.fondo_pantalla}")
@@ -1071,7 +1071,7 @@ so.ver_hora()
 so.estado_bateria()
 so.cargador(20)
 so.estado_bateria()
-so.cambiar_pin(5678) 
+so.cambiar_pin('5678') 
 try:
     print(f"Batería: {so.__bateria}")  # Error
 except AttributeError as e:
@@ -1168,7 +1168,7 @@ Objetos:
 - Edificio
 Características:
 - Edificio:
-    - pin: int
+    - pin: String
 Acciones:
 - Edificio:
     - get_pin()
@@ -1182,7 +1182,7 @@ Creando el diseño de diagrama de clases
 ```mermaid
 classDiagram
     class Edificio {
-        -pin: int
+        -pin: String
         +get_pin()
         +set_pin(nuevo_pin)
     }
@@ -1193,7 +1193,7 @@ classDiagram
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 classDiagram
     class Edificio {
-        -pin: int
+        -pin: String
         +get_pin()
         +set_pin(nuevo_pin)
     }
@@ -1207,7 +1207,7 @@ Implementando en Python
 # Definiendo la clase
 class Edificio:
     def __init__(self):
-        self.__pin = 1234  # Privado
+        self.__pin = '1234'  # Privado
     def get_pin(self):  # Getter público
         return self.__pin
     def set_pin(self, nuevo_pin):  # Setter público
@@ -1219,8 +1219,8 @@ class Edificio:
 # Implementando la clase
 edificio = Edificio()
 print(f"Pin actual: {edificio.get_pin()}")
-edificio.set_pin(56789)  # Error
-edificio.set_pin(5678)   # Correcto
+edificio.set_pin('56789')  # Error
+edificio.set_pin('5678')   # Correcto
 print(f"Pin actualizado: {edificio.get_pin()}")
 ```
 
@@ -1269,7 +1269,7 @@ Objetos:
 - Edificio
 Características:
 - Edificio:
-    - pin: int
+    - pin: String
     - telefono: String
 Acciones:
 - Edificio:
@@ -1297,7 +1297,7 @@ Creando el diseño de diagrama de clases
 ```mermaid
 classDiagram
     class Edificio {
-        -pin: int
+        -pin: String
         -telefono: String
         +get_pin()
         +set_pin(nuevo_pin)
@@ -1315,7 +1315,7 @@ Creando el diseño de diagrama de clases
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 classDiagram
     class Edificio {
-        -pin: int
+        -pin: String
         -telefono: String
         +get_pin()
         +set_pin(nuevo_pin)
@@ -1345,7 +1345,7 @@ Implementando en Python
 # Definiendo la clase
 class Edificio:
     def __init__(self):
-        self.__pin = 1234 
+        self.__pin = '1234' 
         self.__telefono = "123-456-7890" 
     def get_pin(self):  
         return self.__pin
@@ -1363,8 +1363,8 @@ class Edificio:
 # Implementando la clase
 edificio = Edificio()
 print(f"Pin actual: {edificio.get_pin()}")
-edificio.set_pin(56789)  # Error
-edificio.set_pin(5678)   # Correcto
+edificio.set_pin('56789')  # Error
+edificio.set_pin('5678')   # Correcto
 print(f"Pin actualizado: {edificio.get_pin()}")
 print(f"# telefónico actual: {edificio.get_telefono()}")
 edificio.set_telefono("098-765-4321")
@@ -1487,7 +1487,7 @@ Objetos:
 - Edificio
 Características:
 - Edificio:
-    - pin: int
+    - pin: String
     - telefono: String
 Acciones:
 - Edificio:
@@ -1505,7 +1505,7 @@ El diseño del diagrama de clases se mantendrá igual, no depende del lenguaje d
 ```mermaid
 classDiagram
     class Edificio {
-        -pin: int
+        -pin: String
         -telefono: String
         +get_pin()
         +set_pin(nuevo_pin)
@@ -1523,7 +1523,7 @@ El diseño del diagrama de clases se mantendrá igual, no depende del lenguaje d
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 classDiagram
     class Edificio {
-        -pin: int
+        -pin: String
         -telefono: String
         +get_pin()
         +set_pin(nuevo_pin)
@@ -1540,7 +1540,7 @@ Cambiando el getter y setter del pin por una propiedad
 # Definiendo la clase
 class Edificio:
     def __init__(self):
-        self.__pin = 1234 
+        self.__pin = '1234' 
         self.__telefono = "123-456-7890" 
     @property
     def pin(self):  
@@ -1560,8 +1560,8 @@ class Edificio:
 # Implementando la clase
 edificio = Edificio()
 print(f"Pin actual: {edificio.pin}")
-edificio.pin = 56789  # Error
-edificio.pin = 5678   # Correcto
+edificio.pin = '56789'  # Error
+edificio.pin = '5678'   # Correcto
 print(f"Pin actualizado: {edificio.pin}")
 print(f"# telefónico actual: {edificio.get_telefono()}")
 edificio.set_telefono("098-765-4321")
@@ -1613,7 +1613,7 @@ def set_pin(self, nuevo_pin):  # Setter público
         print("Pin cambiado exitosamente.")
     else:
         print("El pin debe ser un número de 4 dígitos.")
-# objeto.set_pin(5678)
+# objeto.set_pin('5678')
 ```
 
 ```python
@@ -1624,7 +1624,7 @@ def pin(self, nuevo_pin):  # Setter público como propiedad
         print("Pin cambiado exitosamente.")
     else:
         print("El pin debe ser número de 4 dígitos.")
-# objeto.pin = 5678
+# objeto.pin = '5678'
 ```
 
 ---
@@ -1674,8 +1674,8 @@ class Edificio:
 # Implementando la clase
 edificio = Edificio()
 print(f"Pin actual: {edificio.pin}")
-edificio.pin = 56789  # Error
-edificio.pin = 5678   # Correcto
+edificio.pin = '56789'  # Error
+edificio.pin = '5678'   # Correcto
 print(f"Pin actualizado: {edificio.pin}")
 print(f"# telefónico actual: {edificio.telefono}")
 edificio.telefono = "098-765-4321"
