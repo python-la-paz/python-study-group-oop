@@ -1759,14 +1759,46 @@ psg-oop-2025/
 
 ---
 
-1. Un banco necesita software para una cuenta bancaria, el saldo es privado y solo se puede consultar, se puede depositar dinero y retirar dinero siempre y cuando el saldo sea suficiente. El número de cuenta es privado y se puede consultar, pero no se puede cambiar, el nombre del titular es público y se puede cambiar. 
+1. Un banco necesita desarrollar un módulo para gestionar cuentas bancarias. Cada cuenta tiene las siguientes caracteristicas:
+- `saldo`: Es un dato privado. Solo puede consultar. Se puede modificar únicamente a través de `deposito` y `retiro`
+- `deposito`: Permite ingresar dinero, incrementando el saldo.
+- `retiro`: Permite retirar dinero, siempre y cuando el saldo disponible sea suficiente.
 
-Utiliza encapsulamiento, getters y setters, y propiedades
+*(1/3)*
 
 ---
-2. Un médico necesita simular una célula, esta tiene ADN se puede consultar, pero no se puede cambiar, el tipo de célula cualquiera puede verlo y cambiarlo, la energia de la celula es privada, puede aumentar o disminuir pero mediante la accion de comer o dividirse.
 
-Utiliza encapsulamiento, getters y setters, y propiedades
+- `número de cuenta`: Es privado. Puede consultarse, pero no puede modificarse una vez asignado.
+- `nombre del titular`: Es público. Puede consultarse y modificarse libremente.
+
+*(2/3)*
+
+---
+- Realiza el análisis y diagrama de clases de la clase `Cuenta` en el archivo `ejercicio_01.md`.
+- Escribe el codigo en Python para la clase `Cuenta` en el archivo `ejercicio_01.py`.
+- Implementa encapsulamiento para proteger los atributos sensibles
+- Utiliza *getters* y *setters* para controlar el acceso y la modificación de los atributos.
+- Propiedades para ofrecer una interfaz clara y segura al usuario del sistema.
+
+
+*(3/3)*
+
+---
+2. Un médico necesita simular el comportamiento de una célula. Cada célula debe cumplir con las siguientes características:
+- `ADN`: Se puede consultar pero no puede cambiar.
+- `tipo de célula`: Puede consultarse y modificarse libremente.
+- `energía`: Es un dato privado. Puede aumentar o disminuir, únicamente mediante las acciones de comer o dividirse.
+
+*(1/2)*
+
+---
+- Realiza el análisis y el diagrama de clases de la clase `Celula` en el archivo `ejercicio_02.md`.
+- Escribe el código en Python para la clase `Celula` en el archivo `ejercicio_02.py`.
+- Implementa encapsulamiento para proteger los atributos sensibles.
+- Utiliza *getters* y *setters* para controlar el acceso y la modificación de los atributos.
+- Aplica propiedades para ofrecer una interfaz clara y segura al usuario del sistema.
+
+*(2/2)*
 
 ---
 <!-- .slide: data-background-image="../../content/psg-bg-dark.png" data-background-size="100%"-->
