@@ -11,22 +11,24 @@
 
 ---
 
-#### VS Code
+#### Proyecto en VSCode
 
-Abrimos el proyecto del Study Group
+Abre el proyecto en VSCode
 
 ```bash
 code psg-oop-2025
 ```
 
-Creamos una carpeta llamada `sesion04` dentro del proyecto
+Crea una carpeta con el nombre `sesion04`
 
 ```bash
 mkdir sesion04
 cd sesion04
 ```
 
-Aquí guardaremos los ejemplos de la sesión
+- Los archivos de esta sesión deben estar dentro de esta carpeta
+
+- Al finalizar la sesión, sube los cambios al repositorio en un commit
 
 ---
 
@@ -37,41 +39,40 @@ Aquí guardaremos los ejemplos de la sesión
 ---
 #### Encapsulamiento
 
-Significa "encerrar en una cápsula".
+Significa *"encerrar en una cápsula"*.
 
-En programación, se refiere a la práctica de restringir el acceso directo a los datos y métodos de una clase
+En **programación**, se refiere a la práctica de restringir el acceso directo a los datos y métodos de una clase
 
-para proteger su integridad y ocultar su implementación interna.
-
----
-
-Es uno de los principios fundamentales de la programación orientada a objetos (POO).
+para **proteger** su integridad y **ocultar** su implementación interna.
 
 ---
 
-#### ¿Por qué es importante?
+#### Principios fundamentales
 
-- **Protección de datos**: Evita que el código externo modifique directamente los atributos de una clase, lo que ayuda a mantener la integridad de los datos.
+Es el **2º** principio fundamental de la Programación Orientada a Objetos (POO)
 
----
-
-#### ¿Por qué es importante?
-
-- **Abstracción**: Permite ocultar los detalles de implementación y exponer solo lo necesario a través de algunos métodos.
+### **Encapsulamiento**
 
 ---
 
 #### ¿Por qué es importante?
 
-- **Control de acceso**: Permite definir qué partes del código pueden acceder a los datos y métodos de una clase.
+| Motivo                  | Descripción breve                                       |
+| ----------------------- | ------------------------------------------------------- |
+| **Protección de datos** | Evita cambios externos directos, mantiene la integridad |
+| **Abstracción**         | Oculta detalles internos, muestra solo lo necesario     |
+| **Control de acceso**   | Limita qué código puede acceder a atributos y métodos   |
+
 
 ---
 
 Existen diferentes niveles o tipos de acceso:
 
-- **Público**: Accesible desde cualquier parte del código.
-- **Protegido**: Accesible solo desde la propia clase y sus subclases.
-- **Privado**: Accesible solo desde la propia clase.
+**Público**: Accesible desde *cualquier parte* del código
+
+**Protegido**: Accesible solo desde la propia *clase* y sus *subclases* (clases hijas)
+
+**Privado**: Accesible solo desde la propia *clase*
 
 ---
 
@@ -87,11 +88,11 @@ Existen diferentes niveles o tipos de acceso:
 
 #### Niveles de acceso
 
-| Niveles   | Ejemplo                                                                   |
-| --------- | ------------------------------------------------------------------------- |
-| Público   | Un teléfono público 📞, cualquiera puede usarlo llamar y hablar.           |
-| Protegido | Un teléfono de una casa ☎️, solo los miembros de la familia pueden usarlo. |
-| Privado   | Un teléfono celular 📱, solo el dueño puede usarlo.                        |
+| Niveles   | Ejemplo                                                                      |
+| --------- | ---------------------------------------------------------------------------- |
+| Público   | Un teléfono público 📞, **cualquiera** puede usarlo llamar y hablar           |
+| Protegido | Un teléfono de una casa ☎️, solo los **miembros de la familia** pueden usarlo |
+| Privado   | Un teléfono celular 📱, solo el **dueño** puede usarlo                        |
 
 ---
 
@@ -109,15 +110,13 @@ de nomenclatura utilizando guiones bajos `_` y dobles guiones bajos `__`.
 ---
 #### Nivel Público
 
-Es el nivel de acceso más abierto.
+Es el nivel de acceso más abierto
 
 Los atributos y métodos públicos son accesibles desde cualquier parte del código
 
----
+*Todos* pueden **ver y modificar** los atributos públicos
 
-Todos pueden ver y modificar los atributos
-
-Todos pueden llamar a los métodos
+*Todos* pueden llamar a los métodos públicos
 
 ---
 
@@ -148,7 +147,7 @@ classDiagram
 
 ---
 
-En Python, los atributos y métodos públicos se definen sin ningún prefijo
+Los atributos y métodos públicos se definen sin ningún prefijo
 
 ```python
 class Persona:
@@ -157,44 +156,43 @@ class Persona:
         self.edad = edad      # Atributo público
 
     def saludar(self):       # Método público
-        print(f"Hola, soy {self.nombre} y tengo {self.edad} años.")
+        print(f"Hola, soy {self.nombre} tengo {self.edad} años")
 ```
 
 ---
 
 #### Ejemplo 01
 
-Crea los archivos **ejemplo01.md** y **ejemplo01.py** en la carpeta **sesion04**
+Crea los archivos **sistema.md** y **sistema.py** en la carpeta **sesion04**
 
 ```markdown
-Diseñaremos un sistema operativo para un celular,
+Un pequeño equipo de desarrolladores decidió crear
+un sistema operativo para un celular,
 inicialmente sólo tendrá un fondo de pantalla
-Podemos ver y cambiar el fondo de pantalla,
-el SO se llamara `PyPhoneOS` 
+Todos podemos ver y cambiar el fondo de pantalla,
+el SO se llamará `PyPhoneOS`
+tendrá un fondo inicial de `gatitos.jpg`
 ```
 
-Crear el análisis, diagrama y solución en Python
-
 ---
+
+Análisis en el archivo **sistema.md**
+
 ```markdown
 # Análisis
-
 Requisitos:
--  tener un fondo de pantalla
--  permitir cambiar el fondo de pantalla
-
-
+- Tiene un nombre
+- Tiene un fondo de pantalla
+- Cualquiera puede cambiar el fondo de pantalla
 Objetos:
 - SistemaOperativo
-
 Características:
 - SistemaOperativo:
     - nombre: String
     - fondo_pantalla: String
-
 Acciones:
 - SistemaOperativo:
-    - cambiar_fondo_pantalla(nuevo_fondo)
+    - cambiar_fondo_pantalla(imagen)
 ```
 
 ---
@@ -205,8 +203,9 @@ Creando el diseño de diagrama de clases
 ```mermaid
 classDiagram
     class SistemaOperativo {
+        +nombre: String
         +fondo_pantalla: String
-        +cambiar_fondo_pantalla(nuevo_fondo)
+        +cambiar_fondo_pantalla(imagen)
     }
 ```
 ````
@@ -215,65 +214,72 @@ classDiagram
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 classDiagram
     class SistemaOperativo {
+        +nombre: String
         +fondo_pantalla: String
-        +cambiar_fondo_pantalla(nuevo_fondo)
+        +cambiar_fondo_pantalla(imagen)
     }
 ```
 
 ---
 
+Creando el script **sistema.py**
 
-```python
+```python [1-9|10-15]
 # Definiendo la clase
 class SistemaOperativo:
     def __init__(self, nombre, fondo_pantalla):
-        self.nombre = nombre # Atributo Publico
-        self.fondo_pantalla = fondo_pantalla # Atributo Publico
-
-    def cambiar_fondo_pantalla(self, nuevo_fondo): # Método Público
-        self.fondo_pantalla = nuevo_fondo
+        self.nombre = nombre
+        self.fondo_pantalla = fondo_pantalla
+    def cambiar_fondo_pantalla(self, imagen):
+        self.fondo_pantalla = imagen
         print(f"Nuevo fondo: {self.fondo_pantalla}")
         return self.fondo_pantalla
 # Implementando la clase
 so = SistemaOperativo("PyPhoneOS", "gatitos.jpg")
 print(f"Fondo de pantalla: {so.fondo_pantalla}")
 so.cambiar_fondo_pantalla("perritos.jpg")
-```
-
-```bash
-python ejemplo01.py
+so.fondo_pantalla = "paisajes.jpg"  # Cambiando directamente
+print(f"Fondo de pantalla: {so.fondo_pantalla}")
 ```
 
 ```text 
 Fondo de pantalla: gatitos.jpg
 Nuevo fondo: perritos.jpg
+Fondo de pantalla: paisajes.jpg
 ```
 
 ---
 
-#### Ejemplo 02
+#### Ejercicio para ti (02)
+
+En la carpeta **sesion04** modifica los archivos **sistema.md** y **sistema.py**
 
 ```markdown
-Ahora vamos agregarle un `reloj` al sistema operativo,
-y que nos permita `ver la hora`
+Vamos agregar un `reloj` al sistema operativo,
+cualquiera puede ver la hora a través de un método `ver hora`,
+también se puede observar la hora directamente,
+mediante el atributo `reloj`
 ```
 
-3 Minutos (Análisis, diagrama y solución en Python)
+Obtener el *Análisis*
+
+2 minutos 
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-Crea los archivos **ejemplo02.md** y **ejemplo02.py** en la carpeta **sesion04**
-
 ---
-```markdown [6-7|17,22]
+
+Creando el *análisis*
+
+```markdown [7-8|13,17,19,22]
 # Análisis
 
 Requisitos:
--  tener un fondo de pantalla
--  permitir cambiar el fondo de pantalla
--  tener un reloj
--  permitir ver la hora 
-
+- Tiene un nombre
+- Tiene un fondo de pantalla
+- Cualquiera puede cambiar el fondo de pantalla
+- Tiene un reloj
+- Existe un método ver hora 
 
 Objetos:
 - SistemaOperativo
@@ -286,21 +292,32 @@ Características:
 
 Acciones:
 - SistemaOperativo:
-    - cambiar_fondo_pantalla(nuevo_fondo)
+    - cambiar_fondo_pantalla(imagen)
     - ver_hora()
 ```
 
 ---
 
+#### Ejercicio para ti (02)
+
+Ahora obtenemos el diseño del *diagrama de clase*
+
+2 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
 Creando el diseño de diagrama de clases
 
-```` [4,7]
+````
 ```mermaid 
 classDiagram
     class SistemaOperativo {
-        +fondo_pantalla: String
+        +nombre: String
         +reloj: String
-        +cambiar_fondo_pantalla(nuevo_fondo)
+        +fondo_pantalla: String
+        +cambiar_fondo_pantalla(imagen)
         +ver_hora()
     }
 ```
@@ -310,79 +327,90 @@ classDiagram
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 classDiagram
     class SistemaOperativo {
-        +fondo_pantalla: String
+        +nombre: String
         +reloj: String
-        +cambiar_fondo_pantalla(nuevo_fondo)
+        +fondo_pantalla: String
+        +cambiar_fondo_pantalla(imagen)
         +ver_hora()
     }
 ```
 
 ---
 
-```python [6|12-15|22]
+#### Ejercicio para ti (02)
+
+Ya tenemos el *análisis y diseño* de la clase
+
+Ahora podemos **programar**
+
+2 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
+```python [3,6,11-13|15,20]
 # Definiendo la clase
 class SistemaOperativo:
     def __init__(self, nombre, fondo_pantalla, reloj):
-        self.nombre = nombre # Público
-        self.fondo_pantalla = fondo_pantalla # Público
-        self.reloj = reloj # Público
-
-    def cambiar_fondo_pantalla(self, nuevo_fondo): # Método Público
+        self.nombre = nombre 
+        self.fondo_pantalla = fondo_pantalla 
+        self.reloj = reloj 
+    def cambiar_fondo_pantalla(self, nuevo_fondo):
         self.fondo_pantalla = nuevo_fondo
         print(f"Nuevo fondo: {self.fondo_pantalla}")
         return self.fondo_pantalla
-
-    def ver_hora(self): # Método Público
+    def ver_hora(self):
         print(f"La hora actual es: {self.reloj}")
         return self.reloj
 # Implementando la clase
 so = SistemaOperativo("PyPhoneOS", "gatitos.jpg", "12:00 PM")
 print(f"Fondo de pantalla: {so.fondo_pantalla}")
 so.cambiar_fondo_pantalla("perritos.jpg")
+so.fondo_pantalla = "paisajes.jpg"
+print(f"Fondo de pantalla: {so.fondo_pantalla}")
 so.ver_hora()
-```
-
-```bash
-python ejemplo02.py
 ```
 
 ```text
 Fondo de pantalla: gatitos.jpg
 Nuevo fondo: perritos.jpg
+Fondo de pantalla: paisajes.jpg
 La hora actual es: 12:00 PM
 ```
 
 ---
 #### Nivel Protegido
 
-Los atributos y métodos protegidos son accesibles solo desde la propia clase y sus subclases.
+Los atributos y métodos protegidos son accesibles **solo** desde la propia clase y sus subclases
 
-Esto significa que no se pueden acceder directamente desde fuera de la clase.
+Esto significa que *NO* se pueden acceder directamente desde fuera de la clase
 
 ---
 
-Python no tiene encapsulamiento fuerte como otros lenguajes, como Java o C++.
+Python **no** tiene encapsulamiento fuerte como otros lenguajes, como Java o C++
 
-Python sólo fue diseñado para utilizar niveles públicos y privados, pero no protegidos.
+Python fue diseñado para utilizar niveles **públicos** y **privados**, pero no protegidos
 
-A través de convenciones, se puede simular el encapsulamiento protegido de manera débil.
+A través de convenciones, se puede simular el encapsulamiento protegido de manera débil
 
 ---
 
 Python confía en la disciplina del programador
 
-para no acceder a los atributos protegidos desde fuera de la clase.
+para *NO* acceder a los atributos protegidos desde fuera de la clase
 
 ---
 
 #### Diagrama de clases
-Se representa con un símbolo de numeral `#` antes del nombre del atributo o método.
+
+Se representa con un símbolo de numeral `#` antes del nombre del atributo o método
 
 ````
 ```mermaid
 classDiagram
     class Persona {
-        #nombre: str
+        #nombre: String
         #edad: int
         #saludar()
     }
@@ -393,7 +421,7 @@ classDiagram
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 classDiagram
     class Persona {
-        #nombre: str
+        #nombre: String
         #edad: int
         #saludar()
     }
@@ -401,9 +429,9 @@ classDiagram
 
 ---
 
-En Python, los atributos y métodos protegidos se definen con un solo guión bajo `_` antes del nombre.
+En Python, los atributos y métodos protegidos se definen con un solo guión bajo `_` antes del nombre
 
-Se encuentra en PEP 8 como una convención para indicar que un atributo o método es protegido.
+Se encuentra en PEP 8 como una convención para indicar que un atributo o método es protegido
 
 ```python
 class Persona:
@@ -412,18 +440,19 @@ class Persona:
         self._edad = edad      # Atributo protegido
 
     def _saludar(self):       # Método protegido
-        print(f"Hola, soy {self._nombre} y tengo {self._edad} años.")
+        print(f"Hola, soy {self._nombre} tengo {self._edad} años")
 ```
 
 ---
 
 #### Ejemplo 03
-Crea los archivos **ejemplo03.md** y **ejemplo03.py** en la carpeta **sesion04**
+
+En la carpeta **sesion04** modifica los archivos **sistema.md** y **sistema.py**
 
 ```markdown
-Ahora vamos a cambiar el reloj a un nivel protegido, 
+Cambiaremos el reloj a un nivel protegido, 
 no queremos que se pueda cambiar la hora desde fuera,
-y que sólo se pueda ver la hora mediante un método.
+sólo se pueda ver la hora mediante un método público `ver_hora`
 ```
 
 ---
@@ -432,10 +461,11 @@ El análisis se mantendrá igual, pero cambiaremos el diagrama
 ```markdown
 # Análisis
 Requisitos:
--  tener un fondo de pantalla
--  permitir cambiar el fondo de pantalla
--  tener un reloj
--  permitir ver la hora
+- Tiene un nombre
+- Tiene un fondo de pantalla
+- Cualquiera puede cambiar el fondo de pantalla
+- Tiene un reloj
+- Existe un método ver hora 
 Objetos:
 - SistemaOperativo
 Características:
@@ -445,20 +475,21 @@ Características:
     - reloj: String
 Acciones:
 - SistemaOperativo:
-    - cambiar_fondo_pantalla(nuevo_fondo)
+    - cambiar_fondo_pantalla(imagen)
     - ver_hora()
 ```
 ---
 
 Creando el diseño de diagrama de clases
 
-````markdown [5]
-```mermaid
+```` markdown [5]
+```mermaid 
 classDiagram
     class SistemaOperativo {
-        +fondo_pantalla: String
+        +nombre: String
         #reloj: String
-        +cambiar_fondo_pantalla(nuevo_fondo)
+        +fondo_pantalla: String
+        +cambiar_fondo_pantalla(imagen)
         +ver_hora()
     }
 ```
@@ -468,9 +499,10 @@ classDiagram
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 classDiagram
     class SistemaOperativo {
-        +fondo_pantalla: String
+        +nombre: String
         #reloj: String
-        +cambiar_fondo_pantalla(nuevo_fondo)
+        +fondo_pantalla: String
+        +cambiar_fondo_pantalla(imagen)
         +ver_hora()
     }
 ```
@@ -478,71 +510,73 @@ classDiagram
 
 ---
 
-```python
+```python [6,11-13|20-21]
 # Definiendo la clase
 class SistemaOperativo:
     def __init__(self, nombre, fondo_pantalla, reloj):
-        self.nombre = nombre  # Público
-        self.fondo_pantalla = fondo_pantalla  # Público
-        self._reloj = reloj  # Protegido
-
-    def cambiar_fondo_pantalla(self, nuevo_fondo):  # Público
+        self.nombre = nombre 
+        self.fondo_pantalla = fondo_pantalla 
+        self._reloj = reloj 
+    def cambiar_fondo_pantalla(self, nuevo_fondo):
         self.fondo_pantalla = nuevo_fondo
         print(f"Nuevo fondo: {self.fondo_pantalla}")
         return self.fondo_pantalla
-
-    def ver_hora(self):  # Público
+    def ver_hora(self):
         print(f"La hora actual es: {self._reloj}")
         return self._reloj
 # Implementando la clase
 so = SistemaOperativo("PyPhoneOS", "gatitos.jpg", "12:00 PM")
 print(f"Fondo de pantalla: {so.fondo_pantalla}")
 so.cambiar_fondo_pantalla("perritos.jpg")
+so.fondo_pantalla = "paisajes.jpg"
+print(f"Fondo de pantalla: {so.fondo_pantalla}")
 so.ver_hora()
-# Intentando acceder al reloj directamente
 print(f"Reloj: {so._reloj}")  # Posible, pero no recomendado
-```
-
-```bash
-python ejemplo03.py
 ```
 
 ```text
 Fondo de pantalla: gatitos.jpg
 Nuevo fondo: perritos.jpg
+Fondo de pantalla: paisajes.jpg
 La hora actual es: 12:00 PM
 Reloj: 12:00 PM
 ```
 
 ---
-#### Ejemplo 04
+#### Ejercicio para ti (04)
+
+En la carpeta **sesion04** modifica los archivos **sistema.md** y **sistema.py**
 
 ```markdown
-Ahora el sistema operativo tendrá una batería, 
-sólo el sistema operativo podrá cargar la batería,
-a través de un cargador público,
-podemos conocer el estado de la batería en porcentaje.
+El sistema operativo tendrá una batería, 
+sólo el sistema operativo cargará la batería,
+mediante un método público podemos conocer
+el porcentaje de batería y mediante otro
+método público podremos cargar la batería,
+de manera similar a un puerto de carga
 ```
 
-3 Minutos (Análisis, diagrama y solución en Python)
+Obtener el *Análisis*
+
+2 minutos 
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-Crea los archivos **ejemplo04.md** y **ejemplo04.py** en la carpeta **sesion04**
-
 ---
+
+Creando el *análisis*
 
 ```markdown [7-9|18|23-25]
 # Análisis
 Requisitos:
--  tener un fondo de pantalla
--  permitir cambiar el fondo de pantalla
--  tener un reloj
--  permitir ver la hora
--  tener una batería
--  permitir conocer el estado de la batería en porcentaje
--  permitir cargar la batería a través de un cargador público
-
+- Tiene un nombre
+- Tiene un fondo de pantalla
+- Cualquiera puede cambiar el fondo de pantalla
+- Tiene un reloj
+- Existe un método ver hora 
+- Tiene una batería
+- Existe un método estado_batería
+- Existe un método cargador para cargar la batería
 Objetos:
 - SistemaOperativo
 Características:
@@ -553,28 +587,37 @@ Características:
     - bateria: int
 Acciones:
 - SistemaOperativo:
-    - cambiar_fondo_pantalla(nuevo_fondo)
+    - cambiar_fondo_pantalla(imagen)
     - ver_hora()
-    - cargar_bateria(cantidad)
     - estado_bateria()
     - cargador(cantidad)
 ```
 
 ---
 
+#### Ejercicio para ti (04)
+
+Ahora obtenemos el diseño del *diagrama de clase*
+
+2 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
 Creando el diseño de diagrama de clases
 
-```` markdown [6,9-11]
-```mermaid
+````
+```mermaid 
 classDiagram
     class SistemaOperativo {
-        +fondo_pantalla: String
+        +nombre: String
         #reloj: String
+        +fondo_pantalla: String
         #bateria: int
-        +cambiar_fondo_pantalla(nuevo_fondo)
+        +cambiar_fondo_pantalla(imagen)
         +ver_hora()
         +estado_bateria()
-        #cargar_bateria(cantidad)
         +cargador(cantidad)
     }
 ```
@@ -582,74 +625,87 @@ classDiagram
 
 ---
 
+Creando el diseño de diagrama de clases
+
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 classDiagram
     class SistemaOperativo {
-        +fondo_pantalla: String
+        +nombre: String
         #reloj: String
+        +fondo_pantalla: String
         #bateria: int
-        +cambiar_fondo_pantalla(nuevo_fondo)
+        +cambiar_fondo_pantalla(imagen)
         +ver_hora()
         +estado_bateria()
-        #cargar_bateria(cantidad)
         +cargador(cantidad)
-    }    
+    }
+```
+<!--.element class="center-mermaid"-->
+
+---
+
+#### Ejercicio para ti (04)
+
+Ya tenemos el *análisis y diseño* de la clase
+
+Ahora podemos **programar**
+
+3 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
+```python [7|15-24|32-34]
+# Definiendo la clase
+class SistemaOperativo:
+    def __init__(self, nombre, fondo_pantalla, reloj):
+        self.nombre = nombre 
+        self.fondo_pantalla = fondo_pantalla 
+        self._reloj = reloj
+        self._bateria = 1  # Protegido
+    def cambiar_fondo_pantalla(self, nuevo_fondo):
+        self.fondo_pantalla = nuevo_fondo
+        print(f"Nuevo fondo: {self.fondo_pantalla}")
+        return self.fondo_pantalla
+    def ver_hora(self):
+        print(f"La hora actual es: {self._reloj}")
+        return self._reloj
+    def estado_bateria(self):
+        print(f"Estado de la batería: {self._bateria}%")
+        return self._bateria
+    def _cargar_bateria(self, cantidad): # Protegido
+        self._bateria += cantidad
+        print(f"Batería cargada a: {self._bateria}%")
+    def cargador(self, cantidad):
+        print("🔌 Cargador conectado.")
+        self._cargar_bateria(cantidad)
+        print("🔌 Cargador desconectado.")
+# Implementando la clase
+so = SistemaOperativo("PyPhoneOS", "gatitos.jpg", "12:00 PM")
+print(f"Fondo de pantalla: {so.fondo_pantalla}")
+so.cambiar_fondo_pantalla("perritos.jpg")
+so.fondo_pantalla = "paisajes.jpg"
+print(f"Fondo de pantalla: {so.fondo_pantalla}")
+so.ver_hora()
+so.estado_bateria()
+so.cargador(20)
+so.estado_bateria()
 ```
 
 ---
 
-```python [7-8|18-29|35-37]
-# Definiendo la clase
-class SistemaOperativo:
-    def __init__(self, nombre, fondo_pantalla, reloj, bateria):
-        self.nombre = nombre  # Público
-        self.fondo_pantalla = fondo_pantalla  # Público
-        self._reloj = reloj  # Protegido
-        self._bateria = bateria  # Protegido
-
-    def cambiar_fondo_pantalla(self, nuevo_fondo):  # Público
-        self.fondo_pantalla = nuevo_fondo
-        print(f"Nuevo fondo: {self.fondo_pantalla}")
-        return self.fondo_pantalla
-
-    def ver_hora(self):  # Público
-        print(f"La hora actual es: {self._reloj}")
-        return self._reloj
-
-    def estado_bateria(self):  # Público
-        print(f"Estado de la batería: {self._bateria}%")
-        return self._bateria
-
-    def _cargar_bateria(self, cantidad):  # Protegido
-        self._bateria += cantidad
-        print(f"Batería cargada a: {self._bateria}%")
-
-    def cargador(self, cantidad):  # Público
-        print("Cargador conectado.")
-        self._cargar_bateria(cantidad)
-        print("Cargador desconectado.")
-# Implementando la clase
-so = SistemaOperativo("PyPhoneOS", "gatitos.jpg", "12:00 PM", 50)
-print(f"Fondo de pantalla: {so.fondo_pantalla}")
-so.cambiar_fondo_pantalla("perritos.jpg")
-so.ver_hora()
-so.estado_bateria()
-so.cargador(20)  # Cargando la batería
-so.estado_bateria()  # Verificando el estado de la batería
-```
-
-```bash
-python ejemplo04.py
-```
-
 ```text
 Fondo de pantalla: gatitos.jpg
 Nuevo fondo: perritos.jpg
+Fondo de pantalla: paisajes.jpg
 La hora actual es: 12:00 PM
-Estado de la batería: 50%
-Batería cargada a: 70%
-Estado de la batería: 70%
+Estado de la batería: 1%
+🔌 Cargador conectado.
+Batería cargada a: 21%
+🔌 Cargador desconectado.
+Estado de la batería: 21%
 ```
 ---
 

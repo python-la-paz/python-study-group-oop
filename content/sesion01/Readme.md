@@ -263,9 +263,13 @@ el resto de sus características los hacen diferentes.
 
 ---
 
-Ahora abordaremos un concepto fundamental en la programación orientada a objetos:
+#### Principios fundamentales
 
-### Abstracción
+Ahora abordaremos un principio fundamental en la programación orientada a objetos
+
+El **1º** principio fundamental de la Programación Orientada a Objetos (POO)
+
+### **Abstracción**
 
 ---
 
