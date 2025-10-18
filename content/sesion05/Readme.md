@@ -12,22 +12,24 @@
 
 ---
 
-#### VS Code
+#### Proyecto en VSCode
 
-Abrimos el proyecto del Study Group
+Abre el proyecto en VSCode
 
 ```bash
 code psg-oop-2025
 ```
 
-Creamos una carpeta llamada `sesion05` dentro del proyecto
+Crea una carpeta con el nombre `sesion05`
 
 ```bash
 mkdir sesion05
 cd sesion05
 ```
 
-Aquí guardaremos los ejemplos de la sesión
+- Los archivos de esta sesión deben estar dentro de esta carpeta
+
+- Al finalizar la sesión, sube los cambios al repositorio en un commit
 
 ---
 
@@ -37,21 +39,30 @@ Aquí guardaremos los ejemplos de la sesión
 
 ---
 
-La herencia es la transmisión de las características de los progenitores a sus descendientes
+La herencia es la **transmisión** de las características de los progenitores a sus descendientes
 
-# 👨‍👦 👩‍👧
+# 👨 👶 👩
 
 ---
 
 La herencia es un concepto fundamental en la programación orientada a objetos
 
-Permite crear nuevas clases basadas en clases existentes, heredando sus atributos y métodos
+Permite **crear nuevas clases** basadas en clases existentes, **heredando** sus **atributos y métodos**
 
 ---
 
+#### Principios fundamentales
+
+Es el **3º** principio fundamental de la Programación Orientada a Objetos (POO)
+
+## **Herencia**
+
+---
+
+
 #### Beneficios de la herencia
 
-- **Reutilización de código**: Al heredar atributos y métodos de una clase base, se evita la duplicación de código y se promueve la reutilización.
+**Reutilización de código**: Al heredar atributos y métodos de una clase base, se evita la duplicación de código y se promueve la reutilización
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn" }}%% 
@@ -59,13 +70,13 @@ flowchart TD
     A[🐾 Animal<br>-⌛ Edad<br>-🎨 Color] -->|Hereda| B[🐶 Perro<br>-⌛ Edad<br>-🎨 Color]
     A -->|Hereda| C[🐱 Gato<br>-⌛ Edad<br>-🎨 Color]
 ```
+<!--.element class="center-mermaid"-->
 
 ---
 
-#### Beneficios de la herencia
-- **Jerarquía de clases**: Permite organizar las clases en una jerarquía, facilitando la comprensión y el mantenimiento del código.
+**Jerarquía de clases**: Permite organizar las clases en una jerarquía, facilitando la comprensión y el mantenimiento del código
 
-```mermaid
+```mermaid 
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 flowchart TD
     A[🐾 Animal] -->|Hereda| B[🐶 Perro]
@@ -75,11 +86,11 @@ flowchart TD
     C --> F[🐈 Siames]
     C --> G[🐱 Persa]
 ```
+<!--.element class="center-mermaid"-->
 
 ---
 
-#### Beneficios de la herencia
-- **Mantenibilidad**: Al modificar la clase base, los cambios se propagan automáticamente a las clases derivadas, lo que facilita el mantenimiento del código.
+**Mantenibilidad**: Al modificar la clase base, los cambios se propagan automáticamente a las clases derivadas, lo que facilita el mantenimiento del código
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
@@ -87,23 +98,30 @@ flowchart TD
     A[🐾 Animal<br>-⌛ Edad<br>-🎨 Color<br><b>🍴Alimentación</b>] -->|Hereda| B[🐶 Perro<br>-⌛ Edad<br>-🎨 Color<br><b>🍴Alimentación</b>]
     A -->|Hereda| C[🐱 Gato<br>-⌛ Edad<br>-🎨 Color<br><b>🍴Alimentación</b>]
 ```
+<!--.element class="center-mermaid"-->
 
 ---
 #### Herencia y niveles de acceso
 
-- **Público**: Los atributos y métodos se heredan, y son accesibles desde fuera de las clases
-- **Protegido**: Los atributos y métodos se heredan, pero no son accesibles directamente desde fuera de las clases
-- **Privado**: Los atributos y métodos no se heredan, y no son accesibles desde fuera de las clases
+**Público**: Atributos y métodos **se heredan** y **son** accesibles desde fuera de las clases
+
+**Protegido**: Atributos y métodos **se heredan** y *no son* accesibles desde desde fuera de las clases
+
+**Privado**: Atributos y métodos *no se heredan* y *no son* accesibles desde fuera de las clases
 
 ---
 
-Para acceder a los atributos privados o protegidos se recomienda utilizar métodos de acceso (getters y setters)
+Para acceder a los atributos privados o protegidos se recomienda utilizar métodos de acceso 
+
+**getters** y **setters**
 
 ---
 
 #### Diagrama de clases
 
-La herencia se representa en un diagrama de clases con una flecha `➡` que apunta desde la clase hija hacia la clase padre
+La herencia se representa en un diagrama de clases con una flecha `➡` que apunta desde
+
+la clase **hija** hacia la clase **padre**
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
@@ -121,6 +139,7 @@ classDiagram
     Animal <|-- Perro
     Animal <|-- Gato
 ```
+<!--.element class="center-mermaid"-->
 
 ---
 
@@ -128,7 +147,7 @@ En mermaid, la herencia se representa con la sintaxis
 
 `Animal <|-- Perro`
 
-donde `Animal` es clase padre y `Perro` es clase hija
+`Animal` es clase padre y `Perro` es clase hija
 
 ````
 ```mermaid
@@ -152,7 +171,7 @@ classDiagram
 
 #### Herencia en Python
 
-La herencia se implementa utilizando paréntesis para indicar cual es la clase padre
+La herencia se define colocando **entre paréntesis** el nombre de la clase **padre** después del nombre de la clase **hija**
 
 ```python
 class Animal:
@@ -211,31 +230,39 @@ blanco
 
 #### Ejemplo 01
 
-Crea los archivos **herencia.md** y **herencia.py** en la carpeta **sesion05**
+Crea los archivos **herencia.md** y **zoo.py** en la carpeta **sesion05**
 
 ```markdown
-Un zoológico tiene un catálogo de especies mamíferos y aves
-Todos los animales tienen una especie
-Los mamíferos son terrestres o acuáticos 
-y pueden amamantar a sus crías
-Las aves ponen huevos y no todas pueden volar
+Un zoológico posee un catálogo digital de animales
+Existes dos categorías principales: mamíferos y aves
+Los animales tienen registrado la especie a la que pertenecen
+Los mamíferos puede ser de dos tipos: terrestres o acuáticos
+y puede amamantar a crías
+Las aves tienen la característica de poder volar o no
+y tienen la capacidad de poner huevos
 ```
 
 ---
 
-Análisis
+Análisis inicial
 
-```markdown [1-25|4,12,15]
+```markdown [1-27|11-13|16,18,21]
 # Análisis
 Requisitos:
-- Generar especies mamíferos y aves
+- Registrar animales
 - Almacenar información de especie
-- Los mamíferos son terrestres o acuáticos
-- Las aves pueden volar o no
+- Categorías principales mamíferos y aves
+- Mamíferos son terrestres o acuáticos
+- Aves pueden volar o no
+- Mamíferos pueden amamantar
+- Aves pueden poner huevos
 Objetos:
+- Animal
 - Mamífero
 - Ave
 Características:
+- Animal:
+  - especie: String
 - Mamífero:
   - especie: String
   - tipo: String (terrestre, acuático)
@@ -246,23 +273,30 @@ Acciones:
 - Mamífero:
   - amamantar()
 - Ave:
-  - ovoponer()
+  - poner_huevo()
 ```
+
+Posee repetición de características se debe mejorar
 
 ---
 Análisis mejorado sin repetición
 
-```markdown [1-26|8,12-13,19-20|9-10,14-17,21-24]
+```markdown [1-29|13-15|17-22|23-29]
 # Análisis Mejorado
 Requisitos:
-- Generar especies mamíferos y aves
+- Registrar animales
 - Almacenar información de especie
-- Los mamíferos son terrestres o acuáticos
-- Las aves pueden volar o no
+- Categorías principales mamíferos y aves
+- Mamíferos son animales
+- Mamíferos son terrestres o acuáticos
+- Mamíferos pueden amamantar
+- Aves son animales
+- Aves pueden volar o no
+- Aves pueden poner huevos
 Objetos:
 - Animal (clase padre)
-- Mamífero (hereda de Animal)
-- Ave (hereda de Animal)
+- Mamífero (clase hija)
+- Ave (clase hija)
 Características:
 - Animal:
   - especie: String
@@ -276,26 +310,28 @@ Acciones:
 - Mamífero:
   - amamantar()
 - Ave:
-  - ovoponer()
+  - poner_huevo()
 ```
+
+Las características comunes se heredan de la clase padre Animal
 
 ---
 
-Diseño Mermaid
+Diseño diagrama en Mermaid
 
 ````
 ```mermaid
 classDiagram
     class Animal {
-        + especie: str
+        +especie: String
     }
     class Mamifero {
-        + tipo: str
+        +tipo: String
         + amamantar()
     }
     class Ave {
-        + volar: bool
-        + ovoponer()
+        +volar: bool
+        +poner_huevo()
     }
     Animal <|-- Mamifero
     Animal <|-- Ave
@@ -310,23 +346,34 @@ Diseño Diagrama
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 classDiagram
     class Animal {
-        + especie: str
+        +especie: String
     }
     class Mamifero {
-        + tipo: str
+        +tipo: String
         + amamantar()
     }
     class Ave {
-        + volar: bool
-        + ovoponer()
+        +volar: bool
+        +poner_huevo()
     }
     Animal <|-- Mamifero
     Animal <|-- Ave
 ```
+<!--.element class="center-mermaid"-->
+
+Se crea una relación de herencia entre
+
+*Animal* y **Mamífero** | *Animal* y **Ave**
 
 ---
 
-Script en python herencia.py
+Ya con la herencia definida en el análisis y diseño
+
+podemos implementar el código en Python
+
+---
+
+En el archivo `zoo.py`
 
 ```python [2-4|5-7|8-10|12-15|16-19]
 # Definición
@@ -335,66 +382,73 @@ class Animal:
         self.especie = especie
 class Mamifero(Animal):
     def amamantar(self):
-        print(f"{self.especie} amamanta 🍼 a sus crías")
+        print(f"{self.especie} amamanta 🍼 a crías")
 class Ave(Animal):
-    def ovoponer(self):
+    def poner_huevo(self):
         print(f"{self.especie} pone huevos 🥚")
 # Uso
 caballo = Mamifero("Caballo")
-caballo.tipo = "Terrestre"
-print(f"Especie: {caballo.especie} - Tipo: {caballo.tipo}")
+caballo.tipo = "Terrestre" # Asignar atributo
+print(f"Especie:{caballo.especie} - Tipo:{caballo.tipo}")
 caballo.amamantar()
 paloma = Ave("Paloma")
-paloma.volar = True
-print(f"Especie: {paloma.especie} - Puede volar: {paloma.volar}")
-paloma.ovoponer()
-```
-
-```bash
-python herencia.py
+paloma.volar = True # Asignar atributo
+print(f"Especie:{paloma.especie}, puede volar:{paloma.volar}")
+paloma.poner_huevo()
 ```
 
 ```text
-Especie: Caballo - Tipo: Terrestre
-Caballo amamanta 🍼 a sus crías
-Especie: Paloma - Puede volar: True
+Especie: Caballo, Tipo: Terrestre
+Caballo amamanta 🍼 a crías
+Especie: Paloma, puede volar: True
 Paloma pone huevos 🥚
 ```
 
 ---
 
-#### Ejemplo 02
+#### Ejercicio para ti (02)
 
-Adicionar al ejemplo `herencia.md` y `herencia.py`
+En la carpeta **sesion05** modifica los archivos **herencia.md** y **zoo.py**
 
 ```markdown
-Adicionar al catálogo del zoológico reptiles
+En el zoológico se esta ampliando el catálogo
+añadiendo una nueva categoría: reptiles
 los reptiles pueden ser terrestres o acuáticos
-puede ser venenosos o no
+pueden ser venenosos o no 
+y tienen la capacidad de reptar
 ```
 
-4 Minutos
+Obtener el *Análisis*
+
+2 Minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
 ---
 
-Análisis
+Modificando el *Análisis*
 
-```markdown [7,8,21-23,31-32]
+```markdown [5,12-15|20,28-30|38-39]
 # Análisis Mejorado
 Requisitos:
-- Generar especies mamíferos y aves
+- Registrar animales
 - Almacenar información de especie
-- Los mamíferos son terrestres o acuáticos
-- Las aves pueden volar o no
-- Los reptiles pueden ser terrestres o acuáticos
-- Los reptiles pueden ser venenosos o no
+- Categorías principales mamíferos, aves y reptiles
+- Mamíferos son animales
+- Mamíferos son terrestres o acuáticos
+- Mamíferos pueden amamantar
+- Aves son animales
+- Aves pueden volar o no
+- Aves pueden poner huevos
+- Reptiles son animales
+- Reptiles pueden ser terrestres o acuáticos
+- Reptiles pueden ser venenosos o no
+- Reptiles pueden reptar
 Objetos:
 - Animal (clase padre)
-- Mamífero (hereda de Animal)
-- Ave (hereda de Animal)
-- Reptil (hereda de Animal)
+- Mamífero (clase hija)
+- Ave (clase hija)
+- Reptil (clase hija)
 Características:
 - Animal:
   - especie: String
@@ -411,30 +465,41 @@ Acciones:
 - Mamífero:
   - amamantar()
 - Ave:
-  - ovoponer()
+  - poner_huevo()
 - Reptil:
-  - reptar()
+    - reptar()
 ```
 
 ---
-Diseño Mermaid
+
+#### Ejercicio para ti (02)
+
+Ahora obtenemos el diseño del *diagrama de clase*
+
+2 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
+Creando el diseño de diagrama de clases
 
 ```` [14-18,21]
 ```mermaid
 classDiagram
     class Animal {
-        + especie: str
+        +especie: String
     }
     class Mamifero {
-        + tipo: str
+        +tipo: String
         + amamantar()
     }
     class Ave {
-        + volar: bool
-        + ovoponer()
+        +volar: bool
+        +poner_huevo()
     }
     class Reptil {
-        + tipo: str
+        +tipo: String
         + venenoso: bool
         + reptar()
     }
@@ -445,23 +510,24 @@ classDiagram
 ````
 ---
 
-Diagrama
+Creando el diseño de diagrama de clases
+
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 classDiagram
     class Animal {
-        + especie: str
+        +especie: String
     }
     class Mamifero {
-        + tipo: str
+        +tipo: String
         + amamantar()
     }
     class Ave {
-        + volar: bool
-        + ovoponer()
+        +volar: bool
+        +poner_huevo()
     }
     class Reptil {
-        + tipo: str
+        +tipo: String
         + venenoso: bool
         + reptar()
     }
@@ -469,11 +535,25 @@ classDiagram
     Animal <|-- Ave
     Animal <|-- Reptil
 ```
-
+<!--.element class="center-mermaid"-->
 
 ---
 
-Script en python herencia.py
+#### Ejercicio para ti (02)
+
+Ya tenemos el *análisis y diseño* de la clase
+
+Ahora podemos **programar**
+
+Modifica el archivo `zoo.py`
+
+3 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
+Implementando la clase Reptil
 
 ```python [11-13|23-27]
 # Definición
@@ -482,9 +562,9 @@ class Animal:
         self.especie = especie
 class Mamifero(Animal):
     def amamantar(self):
-        print(f"{self.especie} amamanta 🍼 a sus crías")
+        print(f"{self.especie} amamanta 🍼 a crías")
 class Ave(Animal):
-    def ovoponer(self):
+    def poner_huevo(self):
         print(f"{self.especie} pone huevos 🥚")
 class Reptil(Animal):
     def reptar(self):
@@ -492,56 +572,87 @@ class Reptil(Animal):
 # Uso
 caballo = Mamifero("Caballo")
 caballo.tipo = "Terrestre"
-print(f"Especie: {caballo.especie} - Tipo: {caballo.tipo}")
+print(f"Especie: {caballo.especie}, Tipo: {caballo.tipo}")
 caballo.amamantar()
 paloma = Ave("Paloma")
 paloma.volar = True
-print(f"Especie: {paloma.especie} - Puede volar: {paloma.volar}")
-paloma.ovoponer()
-cocodrilo = Reptil("Cocodrilo")
-cocodrilo.tipo = "Acuático"
-cocodrilo.venenoso = False
-print(f"Especie: {cocodrilo.especie} - Tipo: {cocodrilo.tipo} - Venenoso: {cocodrilo.venenoso}")
-cocodrilo.reptar()
+print(f"Especie: {paloma.especie}, puede volar:{paloma.volar}")
+paloma.poner_huevo()
+coco = Reptil("Cocodrilo")
+coco.tipo = "Acuático" # Asignar atributo
+coco.venenoso = False # Asignar atributo
+print(f"Especie:{coco.especie}, tipo:{coco.tipo}, Venenoso:{coco.venenoso}")
+coco.reptar()
 ```
 
 ```text
-Especie: Caballo - Tipo: Terrestre
-Caballo amamanta 🍼 a sus crías
-Especie: Paloma - Puede volar: True
+Especie: Caballo, Tipo: Terrestre
+Caballo amamanta 🍼 a crías
+Especie: Paloma, puede volar: True
 Paloma pone huevos 🥚
-Especie: Cocodrilo - Tipo: Acuático - Venenoso: False
+Especie:Cocodrilo, tipo:Acuático, Venenoso:False
 Cocodrilo se arrastra 🐍
 ```
 
+---
+
+Hemos implementado **herencia** en Python
+
+los **atributos** los asignamos **después** de crear el objeto
+
+ya que no definimos **constructor** en las clases hijas
+
+
+Los constructores tienen una relación especial con la herencia
+
+Veamos cómo se relacionan
 
 ---
 
 #### Constructores y herencia
 
-Las clases hijas heredan los atributos y métodos de la clase padre
+Las clases hijas **heredan** atributos y métodos de la clase padre
 
-Pero pueden tener sus propios métodos y atributos
+El constructor también se hereda de la clase padre
 
-Y también tener su propio constructor
+Las clases hijas **pueden** tener sus propios métodos y atributos
+
+Las clases hijas **pueden** definir su propio constructor
 
 ---
 
-Cuando definimos un constructor en una clase hija, debemos llamar al constructor de la clase padre utilizando `super()`
+Cuando definimos un **constructor** en una clase hija
+
+Se *sobrescribe* el constructor de la clase padre y para **definir** los atributos heredados de la clase padre
+
+debemos llamar al constructor de la clase padre utilizando el método `super()`
 
 ---
 
 #### super()
 
-`super()` es una método que permite acceder a los métodos y atributos de la clase padre desde la clase hija
+`super()` es una método que **permite** acceder a los métodos y atributos de la clase **padre**
 
-Es propio de Python 
+desde la clase **hija**
 
-Podemos utilizarlo para llamar al constructor de la clase padre
+Es propio de Python y se utiliza comúnmente en la herencia
 
 ---
 
-Constructor con super()
+Para llamar al constructor de la clase padre desde la clase hija
+
+se utiliza la sintaxis `super().__init__(parámetros)`
+
+Donde:
+
+- `super()` hace referencia a la clase padre
+- `__init__` es el constructor de la clase padre
+- `parámetros` son los argumentos que se pasan al constructor de la clase padre
+
+---
+
+Constructor con super() en la clase Mamífero cambiando el archivo `zoo.py`
+
 
 ```python [2-4|6-9|15-17]
 # Definición
@@ -550,41 +661,37 @@ class Animal:
         self.especie = especie
 
 class Mamifero(Animal):
-    def __init__(self, especie, tipo):
+    def __init__(self, especie, tipo): # Constructor hija
         super().__init__(especie) # Constructor Padre
         self.tipo = tipo
 
     def amamantar(self):
-        print(f"{self.especie} amamanta 🍼 a sus crías")
+        print(f"{self.especie} amamanta 🍼 a crías")
 
 # Uso
 caballo = Mamifero("Caballo", "Terrestre")
-print(f"Especie: {caballo.especie} - Tipo: {caballo.tipo}")
+print(f"Especie: {caballo.especie}, Tipo: {caballo.tipo}")
 caballo.amamantar()
 ```
 
-```bash
-python herencia.py
-```
-
-```text
-Especie: Caballo - Tipo: Terrestre
-Caballo amamanta 🍼 a sus crías
-```
 ---
 
-#### Ejemplo 03
-En el ejemplo `herencia.py`
+#### Ejercicio para ti (03)
+
+Ya tenemos el *análisis y diseño* de la clase
 
 ```markdown
-Añadir constructor con super() a la clase Ave y Reptil
+Añade constructores con super() a la clase Ave y Reptil
+Modifica la asignación de atributos utilizando los constructores
 ```
+
+Modifica el archivo `zoo.py`
 
 3 Minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-El análisis y diseño es el mismo
+
 
 ---
 
@@ -598,13 +705,13 @@ class Mamifero(Animal):
         super().__init__(especie) # Constructor Padre
         self.tipo = tipo
     def amamantar(self):
-        print(f"{self.especie} amamanta 🍼 a sus crías")
+        print(f"{self.especie} amamanta 🍼 a crías")
 
 class Ave(Animal):
     def __init__(self, especie, volar):
         super().__init__(especie) # Constructor Padre
         self.volar = volar
-    def ovoponer(self):
+    def poner_huevo(self):
         print(f"{self.especie} pone huevos 🥚")
 
 class Reptil(Animal):
@@ -616,478 +723,280 @@ class Reptil(Animal):
         print(f"{self.especie} se arrastra 🐍")
 # Uso
 caballo = Mamifero("Caballo", "Terrestre")
-print(f"Especie: {caballo.especie} - Tipo: {caballo.tipo}")
+print(f"Especie: {caballo.especie}, Tipo: {caballo.tipo}")
 caballo.amamantar()
 paloma = Ave("Paloma", True)
-print(f"Especie: {paloma.especie} - Puede volar: {paloma.volar}")
-paloma.ovoponer()
-cocodrilo = Reptil("Cocodrilo", "Acuático", False)
-print(f"Especie: {cocodrilo.especie} - Tipo: {cocodrilo.tipo} - Venenoso: {cocodrilo.venenoso}")
-cocodrilo.reptar()
+print(f"Especie:{paloma.especie}, puede volar:{paloma.volar}")
+paloma.poner_huevo()
+coco = Reptil("Cocodrilo", "Acuático", False)
+print(f"Especie: {coco.especie} - Tipo: {coco.tipo} - Venenoso: {coco.venenoso}")
+coco.reptar()
 ```
 
 ```text
-Especie: Caballo - Tipo: Terrestre
-Caballo amamanta 🍼 a sus crías
-Especie: Paloma - Puede volar: True
+Especie: Caballo, Tipo: Terrestre
+Caballo amamanta 🍼 a crías
+Especie: Paloma, puede volar: True
 Paloma pone huevos 🥚
-Especie: Cocodrilo - Tipo: Acuático - Venenoso: False
+Especie:Cocodrilo, tipo:Acuático, Venenoso:False
 Cocodrilo se arrastra 🐍
 ```
 
 ---
 
-#### Sobreescritura de métodos
+#### Sobrescritura de métodos
 
-Podemos sobreescribir los métodos de la clase padre en la clase hija
+Podemos **sobrescribir** los métodos de la clase padre en la clase hija
 
 Redefiniendo los métodos con el mismo nombre
 
-Haciendo que la clase hija tenga su propia implementación del método
+Haciendo que la clase hija tenga **su propia implementación** de los métodos heredados
 
 ---
 
-Añadir al ejemplo `herencia.md` y `herencia.py`
-
-```markdown
-El catálogo del zoológico tiene un método para mostrar información
-general de cada animal
-```
-
-Análisis
-
-```markdown [26]
-# Análisis Mejorado
-Requisitos:
-- Generar especies mamíferos y aves
-- Almacenar información de especie
-- Los mamíferos son terrestres o acuáticos
-- Las aves pueden volar o no
-- Los reptiles pueden ser terrestres o acuáticos
-- Los reptiles pueden ser venenosos o no
-Objetos:
-- Animal (clase padre)
-- Mamífero (hereda de Animal)
-- Ave (hereda de Animal)
-- Reptil (hereda de Animal)
-Características:
-- Animal:
-  - especie: String
-- Mamífero:
-  - tipo: String (terrestre, acuático)
-- Ave:
-  - volar: bool
-- Reptil:
-  - tipo: String (terrestre, acuático)
-  - venenoso: bool
-Acciones:
-- Animal:
-  - mostrar()
-- Mamífero:
-  - amamantar()
-- Ave:
-  - ovoponer()
-- Reptil:
-  - reptar()
-```
-
----
-
-Diseño Mermaid
-
-```` [5]
-```mermaid
-classDiagram
-    class Animal {
-        + especie: str
-        + mostrar()
-    }
-    class Mamifero {
-        + tipo: str
-        + amamantar()
-    }
-    class Ave {
-        + volar: bool
-        + ovoponer()
-    }
-    class Reptil {
-        + tipo: str
-        + venenoso: bool
-        + reptar()
-    }
-    Animal <|-- Mamifero
-    Animal <|-- Ave
-    Animal <|-- Reptil
-```
-````
-
----
-
-Diagrama
-
-```mermaid
-%%{init: {"theme": "dark", "look": "handDrawn" }}%%
-classDiagram
-    class Animal {
-        + especie: str
-        + mostrar()
-    }
-    class Mamifero {
-        + tipo: str
-        + amamantar()
-    }
-    class Ave {
-        + volar: bool
-        + ovoponer()
-    }
-    class Reptil {
-        + tipo: str
-        + venenoso: bool
-        + reptar()
-    }
-    Animal <|-- Mamifero
-    Animal <|-- Ave
-    Animal <|-- Reptil
-```
-
----
-
-```python [6-7|31,36,41]
-# Definición
-class Animal:
-    def __init__(self, especie):
-        self.especie = especie
-
-    def mostrar(self): # Nuevo método
-        print(f"Especie: {self.especie}")
-class Mamifero(Animal):
-    def __init__(self, especie, tipo):
-        super().__init__(especie) 
-        self.tipo = tipo
-    def amamantar(self):
-        print(f"{self.especie} amamanta 🍼 a sus crías")
-
-class Ave(Animal):
-    def __init__(self, especie, volar):
-        super().__init__(especie) 
-        self.volar = volar
-    def ovoponer(self):
-        print(f"{self.especie} pone huevos 🥚")
-
-class Reptil(Animal):
-    def __init__(self, especie, tipo, venenoso):
-        super().__init__(especie)
-        self.tipo = tipo
-        self.venenoso = venenoso
-    def reptar(self):
-        print(f"{self.especie} se arrastra 🐍")
-# Uso
-caballo = Mamifero("Caballo", "Terrestre")
-caballo.mostrar() # Llamada al método de la clase Animal
-print(f"Tipo: {caballo.tipo}")
-caballo.amamantar()
-
-paloma = Ave("Paloma", True)
-paloma.mostrar() # Llamada al método de la clase Animal
-print(f"Puede volar: {paloma.volar}")
-paloma.ovoponer()
-
-cocodrilo = Reptil("Cocodrilo", "Acuático", False)
-cocodrilo.mostrar() # Llamada al método de la clase Animal
-print(f"Tipo: {cocodrilo.tipo} - Venenoso: {cocodrilo.venenoso}")
-cocodrilo.reptar()
-```
-
-```text
-Especie: Caballo
-Tipo: Terrestre
-Caballo amamanta 🍼 a sus crías
-Especie: Paloma
-Puede volar: True
-Paloma pone huevos 🥚
-Especie: Cocodrilo
-Tipo: Acuático - Venenoso: False
-Cocodrilo se arrastra 🐍
-```
-
----
-
-Añadir al ejemplo `herencia.md` y `herencia.py`
-
-```markdown
-Los mamíferos muestran su especie, tipo y la acción de amamantar
-A traves de un método propio `mostrar()`
-```
-
-
-Análisis
-
-```markdown [29]
-# Análisis Mejorado
-Requisitos:
-- Generar especies mamíferos y aves
-- Almacenar información de especie
-- Los mamíferos son terrestres o acuáticos
-- Las aves pueden volar o no
-- Los reptiles pueden ser terrestres o acuáticos
-- Los reptiles pueden ser venenosos o no
-Objetos:
-- Animal (clase padre)
-- Mamífero (hereda de Animal)
-- Ave (hereda de Animal)
-- Reptil (hereda de Animal)
-Características:
-- Animal:
-  - especie: String
-- Mamífero:
-  - tipo: String (terrestre, acuático)
-- Ave:
-  - volar: bool
-- Reptil:
-  - tipo: String (terrestre, acuático)
-  - venenoso: bool
-Acciones:
-- Animal:
-  - mostrar()
-- Mamífero:
-  - amamantar()
-  - mostrar()
-- Ave:
-  - ovoponer()
-- Reptil:
-  - reptar()
-```
-
----
-
-Diseño Mermaid
-
-```` [10]
-```mermaid
-classDiagram
-    class Animal {
-        + especie: str
-        + mostrar()
-    }
-    class Mamifero {
-        + tipo: str
-        + amamantar()
-        + mostrar()
-    }
-    class Ave {
-        + volar: bool
-        + ovoponer()
-    }
-    class Reptil {
-        + tipo: str
-        + venenoso: bool
-        + reptar()
-    }
-    Animal <|-- Mamifero
-    Animal <|-- Ave
-    Animal <|-- Reptil
-```
-````
-
----
-
-Diagrama
-
-```mermaid
-%%{init: {"theme": "dark", "look": "handDrawn" }}%%
-classDiagram
-    class Animal {
-        + especie: str
-        + mostrar()
-    }
-    class Mamifero {
-        + tipo: str
-        + amamantar()
-        + mostrar()
-    }
-    class Ave {
-        + volar: bool
-        + ovoponer()
-    }
-    class Reptil {
-        + tipo: str
-        + venenoso: bool
-        + reptar()
-    }
-    Animal <|-- Mamifero
-    Animal <|-- Ave
-    Animal <|-- Reptil
-```
-
----
-
-```python [6-7,15-17|34-35]
-# Definición
-class Animal:
-    def __init__(self, especie):
-        self.especie = especie
-
-    def mostrar(self): # Nuevo método
-        print(f"Especie: {self.especie}")
-class Mamifero(Animal):
-    def __init__(self, especie, tipo):
-        super().__init__(especie) 
-        self.tipo = tipo
-    def amamantar(self):
-        print(f"{self.especie} amamanta 🍼 a sus crías")
-    
-    def mostrar(self): # Método sobreescrito
-        print(f"Tipo: {self.tipo}")
-        self.amamantar()
-
-class Ave(Animal):
-    def __init__(self, especie, volar):
-        super().__init__(especie) 
-        self.volar = volar
-    def ovoponer(self):
-        print(f"{self.especie} pone huevos 🥚")
-
-class Reptil(Animal):
-    def __init__(self, especie, tipo, venenoso):
-        super().__init__(especie)
-        self.tipo = tipo
-        self.venenoso = venenoso
-    def reptar(self):
-        print(f"{self.especie} se arrastra 🐍")
-# Uso
-caballo = Mamifero("Caballo", "Terrestre")
-caballo.mostrar()
-
-paloma = Ave("Paloma", True)
-paloma.mostrar() # Llamada al método de la clase Animal
-print(f"Puede volar: {paloma.volar}")
-paloma.ovoponer()
-
-cocodrilo = Reptil("Cocodrilo", "Acuático", False)
-cocodrilo.mostrar() # Llamada al método de la clase Animal
-print(f"Tipo: {cocodrilo.tipo} - Venenoso: {cocodrilo.venenoso}")
-cocodrilo.reptar()
-```
-
-```text
-Tipo: Terrestre
-Caballo amamanta 🍼 a sus crías
-Especie: Paloma
-Puede volar: True
-Paloma pone huevos 🥚
-Especie: Cocodrilo
-Tipo: Acuático - Venenoso: False
-Cocodrilo se arrastra 🐍
-```
-
----
-
-Ahora se ejecuta el método `mostrar()` de la clase `Mamifero` 
-
-Pero no el de la clase `Animal`
-
-> Para que se ejecute el de la clase `Animal` debemos llamar 
-> al método `mostrar()` de la clase padre utilizando `super()`
-
-
----
-
-```python [6-7,15-18|35-36]
-# Definición
-class Animal:
-    def __init__(self, especie):
-        self.especie = especie
-
-    def mostrar(self): # Nuevo método
-        print(f"Especie: {self.especie}")
-class Mamifero(Animal):
-    def __init__(self, especie, tipo):
-        super().__init__(especie) 
-        self.tipo = tipo
-    def amamantar(self):
-        print(f"{self.especie} amamanta 🍼 a sus crías")
-    
-    def mostrar(self): # Método sobreescrito
-        super().mostrar()  # Llamada al método del padre
-        print(f"Tipo: {self.tipo}")
-        self.amamantar()
-
-class Ave(Animal):
-    def __init__(self, especie, volar):
-        super().__init__(especie) 
-        self.volar = volar
-    def ovoponer(self):
-        print(f"{self.especie} pone huevos 🥚")
-
-class Reptil(Animal):
-    def __init__(self, especie, tipo, venenoso):
-        super().__init__(especie)
-        self.tipo = tipo
-        self.venenoso = venenoso
-    def reptar(self):
-        print(f"{self.especie} se arrastra 🐍")
-# Uso
-caballo = Mamifero("Caballo", "Terrestre")
-caballo.mostrar()
-
-paloma = Ave("Paloma", True)
-paloma.mostrar() # Llamada al método de la clase Animal
-print(f"Puede volar: {paloma.volar}")
-paloma.ovoponer()
-
-cocodrilo = Reptil("Cocodrilo", "Acuático", False)
-cocodrilo.mostrar() # Llamada al método de la clase Animal
-print(f"Tipo: {cocodrilo.tipo} - Venenoso: {cocodrilo.venenoso}")
-cocodrilo.reptar()
-```
-
-```text
-Especie: Caballo
-Tipo: Terrestre
-Caballo amamanta 🍼 a sus crías
-Especie: Paloma
-Puede volar: True
-Paloma pone huevos 🥚
-Especie: Cocodrilo
-Tipo: Acuático - Venenoso: False
-Cocodrilo se arrastra 🐍
-```
-
----
 #### Ejemplo 04
 
-Adicionar al ejemplo `herencia.md` y `herencia.py`
+Modifica los archivos **herencia.md** y **zoo.py** en la carpeta **sesion05**
 
 ```markdown
+En el catálogo digital del zoológico
+cada animales muestra su información
+A través de un método propio `mostrar()`
+Añade el método `mostrar()` a la clase Animal
+y sobrescribe el método en la clase Mamífero
+para mostrar más información de los mamíferos
+```
+
+---
+
+Análisis
+
+```markdown [6,10|35,38]
+# Análisis Mejorado
+Requisitos:
+- Registrar animales
+- Almacenar información de especie
+- Categorías principales mamíferos, aves y reptiles
+- Los animales muestran su información
+- Mamíferos son animales
+- Mamíferos son terrestres o acuáticos
+- Mamíferos pueden amamantar
+- Mamíferos muestran su especie y tipo
+- Aves son animales
+- Aves pueden volar o no
+- Aves pueden poner huevos
+- Reptiles son animales
+- Reptiles pueden ser terrestres o acuáticos
+- Reptiles pueden ser venenosos o no
+- Reptiles pueden reptar
+Objetos:
+- Animal (clase padre)
+- Mamífero (clase hija)
+- Ave (clase hija)
+- Reptil (clase hija)
+Características:
+- Animal:
+  - especie: String
+- Mamífero:
+  - tipo: String (terrestre, acuático)
+- Ave:
+  - volar: bool
+- Reptil:
+  - tipo: String (terrestre, acuático)
+  - venenoso: bool
+Acciones:
+- Animal:
+  - mostrar()
+- Mamífero:
+  - amamantar()
+  - mostrar()
+- Ave:
+  - poner_huevo()
+- Reptil:
+    - reptar()
+```
+
+---
+
+Diseño diagrama en Mermaid
+
+```` [5,10]
+```mermaid
+classDiagram
+    class Animal {
+        +especie: String
+        +mostrar()
+    }
+    class Mamifero {
+        +tipo: String
+        +amamantar()
+        +mostrar()
+    }
+    class Ave {
+        +volar: bool
+        +poner_huevo()
+    }
+    class Reptil {
+        +tipo: String
+        +venenoso: bool
+        +reptar()
+    }
+    Animal <|-- Mamifero
+    Animal <|-- Ave
+    Animal <|-- Reptil
+```
+````
+
+---
+
+Diagrama de clases
+
+```mermaid
+%%{init: {"theme": "dark", "look": "handDrawn" }}%%
+classDiagram
+    class Animal {
+        +especie: String
+        +mostrar()
+    }
+    class Mamifero {
+        +tipo: String
+        +amamantar()
+        +mostrar()
+    }
+    class Ave {
+        +volar: bool
+        +poner_huevo()
+    }
+    class Reptil {
+        +tipo: String
+        +venenoso: bool
+        +reptar()
+    }
+    Animal <|-- Mamifero
+    Animal <|-- Ave
+    Animal <|-- Reptil
+```
+<!--.element class="center-mermaid"-->
+
+---
+
+Implementando el método mostrar() en el archivo `zoo.py`
+
+```python [6-7|15-18|36|38-39,42-43]
+# Definición
+class Animal:
+    def __init__(self, especie):
+        self.especie = especie
+
+    def mostrar(self): # Nuevo método
+        print(f"Especie: {self.especie}")
+class Mamifero(Animal):
+    def __init__(self, especie, tipo):
+        super().__init__(especie) # Constructor Padre
+        self.tipo = tipo
+    def amamantar(self):
+        print(f"{self.especie} amamanta 🍼 a crías")
+
+    def mostrar(self): # Método sobreescrito
+        super().mostrar()
+        print(f"Tipo: {self.tipo}")
+        self.amamantar()
+
+class Ave(Animal):
+    def __init__(self, especie, volar):
+        super().__init__(especie) 
+        self.volar = volar
+    def poner_huevo(self):
+        print(f"{self.especie} pone huevos 🥚")
+
+class Reptil(Animal):
+    def __init__(self, especie, tipo, venenoso):
+        super().__init__(especie)
+        self.tipo = tipo
+        self.venenoso = venenoso
+    def reptar(self):
+        print(f"{self.especie} se arrastra 🐍")
+# Uso
+caballo = Mamifero("Caballo", "Terrestre")
+caballo.mostrar()
+paloma = Ave("Paloma", True)
+paloma.mostrar()
+print(f"Puede volar:{paloma.volar}")
+paloma.poner_huevo()
+coco = Reptil("Cocodrilo", "Acuático", False)
+coco.mostrar()
+print(f"tipo:{coco.tipo}, venenoso:{coco.venenoso}")
+coco.reptar()
+```
+
+---
+
+Ejecución del código
+
+```bash
+python zoo.py
+```
+
+```text
+Especie: Caballo
+Tipo: Terrestre
+Caballo amamanta 🍼 a crías
+Especie: Paloma
+Puede volar:True
+Paloma pone huevos 🥚
+Especie: Cocodrilo
+tipo:Acuático, venenoso:False
+Cocodrilo se arrastra 🐍
+```
+
+---
+#### Ejercicio para ti (05)
+
+En la carpeta **sesion05** modifica los archivos **herencia.md** y **zoo.py**
+
+```markdown
+En el catálogo digital del zoológico
 Las aves tienen un método `mostrar()` que muestra
-su especie y si pueden volar
+su especie y si pueden volar o no
 Los reptiles tienen un método `mostrar()` que muestra
 su especie, tipo y si son venenosos
 ```
 
-3 Minutos
+Obtener el *Análisis*
+
+2 Minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-Modificar el análisis y diseño
-
 ---
-Análisis
 
-```markdown [32,35]
+Modificando el *Análisis*
+
+```markdown [14,19|43,46]
 # Análisis Mejorado
 Requisitos:
-- Generar especies mamíferos y aves
+- Registrar animales
 - Almacenar información de especie
-- Los mamíferos son terrestres o acuáticos
-- Las aves pueden volar o no
-- Los reptiles pueden ser terrestres o acuáticos
-- Los reptiles pueden ser venenosos o no
+- Categorías principales mamíferos, aves y reptiles
+- Los animales muestran su información
+- Mamíferos son animales
+- Mamíferos son terrestres o acuáticos
+- Mamíferos pueden amamantar
+- Mamíferos muestran su especie y tipo
+- Aves son animales
+- Aves pueden volar o no
+- Aves pueden poner huevos
+- Aves muestran su especie y si pueden volar
+- Reptiles son animales
+- Reptiles pueden ser terrestres o acuáticos
+- Reptiles pueden ser venenosos o no
+- Reptiles pueden reptar
+- Reptiles muestran su especie, tipo y si son venenosos
 Objetos:
 - Animal (clase padre)
-- Mamífero (hereda de Animal)
-- Ave (hereda de Animal)
-- Reptil (hereda de Animal)
+- Mamífero (clase hija)
+- Ave (clase hija)
+- Reptil (clase hija)
 Características:
 - Animal:
   - especie: String
@@ -1105,39 +1014,49 @@ Acciones:
   - amamantar()
   - mostrar()
 - Ave:
-  - ovoponer()
+  - poner_huevo()
   - mostrar()
 - Reptil:
   - reptar()
-  - mostrar()  
+  - mostrar()
 ```
 
 ---
 
-Diseño Mermaid
+#### Ejercicio para ti (05)
+
+Ahora obtenemos el diseño del *diagrama de clase*
+
+2 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
+Creando el diseño de diagrama de clases
 
 ```` [15,21]
 ```mermaid
 classDiagram
     class Animal {
-        + especie: str
-        + mostrar()
+        +especie: String
+        +mostrar()
     }
     class Mamifero {
-        + tipo: str
-        + amamantar()
-        + mostrar()
+        +tipo: String
+        +amamantar()
+        +mostrar()
     }
     class Ave {
-        + volar: bool
-        + ovoponer()
-        + mostrar()
+        +volar: bool
+        +poner_huevo()
+        +mostrar()
     }
     class Reptil {
-        + tipo: str
-        + venenoso: bool
-        + reptar()
-        + mostrar()
+        +tipo: String
+        +venenoso: bool
+        +reptar()
+        +mostrar()
     }
     Animal <|-- Mamifero
     Animal <|-- Ave
@@ -1147,40 +1066,54 @@ classDiagram
 
 ---
 
-Diagrama
+Creando el diseño de diagrama de clases
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 classDiagram
     class Animal {
-        + especie: str
-        + mostrar()
+        +especie: String
+        +mostrar()
     }
     class Mamifero {
-        + tipo: str
-        + amamantar()
-        + mostrar()
+        +tipo: String
+        +amamantar()
+        +mostrar()
     }
     class Ave {
-        + volar: bool
-        + ovoponer()
-        + mostrar()
+        +volar: bool
+        +poner_huevo()
+        +mostrar()
     }
     class Reptil {
-        + tipo: str
-        + venenoso: bool
-        + reptar()
-        + mostrar()
+        +tipo: String
+        +venenoso: bool
+        +reptar()
+        +mostrar()
     }
     Animal <|-- Mamifero
     Animal <|-- Ave
     Animal <|-- Reptil
 ```
+<!--.element class="center-mermaid"-->
 
 ---
 
+#### Ejercicio para ti (05)
 
-```python [15-18|27-30|40-43|48-52]
+Ya tenemos el *análisis y diseño* de la clase
+
+Ahora podemos **programar**
+
+3 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+---
+
+Implementando en el archivo `zoo.py`
+
+```python [15-18|27-30|40-43|47-50]
 # Definición
 class Animal:
     def __init__(self, especie):
@@ -1190,13 +1123,13 @@ class Animal:
         print(f"Especie: {self.especie}")
 class Mamifero(Animal):
     def __init__(self, especie, tipo):
-        super().__init__(especie) 
+        super().__init__(especie) # Constructor Padre
         self.tipo = tipo
     def amamantar(self):
-        print(f"{self.especie} amamanta 🍼 a sus crías")
-    
-    def mostrar(self): # Método sobreescrito
-        super().mostrar()  # Llamada al método del padre
+        print(f"{self.especie} amamanta 🍼 a crías")
+
+    def mostrar(self):
+        super().mostrar()
         print(f"Tipo: {self.tipo}")
         self.amamantar()
 
@@ -1204,13 +1137,13 @@ class Ave(Animal):
     def __init__(self, especie, volar):
         super().__init__(especie) 
         self.volar = volar
-    def ovoponer(self):
+    def poner_huevo(self):
         print(f"{self.especie} pone huevos 🥚")
     
     def mostrar(self): # Método sobreescrito
         super().mostrar()  # Llamada al método del padre
         print(f"Puede volar: {self.volar}")
-        self.ovoponer()
+        self.poner_huevo()
 
 class Reptil(Animal):
     def __init__(self, especie, tipo, venenoso):
@@ -1222,28 +1155,34 @@ class Reptil(Animal):
 
     def mostrar(self): # Método sobreescrito
         super().mostrar()  # Llamada al método del padre
-        print(f"Tipo: {self.tipo} - Venenoso: {self.venenoso}")
+        print(f"Tipo: {self.tipo}, venenoso: {self.venenoso}")
         self.reptar()
 # Uso
 caballo = Mamifero("Caballo", "Terrestre")
 caballo.mostrar()
-
 paloma = Ave("Paloma", True)
-paloma.mostrar() 
+paloma.mostrar()
+coco = Reptil("Cocodrilo", "Acuático", False)
+coco.mostrar()
+```
 
-cocodrilo = Reptil("Cocodrilo", "Acuático", False)
-cocodrilo.mostrar()
+---
+
+Ejecución del código
+
+```bash
+python zoo.py
 ```
 
 ```text
 Especie: Caballo
 Tipo: Terrestre
-Caballo amamanta 🍼 a sus crías
+Caballo amamanta 🍼 a crías
 Especie: Paloma
 Puede volar: True
 Paloma pone huevos 🥚
 Especie: Cocodrilo
-Tipo: Acuático - Venenoso: False
+Tipo: Acuático, venenoso: False
 Cocodrilo se arrastra 🐍
 ```
 
@@ -1251,27 +1190,62 @@ Cocodrilo se arrastra 🐍
 
 #### Consulta de tipos de clase
 
-En Python podemos preguntar si un objeto es de un tipo de clase específico
+En Python podemos preguntar si una **instancia** es de un tipo de clase específico
 
-Para esto utilizamos la función `isinstance()` y `issubclass()`
+Para esto utilizamos los métodos 
 
-Se utiliza de manera similar a `type()`
+`isinstance` y `issubclass`
+
+Se utiliza de manera similar a `type`
 
 ---
 
 #### isinstance()
 
-`isinstance()` es una función que verifica si un objeto es una instancia de una clase o de una subclase
+`isinstance()` es una función que verifica si una instancia es de un tipo de clase específico
 
-Se utiliza principalmente para verificar el tipo de un objeto
-
-En el ejemplo `herencia.py` podemos verificar si un objeto es de tipo `Mamifero`, `Ave` o `Reptil`
+Se utiliza principalmente para verificar el tipo de instancia
 
 ---
 
-En el ejemplo `herencia.py` podemos añadir consultas de tipo
+Es una función incorporada en Python que recibe dos parámetros
 
-```python [54-60]
+1. La **instancia** que se desea verificar
+2. La **clase o tipo** contra el cual se desea verificar la instancia
+
+Devuelve un valor booleano (True o False)
+
+La sintaxis es:
+
+```python
+isinstance(instancia, Clase)
+```
+
+---
+
+Cuando se utiliza `isinstance()` sobre una instancia de una clase **hija**
+también devuelve `True` si se verifica contra la clase **padre**
+
+Esto es porque la clase hija hereda de la clase padre y por lo tanto **también es una instancia** de la clase padre
+
+---
+
+#### Ejemplo 06
+
+```markdown
+Verifica si la instancia `caballo`
+es de tipo `Mamifero`, `Animal` y `Ave`
+Utiliza `isinstance()` para realizar las verificaciones
+después de instanciar los objetos
+```
+
+Modifica el archivo `zoo.py` en la carpeta **sesion05**
+
+---
+
+Verificando tipos con `isinstance()` en el archivo `zoo.py`
+
+```python [51-57]
 # Definición
 class Animal:
     def __init__(self, especie):
@@ -1281,13 +1255,13 @@ class Animal:
         print(f"Especie: {self.especie}")
 class Mamifero(Animal):
     def __init__(self, especie, tipo):
-        super().__init__(especie) 
+        super().__init__(especie) # Constructor Padre
         self.tipo = tipo
     def amamantar(self):
-        print(f"{self.especie} amamanta 🍼 a sus crías")
-    
-    def mostrar(self): # Método sobreescrito
-        super().mostrar()  # Llamada al método del padre
+        print(f"{self.especie} amamanta 🍼 a crías")
+
+    def mostrar(self):
+        super().mostrar()
         print(f"Tipo: {self.tipo}")
         self.amamantar()
 
@@ -1295,13 +1269,13 @@ class Ave(Animal):
     def __init__(self, especie, volar):
         super().__init__(especie) 
         self.volar = volar
-    def ovoponer(self):
+    def poner_huevo(self):
         print(f"{self.especie} pone huevos 🥚")
     
     def mostrar(self): # Método sobreescrito
         super().mostrar()  # Llamada al método del padre
         print(f"Puede volar: {self.volar}")
-        self.ovoponer()
+        self.poner_huevo()
 
 class Reptil(Animal):
     def __init__(self, especie, tipo, venenoso):
@@ -1313,62 +1287,88 @@ class Reptil(Animal):
 
     def mostrar(self): # Método sobreescrito
         super().mostrar()  # Llamada al método del padre
-        print(f"Tipo: {self.tipo} - Venenoso: {self.venenoso}")
+        print(f"Tipo: {self.tipo}, venenoso: {self.venenoso}")
         self.reptar()
 # Uso
 caballo = Mamifero("Caballo", "Terrestre")
 caballo.mostrar()
-
 paloma = Ave("Paloma", True)
-paloma.mostrar() 
-
-cocodrilo = Reptil("Cocodrilo", "Acuático", False)
-cocodrilo.mostrar()
+paloma.mostrar()
+coco = Reptil("Cocodrilo", "Acuático", False)
+coco.mostrar()
 # Uso isinstance()
-caballo_is_mamifero = isinstance(caballo, Mamifero)
-print (type(caballo_is_mamifero))
-print("Caballo Es Mamifero: ", caballo_is_mamifero)
-caballo_is_animal = isinstance(caballo, Animal)
-print("Caballo Es Animal: ", caballo_is_animal)
-caballo_is_ave = isinstance(caballo, Ave)
-print("Caballo Es Ave: ", caballo_is_ave)
+caballo_es_mamifero = isinstance(caballo, Mamifero)
+print("Caballo Es Mamifero: ", caballo_es_mamifero)
+caballo_es_animal = isinstance(caballo, Animal)
+print("Caballo Es Animal: ", caballo_es_animal)
+caballo_es_ave = isinstance(caballo, Ave)
+print("Caballo Es Ave: ", caballo_es_ave)
 ```
 
 ---
 
+Ejecución del código
+
 ```bash
-python herencia.py
+python zoo.py
 ```
 
-```text	[10-13]
+```text	[10-12]
 Especie: Caballo
 Tipo: Terrestre
-Caballo amamanta 🍼 a sus crías
+Caballo amamanta 🍼 a crías
 Especie: Paloma
 Puede volar: True
 Paloma pone huevos 🥚
 Especie: Cocodrilo
-Tipo: Acuático - Venenoso: False
+Tipo: Acuático, venenoso: False
 Cocodrilo se arrastra 🐍
-<class 'bool'>
 Caballo Es Mamifero:  True
 Caballo Es Animal:  True
 Caballo Es Ave:  False
 ```
 
 ---
+
 #### issubclass()
 
-`issubclass()` es una función que verifica si una clase es una hija de otra clase
+`issubclass()` es una función que verifica si una clase es hija de otra clase
 
-Se utiliza para verificar la relación de herencia entre clases
-
-En el ejemplo `herencia.py` podemos verificar si una clase es una subclase de `Animal`
+Se utiliza para **verificar la relación de herencia** entre clases
 
 ---
-En el ejemplo `herencia.py` podemos añadir consultas de subclase
 
-```python [62-67]
+Es una función incorporada en Python que recibe dos parámetros
+
+1. La **clase hija** que se desea verificar
+2. La **clase padre** contra la cual se desea verificar la relación de herencia
+
+Devuelve un valor booleano (True o False)
+
+La sintaxis es:
+
+```python
+issubclass(ClaseHija, ClasePadre)
+```
+
+---
+
+#### Ejemplo 07
+
+```markdown
+Verifica si la clase `Mamifero`
+es subclase de `Animal` y `Ave`
+Utiliza `issubclass()` para realizar las verificaciones
+después de instanciar los objetos
+```
+
+Modificando el archivo `zoo.py` en la carpeta **sesion05**
+
+---
+
+Verificando tipos con `issubclass()` en el archivo `zoo.py`
+
+```python [58-62]
 # Definición
 class Animal:
     def __init__(self, especie):
@@ -1378,13 +1378,13 @@ class Animal:
         print(f"Especie: {self.especie}")
 class Mamifero(Animal):
     def __init__(self, especie, tipo):
-        super().__init__(especie) 
+        super().__init__(especie) # Constructor Padre
         self.tipo = tipo
     def amamantar(self):
-        print(f"{self.especie} amamanta 🍼 a sus crías")
-    
-    def mostrar(self): # Método sobreescrito
-        super().mostrar()  # Llamada al método del padre
+        print(f"{self.especie} amamanta 🍼 a crías")
+
+    def mostrar(self):
+        super().mostrar()
         print(f"Tipo: {self.tipo}")
         self.amamantar()
 
@@ -1392,13 +1392,13 @@ class Ave(Animal):
     def __init__(self, especie, volar):
         super().__init__(especie) 
         self.volar = volar
-    def ovoponer(self):
+    def poner_huevo(self):
         print(f"{self.especie} pone huevos 🥚")
     
     def mostrar(self): # Método sobreescrito
         super().mostrar()  # Llamada al método del padre
         print(f"Puede volar: {self.volar}")
-        self.ovoponer()
+        self.poner_huevo()
 
 class Reptil(Animal):
     def __init__(self, especie, tipo, venenoso):
@@ -1410,54 +1410,50 @@ class Reptil(Animal):
 
     def mostrar(self): # Método sobreescrito
         super().mostrar()  # Llamada al método del padre
-        print(f"Tipo: {self.tipo} - Venenoso: {self.venenoso}")
+        print(f"Tipo: {self.tipo}, venenoso: {self.venenoso}")
         self.reptar()
 # Uso
 caballo = Mamifero("Caballo", "Terrestre")
 caballo.mostrar()
-
 paloma = Ave("Paloma", True)
-paloma.mostrar() 
-
-cocodrilo = Reptil("Cocodrilo", "Acuático", False)
-cocodrilo.mostrar()
+paloma.mostrar()
+coco = Reptil("Cocodrilo", "Acuático", False)
+coco.mostrar()
 # Uso isinstance()
-caballo_is_mamifero = isinstance(caballo, Mamifero)
-print (type(caballo_is_mamifero))
-print("Caballo Es Mamifero: ", caballo_is_mamifero)
-caballo_is_animal = isinstance(caballo, Animal)
-print("Caballo Es Animal: ", caballo_is_animal)
-caballo_is_ave = isinstance(caballo, Ave)
-print("Caballo Es Ave: ", caballo_is_ave)
-
+caballo_es_mamifero = isinstance(caballo, Mamifero)
+print("Caballo Es Mamifero: ", caballo_es_mamifero)
+caballo_es_animal = isinstance(caballo, Animal)
+print("Caballo Es Animal: ", caballo_es_animal)
+caballo_es_ave = isinstance(caballo, Ave)
+print("Caballo Es Ave: ", caballo_es_ave)
 # Uso issubclass()
-mamifero_is_animal = issubclass(Mamifero, Animal)
-print (type(mamifero_is_animal))
-print("Mamifero Es Animal: ", mamifero_is_animal)
-mamifero_is_ave = issubclass(Mamifero, Ave)
-print("Mamifero Es Ave: ", mamifero_is_ave)
+mamifero_es_animal = issubclass(Mamifero, Animal)
+print("Mamifero Es Animal: ", mamifero_es_animal)
+mamifero_es_ave = issubclass(Mamifero, Ave)
+print("Mamifero Es Ave: ", mamifero_es_ave)
 ```
 
 ---
+
+Ejecución del código
+
 ```bash
-python herencia.py
+python zoo.py
 ```
 
-```text	[14-16]
+```text	[13-14]
 Especie: Caballo
 Tipo: Terrestre
-Caballo amamanta 🍼 a sus crías
+Caballo amamanta 🍼 a crías
 Especie: Paloma
 Puede volar: True
 Paloma pone huevos 🥚
 Especie: Cocodrilo
-Tipo: Acuático - Venenoso: False
+Tipo: Acuático, venenoso: False
 Cocodrilo se arrastra 🐍
-<class 'bool'>
 Caballo Es Mamifero:  True
 Caballo Es Animal:  True
 Caballo Es Ave:  False
-<class 'bool'>
 Mamifero Es Animal:  True
 Mamifero Es Ave:  False
 ```
@@ -1466,28 +1462,55 @@ Mamifero Es Ave:  False
 
 #### Herencia múltiple
 
-En Python, una clase puede heredar de múltiples clases
+En Python, una clase puede heredar de **múltiples** clases
 
 Esto se conoce como herencia múltiple
 
-Es útil cuando queremos combinar varias clases en una sola
+Es útil cuando queremos **combinar varias clases** en una sola
+
+---
+
+Se define una clase hija que hereda de varias clases padre
+
+```python
+class ClaseHija(ClasePadre1, ClasePadre2):
+    # Cuerpo de la clase
+```
 
 ---
 
 Hay que tener cuidado con la herencia múltiple 
 
-porque puede generar problemas de ambigüedad
+porque puede generar *problemas de ambigüedad*
 
-Si dos clases padre tienen un método con el mismo nombre
+Si dos clases padre tienen un método con el 
 
-Python utiliza la primera clase padre en el orden de herencia
+*mismo nombre*
+
+Python utilizará el método de la *1ra* clase padre en el orden de herencia
 
 ---
-Cuando se llama al constructor de ambas clases se puede usar super()
 
-Pero solo da prioridad a primera clase que hereda
+Cuando se llama al *constructor* de ambas clases se puede usar `super()`
 
-Se debe tener cuidado con el orden de herencia
+Pero solo da prioridad a la primera clase de la que hereda
+
+Se debe tener cuidado con el *orden* de herencia
+
+---
+
+Es importante definir un **constructor propio** en la clase hija
+
+Y para llamar a los constructores de las clases padre se 
+
+utiliza una llamada **explícita** a cada clase padre
+
+```python
+class ClaseHija(ClasePadre1, ClasePadre2):
+    def __init__(self, args1, args2):
+        ClasePadre1.__init__(self, args1)
+        ClasePadre2.__init__(self, args2)
+```
 
 ---
 
@@ -1495,21 +1518,26 @@ En la vida real existen herencias múltiples
 
 Como el Limón
 
-#### 🍋
+## 🍋
 
-El limón no es una fruta pura
+El limón no es una fruta **primaria**
 
 ---
 
+#### Ejemplo 08
+
 ```markdown
+Un agrónomo quiere registrar frutas cítricas
+La naranja y la cidra son frutas primarias
+Pero el limón no es una fruta primaria
 El limón es la mezcla de la cidra y la naranja amarga
 La cidra aporta el sabor ácido y la dureza de la cáscara
 La naranja amarga aporta el sabor dulce y la jugosidad
 ```
 
-![Limon](./img/img01.png)  <!-- .element  width="20%"-->
+![Limón](./img/img01.png)  <!-- .element  width="15%"-->
 
-Crear un archivo llamado `multiple.md` y `multiple.py` 
+En la carpeta **sesion05** crea los archivos `citricos.md` y `citricos.py`
 
 ---
 
@@ -1518,16 +1546,14 @@ Análisis
 ```markdown
 # Análisis
 Requisitos:
-- La naranja y la cidra son frutas
+- La naranja y la cidra son frutas cítricas primarias
+- El limón no es una fruta primaria
 - El limón es una mezcla de la cidra y la naranja amarga
 Objetos:
-- Fruta (clase padre)
-- Naranja (hereda de Fruta)
-- Cidra (hereda de Fruta)
+- Naranja (Clase Padre)
+- Cidra (Clase Padre)
 - Limón (hereda de Naranja y Cidra)
 Características:
-- Fruta:
-  - color: String
 - Cidra:
   - acidez: String
   - cascara: String
@@ -1537,8 +1563,6 @@ Características:
 - Limon:
   - (sin características)
 Acciones:
-- Fruta:
-  - (sin acciones)
 - Cidra:
   - (sin acciones)
 - Naranja:
@@ -1554,9 +1578,6 @@ Diseño Mermaid
 ````
 ```mermaid
 classDiagram
-    class Fruta {
-        + color: str
-    }
     class Cidra {
         + acidez: str
         + cascara: str
@@ -1567,8 +1588,6 @@ classDiagram
     }
     class Limon {
     }
-    Fruta <|-- Cidra
-    Fruta <|-- Naranja
     Naranja <|-- Limon
     Cidra <|-- Limon
 ```
@@ -1580,9 +1599,6 @@ Diagrama
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn" }}%%
 classDiagram
-    class Fruta {
-        + color: str
-    }
     class Cidra {
         + acidez: str
         + cascara: str
@@ -1593,65 +1609,75 @@ classDiagram
     }
     class Limon {
     }
-    Fruta <|-- Cidra
-    Fruta <|-- Naranja
     Naranja <|-- Limon
     Cidra <|-- Limon
 ```
 
 ---
 
-```python
-# Definición
-class Fruta:
-    def __init__(self, color):
-        self.color = color
+Implementando en el archivo `citricos.py`
 
-class Cidra(Fruta):
-    def __init__(self, color, acidez, cascara):
-        super().__init__(color)
+```python [1-13|15-30]
+# Definición
+class Cidra():
+    def __init__(self, acidez, cascara):
         self.acidez = acidez
         self.cascara = cascara
-class Naranja(Fruta):
-    def __init__(self, color, dulzura, jugosidad):
-        super().__init__(color)
+class Naranja():
+    def __init__(self, dulzura, jugosidad):
         self.dulzura = dulzura
         self.jugosidad = jugosidad
 class Limon(Cidra, Naranja):
-    def __init__(self, color, acidez, cascara, dulzura, jugosidad):
-        Fruta.__init__(self, color)
-        self.acidez = acidez
-        self.cascara = cascara
-        self.dulzura = dulzura
-        self.jugosidad = jugosidad
-        # No necesita atributos propios, hereda de Cidra y Naranja
+    def __init__(self, acidez, cascara, dulzura, jugosidad):
+        Cidra.__init__(self, acidez, cascara)
+        Naranja.__init__(self, dulzura, jugosidad)
 
 # Ejemplo de uso
-cidra = Cidra("amarilla", "alta", "dura")
-naranja = Naranja("naranja", "media", "jugosa")
-limon = Limon("amarillo", "alta", "dura", "baja", "media")
+cidra = Cidra("alta", "dura")
+naranja = Naranja("media", "jugosa")
+limon = Limon("alta", "dura", "baja", "media")
 
-print(f"Cidra: {cidra.color}, Acidez: {cidra.acidez}")
+print(f"Cidra => Acidez: {cidra.acidez}")
 print(f"Cáscara: {cidra.cascara}")
 
-print(f"Naranja: {naranja.color}, Dulzura: {naranja.dulzura}")
+
+print(f"Naranja => Dulzura: {naranja.dulzura}")
 print(f"Jugosidad: {naranja.jugosidad}")
 
-print(f"Limón: {limon.color}, Acidez: {limon.acidez}")
-print(f"Cáscara: {limon.cascara}, Dulzura: {limon.dulzura}, Jugosidad: {limon.jugosidad}")
+print(f"Limón => Acidez: {limon.acidez}")
+print(f"Cáscara: {limon.cascara}")
+print(f"Dulzura: {limon.dulzura}")
+print(f"Jugosidad: {limon.jugosidad}")
 ```
 
+---
+
+Ejecución del código
+
+
 ```bash
-python multiple.py
+python citricos.py
 ```
 
 ```text
-Cidra: amarilla, Acidez: alta
+Cidra => Acidez: alta
 Cáscara: dura
-Naranja: naranja, Dulzura: media
+Naranja => Dulzura: media
 Jugosidad: jugosa
-Limón: amarillo, Acidez: alta
-Cáscara: dura, Dulzura: baja, Jugosidad: media
+Limón => Acidez: alta
+Cáscara: dura
+Dulzura: baja
+Jugosidad: media
+```
+
+---
+
+Subimos los avances de la sesión al repositorio en **GitHub**
+
+```bash
+git add .
+git commit -m "Sesión 05"
+git push origin main
 ```
 
 ---
@@ -1687,6 +1713,7 @@ Crear una carpeta con el nombre "retos_sesion_05" dentro del proyecto en la raí
 ```bash
 # Estructura de carpetas
 psg-oop-2025/
+    sesion05/
     retos_sesion_05/
         ejercicio_01.md
         ejercicio_01.py
@@ -1696,48 +1723,64 @@ psg-oop-2025/
 
 ---
 
-1. Crear un archivo llamado `ejercicio_01.md`
+1. Una empresa de transporte desea simular el comportamiento de sus vehículos.
 
-y un archivo `ejercicio_01.py` en la carpeta
+Cada **vehículo** tiene las siguientes características:  
+- `velocidad`: Es un dato protegido. Puede consultarse, pero solo modificarse mediante acciones específicas.  
+- `medio`: Indica el tipo de entorno en el que se desplaza (por ejemplo, *terrestre*, *acuático*, *aéreo*). Puede consultarse y modificarse libremente.  
 
-retos_sesion_05 y hacer:
-
-- análisis, diseño y script en Python
-
-Para lo siguiente:
-
-```text
-En una simulación de transporte, tienes una clase
-Vehiculo con un atributo velocidad y un atributo
-de medio en el que se desplaza (terrestre, acuático, aéreo).
-Crea una clase Bicicleta que herede de Vehiculo
-y tenga un método pedalear que aumente la velocidad.
-Crea una clase Avion que herede de Vehiculo
-y tenga un método volar que aumente la velocidad.
-```
-
+*(1/3)*
 
 ---
-2. Crear un archivo llamado `ejercicio_02.md`
 
-y un archivo `ejercicio_02.py` en la carpeta
+Existen dos tipos de vehículos:  
+- **Bicicleta**, que puede incrementar su velocidad mediante la acción de `pedalear`.  
+- **Avión**, que puede incrementar su velocidad mediante la acción de `volar`.  
 
-- análisis, diseño y script en Python
+Ambas clases deben heredar de la clase base `Vehiculo` y respetar las reglas de encapsulamiento.  
 
-Para lo siguiente:
+*(2/3)*
 
-```text
-Estás creando un videojuego tipo aventura donde
-los personajes tienen habilidades.
-Para eso, vas a crear clases:
-Nadador, que tiene un método nadar.
-Volador, que tiene un método volar.
-Un personaje será un Pez que hereda de Nadador.
-Un personaje será un Pajaro que hereda de Volador.
-Un personaje será un Pato que hereda de Nadador y Volador
-Crea un método mostrar en cada clase 
-que imprima el tipo de personaje y su habilidad.
-```
+---
+
+- Realiza el análisis y el diagrama de clases de la clase `Vehiculo` y sus subclases `Bicicleta` y `Avion` en el archivo `ejercicio_01.md`.
+- Escribe el código en Python para las clases `Vehiculo`, `Bicicleta` y `Avion` en el archivo `ejercicio_01.py`.
+- Aplica **herencia** de manera adecuada.
+
+*(3/3)*
+
+---
+
+2. Creación de clases para un videojuego de aventura con habilidades especiales
+
+Estás desarrollando un **videojuego tipo aventura**, donde los personajes tiene distintas **habilidades**
+
+Cada personaje pertenece a una o más clases que definen sus comportamientos:  
+- `Nadador`: Posee el método `nadar()`, que representa la acción de desplazarse en el agua.  
+- `Volador`: Posee el método `volar()`, que representa la acción de desplazarse por el aire.  
+
+*(1/3)*
+
+---
+
+Existen tres tipos de personajes en el juego:  
+- **Pez**, que hereda de `Nadador`.  
+- **Pájaro**, que hereda de `Volador`.  
+- **Pato**, que hereda de ambas clases (`Nadador` y `Volador`).  
+
+Cada clase debe implementar un método `mostrar()` que indique el **tipo de personaje** y su **habilidad principal o combinada**.  
+
+*(2/3)*
+
+---
+
+- Realiza el **análisis y diagrama de clases** de las clases `Nadador`, `Volador`, `Pez`, `Pajaro` y `Pato` en el archivo `ejercicio_02.md`.
+- Escribe el **código en Python** correspondiente en el archivo `ejercicio_02.py`.
+- Aplica **herencia múltiple** de manera adecuada.
+- Utiliza un método `mostrar()` en cada clase para identificar al personaje y sus habilidades.
+
+*(3/3)*
+
     
 ---
 <!-- .slide: data-background-image="../../content/psg-bg-dark.png" data-background-size="100%"-->
@@ -1748,7 +1791,7 @@ que imprima el tipo de personaje y su habilidad.
 <br>
 <br>
 
-[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/content/sesion05)
+[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/tree/main/content/sesion05)
 
 Repositorio de la Sesión
 
