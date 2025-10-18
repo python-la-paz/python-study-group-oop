@@ -234,7 +234,7 @@ Crea los archivos **herencia.md** y **zoo.py** en la carpeta **sesion05**
 
 ```markdown
 Un zoológico posee un catálogo digital de animales
-Existes dos categorías principales: mamíferos y aves
+Existen dos categorías principales: mamíferos y aves
 Los animales tienen registrado la especie a la que pertenecen
 Los mamíferos puede ser de dos tipos: terrestres o acuáticos
 y puede amamantar a crías
