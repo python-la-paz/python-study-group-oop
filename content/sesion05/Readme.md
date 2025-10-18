@@ -1753,7 +1753,7 @@ Existen dos tipos de vehículos con características específicas:
 
 Cada personaje pertenece a uno o más tipos que definen sus comportamientos: 
 - `Nadador`: Puede ejecutar la acción `nadar()`, que representa la acción de desplazarse en el agua.  
-- `Volador`: puede ejecutar la acción `volar()`, que representa la acción de desplazarse por el aire.  
+- `Volador`: Puede ejecutar la acción `volar()`, que representa la acción de desplazarse por el aire.  
 
 *(1/3)*
 
