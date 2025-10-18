@@ -230,7 +230,7 @@ blanco
 
 #### Ejemplo 01
 
-Crea los archivos **herencia.md** y **zoo.py** en la carpeta **sesion05**
+Crea los archivos **zoo.md** y **zoo.py** en la carpeta **sesion05**
 
 ```markdown
 Un zoológico posee un catálogo digital de animales
@@ -408,7 +408,7 @@ Paloma pone huevos 🥚
 
 #### Ejercicio para ti (02)
 
-En la carpeta **sesion05** modifica los archivos **herencia.md** y **zoo.py**
+En la carpeta **sesion05** modifica los archivos **zoo.md** y **zoo.py**
 
 ```markdown
 En el zoológico se esta ampliando el catálogo
@@ -756,7 +756,7 @@ Haciendo que la clase hija tenga **su propia implementación** de los métodos h
 
 #### Ejemplo 04
 
-Modifica los archivos **herencia.md** y **zoo.py** en la carpeta **sesion05**
+Modifica los archivos **zoo.md** y **zoo.py** en la carpeta **sesion05**
 
 ```markdown
 En el catálogo digital del zoológico
@@ -952,7 +952,7 @@ Cocodrilo se arrastra 🐍
 ---
 #### Ejercicio para ti (05)
 
-En la carpeta **sesion05** modifica los archivos **herencia.md** y **zoo.py**
+En la carpeta **sesion05** modifica los archivos **zoo.md** y **zoo.py**
 
 ```markdown
 En el catálogo digital del zoológico
@@ -1723,60 +1723,56 @@ psg-oop-2025/
 
 ---
 
-1. Una empresa de transporte desea simular el comportamiento de sus vehículos.
+1. Una empresa de transporte desea desarrollar una simulación que represente el comportamiento de sus distintos vehículos.
 
-Cada **vehículo** tiene las siguientes características:  
+Todo **vehículo** posee las siguientes características:  
 - `velocidad`: Es un dato protegido. Puede consultarse, pero solo modificarse mediante acciones específicas.  
-- `medio`: Indica el tipo de entorno en el que se desplaza (por ejemplo, *terrestre*, *acuático*, *aéreo*). Puede consultarse y modificarse libremente.  
+- `medio`: Representa el entorno en el que se desplaza el vehículo (por ejemplo, *terrestre*, *acuático*, *aéreo*). Puede consultarse y modificarse libremente.  
 
 *(1/3)*
 
 ---
 
-Existen dos tipos de vehículos:  
-- **Bicicleta**, que puede incrementar su velocidad mediante la acción de `pedalear`.  
-- **Avión**, que puede incrementar su velocidad mediante la acción de `volar`.  
-
-Ambas clases deben heredar de la clase base `Vehiculo` y respetar las reglas de encapsulamiento.  
+Existen dos tipos de vehículos con características específicas:  
+- **Bicicleta**: Incrementar su velocidad mediante la acción de `pedalear`.  
+- **Avión**: Incrementar su velocidad mediante la acción de `volar`.  
 
 *(2/3)*
 
 ---
 
-- Realiza el análisis y el diagrama de clases de la clase `Vehiculo` y sus subclases `Bicicleta` y `Avion` en el archivo `ejercicio_01.md`.
+- Realiza el análisis y el diagrama de clases de las clases `Vehiculo`, `Bicicleta` y `Avion` en el archivo `ejercicio_01.md`.
 - Escribe el código en Python para las clases `Vehiculo`, `Bicicleta` y `Avion` en el archivo `ejercicio_01.py`.
-- Aplica **herencia** de manera adecuada.
+- Aplica **herencia** de manera adecuada para el contexto de este ejercicio.
 
 *(3/3)*
 
 ---
 
-2. Creación de clases para un videojuego de aventura con habilidades especiales
+2. Debes desarrollar un **videojuego tipo aventura**, donde los personajes tiene distintas **habilidades**
 
-Estás desarrollando un **videojuego tipo aventura**, donde los personajes tiene distintas **habilidades**
-
-Cada personaje pertenece a una o más clases que definen sus comportamientos:  
-- `Nadador`: Posee el método `nadar()`, que representa la acción de desplazarse en el agua.  
-- `Volador`: Posee el método `volar()`, que representa la acción de desplazarse por el aire.  
+Cada personaje pertenece a uno o más tipos que definen sus comportamientos: 
+- `Nadador`: Puede ejecutar la acción `nadar()`, que representa la acción de desplazarse en el agua.  
+- `Volador`: puede ejecutar la acción `volar()`, que representa la acción de desplazarse por el aire.  
 
 *(1/3)*
 
 ---
 
-Existen tres tipos de personajes en el juego:  
-- **Pez**, que hereda de `Nadador`.  
-- **Pájaro**, que hereda de `Volador`.  
-- **Pato**, que hereda de ambas clases (`Nadador` y `Volador`).  
-
-Cada clase debe implementar un método `mostrar()` que indique el **tipo de personaje** y su **habilidad principal o combinada**.  
+En el juego existen tres personajes principales, cada uno con habilidades específicas:  
+- **Pez**: tiene la habilidad de nadar.  
+- **Pájaro**: tiene la habilidad de volar.  
+- **Pato**: tiene ambas habilidades, puede nadar y volar.  
+ 
+Cada personaje debe contar con un método `mostrar()` que indique el **tipo de personaje** y su **habilidad principal o combinada**.
 
 *(2/3)*
 
 ---
 
 - Realiza el **análisis y diagrama de clases** de las clases `Nadador`, `Volador`, `Pez`, `Pajaro` y `Pato` en el archivo `ejercicio_02.md`.
-- Escribe el **código en Python** correspondiente en el archivo `ejercicio_02.py`.
-- Aplica **herencia múltiple** de manera adecuada.
+- Escribe el **código en Python** de las clases `Nadador`, `Volador`, `Pez`, `Pajaro` y `Pato` en el archivo `ejercicio_02.py`.
+- Aplica **herencia múltiple** de manera adecuada para el contexto de este ejercicio.
 - Utiliza un método `mostrar()` en cada clase para identificar al personaje y sus habilidades.
 
 *(3/3)*
