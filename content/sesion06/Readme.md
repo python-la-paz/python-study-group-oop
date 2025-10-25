@@ -1402,7 +1402,7 @@ git push origin main
 
 ---
 
-- Ls importante analizar los requisitos y características de los objetos para identificar correctamente el tipo de relación.
+- Es importante analizar los requisitos y características de los objetos para identificar correctamente el tipo de relación.
 - La correcta identificación de agregación y composición facilita el diseño de la programación orientada a objetos
 
 ---
