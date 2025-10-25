@@ -11,31 +11,34 @@
 
 ---
 
-#### VS Code
+#### Proyecto en VSCode
 
-Abrimos el proyecto del Study Group
+Abre el proyecto en VSCode
 
 ```bash
 code psg-oop-2025
 ```
 
-Creamos una carpeta llamada `sesion06` dentro del proyecto
+Crea una carpeta con el nombre `sesion06`
 
 ```bash
 mkdir sesion06
 cd sesion06
 ```
 
-Aquí guardaremos los ejemplos de la sesión
+- Los archivos de esta sesión deben estar dentro de esta carpeta
+
+- Al finalizar la sesión, sube los cambios al repositorio en un commit
 
 ---
+
 #### Asociación
 
 ¿Qué es una asociación?
 
 ---
 
-En el mundo real una asociación es una relación entre dos o más personas u objetos
+En el mundo real una asociación es una relación **entre dos o más** personas u objetos
 
 Para colaborar y llegar a un fin común
 
@@ -43,9 +46,15 @@ Para colaborar y llegar a un fin común
 
 ---
 
-Es una de las formas más poderosas de entender, aprender y adaptarnos al mundo
+Es una de las formas más poderosas de 
 
-Los humanos hacemos agrupaciones y composiciones para construir y controlar mejor nuestro entorno
+entender, aprender y adaptarnos al mundo
+
+Los humanos hacemos
+
+**agrupaciones y composiciones**
+
+para construir y controlar mejor nuestro entorno
 
 ---
 
@@ -55,40 +64,37 @@ Los humanos hacemos agrupaciones y composiciones para construir y controlar mejo
 
 ---
 
-En programación, una asociación es una relación entre dos o más clases que permite que se comuniquen entre sí
+En la programación
+
+una **asociación** es una relación entre dos o más clases que permite que se comuniquen **entre sí**
 
 ---
 
 Existen dos tipos de asociación:
 
-- **Agregación**: relación "tiene un" (has-a)
-- **Composición**: relación "es parte de" (is-a-part-of)
+**Agregación**: relación "tiene un" (has-a)
+
+*Composición*: relación "es parte de" (is-a-part-of)
 
 ---
 
-#### Agregación
+#### **Agregación**
 
-La agregación es un tipo de asociación que indica que una clase tiene una relación con otra
+La agregación es un tipo de asociación que indica que una **clase tiene una relación con otra**
 
-Es una relación débil porque el objeto agregado puede existir independientemente del objeto que lo contiene
+Es una relación **débil** porque el objeto agregado **puede existir** independientemente del objeto que lo contiene
 
----
-
-#### Agregación
-
-Una clase de estudiantes, los alumnos forman parte de la clase, pero pueden irse y siguen existiendo.
+Una clase de estudiantes, los alumnos forman parte de la clase, pero pueden irse y siguen existiendo
 
 ## 🏫 👨‍🏫 👩‍🎓 👨‍🎓 👨‍🎓 👩‍🎓 
 
 ---
 
-#### Composición
+#### *Composición*
 
-La composición es un tipo de asociación que indica que una clase es parte de otra
+La composición es un tipo de asociación que indica que una *clase es parte de otra*
 
-Es una relación fuerte porque el objeto compuesto no puede existir sin el otro objeto
-
----
+Es una relación *fuerte* porque el objeto compuesto *no puede existir* sin el otro objeto
 
 Un cuerpo humano, los órganos como el corazón, los pulmones, etc. forman parte del cuerpo, pero no pueden existir sin él
 
@@ -105,33 +111,44 @@ Un cuerpo humano, los órganos como el corazón, los pulmones, etc. forman parte
 
 ---
 
+De acuerdo al `contexto` podemos decidir si usar **agregación** o *composición*
+
+---
+
 #### Diagrama de clases
 
-En un diagrama de clases, la agregación se representa con una línea con un rombo vacío, la línea inicia en la clase contenida
+**Agregación** 
 
-y termina con el rombo en la clase que agrega
+Se representa con una línea con un **rombo vacío**
+
+La línea inicia en la clase `contenida`
+
+y termina con el rombo en la clase que `contiene`
+
+El tipo de dato contiene la clase contenida
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
 direction LR
     class Estudiante {
-        +nombre: str
+        +nombre: String
         +edad: int
     }
     class Curso {
-        +nombre: str
+        +nombre: String
         +estudiantes: List[Estudiante]
     }
 
     Curso o-- Estudiante
 ```
+<!--.element class="center-mermaid"-->
 
 ---
 
 #### Diagrama en mermaid
 
-Se utiliza la notación `o--` para la agregación
+Se utiliza la sintaxis `o--` para la **agregación**
 
 `"o"`  es el carácter que representa el rombo vacío
 
@@ -141,11 +158,11 @@ Se utiliza la notación `o--` para la agregación
 ```mermaid
 classDiagram
     class Estudiante {
-        +nombre: str
+        +nombre: String
         +edad: int
     }
     class Curso {
-        +nombre: str
+        +nombre: String
     }
 
     Curso o-- Estudiante
@@ -154,28 +171,38 @@ classDiagram
 
 ---
 
-En un diagrama de clases, la composición se representa con una línea con un rombo lleno, la línea inicia en la clase compuesta
+#### Diagrama de clases
 
-y termina con el rombo en la clase que es parte de la composición
+*Composición*
+
+Se representa con una línea con un *rombo lleno*
+
+La línea inicia en la clase `componente`
+
+y termina con el rombo en la clase que `contiene`
+
+El tipo de dato contiene la clase componente
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
 direction LR
     class Cuerpo {
-        +nombre: str
+        +nombre: String
         +corazon: Corazon
     }
     class Corazon {
-        +peso: str
+        +peso: String
     }
 
     Cuerpo *-- Corazon
 ```
+<!--.element class="center-mermaid"-->
 
 ---
 #### Diagrama en mermaid
-Se utiliza la notación `*--` para la composición
+
+Se utiliza la sintaxis `*--` para la *composición*
 
 `"*"` es el carácter que representa el rombo lleno
 
@@ -185,11 +212,11 @@ Se utiliza la notación `*--` para la composición
 ```mermaid
 classDiagram
     class Cuerpo {
-        +nombre: str
+        +nombre: String
         +corazon: Corazon
     }
     class Corazon {
-        +peso: str
+        +peso: String
     }
 
     Cuerpo *-- Corazon
@@ -199,13 +226,13 @@ classDiagram
 ---
 #### En Python
 
-En Python, la agregación y la composición se implementan utilizando atributos
+La **agregación** y la *composición* se implementan utilizando atributos
 
 Se declara una clase que contiene otra clase como un atributo
 
 ---
 
-#### Agregación en Python 
+#### **Agregación en Python**
 
 agregacion.py
 
@@ -246,7 +273,7 @@ Nombre: Juan, Edad: 20
 
 ---
 
-#### Composición en Python
+#### *Composición en Python*
 
 composicion.py
 
@@ -276,11 +303,15 @@ Corazón: Peso 0.3 kg
 ```
 
 ---
-Practiquemos un poco de los siguientes ejemplos identificar si es `agregación` o `composición`
+Practiquemos un poco...
+
+De los siguientes ejemplos identificar si es 
+
+**agregación** o *composición*
 
 ---
 
-1. Una persona cuenta con múltiples órganos. Estos no pueden existir fuera de la persona.
+1. Una persona cuenta con múltiples órganos. Estos no pueden existir fuera de la persona
 
 ¿Qué tipo de relación es esta?
 
@@ -288,10 +319,11 @@ A. Agregación
 
 B. Composición
 
-> Respuesta: B. Composición  <!-- .element class="fragment" data-fragment-index="2"-->
+> Respuesta: *B. Composición*  
+<!-- .element class="fragment" data-fragment-index="2"-->
 
 ---
-2. Un librero tiene muchos libros. Los libros pueden ser agregados o eliminados del librero sin afectar su existencia.
+2. Un librero tiene muchos libros. Los libros pueden ser agregados o eliminados del librero sin afectar su existencia
 
 ¿Qué tipo de relación es esta?
 
@@ -299,7 +331,8 @@ A. Agregación
 
 B. Composición
 
-> Respuesta: A. Agregación  <!-- .element class="fragment" data-fragment-index="2"-->
+> Respuesta: **A. Agregación**
+<!-- .element class="fragment" data-fragment-index="2"-->
 
 ---
 
@@ -311,7 +344,8 @@ A. Agregación
 
 B. Composición
 
-> Respuesta: B. Composición  <!-- .element class="fragment" data-fragment-index="2"-->
+> Respuesta: *B. Composición*
+<!-- .element class="fragment" data-fragment-index="2"-->
 
 ---
 
@@ -323,7 +357,8 @@ A. Agregación
 
 B. Composición
 
-> Respuesta: A. Agregación <!-- .element class="fragment" data-fragment-index="2"-->
+> Respuesta: **A. Agregación**
+<!-- .element class="fragment" data-fragment-index="2"-->
 
 ---
 
@@ -335,7 +370,8 @@ A. Agregación
 
 B. Composición
 
-> Respuesta: B. Composición <!-- .element class="fragment" data-fragment-index="2"-->
+> Respuesta: *B. Composición*
+<!-- .element class="fragment" data-fragment-index="2"-->
 
 ---
 
@@ -347,7 +383,8 @@ A. Agregación
 
 B. Composición
 
-> Respuesta: A. Agregación <!-- .element class="fragment" data-fragment-index="2"-->
+> Respuesta: **A. Agregación**
+<!-- .element class="fragment" data-fragment-index="2"-->
 
 ---
 
@@ -359,7 +396,8 @@ A. Agregación
 
 B. Composición
 
-> Respuesta: B. Composición <!-- .element class="fragment" data-fragment-index="2"-->
+> Respuesta: *B. Composición*
+<!-- .element class="fragment" data-fragment-index="2"-->
 
 ---
 
@@ -371,7 +409,8 @@ A. Agregación
 
 B. Composición
 
-> Respuesta: A. Agregación <!-- .element class="fragment" data-fragment-index="2"-->
+> Respuesta: **A. Agregación**
+<!-- .element class="fragment" data-fragment-index="2"-->
 
 ---
 
@@ -383,7 +422,8 @@ A. Agregación
 
 B. Composición
 
-> Respuesta: B. Composición <!-- .element class="fragment" data-fragment-index="2"-->
+> Respuesta: *B. Composición*
+<!-- .element class="fragment" data-fragment-index="2"-->
 
 ---
 
@@ -395,22 +435,26 @@ A. Agregación
 
 B. Composición
 
-> Respuesta: B. Composición <!-- .element class="fragment" data-fragment-index="2"-->
+> Respuesta: *B. Composición*
+<!-- .element class="fragment" data-fragment-index="2"-->
 
 ---
 
 #### Ejemplo 01
 
 ```markdown
-Una biblioteca guarda la siguiente información de sus libros
-el título, autor y género
-Los libros están ordenados en libreros por género, y se puede
-agregar o eliminar libros de cada librero
-
+Una biblioteca guarda en un sistema el título, autor y género
+de sus libros. Existen libreros digitales para organizar
+Los libros están organizados por género, y se puede
+agregar o eliminar libros de cada librero.
+Se puede mostrar todos los libros de un librero
 Actualmente existen 2 géneros: 
 - Cocina
 - Arte
-Y los libros de cada uno de estos géneros
+```
+
+```markdown
+Los libros de cada uno de estos géneros
 son:
 - Cocina
   - Cocina Criolla Boliviana, Daniel Figliuzzi
@@ -420,20 +464,25 @@ son:
   - Arte contemporáneo en Bolivia, Galería Altamira
 ```
 
-¿Qué tipo de relación tienen los libros con el librero?
-
->Respuesta: Agregación <!-- .element class="fragment" data-fragment-index="2"-->
-
 ---
 
 Un libro puede existir sin el librero y el librero puede existir sin los libros
 
 Tienen una relación débil
 
-### 📗📕📘📙 ➡ 📚
+Por lo tanto es una **agregación**
+
+### 📕📘📙📗 ➡ 📚
 
 ---
+
 Crear el archivo `biblioteca.md` y `biblioteca.py` en la carpeta `sesion06`
+
+Vamos a realizar el análisis del ejemplo
+
+---
+
+Análisis inicial
 
 ```markdown
 # Análisis
@@ -443,8 +492,8 @@ Requisitos:
 - Mostrar libros de cada librero 
 - Mostrar la información de un libro
 Objetos:
-- Librero
 - Libro
+- Librero
 Características:
 - Libro:
     - título: String
@@ -454,66 +503,76 @@ Características:
   - género: String
   - libros: List[Libro]
 Acciones:
+- Libro:
+  - info()
 - Librero:
   - agregar_libro(libro)
   - eliminar_libro(libro)
-  - mostrar_libros()
-- Libro:
-  - info()
+  - mostrar_libro()
 ```
+
+Los libros se representan como una **lista** dentro del librero porqué puede tener **múltiples** libros
 
 ---
 
-#### Diagrama de clases
+Diseño diagrama en Mermaid
+
 ````
 ```mermaid
 classDiagram
     class Libro {
-        +titulo: str
-        +autor: str
-        +genero: str
+        +titulo: String
+        +autor: String
+        +genero: String
         +info()
     }
     class Librero {
-        +genero: str
+        +genero: String
         +libros: List[Libro]
-        +agregar_libro(libro)
-        +eliminar_libro(libro)
-        +mostrar_libros()
+        +eliminar(libro: Libro)
+        +agregar(libro: Libro)
+        +mostrar()
     }
-
     Librero o-- Libro
 ```
 ````
 
 ---
+
+Diseño Diagrama
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
 direction LR
     class Libro {
-        +titulo: str
-        +autor: str
-        +genero: str
+        +titulo: String
+        +autor: String
+        +genero: String
         +info()
     }
     class Librero {
-        +genero: str
+        +genero: String
         +libros: List[Libro]
-        +agregar_libro(libro)
-        +eliminar_libro(libro)
-        +mostrar_libros()
+        +eliminar_libro(libro: Libro)
+        +agregar_libro(libro: Libro)
+        +mostrar()
     }
-
     Librero o-- Libro
 ```
+<!--.element class="center-mermaid"-->
 
 ---
 
-#### Implementación en Python
+Ya con el análisis y la **agregación** identificada podemos implementar las clases en python
 
-```python [2-11|12-30|33-38|40-45|47-49]
+Se puede utilizar una estructura de datos como una **lista** para guardar los objetos agregados
+
+---
+
+En el archivo `biblioteca.py`
+
+```python [2-9|10-28|30-36|38-43|45-47]
 # Definición
 class Libro:
     def __init__(self, titulo, autor, genero):
@@ -522,9 +581,7 @@ class Libro:
         self.genero = genero
 
     def info(self):
-        print (f"Título: {self.titulo} \
-                \nAutor: {self.autor} \
-                \nGénero: {self.genero}")
+        print (f"Título:{self.titulo}\nAutor:{self.autor}\nGénero:{self.genero}")
 class Librero:
     def __init__(self, genero):
         self.genero = genero
@@ -534,14 +591,14 @@ class Librero:
         self.libros.append(libro)
     
     def eliminar_libro(self, libro):
-        if libro in self.libros:
-            print(f"❌ Libro eliminado: {libro.titulo}")
-        else:
+        if libro not in self.libros:
             print("El libro no está en el librero")
+            return
+        print(f"❌ Libro eliminado: {libro.titulo}")
         self.libros.remove(libro)
-    
+
     def mostrar_libros(self):
-        print(f"📘 Librero de género: {self.genero}")
+        print(f"📘 Librero de {self.genero}")
         for libro in self.libros:
             libro.info()
 
@@ -566,15 +623,21 @@ libro1.info()
 ```
 ---
 
+Ejecución del código
+
+```bash
+python biblioteca.py
+```
+
 ```text
-📘 Librero de género: Cocina
+📘 Librero de Cocina
 Título: Cocina Criolla Boliviana                 
 Autor: Daniel Figliuzzi                 
 Género: Cocina
 Título: Gran libro cocina Boliviana                 
 Autor: Jaime Cisneros                 
 Género: Cocina
-📘 Librero de género: Arte
+📘 Librero de Arte
 Título: Arte textil y mundo andino                 
 Autor: Teresa Gisbert                 
 Género: Arte
@@ -593,102 +656,113 @@ Género: Cocina
 
 ---
 
-#### Ejemplo 02
+#### Ejercicio para ti (02)
 
 ```markdown
-La biblioteca ahora almacena en la parte inferior de los libreros
-para ocupar espacio periódicos de años pasados cada librero guarda 
-los periódicos de diferentes fechas de todas las editoriales
+El sistema bibliotecario ahora va almacenar en los libreros
+periódicos de años pasados cada librero guarda periódicos 
+de diferentes fechas de todas las editoriales.
+Cada periódico guarda un día, mes, año y editorial
+Se puede agregar o eliminar periódicos de cada librero
+Se puede mostrar todos los periódicos de un librero
 ```
 
 2 minutos
 
+Modifica el *Análisis*
+
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-Añadir al archivos `biblioteca.md` el análisis
+Modifica el archivo `biblioteca.md`
 
 ---
 
-```markdown [7-8|18-22,26|32-34|37-38]
+Modificando el *análisis*
+
+```markdown [7-10|14,20-24|32,33,38-40]
 # Análisis
 Requisitos:
 - Guardar información de libros (título, autor, género)
 - Organizar libros por género en libreros
 - Mostrar libros de cada librero 
 - Mostrar la información de un libro
-- Guardar periódicos por mes y año en los libreros
-- Cada periódico guarda un dia, mes, año y editorial
+- Periódicos tienen dia, mes, gestión y editorial
+- Guardar periódicos en los libreros
+- Mostrar la información de un periódico
+- Mostrar periódicos de cada librero
 Objetos:
-- Librero
 - Libro
+- Librero
 - Periódico
 Características:
 - Libro:
     - título: String
     - autor: String
     - género: String
-- Periodico:
+- Periódico:
     - dia: int
     - mes: int
-    - anio: int
+    - gestión: int
     - editorial: String
 - Librero:
-    - género: String
-    - libros: List[Libro]
-    - periodicos: List[Periodico]
+  - género: String
+  - libros: List[Libro]
+  - periódicos: List[Periódico]
 Acciones:
-- Librero:
-    - agregar_libro(libro)
-    - eliminar_libro(libro)
-    - mostrar_libros()
-    - agregar_periodico(periodico)
-    - eliminar_periodico(periodico)
-    - mostrar_periodicos()
 - Libro:
-    - info()
-- Periodico:
-    - info()
+  - info()
+- Periódico:
+  - info()
+- Librero:
+  - agregar_libro(libro)
+  - eliminar_libro(libro)
+  - mostrar_libro()
+  - agregar_periodico(periodico)
+  - eliminar_periodico(periodico)
+  - mostrar_periodicos()
 ```
 
 ---
 
-Ahora que tenemos los requisitos, características y acciones de cada objeto
-podemos crear el diagrama de clases 
+#### Ejercicio para ti (02)
+
+Ahora obtenemos el diseño del *diagrama de clase*
 
 2 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-Añadir al archivo `biblioteca.md` el diagrama de clases
+Modifica el archivo `biblioteca.md`
 
 ---
 
-#### Diagrama de clases
-```` [9-15|18,22-25|29]
+Creando el diseño de diagrama de clases
+
+```` [9-15|19,23-25,29]
 ```mermaid
 classDiagram
     class Libro {
-        +titulo: str
-        +autor: str
-        +genero: str
+        +titulo: String
+        +autor: String
+        +genero: String
         +info()
     }
     class Periodico {
         +dia: int
         +mes: int
-        +anio: int
+        +gestion: int
         +editorial: String
         +info()
     }
     class Librero {
-        +genero: str
+        +genero: String
         +libros: List[Libro]
         +periodicos: List[Periodico]
-        +agregar_libro(libro)
-        +eliminar_libro(libro)
+        +agregar_libro(libro: Libro)
+        +eliminar_libro(libro: Libro)
         +mostrar_libros()
-        +agregar_periodico(periodico)
-        +eliminar_periodico(periodico)
+        +agregar_periodico(periodico: Periodico)
+        +eliminar_periodico(periodico: Periodico)
         +mostrar_periodicos()
     }
 
@@ -699,43 +773,51 @@ classDiagram
 
 ---
 
+Creando el diseño de diagrama de clases
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
 direction LR
     class Libro {
-        +titulo: str
-        +autor: str
-        +genero: str
+        +titulo: String
+        +autor: String
+        +genero: String
         +info()
     }
     class Periodico {
         +dia: int
         +mes: int
-        +anio: int
+        +gestion: int
         +editorial: String
         +info()
     }
     class Librero {
-        +genero: str
+        +genero: String
         +libros: List[Libro]
         +periodicos: List[Periodico]
-        +agregar_libro(libro)
-        +eliminar_libro(libro)
+        +agregar_libro(libro: Libro)
+        +eliminar_libro(libro: Libro)
         +mostrar_libros()
-        +agregar_periodico(periodico)
-        +eliminar_periodico(periodico)
+        +agregar_periodico(periodico: Periodico)
+        +eliminar_periodico(periodico: Periodico)
         +mostrar_periodicos()
     }
 
     Librero o-- Libro
     Librero o-- Periodico
 ```
+<!--.element class="center-mermaid"-->
 
 ---
 
-Por último, implementamos las clases en el archivo `biblioteca.py`
+#### Ejercicio para ti (02)
+
+Ya tenemos el *análisis y diseño* de la clase
+
+Ahora podemos **programar**
+
+Modifica el archivo `biblioteca.py`
 
 3 minutos
 
@@ -743,9 +825,9 @@ Por último, implementamos las clases en el archivo `biblioteca.py`
 
 ---
 
-#### Implementación en Python
+Implementando la **agregación** de periódicos
 
-```python [13-22|28|45-58|78-84]
+```python [11-19|25|42-55|75-81]
 # Definición
 class Libro:
     def __init__(self, titulo, autor, genero):
@@ -754,20 +836,17 @@ class Libro:
         self.genero = genero
 
     def info(self):
-        print (f"Título: {self.titulo} \
-                \nAutor: {self.autor} \
-                \nGénero: {self.genero}")
+        print (f"Título:{self.titulo}\nAutor:{self.autor}\nGénero:{self.genero}")
 
 class Periodico:
-    def __init__(self, dia, mes, anio, editorial):
+    def __init__(self, dia, mes, gestion, editorial):
         self.dia = dia
         self.mes = mes
-        self.anio = anio
+        self.gestion = gestion
         self.editorial = editorial
 
     def info(self):
-        print(f"Periódico: {self.editorial} \
-                \nFecha: {self.dia}/{self.mes}/{self.anio}")
+        print(f"Periódico:{self.editorial}\nFecha:{self.dia}/{self.mes}/{self.gestion}")
 
 class Librero:
     def __init__(self, genero):
@@ -779,14 +858,14 @@ class Librero:
         self.libros.append(libro)
     
     def eliminar_libro(self, libro):
-        if libro in self.libros:
-            print(f"❌ Libro eliminado: {libro.titulo}")
-        else:
+        if libro not in self.libros:
             print("El libro no está en el librero")
+            return
+        print(f"❌ Libro eliminado: {libro.titulo}")
         self.libros.remove(libro)
-    
+
     def mostrar_libros(self):
-        print(f"📘 Librero de género: {self.genero}")
+        print(f"📘 Librero de {self.genero}")
         for libro in self.libros:
             libro.info()
     
@@ -794,14 +873,14 @@ class Librero:
         self.periodicos.append(periodico)
 
     def eliminar_periodico(self, periodico):
-        if periodico in self.periodicos:
-            print(f"❌ Periódico eliminado: {periodico.editorial} {periodico.dia}/{periodico.mes}/{periodico.anio}")
-        else:
+        if periodico not in self.periodicos:
             print("El periódico no está en el librero")
+            return
+        print(f"❌ Periódico eliminado:{periodico.editorial} {periodico.dia}/{periodico.mes}/{periodico.gestion}")
         self.periodicos.remove(periodico)
     
     def mostrar_periodicos(self):
-        print(f"📰 Librero de género: {self.genero}")
+        print(f"📰 Periódicos de librero de {self.genero}")
         for periodico in self.periodicos:
             periodico.info()
 # Uso
@@ -831,40 +910,47 @@ librero_cocina.mostrar_periodicos()
 librero_cocina.eliminar_periodico(periodico1)
 librero_cocina.mostrar_periodicos()
 ```
+
 ---
 
+Ejecución del código
+
+```bash
+python biblioteca.py
+```
+
 ```text	[23-31]
-📘 Librero de género: Cocina
-Título: Cocina Criolla Boliviana                 
-Autor: Daniel Figliuzzi                 
-Género: Cocina
-Título: Gran libro cocina Boliviana                 
-Autor: Jaime Cisneros                 
-Género: Cocina
-📘 Librero de género: Arte
-Título: Arte textil y mundo andino                 
-Autor: Teresa Gisbert                 
-Género: Arte
-Título: Arte contemporáneo en Bolivia                 
-Autor: Galería Altamira                 
-Género: Arte
+📘 Librero de Cocina
+Título:Cocina Criolla Boliviana
+Autor:Daniel Figliuzzi
+Género:Cocina
+Título:Gran libro cocina Boliviana
+Autor:Jaime Cisneros
+Género:Cocina
+📘 Librero de Arte
+Título:Arte textil y mundo andino
+Autor:Teresa Gisbert
+Género:Arte
+Título:Arte contemporáneo en Bolivia
+Autor:Galería Altamira
+Género:Arte
 ❌ Libro eliminado: Cocina Criolla Boliviana
-📘 Librero de género: Cocina
-Título: Gran libro cocina Boliviana                 
-Autor: Jaime Cisneros                 
-Género: Cocina
-Título: Cocina Criolla Boliviana                 
-Autor: Daniel Figliuzzi                 
-Género: Cocina
-📰 Librero de género: Cocina
-Periódico: La Prensa                 
-Fecha: 1/1/2020
-Periódico: El Deber                 
-Fecha: 2/1/2020
-❌ Periódico eliminado: La Prensa 1/1/2020
-📰 Librero de género: Cocina
-Periódico: El Deber                 
-Fecha: 2/1/2020
+📘 Librero de Cocina
+Título:Gran libro cocina Boliviana
+Autor:Jaime Cisneros
+Género:Cocina
+Título:Cocina Criolla Boliviana
+Autor:Daniel Figliuzzi
+Género:Cocina
+📰 Periódicos de librero de Cocina
+Periódico:La Prensa
+Fecha:1/1/2020
+Periódico:El Deber
+Fecha:2/1/2020
+❌ Periódico eliminado:La Prensa 1/1/2020
+📰 Periódicos de librero de Cocina
+Periódico:El Deber
+Fecha:2/1/2020
 ```
 
 ---
@@ -872,45 +958,57 @@ Fecha: 2/1/2020
 #### Ejemplo 03
 
 ```markdown
-El cuerpo humano está compuesto por varios órganos, 
-cada órgano tiene diferentes características y funciones
-Cuenta con un corazón que posee un peso y tamaño
-El corazón bombea sangre y funciona todo el tiempo mediante
+Un instituto de salud tiene una simulación del cuerpo humano
+Cuenta con un corazón que posee un peso (kg) y tamaño (cm)
+El corazón bombea sangre y funciona mediante
 dos acciones: sístole y diástole
-El cuerpo sólo posee un corazón y si el corazón puede latir
+El cuerpo sólo posee un corazón, si puede latir
 el cuerpo está vivo,
 Si el corazón esta contraído hace díastole
 Si el corazón está relajado hace sístole
+Cada cuerpo tiene un nombre para identificarlo
+Se puede mostrar la información del cuerpo y del corazón
 ```
 ¿Qué tipo de relación tienen los órganos con el cuerpo?
-> Respuesta: Composición <!-- .element class="fragment" data-fragment-index="2"-->
+> Respuesta: *Composición*
+<!-- .element class="fragment" data-fragment-index="2"-->
 
 
 ---
-Un órgano no puede existir sin el cuerpo y el cuerpo no puede existir sin los órganos
+El corazón no puede existir sin el cuerpo y el cuerpo no puede vivir sin el corazón
 
 Posee una relación fuerte el corazón es parte del cuerpo
+
+Por lo tanto es una *composición*
 
 ###  ❤️ ➡ 🧍
 
 ---
 Crear el archivo `humano.md` y `humano.py` en la carpeta `sesion06`
 
+Vamos a realizar el análisis del ejemplo
+
+---
+
+Análisis inicial
+
 ```markdown
 # Análisis
 Requisitos:
 - Guardar información del corazón (peso, tamaño)
 - Guardar información del cuerpo (nombre, corazón)
-- El corazón late mediante dos acciones: sístole y diástole
+- Cuando esta contraído hace diástole
+- Cuando esta relajado hace sístole
+- El cuerpo puede vivir si el corazón puede latir
 Objetos:
 - Corazón
 - Cuerpo
 Características:
 - Corazón:
-    - contraido: bool
-    - puede_latir: bool
     - peso: float
     - tamaño: float
+    - contraido: bool
+    - puede_latir: bool
 - Cuerpo:
     - nombre: String
     - corazón: Corazón
@@ -923,9 +1021,12 @@ Acciones:
     - vivir()
 ```
 
+El corazón es parte del cuerpo, solo tiene *un corazón* se representa como *un atributo* dentro del cuerpo
+
 ---
 
-#### Diagrama de clases
+Diseño diagrama en Mermaid
+
 ````
 ```mermaid
 classDiagram
@@ -938,7 +1039,7 @@ classDiagram
         +info()
     }
     class Cuerpo {
-        +nombre: str
+        +nombre: String
         +corazon: Corazon
         +info()
         +vivir()
@@ -949,6 +1050,8 @@ classDiagram
 ````
 
 ---
+
+Diseño Diagrama
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
@@ -963,7 +1066,7 @@ direction LR
         +info()
     }
     class Cuerpo {
-        +nombre: str
+        +nombre: String
         +corazon: Corazon
         +info()
         +vivir()
@@ -971,11 +1074,18 @@ direction LR
 
     Cuerpo *-- Corazon
 ```
+<!--.element class="center-mermaid"-->
 
 ---
-#### Implementación en Python
 
-```python [2-18|20-34|36-40]
+Ahora con el análisis y la *composición* identificada podemos implementar las clases en python
+
+
+---
+
+En el archivo `humano.py`
+
+```python [2-18|20-32|33-37]
 # Definición
 class Corazon:
     def __init__(self, peso, tamano):
@@ -983,34 +1093,31 @@ class Corazon:
         self.puede_latir = True
         self.peso = peso
         self.tamano = tamano
-
     def latir(self):
         if self.puede_latir:
             if self.contraido:
-                print("❤️ Diástole: Se está relajando el corazón")
+                print("❤️ Diástole: Corazón relajandose")
             else:
-                print("❤️ Sístole: Se está contrayendo el corazón")
+                print("❤️ Sístole: Corazón contrayendose")
             self.contraido = not self.contraido
     def info(self):
         estado = "Contraído" if self.contraido else "Relajado"
-        print(f"Corazón: {self.peso} kg, {self.tamano} cm, Estado: {estado}")
+        print(f"Corazón: {self.peso} kg, {self.tamano} cm")
+        print(f"Estado: {estado} Puede latir: {self.puede_latir}")
 
 class Cuerpo:
     def __init__(self, nombre, peso_corazon, tamano_corazon):
         self.nombre = nombre
-        self.corazon = Corazon(peso_corazon, tamano_corazon)  # Composición
-    
+        self.corazon = Corazon(peso_corazon, tamano_corazon)
     def info(self):
         print(f"Cuerpo: {self.nombre}")
         self.corazon.info()
-    
     def vivir(self):
         if self.corazon.puede_latir:
             self.corazon.latir()
             print(f"{self.nombre} está vivo")
         else:
             print(f"{self.nombre} esta muerto")
-
 # Uso
 cuerpo = Cuerpo("Jhon", 0.3, 12)
 cuerpo.info()
@@ -1018,78 +1125,78 @@ cuerpo.vivir()
 cuerpo.vivir()
 ```
 
+---
+
+Ejecución del código
+
+```bash
+python humano.py
+```
+
 ```text
 Cuerpo: Jhon
-Corazón: 0.3 kg, 12 cm, Estado: Relajado
-❤️ Sístole: Se está contrayendo el corazón
+Corazón: 0.3 kg, 12 cm
+Estado: Relajado Puede latir: True
+❤️ Sístole: Corazón contrayendose
 Jhon está vivo
-❤️ Diástole: Se está relajando el corazón
+❤️ Diástole: Corazón relajandose
 Jhon está vivo
 ```
 
 ---
 
-#### Ejemplo 04
+#### Ejercicio para ti (04)
 
 ```markdown
-Adicionar al cuerpo humano los siguientes órganos:
-- Pulmónes poseen volumen y cuenta con
-  dos acciones: inhalar y exhalar
-- Cerebro posee peso y cuenta con una acción: pensar
-
-Ambos órganos son parte del cuerpo y no pueden existir sin él
+Se va agregar a  la simulación del cuerpo humano el 
+cerebro posee peso y cuenta con una acción: pensar
+Es parte del cuerpo y no puede vivir sin él
 El peso del cerebro es de 1.4 kg para todos los humanos
-Y el volumen de los pulmones es de 6 litros para todos los humanos
-
-Mientras el corazón pueda latir el cuerpo puede respirar y pensar
+Mientras el corazón pueda latir el cerebro puede pensar
+Se puede mostrar la información del cerebro
 ```
 
 2 minutos
 
+Modifica el *Análisis*
+
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-Añadir al archivo `humano.md` el análisis
+Modifica el archivo `humano.md`
 
 ---
 
-```markdown [6-9|12-13|21-25,29-31|36-41]
+Modificando el *análisis*
+
+```markdown [8-10|13,21-22|30-32]
 # Análisis
 Requisitos:
 - Guardar información del corazón (peso, tamaño)
 - Guardar información del cuerpo (nombre, corazón)
-- El corazón late mediante dos acciones: sístole y diástole
-- Guardar información de los pulmones (volumen)
+- Cuando esta contraído hace diástole
+- Cuando esta relajado hace sístole
+- El cuerpo puede vivir si el corazón puede latir
 - Guardar información del cerebro (peso)
-- Los pulmones inhalan y exhalan
-- El cerebro piensa
+- El cerebro piensa si el corazón puede latir
+- Mostrar la información del cerebro
 Objetos:
 - Corazón
-- Pulmón
 - Cerebro
 - Cuerpo
 Características:
 - Corazón:
-    - contraido: bool
-    - puede_latir: bool
     - peso: float
     - tamaño: float
-- Pulmón:
-    - volumen: float
-    - expandido: bool
+    - contraido: bool
+    - puede_latir: bool
 - Cerebro:
     - peso: float
 - Cuerpo:
     - nombre: String
     - corazón: Corazón
-    - pulmon_derecho: Pulmón
-    - pulmon_izquierdo: Pulmón
-    - cerebro: Cerebro
 Acciones:
 - Corazón:
     - latir()
-    - info()
-- Pulmón:
-    - respirar()
     - info()
 - Cerebro:
     - pensar()
@@ -1101,19 +1208,21 @@ Acciones:
 
 ---
 
-Ahora que tenemos los requisitos, características y acciones de cada objeto
-podemos crear el diagrama de clases
+#### Ejercicio para ti (04)
+
+Ahora obtenemos el diseño del *diagrama de clase*
 
 2 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-Añadir al archivo `humano.md` el diagrama de clases
+Modifica el archivo `humano.md`
 
 ---
 
-#### Diagrama de clases
-```` [11-21|25-27|33-34]
+Modificando el diseño de diagrama de clases
+
+```` [11-15,19,24]
 ```mermaid
 classDiagram
     class Corazon {
@@ -1124,34 +1233,26 @@ classDiagram
         +latir()
         +info()
     }
-    class Pulmon {
-        +volumen: float
-        +expandido: bool
-        +respirar()
-        +info()
-    }
     class Cerebro {
         +peso: float
         +pensar()
         +info()
     }
     class Cuerpo {
-        +nombre: str
+        +nombre: String
         +corazon: Corazon
         +cerebro: Cerebro
-        +pulmon_derecho: Pulmon
-        +pulmon_izquierdo: Pulmon
         +info()
         +vivir()
     }
-
     Cuerpo *-- Corazon
-    Cuerpo *-- Pulmon
     Cuerpo *-- Cerebro
 ```
 ````
 
 ---
+
+Modificando el diseño de diagrama de clases
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
@@ -1165,34 +1266,31 @@ direction LR
         +latir()
         +info()
     }
-    class Pulmon {
-        +volumen: float
-        +expandido: bool
-        +respirar()
-        +info()
-    }
     class Cerebro {
         +peso: float
         +pensar()
         +info()
     }
     class Cuerpo {
-        +nombre: str
+        +nombre: String
         +corazon: Corazon
-        +cerebro: Cerebro
-        +pulmon_derecho: Pulmon
-        +pulmon_izquierdo: Pulmon
         +info()
         +vivir()
     }
-
     Cuerpo *-- Corazon
-    Cuerpo *-- Pulmon
     Cuerpo *-- Cerebro
 ```
+<!--.element class="center-mermaid"-->
 
 ---
-Ya tenemos el análisis y el diagrama de clases, ahora implementamos las clases en el archivo `humano.py`
+
+#### Ejercicio para ti (04)
+
+Ya tenemos el *análisis y diseño* de la clase
+
+Ahora podemos **programar**
+
+Modifica el archivo `humano.py`
 
 3 minutos
 
@@ -1200,9 +1298,9 @@ Ya tenemos el análisis y el diagrama de clases, ahora implementamos las clases 
 
 ---
 
-#### Implementación en Python
+Implementando la *composición* del cerebro
 
-```python [20-34|36-44|50-52|61-63|69-72]
+```python [19-25|30,38]
 # Definición
 class Corazon:
     def __init__(self, peso, tamano):
@@ -1210,66 +1308,40 @@ class Corazon:
         self.puede_latir = True
         self.peso = peso
         self.tamano = tamano
-
     def latir(self):
         if self.puede_latir:
             if self.contraido:
-                print("❤️ Diástole: Se está relajando el corazón")
+                print("❤️ Diástole: Corazón relajandose")
             else:
-                print("❤️ Sístole: Se está contrayendo el corazón")
+                print("❤️ Sístole: Corazón contrayendose")
             self.contraido = not self.contraido
     def info(self):
         estado = "Contraído" if self.contraido else "Relajado"
-        print(f"Corazón: {self.peso} kg, {self.tamano} cm, Estado: {estado}")
-
-class Pulmon:
-    def __init__(self, volumen):
-        self.volumen = volumen
-        self.expandido = False
-
-    def respirar(self):
-        if self.expandido:
-            print("🌬️ Exhalando aire")
-        else:
-            print("🌬️ Inhalando aire")
-        self.expandido = not self.expandido
-
-    def info(self):
-        estado = "Expandido" if self.expandido else "Contraído"
-        print(f"Pulmón: {self.volumen} litros, Estado: {estado}")
-
+        print(f"Corazón: {self.peso} kg, {self.tamano} cm")
+        print(f"Estado: {estado} Puede latir: {self.puede_latir}")
 class Cerebro:
     def __init__(self, peso):
         self.peso = peso
-
     def pensar(self):
         print("🧠 Pensando...")
-
     def info(self):
         print(f"Cerebro: {self.peso} kg")
-
 class Cuerpo:
     def __init__(self, nombre, peso_corazon, tamano_corazon):
         self.nombre = nombre
-        self.corazon = Corazon(peso_corazon, tamano_corazon)  # Composición
-        self.pulmon_derecho = Pulmon(6)  # Volumen en litros
-        self.pulmon_izquierdo = Pulmon(6)  # Volumen en litros
-        self.cerebro = Cerebro(1.4)  # Peso en kg
-    
+        self.corazon = Corazon(peso_corazon, tamano_corazon)
+        self.cerebro = Cerebro(1.4)
     def info(self):
         print(f"Cuerpo: {self.nombre}")
         self.corazon.info()
-    
+        self.cerebro.info()
     def vivir(self):
         if self.corazon.puede_latir:
             self.corazon.latir()
-            self.pulmon_derecho.respirar()
-            self.pulmon_izquierdo.respirar()
             self.cerebro.pensar()
             print(f"{self.nombre} está vivo")
         else:
             print(f"{self.nombre} esta muerto")
-
 # Uso
 cuerpo = Cuerpo("Jhon", 0.3, 12)
 cuerpo.info()
@@ -1279,19 +1351,33 @@ cuerpo.vivir()
 
 ---
 
+Ejecución del código
+
+```bash
+python humano.py
+```
+
 ```text
 Cuerpo: Jhon
-Corazón: 0.3 kg, 12 cm, Estado: Relajado
-❤️ Sístole: Se está contrayendo el corazón
-🌬️ Inhalando aire
-🌬️ Inhalando aire
+Corazón: 0.3 kg, 12 cm
+Estado: Relajado Puede latir: True
+Cerebro: 1.4 kg
+❤️ Sístole: Corazón contrayendose
 🧠 Pensando...
 Jhon está vivo
-❤️ Diástole: Se está relajando el corazón
-🌬️ Exhalando aire
-🌬️ Exhalando aire
+❤️ Diástole: Corazón relajandose
 🧠 Pensando...
 Jhon está vivo
+```
+
+---
+
+Subimos los avances de la sesión al repositorio en **GitHub**
+
+```bash
+git add .
+git commit -m "Sesión 06"
+git push origin main
 ```
 
 ---
@@ -1328,6 +1414,7 @@ Crear una carpeta con el nombre "retos_sesion_06" dentro del proyecto en la raí
 ```bash
 # Estructura de carpetas
 psg-oop-2025/
+    sesion06/
     retos_sesion_06/
         ejercicio_01.md
         ejercicio_01.py
@@ -1337,49 +1424,84 @@ psg-oop-2025/
 
 ---
 
-1. Crear un archivo llamado `ejercicio_01.md` y un archivo `ejercicio_01.py` en la carpeta
+1. Simulación del transporte urbano con minibuses y pasajeros
 
-retos_sesion_06 y hacer:
+Las personas, al dirigirse a su trabajo, pueden tomar distintos **minibuses**.  
+Cada minibus tiene un **número** de ruta y posee varias **paradas** (ubicaciones)
 
-- análisis, diseño y script en Python
+Por otro lado, cada **pasajero** tiene un **nombre** y una **ubicación** al que desea llegar
 
-Para lo siguiente:
+*(1/4)*
 
-```markdown
-Las persona al ir a su trabajo pueden tomar
-varios minibuses diferentes, cada minibus
-tienen un número de ruta y varias paradas
-donde cada parada tiene una ubicación.
-El pasajero tiene un nombre y destino 
-donde quiere llegar. El minibus se mueve
-de una parada a otra y el pasajero puede
-subir o bajar en cualquier parada
-```
+---
+
+Los pasajeros pueden **subir o bajar** en cualquier parada pero sólo bajo ciertas condiciones:
+- Un pasajero sólo puede subir a un minibus si alguna de sus paradas coincide con su destino
+- Un pasajero sólo puede bajar en la parada **actual** que coincide con su destino
+- Las paradas son circulares, es decir, después de la última parada vuelve a la primera
+
+*(2/4)*
+
+---
+
+**Requisitos:**  
+- Crear las clases necesarias para representar **Minibus** y **Pasajero**.
+- Implementar la relación entre las clases: un minibus tiene varias paradas programadas y un minibus tiene varios pasajeros
+- Simular el movimiento del minibus entre las paradas y las acciones de subir o bajar pasajeros.
+
+*(3/4)*
+
+---
+
+**Tareas:**  
+- Realiza el **análisis y diagrama de clases** en el archivo `ejercicio_01.md`.  
+- Escribe el **código en Python** correspondiente en el archivo `ejercicio_01.py`.  
+- Aplica los conceptos de **relaciones entre objetos**.
+- Asegúrate de que las clases tengan atributos y métodos coherentes con su función.  
+- Utiliza buenas prácticas de **nomenclatura y encapsulamiento**.
+
+*(4/4)*
 
 
 ---
 
-2. Crear un archivo llamado `ejercicio_02.md` y un archivo `ejercicio_02.py` en la carpeta
-retos_sesion_06 y hacer:
+2. Sistema para administrar un edificio
 
-- análisis, diseño y script en Python
+Se desea representar un **edificio** ubicado en la ciudad de **La Paz**, el cual cuenta con **3 pisos**.
+Cada piso contiene **departamentos** y **oficinas**.
 
-Para lo siguiente:
+- Cada **departamento** tiene un **número** de departamento, comienza con el número del piso seguido de *número* de departamento (*201* o *304*).
+- Cada **oficina** tiene un **número** de oficina, comienza con el número del piso seguido de una **letra** (*2A* o *3C*).
 
-```markdown
-Un edificio ubicado en la ciudad de La Paz
-tiene varios departamentos y oficinas,
-cuenta con 4 pisos y cada piso tiene
-departamentos y oficinas.
+*(1/4)*
 
-Cada departamento tiene un número de departamento
-que empieza con el número del piso y un número de departamento,
-y cada oficina tiene un número de oficina
-que empieza con el número del piso y una letra
+---
 
-Las oficinas tienen un télefono
-Y los departamentos tienen un número de inquilinos
-```
+Además:
+- El **edificio** tiene `direccion` y `nombre`.
+- Los **pisos** tienen un atributo `numero`
+- Las **oficinas** cuentan con un atributo `telefono`.  
+- Los **departamentos** tienen un atributo `inquilinos`.  
+
+El sistema debe permitir crear pisos con sus departamentos y oficinas correspondientes, y acceder a la información del edificio de forma organizada.  
+
+*(2/4)*
+
+---
+
+**Tareas:**  
+- Realiza el **análisis y diagrama de clases** de las clases `Edificio`, `Piso`, `Departamento` y `Oficina` en el archivo `ejercicio_02.md`.  
+- Escribe el **código en Python** correspondiente en el archivo `ejercicio_02.py`.  
+- Implementa relaciones jerárquicas entre las clases (por ejemplo, un edificio contiene pisos, y cada piso contiene oficinas y departamentos).  
+
+*(3/4)*
+
+---
+
+- Aplica los conceptos de **relaciones entre objetos**.
+- Utiliza propiedades y métodos adecuados para mostrar la información de cada edificio, piso, departamento y oficina.
+
+*(4/4)*
 
 ---
 
@@ -1391,7 +1513,7 @@ Y los departamentos tienen un número de inquilinos
 <br>
 <br>
 
-[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/content/sesion06)
+[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/tree/main/content/sesion06)
 
 Repositorio de la Sesión
 
