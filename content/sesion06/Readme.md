@@ -10,6 +10,8 @@
 #### Relaciones entre objetos
 
 ---
+### Antes de empezar
+---
 
 #### Proyecto en VSCode
 
@@ -1424,56 +1426,57 @@ psg-oop-2025/
 
 ---
 
-1. Simulación del transporte urbano con minibuses y pasajeros
+1. En su trayecto diario al trabajo, las personas pueden abordar distintos **minibuses**. Cada minibus está identificado por un **número de ruta** y sigue un recorrido compuesto por varias **paradas** (ubicaciones). Por otro lado, cada **pasajero** tiene un **nombre** y una **ubicación de destino** a la que desea llegar.
 
-Las personas, al dirigirse a su trabajo, pueden tomar distintos **minibuses**.  
-Cada minibus tiene un **número** de ruta y posee varias **paradas** (ubicaciones)
 
-Por otro lado, cada **pasajero** tiene un **nombre** y una **ubicación** al que desea llegar
-
-*(1/4)*
+*(1/5)*
 
 ---
 
-Los pasajeros pueden **subir o bajar** en cualquier parada pero sólo bajo ciertas condiciones:
-- Un pasajero sólo puede subir a un minibus si alguna de sus paradas coincide con su destino
-- Un pasajero sólo puede bajar en la parada **actual** que coincide con su destino
-- Las paradas son circulares, es decir, después de la última parada vuelve a la primera
+Los pasajeros pueden **subir o bajar** del minibus en cualquier parada, pero bajo las siguientes condiciones:
 
-*(2/4)*
+- Un pasajero **solo puede subir** si el recorrido del minibus incluye su destino entre las paradas programadas.
+- Un pasajero **solo puede bajar** si la **parada actual** del minibus coincide con su **destino**.
+- Las paradas son **circulares**: al llegar al final del recorrido, el minibus invierte su **lista de paradas** y regresa en sentido contrario.
 
----
 
-**Requisitos:**  
-- Crear las clases necesarias para representar **Minibus** y **Pasajero**.
-- Implementar la relación entre las clases: un minibus tiene varias paradas programadas y un minibus tiene varios pasajeros
-- Simular el movimiento del minibus entre las paradas y las acciones de subir o bajar pasajeros.
-
-*(3/4)*
+*(2/5)*
 
 ---
 
-**Tareas:**  
-- Realiza el **análisis y diagrama de clases** en el archivo `ejercicio_01.md`.  
-- Escribe el **código en Python** correspondiente en el archivo `ejercicio_01.py`.  
-- Aplica los conceptos de **relaciones entre objetos**.
-- Asegúrate de que las clases tengan atributos y métodos coherentes con su función.  
-- Utiliza buenas prácticas de **nomenclatura y encapsulamiento**.
+- Diseñar las clases necesarias para representar **Minibus** y **Pasajero**.
+- Toma en cuenta las siguientes características:
+    - Un minibus tiene una lista de **paradas programadas** (ejemplo: `["Arce", "Prado", "Perez"]`).
+    - Un minibus puede transportar **múltiples pasajeros**.
+- Simular el movimiento del minibus entre paradas y las acciones de **subida** y **bajada** de pasajeros.
 
-*(4/4)*
+*(3/5)*
+
+---
+
+- Realiza el **análisis** y **diagrama de clases** para las clases `Minibus` y `Pasajero` en el archivo `ejercicio_01.md`.
+- Escribe el código en Python para las clases `Minibus` y `Pasajero` en el archivo `ejercicio_01.py`.
+- Aplica los principios de **relaciones entre las clases** (composición o agregación según corresponda).
+
+*(4/5)*
+
+---
+
+- Asegúrate de que las clases incluyan *atributos* y *métodos* coherentes con su propósito.
+- Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*.
+
+
+*(5/5)*
 
 
 ---
 
-2. Sistema para administrar un edificio
+2. Se debe modelar un edificio ubicado en la ciudad de La Paz, compuesto por 3 pisos. Cada piso contiene una combinación de **departamentos** y **oficinas**
 
-Se desea representar un **edificio** ubicado en la ciudad de **La Paz**, el cual cuenta con **3 pisos**.
-Cada piso contiene **departamentos** y **oficinas**.
+- Cada **departamento** tiene un *número* que comienza con el número del piso seguido de un número de unidad (por ejemplo: `201`, `304`).
+- Cada **oficina** tiene un *número* que comienza con el número del piso seguido de una letra (por ejemplo: `2A`, `3C`).
 
-- Cada **departamento** tiene un **número** de departamento, comienza con el número del piso seguido de *número* de departamento (*201* o *304*).
-- Cada **oficina** tiene un **número** de oficina, comienza con el número del piso seguido de una **letra** (*2A* o *3C*).
-
-*(1/4)*
+*(1/5)*
 
 ---
 
@@ -1483,25 +1486,34 @@ Además:
 - Las **oficinas** cuentan con un atributo `telefono`.  
 - Los **departamentos** tienen un atributo `inquilinos`.  
 
-El sistema debe permitir crear pisos con sus departamentos y oficinas correspondientes, y acceder a la información del edificio de forma organizada.  
-
-*(2/4)*
+*(2/5)*
 
 ---
 
-**Tareas:**  
+El sistema debe permitir:
+- Crear un **edificio** con sus pisos correspondientes.
+- Agregar **departamentos** y **oficinas** a cada **piso**.
+- **Acceder** y **mostrar** la información del edificio de forma organizada y jerárquica
+
+
+*(3/5)*
+
+---
+
 - Realiza el **análisis y diagrama de clases** de las clases `Edificio`, `Piso`, `Departamento` y `Oficina` en el archivo `ejercicio_02.md`.  
-- Escribe el **código en Python** correspondiente en el archivo `ejercicio_02.py`.  
-- Implementa relaciones jerárquicas entre las clases (por ejemplo, un edificio contiene pisos, y cada piso contiene oficinas y departamentos).  
+- Escribe el **código en Python** de las clases `Edificio`, `Piso`, `Departamento` y `Oficina` en el archivo `ejercicio_02.py`.  
+- Implementa relaciones jerárquicas entre objetos:
+    - Un edificio contiene varios pisos.
+    - Cada piso contiene varios departamentos y oficinas
 
-*(3/4)*
+*(4/5)*
 
 ---
+- Aplica los principios de **relaciones entre las clases** (composición o agregación según corresponda).
+- Utiliza *atributos* y *métodos* adecuados para *representar* y *mostrar* la información de cada entidad.
+- Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*.
 
-- Aplica los conceptos de **relaciones entre objetos**.
-- Utiliza propiedades y métodos adecuados para mostrar la información de cada edificio, piso, departamento y oficina.
-
-*(4/4)*
+*(5/5)*
 
 ---
 
