@@ -11,6 +11,10 @@
 
 ---
 
+### Antes de empezar
+
+---
+
 #### Proyecto en VSCode
 
 Abre el proyecto en VSCode

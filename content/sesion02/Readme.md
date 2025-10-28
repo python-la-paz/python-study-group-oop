@@ -10,7 +10,9 @@
 #### Manejo de instancias
 
 ---
+
 ### Antes de empezar
+
 ---
 
 #### Proyecto en VSCode

@@ -9,6 +9,9 @@
 #### Herencia
 #### Relaciones y reutilización de objetos
 
+---
+
+### Antes de empezar
 
 ---
 
