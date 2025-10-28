@@ -10,29 +10,34 @@
 #### Flexibilidad en el diseño de objetos
 
 ---
+### Antes de empezar
 
-#### VS Code
+---
 
-Abrimos el proyecto del Study Group
+#### Proyecto en VSCode
+
+Abre el proyecto en VSCode
 
 ```bash
 code psg-oop-2025
 ```
 
-Creamos una carpeta llamada `sesion07` dentro del proyecto
+Crea una carpeta con el nombre `sesion07`
 
 ```bash
 mkdir sesion07
 cd sesion07
 ```
 
-Aquí guardaremos los ejemplos de la sesión
+- Los archivos de esta sesión deben estar dentro de esta carpeta
+
+- Al finalizar la sesión, sube los cambios al repositorio en un commit
 
 ---
 
-#### Duck Typing
+#### **Duck Typing**
 
-En la programación orientada a objetos es una técnica que desempeña un papel importante en la flexibilidad y reutilización del código
+En programación orientada a objetos es una **técnica** que desempeña un papel importante en la **flexibilidad** y **reutilización** del código
 
 Bajo la premisa
 
@@ -41,23 +46,23 @@ Bajo la premisa
 > Si camina como un pato, suena como un pato y nada como un pato
 > entonces probablemente sea
 
-### un pato 🦆 <!-- .element class="fragment" data-fragment-index="2"-->
+### **un pato 🦆**  <!-- .element class="fragment" data-fragment-index="2"-->
 
 ---
 
 ¿Qué significa esto?
 
-Significa que no importa el tipo de un objeto, sino si se comporta como se espera
+Significa que **NO** importa el tipo de un objeto, sino como se comporta
 
 ---
 
-Python destaca por su enfoque de tipado dinámico y flexibilidad 
+Python destaca por su enfoque de tipado **dinámico** y **flexibilidad** para trabajar con diferentes tipos de datos
 
 ---
 
-En lugar de enfocarse en el tipo específico de un objeto, Python se enfoca en el comportamiento del objeto
+En lugar de enfocarse en el **tipo** específico de un objeto, Python se enfoca en el **comportamiento** del objeto
 
-> Si un objeto puede realizar las operaciones requeridas, Python lo acepta como válido
+> Si un objeto *puede* realizar las operaciones requeridas, Python lo acepta como *válido*
 
 ---
 Un ejemplo de duck typing en Python es la función `len()`
@@ -77,120 +82,142 @@ Cuando llamamos a `len()` no importa el tipo de dato que le pasamos
 
 #### Ventajas del Duck Typing
 
-- **Flexibilidad**: Permite que diferentes tipos de objetos sean utilizados de manera intercambiable si cumplen con el comportamiento esperado
-- **Reutilización de código**: Facilita la creación de funciones dinámicas
+**Flexibilidad**: Permite que diferentes tipos de objetos sean utilizados de manera intercambiable si cumplen con el comportamiento esperado
+
+**Reutilización de código**: Facilita la creación de funciones dinámicas
 
 ---
 
 #### Desventajas del Duck Typing
 
-- **Errores en tiempo de ejecución**: Si un objeto no cumple con el comportamiento esperado, puede generar errores en tiempo de ejecución
-- **Dificultad para depurar**: Puede ser más difícil rastrear errores relacionados con el tipo de objeto
+**Errores en tiempo de ejecución**: Si un objeto no cumple con el comportamiento esperado, puede generar errores en tiempo de ejecución
+
+**Dificultad para depurar**: Puede ser más difícil rastrear errores relacionados con el tipo de objeto
 
 ---
 
 #### Ejemplo 01
 
-Crear el archivo `duck_typing.md`  y el archivo `duck_typing.py` en la carpeta `sesion07`
+Crear el archivo `discman.md`  y el archivo `discman.py` en la carpeta `sesion07`
 
 ```markdown
-La empresa `PySound` desarrolla una caja musical para niños
-reproduce sonidos inicialmente de animales y muestra el nombre
-del animal. Actualmente tiene los siguientes objetos:
-- Pato
-- Gato
+La empresa `PySound` desarrolla un Discman para niños
+reproduce sonidos de animales y muestra el nombre del animal en
+su pantalla. Actualmente tiene los siguientes animales:
+- Pato 🦆 (Cuac, Cuac)
+- Gato 🐱 (Miau, Miau)
 ```
 
 ---
 
-En el archivo `duck_typing.md` 
+Análisis
 
 ```markdown
 # Analisis
 Requisitos
+- El Discman debe reproducir sonidos de animales
+- Debe mostrar el animal que emite el sonido
 - El pato debe emitir el sonido "cuac"
 - El gato debe emitir el sonido "miau"
-- La caja musical debe reproducir el sonido del pato
-- La caja musical debe mostrar el nombre del gato
+- Debe reproducir el sonido del pato
+- Debe reproducir el sonido del gato
 
 Objetos
 - Pato
 - Gato
-- CajaMusical
+- Discman
 
 Características
-- Pato: sonido "cuac", nombre "Pato"
-- Gato: sonido "miau", nombre "Gato"
+- Pato:
+    - sonido "cuac"
+- Gato:
+    - sonido "miau"
 
 Acciones
 - Pato: emitir sonido
 - Gato: emitir sonido
-- CajaMusical: reproducir sonido
+- Discman: reproducir sonido
 ```
-
-Ahora que tenemos los requisitos, características y acciones, podemos definir el diseño
 
 ---
 
-#### Diagrama de clases
+Diseño diagrama en Mermaid
+
 ````
 ```mermaid
 classDiagram
     class Pato {
-        + emitir_sonido()
+        sonido: String
+        +emitir_sonido()
     }
     
     class Gato {
-        + emitir_sonido()
+        sonido: String
+        +emitir_sonido()
     }
 
-    class CajaMusical {
-        + reproducir_sonido(objeto)
+    class Discman {
+        +reproducir_sonido(animal)
     }
 ```	
 ````
+
+---
+
+Diseño Diagrama
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
     class Pato {
-        + emitir_sonido()
+        sonido: String
+        +emitir_sonido()
     }
     
     class Gato {
-        + emitir_sonido()
+        sonido: String
+        +emitir_sonido()
     }
 
-    class CajaMusical {
-        + reproducir_sonido(objeto)
+    class Discman {
+        +reproducir_sonido(animal)
     }
-```	
+```
+<!--.element class="center-mermaid"-->
 
 ---
 
-#### Implementación en Python
+Tanto el `Pato` como el `Gato` tienen el mismo método
 
-En el archivo `duck_typing.py` 
+`emitir_sonido()`
 
-```python
+`Discman` utilizará ese nombre de método para reproducir el sonido de cualquier animal
+
+---
+
+En el archivo `discman.py` 
+
+```python [1-14|15-20]
 # Definición
 class Pato:
+    sonido = "cuac"
     def emitir_sonido(self):
-        print ("El pato 🦆 hace: cuac")
+        print (f"El pato 🦆 hace: {self.sonido}")
 
 class Gato:
+    sonido = "miau"
     def emitir_sonido(self):
-        print ("El gato 🐱 hace: miau")
+        print (f"El gato 🐱 hace: {self.sonido}")
 
-class CajaMusical:
+class Discman:
     def reproducir_sonido(self, objeto):
         objeto.emitir_sonido()
 # Uso
 pato = Pato()
 gato = Gato()
-caja_musical = CajaMusical()
-caja_musical.reproducir_sonido(pato)
-caja_musical.reproducir_sonido(gato)
+discman = Discman()
+discman.reproducir_sonido(pato)
+discman.reproducir_sonido(gato)
 ```
 
 ```text
@@ -200,165 +227,205 @@ El gato 🐱 hace: miau
 
 ---
 
-#### Ejemplo 02
+#### Ejercicio para ti (02)
 
-La caja musical también puede reproducir sonidos de objetos que no son animales,
-añadir los siguientes objetos:
+En la carpeta **sesion05** modifica los archivos **discman.md** y **discman.py**
 
 ```markdown
+La empresa `PySound` quiere mejorar su Discman para niños.
+Le añaden la capacidad de reproducir sonidos
+de objetos que no son animales,
+añadiendo los siguientes instrumentos:
 - Campana que hace "ding"
 - Tambor que hace "boom"
 ```
 
-Hacer el análisis 1 minuto
+Obtener el *Análisis*
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
 ---
 
-Análisis
+Modificando el *Análisis*
 
-```markdown [7-10|16-17|29-30]
+```markdown [10-13|18,19,26-29,35-36]
 # Analisis
+
 Requisitos
+- El Discman debe reproducir sonidos de animales
+- Debe mostrar el animal que emite el sonido
 - El pato debe emitir el sonido "cuac"
 - El gato debe emitir el sonido "miau"
-- La caja musical debe reproducir el sonido del pato
-- La caja musical debe mostrar el nombre del gato
-- La campaña debe emitir el sonido "ding"
+- Debe reproducir el sonido del pato
+- Debe reproducir el sonido del gato
+- La campana debe emitir el sonido "ding"
 - El tambor debe emitir el sonido "boom"
-- La caja musical debe reproducir el sonido de la campana
-- La caja musical debe reproducir el sonido del tambor
-
+- Debe reproducir el sonido de la campana
+- Debe reproducir el sonido del tambor
 Objetos
 - Pato
 - Gato
-- CajaMusical
+- Discman
 - Campana
 - Tambor
 
 Características
-- Pato: sonido "cuac", nombre "Pato"
-- Gato: sonido "miau", nombre "Gato"
-- Campana: sonido "ding", nombre "Campana"
-- Tambor: sonido "boom", nombre "Tambor"
+- Pato:
+    - sonido "cuac"
+- Gato:
+    - sonido "miau"
+- Campana:
+    - sonido "ding"
+- Tambor:
+    - sonido "boom"
 
 Acciones
 - Pato: emitir sonido
 - Gato: emitir sonido
-- CajaMusical: reproducir sonido
+- Discman: reproducir sonido
 - Campana: emitir sonido
 - Tambor: emitir sonido
 ```
 
 ---
 
-Ahora que tenemos los requisitos, características y acciones podemos definir el diseño
+#### Ejercicio para ti (02)
+
+Ahora obtenemos el diseño del *diagrama de clase*
 
 2 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-Añadir al archivo `duck_typing.md`
+Modifica el archivo `discman.md`
 
 ---
 
-Diagrama de clases
+Modificando el diseño de diagrama de clases
 
-```` [11-17]
+```` [13-21]
 ```mermaid
 classDiagram
     class Pato {
-        + emitir_sonido()
+        sonido: String
+        +emitir_sonido()
     }
     
     class Gato {
-        + emitir_sonido()
+        sonido: String
+        +emitir_sonido()
     }
 
     class Campana {
-        + emitir_sonido()
+        sonido: String
+        +emitir_sonido()
     }
 
     class Tambor {
-        + emitir_sonido()
+        sonido: String
+        +emitir_sonido()
     }
 
-    class CajaMusical {
-        + reproducir_sonido(objeto)
+    class Discman {
+        +reproducir_sonido(objeto)
     }
 ```	
 ````
+
+---
+
+Modificando el diseño de diagrama de clases
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
     class Pato {
-        + emitir_sonido()
+        sonido: String
+        +emitir_sonido()
     }
     
     class Gato {
-        + emitir_sonido()
+        sonido: String
+        +emitir_sonido()
     }
 
     class Campana {
-        + emitir_sonido()
+        sonido: String
+        +emitir_sonido()
     }
 
     class Tambor {
-        + emitir_sonido()
+        sonido: String
+        +emitir_sonido()
     }
 
-    class CajaMusical {
-        + reproducir_sonido(objeto)
+    class Discman {
+        +reproducir_sonido(objeto)
     }
-```	
+```
+<!--.element class="center-mermaid"-->
 
 ---
 
-Ya tenemos el análisis y el diagrama de clases, ahora podemos implementar el código
+#### Ejercicio para ti (02)
+
+Ya tenemos el *análisis y diseño* de la clase
+
+Ahora podemos **programar**
+
+Modifica el archivo `discman.py`
 
 3 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-Añadir al archivo `duck_typing.py`
-
 ---
 
-#### Implementación en Python
+Implementando las clases
 
-```python [10-16|27-30]
+```python [12-20|31-34]
 # Definición
 class Pato:
+    sonido = "cuac"
     def emitir_sonido(self):
-        print ("El pato 🦆 hace: cuac")
+        print (f"El pato 🦆 hace: {self.sonido}")
 
 class Gato:
+    sonido = "miau"
     def emitir_sonido(self):
-        print ("El gato 🐱 hace: miau")
+        print (f"El gato 🐱 hace: {self.sonido}")
 
 class Campana:
+    sonido = "ding"
     def emitir_sonido(self):
-        print ("La campana 🔔 hace: ding")
+        print (f"La campana 🔔 hace: {self.sonido}")
 
 class Tambor:
+    sonido = "boom"
     def emitir_sonido(self):
-        print ("El tambor 🥁 hace: boom")
+        print (f"El tambor 🥁 hace: {self.sonido}")
 
-class CajaMusical:
+class Discman:
     def reproducir_sonido(self, objeto):
         objeto.emitir_sonido()
 # Uso
 pato = Pato()
 gato = Gato()
-caja_musical = CajaMusical()
-caja_musical.reproducir_sonido(pato)
-caja_musical.reproducir_sonido(gato)
+discman = Discman()
+discman.reproducir_sonido(pato)
+discman.reproducir_sonido(gato)
 campana = Campana()
 tambor = Tambor()
-caja_musical.reproducir_sonido(campana)
-caja_musical.reproducir_sonido(tambor)
+discman.reproducir_sonido(campana)
+discman.reproducir_sonido(tambor)
+```
+
+---
+
+Ejecución del código
+
+```bash
+python discman.py
 ```
 
 ```text
@@ -370,25 +437,40 @@ El tambor 🥁 hace: boom
 
 ---
 
+El Duck Typing permite que la `Discman` trabaje con diferentes tipos de objetos
+siempre y cuando tengan el método `emitir_sonido()`
+
+Esto hace que el código sea más flexible y reutilizable
+
+---
+
 #### Polimorfismo
 
 ¿Qué es el polimorfismo?
 
 ---
 
-Viene del griego:
+Viene del griego
 
-poly = "muchos"
+**poly** = "muchos"
 
-morphē = "formas"
+**morphē** = "formas"
 
-→ polymorphos = "muchas formas"
+*→* **polymorphos** = "muchas formas"
+
+![Polimorfismo](./img/polimorph.gif) <!-- .element  width="30%"-->
 
 ---
 
-El polimorfismo es un concepto clave en la programación orientada a objetos
+#### Principios fundamentales
 
-También se le conoce como "sobrecarga"
+Es el **4º** y **último** principio fundamental de la Programación Orientada a Objetos (POO)
+
+## **Polimorfismo**
+
+## **o** 
+
+## **Sobrecarga** 
 
 ---
 
@@ -404,12 +486,12 @@ Pero cada uno de ellos emite un sonido diferente
 
 ---
 
-El polimorfismo permite que la `CajaMusical` llame al método `emitir_sonido()` de cualquier objeto que se le pase, sin importar su tipo específico
+El polimorfismo permite que la `Discman` llame al método `emitir_sonido()` de cualquier objeto que se le pase, sin importar su tipo específico
 
 ---
 Esto es posible gracias al duck typing, 
 
-ya que la `CajaMusical` no necesita conocer el tipo exacto de objeto que recibe,
+ya que la `Discman` no necesita conocer el tipo exacto de objeto que recibe,
 
 solo necesita que el objeto tenga un método `emitir_sonido()`
 
