@@ -1633,7 +1633,7 @@ solo necesita que la herramienta pueda ejecutar la acción **usar()**
 
 - Asegúrate de que las clases incluyan *atributos* y *métodos* coherentes con su propósito
 - Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*
-- Implementa el uso de loss instrumentos
+- Implementa el uso de los instrumentos
 
 *(5/5)*
 
