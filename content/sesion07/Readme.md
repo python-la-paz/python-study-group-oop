@@ -1714,7 +1714,8 @@ Se logra implementando la **sobrecarga de operadores**, definiendo cómo funcion
 
 - Asegúrate de que las clases incluyan *atributos* y *métodos* coherentes con su propósito
 - Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*
-- Implementa el uso de loss instrumentos
+- Implementa la suma de números romanos en el archivo `ejercicio_03.py`
+- Realiza el **análisis** y el **diagrama de clases** en el archivo `ejercicio_03.md`
 
 *(3/3)*
 
