@@ -1695,7 +1695,7 @@ Cada número se representa mediante una letra o combinación de letras romanas, 
 - `L` = 50  
 - `C` = 100  
 
-*(1/4)*
+*(1/3)*
 
 ---
 
@@ -1712,21 +1712,16 @@ El resultado debe ser un nuevo objeto de tipo **Romano** con el valor **"XV"** (
 Esto se logra mediante la **sobrecarga del operador** `+`, definiendo su comportamiento dentro de la clase `Romano`.
 
 
-*(2/4)*
+*(2/3)*
 
 ---
 
-- Realiza el **análisis** y **diagrama de clases** para las clase `Romano` en el archivo `ejercicio_01.md`.
-- Escribe el código en Python para las clases `Romano` en el archivo `ejercicio_01.py`.
-
----
-
+- Realiza el **análisis** y **diagrama de clases** para las clase `Romano` en el archivo `ejercicio_03.md`.
+- Escribe el código en Python para las clases `Romano` en el archivo `ejercicio_03.py`.
 - Asegúrate de que las clases incluyan *atributos* y *métodos* coherentes con su propósito
 - Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*
-- Realiza el **análisis** y el **diagrama de clases** en el archivo `ejercicio_03.md`
-- Implementa la suma de números romanos en el archivo `ejercicio_03.py`
 
-*(3/4)*
+*(3/3)*
 
 ---
 
