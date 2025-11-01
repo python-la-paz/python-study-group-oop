@@ -98,7 +98,7 @@ Cuando llamamos a `len()` no importa el tipo de dato que le pasamos
 
 #### Ejemplo 01
 
-Crear el archivo `discman.md`  y el archivo `discman.py` en la carpeta `sesion07`
+Crear los archivos `discman.md` y `discman.py` en la carpeta `sesion07`
 
 ```markdown
 La empresa `PySound` desarrolla un Discman para niños
@@ -229,7 +229,7 @@ El gato 🐱 hace: miau
 
 #### Ejercicio para ti (02)
 
-En la carpeta **sesion05** modifica los archivos **discman.md** y **discman.py**
+En la carpeta **sesion07** modifica los archivos **discman.md** y **discman.py**
 
 ```markdown
 La empresa `PySound` quiere mejorar su Discman para niños.
@@ -460,6 +460,7 @@ Viene del griego
 
 ![Polimorfismo](./img/polimorph.gif) <!-- .element  width="30%"-->
 
+
 ---
 
 #### Principios fundamentales
@@ -474,24 +475,29 @@ Es el **4º** y **último** principio fundamental de la Programación Orientada 
 
 ---
 
-Es la capacidad de usar un mismo método para trabajar con diferentes tipos de objetos.
+Es la capacidad de usar **un mismo método** con distintos tipos o cantidades de parámetros
 
-Esto permite que diferentes clases implementen el mismo método de manera diferente
-
----
-
-Por ejemplo, en nuestro caso, tanto el `Pato`, el `Gato`, la `Campana` y el `Tambor` tienen un método `emitir_sonido()`
-
-Pero cada uno de ellos emite un sonido diferente
+Permite que diferentes clases implementen **el mismo método** con comportamientos diferentes
 
 ---
 
-El polimorfismo permite que la `Discman` llame al método `emitir_sonido()` de cualquier objeto que se le pase, sin importar su tipo específico
+Por ejemplo, en nuestro caso,
+
+El `Pato`, el `Gato`, la `Campana` y el `Tambor` tienen un **mismo método**
+
+`emitir_sonido()`
+
+Pero cada uno de ellos emite un sonido **diferente**
 
 ---
-Esto es posible gracias al duck typing, 
 
-ya que la `Discman` no necesita conocer el tipo exacto de objeto que recibe,
+El polimorfismo permite que el `Discman` llame al método `emitir_sonido()` de cualquier objeto que se le pase, sin importar su tipo
+
+---
+
+Esto es posible gracias al **duck typing**
+
+ya que el `Discman` no necesita conocer el tipo del objeto que recibe,
 
 solo necesita que el objeto tenga un método `emitir_sonido()`
 
@@ -505,40 +511,40 @@ Podemos ver polimorfismo mediante:
 
 ---
 
-#### Polimorfismo con herencia
+#### Polimorfismo con **herencia**
 
-Una clase base define un método y las clases hijas lo implementan de manera específica
+Una clase base define un método y las clases hijas lo implementan de manera propia
 
 ---
 
-El polimorfismo con herencia permite que una clase base defina un método general
-y las clases hijas lo implementen de manera única de acuerdo a sus necesidades
+El polimorfismo con herencia permite que una **clase base** defina un método general
+y las **clases hijas** lo implementen de manera única de acuerdo a sus necesidades
 
 ---
 
 #### Ejemplo 03
 
-Crear el archivo `herencia.md` y el archivo `herencia.py` en la carpeta `sesion07`
-
+Crear los archivos `herencia.md` y `herencia.py` en la carpeta `sesion07`
 
 ```markdown
-Una empresa de delívery `PyHL` tiene diferentes
-tipos de vehículos para transportar paquetes,
-sus vehículos más comunes son:
+Una empresa de delívery `PyHL` controla diferentes
+tipos de vehículos de manera remota para 
+transportar paquetes, sus vehículos más comunes son:
 
-🚗 Auto: terrestre, a gasolina
-🚲 Bicicleta: terrestre, a pedal
+🚗 Auto: terrestre, a gasolina, mueve a 200 km/h
+🚲 Bicicleta: terrestre, a pedal, mueve a 20 km/h
 
-Los vehículos pueden moverse para transportar paquetes
+Los vehículos pueden moverse de manera diferente
 ```
 
 ---
 
-En el archivo `herencia.md` 
+Análisis en el archivo `herencia.md` 
 
 ```markdown
 # Análisis
 Requisitos
+- Registrar los vehículos de la empresa
 - Los autos pueden moverse mediante motor a gasolina
 - Las bicicletas pueden moverse mediante pedales
 
@@ -558,18 +564,16 @@ Acciones
 - Bicicleta: moverse
 ```
 
-Ahora que tenemos los requisitos, características y acciones, podemos definir el diseño
-
 ---
 
-#### Diagrama de clases
+Creando el diseño de diagrama de clases
 
 ````
 ```mermaid
 classDiagram
     class Vehiculo {
-        + tipo
-        + energia
+        + tipo: String
+        + energia: String
         + moverse()
     }
     class Auto {
@@ -585,14 +589,14 @@ classDiagram
 
 ---
 
-#### Diagrama de clases
+Creando el diseño de diagrama de clases
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
     class Vehiculo {
-        + tipo
-        + energia
+        + tipo: String
+        + energia: String
         + moverse()
     }
     class Auto {
@@ -604,14 +608,12 @@ classDiagram
     Vehiculo <|-- Auto
     Vehiculo <|-- Bicicleta
 ```
-
+<!--.element class="center-mermaid"-->
 ---
 
-#### Implementación en Python
+Creando el script `herencia.py`
 
-En el archivo `herencia.py` 
-
-```python
+```python [1-25|26-30]
 # Definición
 class Vehiculo:
     def __init__(self, tipo, energia):
@@ -644,6 +646,14 @@ auto.moverse()
 bicicleta.moverse()
 ```
 
+---
+
+Ejecución del código
+
+```bash
+python herencia.py
+```
+
 ```text
 El 🚗 avanza a 200 km/h
 Utiliza motor a gasolina y es Terrestre
@@ -653,28 +663,34 @@ Es Terrestre y pedales
 
 ---
 
-#### Ejemplo 04
-
-Añadir dos nuevos vehículos a la empresa `PyHL`:
+#### Ejercicio para ti (04)
 
 ```markdown
-- ✈️ Avión: aéreo, a gasolina
-- ⛵ Bote: acuático, a viento
+La empresa de delívery `PyHL` quiere ampliar su flota de vehículos
+añadiendo nuevos tipos de transporte:
+
+- ✈️ Avión: aéreo, a gasolina, mueve a 900 km/h
+- ⛵ Bote: acuático, a viento, mueve a 30 km/h
+
+Los vehículos pueden moverse de manera diferente
 ```
 
-Hacer el análisis 1 minuto
+Obtener el *Análisis*
+
+2 minutos 
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-Añadir al archivo `herencia.md`
+Modifica al archivo `herencia.md`
 
 ---
 
-Análisis
+Creando el *análisis*
 
-```markdown [5-6|12-13|19-20|26-27]
+```markdown [6-7,13-14|20-21,27-28]
 # Análisis
 Requisitos
+- Registrar los vehículos de la empresa
 - Los autos pueden moverse mediante motor a gasolina
 - Las bicicletas pueden moverse mediante pedales
 - Los aviones pueden moverse mediante motor a gasolina
@@ -704,24 +720,26 @@ Acciones
 
 ---
 
-Ahora que tenemos los requisitos, características y acciones podemos definir el diseño
+#### Ejercicio para ti (04)
+
+Ahora obtenemos el diseño del *diagrama de clase*
 
 2 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-Añadir al archivo `herencia.md`
+Modificar al archivo `herencia.md`
 
 ---
 
-#### Diagrama de clases
+Creando el diseño de diagrama de clases
 
 ```` [14-19|22-23]
 ```mermaid
 classDiagram
     class Vehiculo {
-        + tipo
-        + energia
+        + tipo: String
+        + energia: String
         + moverse()
     }
     class Auto {
@@ -745,14 +763,14 @@ classDiagram
 
 ---
 
-#### Diagrama de clases
+Creando el diseño de diagrama de clases
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
     class Vehiculo {
-        + tipo
-        + energia
+        + tipo: String
+        + energia: String
         + moverse()
     }
     class Auto {
@@ -772,18 +790,25 @@ classDiagram
     Vehiculo <|-- Avion
     Vehiculo <|-- Bote
 ```
+<!--.element class="center-mermaid"-->
 
 ---
 
-Ya tenemos el análisis y el diagrama de clases, ahora podemos implementar el código
+#### Ejercicio para ti (04)
+
+Ya tenemos el *análisis y diseño* de la clase
+
+Ahora podemos **programar**
 
 3 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-Añadir al archivo `herencia.py`
+Modificar el archivo `herencia.py`
 
 ---
+
+Implementando las clases
 
 ```python [27-41|47-50]
 # Definición
@@ -838,6 +863,14 @@ avion.moverse()
 bote.moverse()
 ```
 
+---
+
+Ejecución del código
+
+```bash
+python herencia.py
+```
+
 ```text
 El 🚗 avanza a 200 km/h
 Utiliza motor a gasolina y es Terrestre
@@ -851,9 +884,9 @@ Utiliza viento y es Acuático
 
 ---
 
-#### Sobrecarga de métodos
+#### Polimorfismo de **métodos**
 
-Consiste en definir múltiples métodos con el mismo nombre dentro de una clase, pero con diferentes implementaciones
+Consiste en definir **múltiples métodos** con el mismo nombre dentro de una **misma clase**, pero con diferentes parámetros
 
 ```text
 clase Persona 
@@ -866,60 +899,75 @@ clase Persona
 
 ---
 
-En otros lenguajes puede existir en la misma clase un método con el mismo nombre pero con diferentes parámetros
+En otros lenguajes de programación es posible la polimorfismo de métodos
+
+en la misma clase, definiendo múltiples métodos con el mismo nombre pero con diferentes parámetros
 
 ---
-En Python, esto NO es posible
 
-Python no permite la sobrecarga de métodos por parámetros
+En Python, esto *NO es posible*
 
-Pero, se puede lograr un comportamiento similar utilizando argumentos por defecto o argumentos variables `*args` y `**kwargs`
+Python NO permite el polimorfismo de métodos por parámetros
+
+Si definimos múltiples métodos con el mismo nombre en una clase, el último definido sobrescribirá a los anteriores
+
+Pero, se puede lograr un **comportamiento similar** 
+
+1. Con parámetros por defecto
+2. Con argumentos variables `*args` y `**kwargs`
 
 ---
 
 #### Ejemplo 05
 
-Crear el archivo `metodos.md` y el archivo `metodos_01.py` en la carpeta `sesion07`
+Crear el archivo `mensaje.md` y los archivos
+
+`mensaje_01.py` y `mensaje_02.py`
+
+en la carpeta `sesion07`
 
 ```markdown
-Una empresa de mensajería `PyMS` tiene diferentes tipos
-de mensajes que pueden enviar:
+Una empresa de mensajería posee un sistema capaz de
+enviar diferentes tipos de mensajes:
 - Mensajes de texto
 - Mensajes de audio
 De acuerdo al tipo de mensaje, se debe enviar de manera diferente
+Los mensajes de texto se envían como texto
+Los mensajes de audio se envían como sonido
+Un mensaje tiene un contenido
 ```
 
 ---
 
-En el archivo `metodos.md` 
+En el archivo **mensaje.md**
 
 ```markdown
 # Análisis
 Requisitos
+- Los mensajes tienen un contenido
+- Existen dos tipos de mensajes: texto y audio
 - Los mensajes de texto deben enviarse como texto
 - Los mensajes de audio deben enviarse como sonido
 Objetos
 - Mensaje
 
 Características
-- Mensaje: contenido
+- Mensaje: contenido: String
 
 Acciones
 - Mensaje: enviar()
 ```
 
-Ahora que tenemos los requisitos, características y acciones, podemos definir el diseño
-
 ---
 
-#### Diagrama de clases
+Creando el diseño de diagrama de clases
 
 ````
 ```mermaid
 classDiagram
     class Mensaje {
-        + contenido
-        + enviar(tipo)
+        +contenido: String
+        +enviar(tipo)
     }
 ```
 ````
@@ -928,15 +976,15 @@ classDiagram
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
     class Mensaje {
-        + contenido
-        + enviar(tipo)
+        +contenido: String
+        +enviar(tipo)
     }
 ```
+<!--.element class="center-mermaid"-->
 
 ---
-#### Implementación en Python I
 
-En `metodos_01.py` usando parámetros por defecto
+En `mensaje_01.py` con **parámetros por defecto**
 
 ```python
 # Definición
@@ -954,15 +1002,22 @@ mensaje.enviar()
 mensaje.enviar(audio=True)
 ```
 
+---
+
+Ejecución del código
+
+```bash
+python mensaje_01.py
+```
+
 ```text
 💬 Hola, ¿cómo estás?
 📣 Hola, ¿cómo estás?
 ```
 
 ---
-#### Implementacion en Python II
 
-En `métodos_02.py` usando argumentos variables
+En `mensaje_02.py` con **argumentos variables**
 
 ```python
 # Definición
@@ -978,34 +1033,48 @@ class Mensaje:
 mensaje = Mensaje("Hola, ¿cómo estás?")
 mensaje.enviar("texto")
 mensaje.enviar("audio")
-mensaje.enviar("video")
+mensaje.enviar("texto", "audio")
+```
+
+---
+Ejecución del código
+
+```bash
+python mensaje_02.py
 ```
 
 ```text
 💬 Hola, ¿cómo estás?
 📣 Hola, ¿cómo estás?
+📣 Hola, ¿cómo estás?
+💬 Hola, ¿cómo estás?
 ```
 
 ---
-#### Ejemplo 06
+#### Ejercicio para ti (06)
 
-Añadir un nuevo tipo de mensaje a la empresa `PyMS`:
 
 ```markdown
-- Mensajes mediante video
+La empresa de mensajería quiere ampliar su sistema de mensajes
+añadiendo la capacidad de enviar mensajes mediante video
+Los mensajes de video deben enviarse como video 🎥
 ```
 
-Hacer el análisis 1 minuto
+Obtener el *Análisis*
+
+1 minuto 
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-Añadir al archivo `metodos.md`
+Modifica al archivo `mensaje.md`
 
 ---
 
-```markdown [5]
+```markdown [7]
 # Análisis
 Requisitos
+- Los mensajes tienen un contenido
+- Existen dos tipos de mensajes: texto y audio
 - Los mensajes de texto deben enviarse como texto
 - Los mensajes de audio deben enviarse como sonido
 - Los mensajes de video deben enviarse como video
@@ -1013,7 +1082,7 @@ Objetos
 - Mensaje
 
 Características
-- Mensaje: contenido
+- Mensaje: contenido: String
 
 Acciones
 - Mensaje: enviar()
@@ -1021,20 +1090,14 @@ Acciones
 
 ---
 
-Ahora que tenemos los requisitos, características y acciones, podemos definir el diseño
-
-En este caso, no cambiaremos el diagrama de clases, ya que el mensaje sigue siendo el mismo objeto
-
----
-
-#### Diagrama de clases
+No cambiaremos el diagrama de clases, ya que el mensaje sigue siendo el mismo objeto
 
 ````
 ```mermaid
 classDiagram
     class Mensaje {
-        + contenido
-        + enviar(tipo)
+        +contenido: String
+        +enviar(tipo)
     }
 ```
 ````
@@ -1042,24 +1105,29 @@ classDiagram
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
     class Mensaje {
-        + contenido
-        + enviar(tipo)
+        +contenido: String
+        +enviar(tipo)
     }
 ```
+<!--.element class="center-mermaid"-->
 
 ---
 
-Ya tenemos el análisis y el diagrama de clases, ahora podemos implementar el código
+#### Ejercicio para ti (06)
+
+Ya tenemos el *análisis y diseño* de la clase
+
+Ahora podemos **programar**
 
 3 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-Añadir al archivo `metodos_01.py` y `metodos_02.py`
+Modifica los archivos `mensaje_01.py` y `mensaje_02.py`
 
 ---
 
-En  `metodos_01.py` usando parametros por defecto
+En `mensaje_01.py` con **parámetros por defecto**
 
 ```python [5-11|13-17]
 # Definición
@@ -1081,6 +1149,13 @@ mensaje.enviar(video=True)
 mensaje.enviar(audio=True, video=True)
 ```
 
+---
+Ejecución del código
+
+```bash
+python mensaje_01.py
+```
+
 ```text
 💬 Hola, ¿cómo estás?
 📣 Hola, ¿cómo estás?
@@ -1091,7 +1166,7 @@ mensaje.enviar(audio=True, video=True)
 
 ---
 
-En  `métodos_02.py` usando argumentos variables
+En `mensaje_02.py` con **argumentos variables**
 
 ```python [5-11|13-17]
 # Definición
@@ -1113,6 +1188,14 @@ mensaje.enviar("video")
 mensaje.enviar("audio", "video")
 ```
 
+---
+
+Ejecución del código
+
+```bash
+python mensaje_02.py
+```
+
 ```text
 💬 Hola, ¿cómo estás?
 📣 Hola, ¿cómo estás?
@@ -1123,14 +1206,18 @@ mensaje.enviar("audio", "video")
 
 ---
 
-#### Sobrecarga de operadores
+#### Polimorfismo de **operadores**
 
-La sobrecarga de operadores es la capacidad de definir el comportamiento de los operadores para objetos personalizados
+El polimorfismo de operadores o 
+
+**sobrecarga de operadores**
+
+es la capacidad de definir el comportamiento de los operadores para objetos personalizados
 
 Los operadores como `+`, `-`, `*`, `/`, pueden ser redefinidos para trabajar con instancias de clases
 
 ---
-Por ejemplo, en Python con el operador `+` podemos sumar números y también concatenar cadenas
+En Python con el operador `+` podemos **sumar** números y también **concatenar** cadenas
 
 ```python
 a = 5
@@ -1142,7 +1229,7 @@ f = d + " " + e  # Concatenación de cadenas
 ```
 
 ---
-En Python se pueden definir métodos especiales para sobrecargar operadores
+En Python se puede definir métodos especiales para **sobrecargar operadores**
 
 Estos métodos tienen nombres específicos que comienzan y terminan con dos guiones bajos `__`
 
@@ -1160,57 +1247,67 @@ Estos métodos tienen nombres específicos que comienzan y terminan con dos guio
 
 ---
 
-Es una buena práctica definir métodos generales privados o protegidos
+Es una buena práctica definir **métodos propios** privados o protegidos
 
-para que se puedan reutilizar en los métodos especiales de los operadores
+para que se puedan reutilizar en los **métodos especiales** de los operadores
 
 ---
 
 #### Ejemplo 07
 
-Crear el archivo `operadores.md` y el archivo `operadores.py` en la carpeta `sesion07`
+Crear los archivos `operadores.md` y `operadores.py` en la carpeta `sesion07`
 
 ```markdown
 Una profesor de matemáticas quiere crear una calculadora
 de vectores bidimensionales, los vectores tienen
-dos componentes: x e y. Los vectores pueden sumarse y restarse
-entre sí utilizando los operadores `+` y `-`
-Se pueden mostrar los vectores como `(x, y)`
+dos componentes: x , y. Pueden sumarse y restarse
+entre sí utilizando operadores + y -
+Se muestran como pares (x, y) y tienen valores flotantes
+La suma como la resta genera un nuevo vector resultante
+Ejemplo:    A = (1, 1); B = (2, 3) 
+            A + B = (3, 4) ; A - B = (-1, -2)
 ```
 
-En el archivo `operadores.md` 
+![Vectores](./img/vectores.png) <!-- .element  width="10%"-->
+
+En el archivo `operadores.md`
+
 
 ---
 
-#### Análisis
+En el archivo `operadores.md`
 
 ```markdown
 # Análisis
 Requisitos
-- Los vectores deben tener componentes x e y
+- Los vectores deben tener componentes x , y flotantes
 - Los vectores pueden sumarse y restarse entre sí
-- Los vectores se pueden mostrar como `(x, y)`
+- Los vectores se pueden mostrar como (x, y)
+- La suma de vectores genera un nuevo vector
+- La resta de vectores genera un nuevo vector
+- Los vectores pueden sumarse con el operador `+`
+- Los vectores pueden restarse con el operador `-`
 Objetos
 - Vector
 Características
 - Vector: x, y
 Acciones
-- Vector: sumar, restar, mostrar
+- Vector:   sumar, restar, mostrar
 ```
 
 ---
 
-#### Diagrama de clases
+Creando el diseño de diagrama de clases
 
 ````
 ```mermaid
 classDiagram
     class Vector {
-        + x
-        + y
-        - sumar(vector)
-        - restar(vector)
-        + mostrar()
+        +x: float
+        +y: float
+        -sumar(vector)
+        -restar(vector)
+        +mostrar()
     }
 ```
 ````
@@ -1219,24 +1316,25 @@ classDiagram
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
     class Vector {
-        + x
-        + y
-        - sumar(vector)
-        - restar(vector)
-        + mostrar()
+        +x: float
+        +y: float
+        -sumar(vector)
+        -restar(vector)
+        +mostrar()
     }
 ```
+<!--.element class="center-mermaid"-->
 
 ---
-#### Implementación en Python
+
 En el archivo `operadores.py` 
 
-```python
+```python [1-11|12-15|16-20|21-24]
 # Definición
 class Vector:
     def __init__(self, x, y):
-        self.x = x
-        self.y = y
+        self.x = float(x)
+        self.y = float(y)
     def __sumar(self, vector):
         return Vector(self.x + vector.x, self.y + vector.y)
     def __restar(self, vector):
@@ -1258,113 +1356,145 @@ print(f"A+B: {vector3.mostrar()}")
 print(f"A-B: {vector4.mostrar()}")
 ```
 
+---
+
+Ejecución del código
+
+```bash
+python operadores.py
+```
+
 ```text
-A: (1, 1)
-B: (2, 3)
-A+B: (3, 4)
-A-B: (-1, -2)
+A: (1.0, 1.0)
+B: (2.0, 3.0)
+A+B: (3.0, 4.0)
+A-B: (-1.0, -2.0)
 ```
 
 ---
 
-#### Ejemplo 08
-
-Añadir nuevas características a la calculadora de vectores:
+#### Ejercicio para ti (08)
 
 ```markdown
-- Los vectores pueden multiplicarse y dividise
-utilizando el operador `*` y `/`
-- Los vectores pueden multiplicarse por un escalar
-- Los vectores pueden dividirse por un escalar
-Ejemplo:
-- `(2, 4) * 2 = (4, 8)`
-- `(2, 4) / 2 = (1, 2)`
+El profesor de matemáticas quiere ampliar la calculadora
+de vectores bidimensionales, añadiendo la capacidad
+de multiplicar y dividir vectores utilizando operadores * y /
+Los vectores se puede multiplicar y dividirse
+por un escalar (número) generando un nuevo vector resultante
+Ejemplo:    (2, 4) * 2 = (4, 8)
+            (2, 4) / 2 = (1, 2)
 ```
 
-Hacer el análisis 1 minuto
 
-<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
-
----
-
-```markdown [6-9|16]
-# Análisis
-Requisitos
-- Los vectores deben tener componentes x e y
-- Los vectores pueden sumarse y restarse entre sí
-- Los vectores se pueden mostrar como `(x, y)`
-- Los vectores pueden multiplicarse por el operador `*`
-- Los vectores pueden dividirse por el operador `/`
-- Los vectores pueden multiplicarse por un escalar
-- Los vectores pueden dividirse por un escalar
-Objetos
-- Vector
-Características
-- Vector: x, y
-Acciones
-- Vector: sumar, restar, mostrar
-- Vector: multiplicar, dividir
-```
-
----
-
-Ahora que tenemos los requisitos, características y acciones, podemos definir el diseño
+Obtener el *Análisis*
 
 2 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-Añadir al archivo `operadores.md`
+Modifica al archivo `operadores.md`
 
 ---
+
+En el archivo `operadores.md`
+
+```markdown [10-15|22]
+# Análisis
+Requisitos
+- Los vectores deben tener componentes x , y flotantes
+- Los vectores pueden sumarse y restarse entre sí
+- Los vectores se pueden mostrar como (x, y)
+- La suma de vectores genera un nuevo vector
+- La resta de vectores genera un nuevo vector
+- Los vectores pueden sumarse con el operador `+`
+- Los vectores pueden restarse con el operador `-`
+- Los vectores pueden multiplicarse por un escalar
+- Los vectores pueden dividirse por un escalar
+- La multiplicación de vectores genera un nuevo vector
+- La división de vectores genera un nuevo vector
+- Los vectores pueden multiplicarse por el operador `*`
+- Los vectores pueden dividirse por el operador `/`
+Objetos
+- Vector
+Características
+- Vector: x, y
+Acciones
+- Vector:   sumar, restar, mostrar
+            multiplicar, dividir
+```
+
+---
+
+#### Ejercicio para ti (08)
+
+Ahora obtenemos el diseño del *diagrama de clase*
+
+2 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+Modificar al archivo `operadores.md`
+
+---
+
+Creando el diseño de diagrama de clases
 
 ```` [9-10]
 ```mermaid
 classDiagram
     class Vector {
-        + x
-        + y
-        - sumar(vector)
-        - restar(vector)
-        + mostrar()
-        - multiplicar(escalar)
-        - dividir(escalar)
+        +x: float
+        +y: float
+        -sumar(vector)
+        -restar(vector)
+        +mostrar()
+        -multiplicar(escalar)
+        -dividir(escalar)
     }
 ```
 ````
+
+---
+
+Creando el diseño de diagrama de clases
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
     class Vector {
-        + x
-        + y
-        - sumar(vector)
-        - restar(vector)
-        + mostrar()
-        - multiplicar(escalar)
-        - dividir(escalar)
+        +x: float
+        +y: float
+        -sumar(vector)
+        -restar(vector)
+        +mostrar()
+        -multiplicar(escalar)
+        -dividir(escalar)
     }
 ```
+<!--.element class="center-mermaid"-->
 
 ---
 
-Ya tenemos el análisis y el diagrama de clases, ahora podemos implementar el código
+#### Ejercicio para ti (08)
+
+Ya tenemos el *análisis y diseño* de la clase
 
 3 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-Añadir al archivo `operadores.py`
+Modifica el archivo `operadores.py`
 
 ---
 
-```python [10-16|23-26|36-39]
+Implementando los operadores
+
+```python [10-13|20-23|33-36]
 # Definición
 class Vector:
     def __init__(self, x, y):
-        self.x = x
-        self.y = y
+        self.x = float(x)
+        self.y = float(y)
     def __sumar(self, vector):
         return Vector(self.x + vector.x, self.y + vector.y)
     def __restar(self, vector):
@@ -1372,10 +1502,7 @@ class Vector:
     def __multiplicar(self, escalar):
         return Vector(self.x * escalar, self.y * escalar)
     def __dividir(self, escalar):
-        if escalar != 0:
-            return Vector(self.x / escalar, self.y / escalar)
-        else:
-            raise ValueError("No se puede dividir por cero")
+        return Vector(self.x / escalar, self.y / escalar)
     def mostrar(self):
         return f"({self.x}, {self.y})"
     def __add__(self, vector):
@@ -1401,13 +1528,31 @@ print(f"A*2: {vector5.mostrar()}")
 print(f"B/2: {vector6.mostrar()}")
 ```
 
+---
+
+Ejecución del código
+
+```bash
+python operadores.py
+```
+
 ```text
-A: (1, 1)
-B: (2, 3)
-A+B: (3, 4)
-A-B: (-1, -2)
-A*2: (2, 2)
+A: (1.0, 1.0)
+B: (2.0, 3.0)
+A+B: (3.0, 4.0)
+A-B: (-1.0, -2.0)
+A*2: (2.0, 2.0)
 B/2: (1.0, 1.5)
+```
+
+---
+
+Subimos los avances de la sesión al repositorio en **GitHub**
+
+```bash
+git add .
+git commit -m "Sesión 07"
+git push origin main
 ```
 
 ---
@@ -1441,6 +1586,7 @@ Crear una carpeta con el nombre "retos_sesion_07" dentro del proyecto en la raí
 ```bash
 # Estructura de carpetas
 psg-oop-2025/
+    sesion07/
     retos_sesion_07/
         ejercicio_01.md
         ejercicio_01.py
@@ -1452,36 +1598,128 @@ psg-oop-2025/
 
 ---
 
-1. Un taller de carpintería guarda diferentes herramientas (por ejemplo, martillo, destornillador, llave inglesa).
-Cada herramienta se puede "usar". La persona que usa la herramienta con la acción "utilizar" debe poder usar cualquier herramienta sin importar su tipo.
+1. En un **taller de carpintería**, los trabajadores utilizan diferentes **herramientas** para construir muebles, reparar objetos o ajustar piezas.  
+Cada herramienta tiene una función particular, pero todas pueden ser **utilizadas** por el carpintero de manera similar.
 
-   - Crea un análisis, diagrama de clases y código que implemente el duck typing.
-   - Debes crear al menos 2 herramientas diferentes.
+Por ejemplo:  
+- El **martillo** se usa para **clavar clavos**
+- El **destornillador** se usa para **ajustar tornillos**
+- La **llave inglesa** se usa para **apretar tuercas**
+
+*(1/5)*
 
 ---
 
-2. Imagina que estás diseñando una aplicación para aprender a tocar instrumentos musicales.
-hay varios instrumentos disponibles para el usuario. 
-Aunque todos son instrumentos y se pueden "tocar", cada uno tiene una forma diferente de sonar:
+El carpintero no necesita saber el tipo exacto de herramienta que usa
+solo necesita que la herramienta pueda ejecutar la acción **usar()**
+
+*(2/5)*
+
+---
+
+- Diseña las clases necesarias para representar las herramientas e implementa su comportamiento `Martillo`, `Destornillador`, `LlaveInglesa`
+- Cada herramienta debe tener su propio comportamiento en el método `usar()`
+
+*(3/5)*
+
+---
+
+- Realiza el **análisis** y **diagrama de clases** para las clases `Martillo`, `Destornillador` y `LlaveInglesa` en el archivo `ejercicio_01.md`
+- Escribe el código en Python utilizando **duck typing** en el archivo `ejercicio_01.py`
+
+*(4/5)*
+
+---
+
+- Asegúrate de que las clases incluyan *atributos* y *métodos* coherentes con su propósito
+- Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*
+- Implementa el uso de loss instrumentos
+
+*(5/5)*
+
+---
+
+2. Una aplicación de aprendizaje musical permite a los usuarios practicar con distintos **instrumentos**
+Cada instrumento tiene una forma diferente de producir sonido, pero todos pueden ser **tocados** por el usuario
+
+Por ejemplo:  
+- La **guitarra** hace "strum"
+- El **piano** hace "plin"
+- El **tambor** hace "boom"
+
+*(1/5)*
+
+---
+
+Aunque cada instrumento suena distinto, todos comparten una característica común:  
+pueden ejecutar la acción **tocar()**
+
+*(2/5)*
+
+---
+
+- Diseña las clases necesarias para representar los diferentes **Instrumentos**
+- Crea una clase base `Instrumento` con un método `tocar()` que será redefinido por cada clase hija
+- Cada instrumento debe mostrar su propio sonido cuando se ejecuta el método `tocar()`
+
+*(3/5)*
+
+---
+
+- Realiza el **análisis** y el **diagrama de clases** para `Instrumento`, `Guitarra`, `Piano` en el archivo `ejercicio_03.md`
+- Escribe el código en Python en el archivo `ejercicio_03.py`
+
+*(4/5)*
+
+---
+
+- Asegúrate de que las clases incluyan *atributos* y *métodos* coherentes con su propósito
+- Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*
+- Implementa el uso de loss instrumentos
+
+*(5/5)*
+
+
+
+---
+
+3. Un profesor de matemáticas tiene una **calculadora de números romanos**.  
+Cada número se representa con una letra o combinación de letras romanas, como:  
+- I = 1  
+- V = 5  
+- X = 10  
+- L = 50  
+- C = 100  
+
+*(1/3)*
+
+---
+
+Crear una clase que permita **sumar números romanos** usando el operador `+`
+
+```python
+num1 = Romano("X")   # 10  
+num2 = Romano("V")   # 5
+resultado = num1 + num2
 ```
-la guitarra hace "strum"
-el piano hace "plin"
-el tambor hace "boom"
-```
 
-    - Crea un análisis, diagrama de clases y código que implemente polimorfismo con herencia.
-    - Debes crear al menos 2 instrumentos diferentes.
+El resultado debe ser un nuevo objeto con el valor "XV" (15)
 
+Se logra implementando la **sobrecarga de operadores**, definiendo cómo funciona `+` en la clase **Romano**
+
+*(2/3)*
 
 ---
 
-3. En una tienda, cada producto tiene un precio y una cantidad disponible. Y un cliente tiene un carrito de compras donde puede agregar productos.
-Cada que añade un producto al carrito, se debe calcular el total del costo de los productos en el carrito.
 
-    - Crea un análisis, diagrama de clases y código que implemente la sobrecarga de operadores.
-    - Debes crear al menos 2 productos diferentes y un cliente con un carrito de compras.
+- Asegúrate de que las clases incluyan *atributos* y *métodos* coherentes con su propósito
+- Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*
+- Implementa el uso de loss instrumentos
+
+*(3/3)*
 
 ---
+
 <!-- .slide: data-background-image="../../content/psg-bg-dark.png" data-background-size="100%"-->
 
 <br>
@@ -1490,7 +1728,7 @@ Cada que añade un producto al carrito, se debe calcular el total del costo de l
 <br>
 <br>
 
-[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/content/sesion07)
+[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/tree/main/content/sesion07)
 
 Repositorio de la Sesión
 
