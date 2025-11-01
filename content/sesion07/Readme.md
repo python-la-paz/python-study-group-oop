@@ -1668,9 +1668,9 @@ pueden ejecutar la acción **tocar()**
 
 ---
 
-- Realiza el **análisis** y el **diagrama de clases** para `Instrumento`, `Guitarra`, `Piano` y `Tambor` en el archivo `ejercicio_03.md`
+- Realiza el **análisis** y el **diagrama de clases** para `Instrumento`, `Guitarra`, `Piano` y `Tambor` en el archivo `ejercicio_02.md`
 
-- Escribe el código en Python para las clases de tu diagrama de clases en el archivo `ejercicio_03.py`
+- Escribe el código en Python para las clases de tu diagrama de clases en el archivo `ejercicio_02.py`
 
 *(4/5)*
 
