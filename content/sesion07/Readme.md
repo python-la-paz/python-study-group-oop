@@ -1599,7 +1599,7 @@ psg-oop-2025/
 ---
 
 1. En un **taller de carpintería**, los trabajadores utilizan diferentes **herramientas** para construir muebles, reparar objetos o ajustar piezas.  
-Cada herramienta tiene una función particular, pero todas pueden ser **utilizadas** por el carpintero de manera similar.
+Cada herramienta tiene una función específica, pero todas pueden ser **utilizadas** por el carpintero de manera similar.
 
 Por ejemplo:  
 - El **martillo** se usa para **clavar clavos**
@@ -1610,37 +1610,39 @@ Por ejemplo:
 
 ---
 
-El carpintero no necesita saber el tipo exacto de herramienta que usa
+El carpintero no necesita saber el tipo exacto de herramienta que esta utilizando,
 solo necesita que la herramienta pueda ejecutar la acción **usar()**
 
 *(2/5)*
 
 ---
 
-- Diseña las clases necesarias para representar las herramientas e implementa su comportamiento `Martillo`, `Destornillador`, `LlaveInglesa`
-- Cada herramienta debe tener su propio comportamiento en el método `usar()`
+- Crea las clases necesarias para representar las herramientas: **Martillo**, **Destornillador** y **LlaveInglesa**.
+- Cada clase debe implementar su propio comportamiento en el método `usar()`.
+
 
 *(3/5)*
 
 ---
 
 - Realiza el **análisis** y **diagrama de clases** para las clases `Martillo`, `Destornillador` y `LlaveInglesa` en el archivo `ejercicio_01.md`
-- Escribe el código en Python utilizando **duck typing** en el archivo `ejercicio_01.py`
+- Escribe el código en Python para las clases de tu diagrama de clases utilizando **duck typing** en el archivo `ejercicio_01.py`
 
 *(4/5)*
 
 ---
 
-- Asegúrate de que las clases incluyan *atributos* y *métodos* coherentes con su propósito
-- Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*
-- Implementa el uso de los instrumentos
+- Asegúrate de que las clases incluyan *atributos* y *métodos* coherentes con su propósito (por ejemplo, tipo de mango, material, peso).
+- Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*.
+- Implementa un ejemplo de uso donde el carpintero interactúe con distintas herramientas sin conocer su tipo específico.
+
 
 *(5/5)*
 
 ---
 
 2. Una aplicación de aprendizaje musical permite a los usuarios practicar con distintos **instrumentos**
-Cada instrumento tiene una forma diferente de producir sonido, pero todos pueden ser **tocados** por el usuario
+Cada instrumento tiene una forma particular de producir sonido, pero todos pueden ser **tocados** por el usuario mediante una acción común.
 
 Por ejemplo:  
 - La **guitarra** hace "strum"
@@ -1658,44 +1660,46 @@ pueden ejecutar la acción **tocar()**
 
 ---
 
-- Diseña las clases necesarias para representar los diferentes **Instrumentos**
-- Crea una clase base `Instrumento` con un método `tocar()` que será redefinido por cada clase hija
-- Cada instrumento debe mostrar su propio sonido cuando se ejecuta el método `tocar()`
+- Crea una clase base llamada **Instrumento** que defina el método `tocar()`.
+- Identifica atributos y métodos relevantes para cada instrumento, considerando su función y comportamiento.
+- Implementa las clases derivadas **Guitarra**, **Piano** y **Tambor**, cada una con su propia versión del método `tocar()` que imprima su sonido característico.
 
 *(3/5)*
 
 ---
 
-- Realiza el **análisis** y el **diagrama de clases** para `Instrumento`, `Guitarra`, `Piano` en el archivo `ejercicio_03.md`
-- Escribe el código en Python en el archivo `ejercicio_03.py`
+- Realiza el **análisis** y el **diagrama de clases** para `Instrumento`, `Guitarra`, `Piano` y `Tambor` en el archivo `ejercicio_03.md`
+
+- Escribe el código en Python para las clases de tu diagrama de clases en el archivo `ejercicio_03.py`
 
 *(4/5)*
 
 ---
 
-- Asegúrate de que las clases incluyan *atributos* y *métodos* coherentes con su propósito
+- Asegúrate de que las clases incluyan *atributos* y *métodos* coherentes con su propósito (por ejemplo, número de cuerdas, tipo de percusión, material).
 - Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*
-- Implementa el uso de los instrumentos
+- Implementa un ejemplo de uso donde un usuario interactúe con distintos instrumentos sin preocuparse por su tipo específico.
+
 
 *(5/5)*
 
 
+---
+
+3. Un profesor de matemáticas utiliza una **calculadora de números romanos** para enseñar aritmética clásica.
+Cada número se representa mediante una letra o combinación de letras romanas, como:
+
+- `I` = 1  
+- `V` = 5  
+- `X` = 10  
+- `L` = 50  
+- `C` = 100  
+
+*(1/4)*
 
 ---
 
-3. Un profesor de matemáticas tiene una **calculadora de números romanos**.  
-Cada número se representa con una letra o combinación de letras romanas, como:  
-- I = 1  
-- V = 5  
-- X = 10  
-- L = 50  
-- C = 100  
-
-*(1/3)*
-
----
-
-Crear una clase que permita **sumar números romanos** usando el operador `+`
+Crea la clase `Romano` que permita **sumar números romanos** usando el operador `+`
 
 ```python
 num1 = Romano("X")   # 10  
@@ -1703,21 +1707,26 @@ num2 = Romano("V")   # 5
 resultado = num1 + num2
 ```
 
-El resultado debe ser un nuevo objeto con el valor "XV" (15)
+El resultado debe ser un nuevo objeto de tipo **Romano** con el valor **"XV"** (equivalente a 15).
 
-Se logra implementando la **sobrecarga de operadores**, definiendo cómo funciona `+` en la clase **Romano**
+Esto se logra mediante la **sobrecarga del operador** `+`, definiendo su comportamiento dentro de la clase `Romano`.
 
-*(2/3)*
+
+*(2/4)*
 
 ---
 
+- Realiza el **análisis** y **diagrama de clases** para las clase `Romano` en el archivo `ejercicio_01.md`.
+- Escribe el código en Python para las clases `Romano` en el archivo `ejercicio_01.py`.
+
+---
 
 - Asegúrate de que las clases incluyan *atributos* y *métodos* coherentes con su propósito
 - Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*
 - Realiza el **análisis** y el **diagrama de clases** en el archivo `ejercicio_03.md`
 - Implementa la suma de números romanos en el archivo `ejercicio_03.py`
 
-*(3/3)*
+*(3/4)*
 
 ---
 
