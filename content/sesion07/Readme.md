@@ -1610,7 +1610,7 @@ Por ejemplo:
 
 ---
 
-El carpintero no necesita saber el tipo exacto de herramienta que esta utilizando,
+El carpintero no necesita saber el tipo exacto de herramienta que está utilizando,
 solo necesita que la herramienta pueda ejecutar la acción **usar()**
 
 *(2/5)*
