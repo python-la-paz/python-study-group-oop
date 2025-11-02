@@ -11,6 +11,13 @@ Todos los recursos que encontrarás han sido desarrollados con mucho cariño por
 ## Equipo 👩‍💻👨‍💻
 
 * **[Jonathan](https://github.com/jevillanueva):** Creador del contenido 📝👨‍💻
-  
+* **[Tatiana](https://github.com/taicoding):** Curador de contenido 📌🔍
+
+## Contributors
+
+<a href="https://github.com/python-la-paz/python-study-group-oop/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=python-la-paz/python-study-group-oop" />
+</a>  
+
 ### Con mucho ❤️ Python La Paz 🐍 
 [![Pagina Web](https://img.shields.io/badge/Web-Python%20La%20Paz-blue.svg)](https://pylapaz.org/)
