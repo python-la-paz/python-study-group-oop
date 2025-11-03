@@ -11,36 +11,28 @@
 
 ---
 
-<!-- Que son los dunder methods
-beneficios y usos reales
-Como se declaran y su notacion
-Metodos de inicializacion y destruccion
-Metodos de representacion y conversion
-Metodos de comparacion
-Operadores aritmeticos
-Operadores de comparacion
-Metodos de coleccion -->
+### Antes de empezar
 
 ---
 
----
+#### Proyecto en VSCode
 
-#### VS Code
-
-Abrimos el proyecto del Study Group
+Abre el proyecto en VSCode
 
 ```bash
 code psg-oop-2025
 ```
 
-Creamos una carpeta llamada `sesion07` dentro del proyecto
+Crea una carpeta con el nombre `sesion08`
 
 ```bash
-mkdir sesion07
-cd sesion07
+mkdir sesion08
+cd sesion08
 ```
 
-Aquí guardaremos los ejemplos de la sesión
+- Los archivos de esta sesión deben estar dentro de esta carpeta
+
+- Al finalizar la sesión, sube los cambios al repositorio en un commit
 
 ---
 
@@ -49,59 +41,62 @@ Aquí guardaremos los ejemplos de la sesión
 ¿Qué son los Dunder Methods?
 
 ---
-Los Dunder Methods, o "Double Underscore Methods", son métodos especiales en Python que permiten personalizar el comportamiento de las instancias de una clase. 
+Los **Dunder Methods** o **Double Underscore Methods**
+
+Son métodos especiales en Python que permiten personalizar el comportamiento de las instancias de una clase
 
 ---
-Son llamados también "métodos mágicos" o "métodos especiales".
+Son llamados también *métodos mágicos* o *métodos especiales*
 
-Es el enfoque de Python para implementar el concepto de "sobrecarga"
+Es parte del enfoque de Python para implementar **sobrecarga**
 
-Permitiendo a las clases definir un propio comportamiento con respecto a los operadores y funciones integradas del lenguaje.
+Permitiendo a las clases definir un propio comportamiento con respecto a los **operadores** y **funciones integradas** del lenguaje
 
 ---
 
 #### Ventajas de los Dunder Methods
 
-- **Personalización**: Permiten definir cómo se comportan las instancias de una clase en situaciones específicas, como la impresión, la comparación o la conversión a otros tipos.
+- **Personalización**: Permiten definir cómo se comportan las instancias de una clase en situaciones específicas, como la impresión, la comparación o la conversión a otros tipos
 
-- **Legibilidad**: Hacen que el código sea más intuitivo y fácil de entender.
+- **Legibilidad**: Hacen que el código sea más intuitivo y fácil de entender
 
 ---
 
 - **Integración**: Crea compatibilidad con las funciones y operadores integrados de Python
 
-- **Reutilización**: Reduce la cantidad de código necesario para implementar ciertas funcionalidades.
+- **Reutilización**: Reduce la cantidad de código necesario para implementar ciertas funcionalidades
 
 
 ---
 
 #### Usos Reales
 
-- En las finanzas, para modelar valores monetarios y definir cómo se suman, restan o comparan.
-- En la geometría, para modelar puntos, círculos facilitando su comportamiento entre sí.
+- En las finanzas, para modelar valores monetarios y definir cómo se suman, restan o comparan
+- En la geometría, para modelar puntos, círculos facilitando su comportamiento entre sí
 
 ---
 
-En el mundo real varias librerías y frameworks utilizan Dunder Methods para definir el comportamiento de sus objetos.
+En el mundo real varias librerías y frameworks utilizan Dunder Methods para definir el comportamiento de sus objetos
 
-- Pandas utiliza Dunder Methods para definir cómo se comportan los DataFrames al realizar operaciones matemáticas o lógicas.
-- Django utiliza Dunder Methods para definir cómo se comportan los modelos al realizar consultas a la base de datos.
-
----
-
-- SQLAlchemy utiliza Dunder Methods para definir cómo se comportan los objetos al realizar operaciones de base de datos.
-- Request utiliza Dunder Methods para definir cómo se comportan las peticiones HTTP.
+- **Pandas** utiliza Dunder Methods para definir cómo se comportan los DataFrames al realizar operaciones matemáticas o lógicas
+- **Django** utiliza Dunder Methods para definir cómo se comportan los modelos al realizar consultas a la base de datos
 
 ---
 
-El uso de Dunder Methods es una práctica común en Python, y su comprensión es esencial para aprovechar al máximo el lenguaje.
-
-Es parte de hacer que tu código sea más elegante, eficiente y fácil de mantener.
+- **SQLAlchemy** utiliza Dunder Methods para definir cómo se comportan los objetos al realizar operaciones de base de datos
+- **Requests** utiliza Dunder Methods para definir cómo se comportan las peticiones HTTP
 
 ---
+
+El uso de Dunder Methods es una práctica común en Python su comprensión es esencial para aprovechar al máximo el lenguaje
+
+Es parte de hacer que tu código sea más elegante, eficiente y fácil de mantener
+
+---
+
 #### Notación de Dunder Methods
 
-Los Dunder Methods se definen con dos guiones bajos al principio y al final del nombre del método.
+Los Dunder Methods se definen con dos guiones bajos al principio y al final del nombre del método
 
 ```python
 def __init__(self, valor):
@@ -113,28 +108,28 @@ def __str__(self):
 
 ---
 
-Se puede clasificar en:
+Se pueden clasificar en:
 
-- **Métodos de Inicialización y Destrucción**
-- **Métodos de Representación y Conversión**
-- **Métodos de Comparación**
-- **Operadores Aritméticos**
-- **Métodos para colecciones**
+- Métodos de Inicialización y Destrucción
+- Métodos de Representación y Conversión
+- Métodos de Comparación
+- Operadores Aritméticos
+- Métodos para colecciones
 
 
 ---
 
-#### Métodos de Inicialización y Destrucción
+#### Métodos de **Inicialización y Destrucción**
 
-Permiten definir el comportamiento de una clase al ser creada o destruida
+Permiten definir el comportamiento de una clase al ser **creada o destruida**
 
 Son utilizados para inicializar atributos o liberar recursos
 
-No retornan ningún valor
+NO retornan ningún valor
 
 ---
 
-Métodos más comunes:
+Métodos más comunes
 
 | Método     | Descripción                            |
 | ---------- | -------------------------------------- |
@@ -145,17 +140,17 @@ Métodos más comunes:
 
 #### `__init__`
 
-| Característica     | Descripción                          |
-| ------------------ | ------------------------------------ |
-| Propósito          | Inicializa atributos de la instancia |
-| Cuándo se llama    | Al crear un objeto de la clase       |
-| Primer parámetro   | `self` (instancia)                   |
-| Otros parámetros   | Valores para inicializar atributos   |
-| Nombre alternativo | Constructor                          |
+| Característica     | Descripción                        |
+| ------------------ | ---------------------------------- |
+| Propósito          | Inicializa atributos de instancia  |
+| Cuándo se llama    | Al crear un objeto de la clase     |
+| 1er parámetro      | `self` (instancia)                 |
+| Otros parámetros   | Valores para inicializar atributos |
+| Nombre alternativo | Constructor                        |
 
 ---
 
-Su uso es fundamental para establecer el estado inicial de un objeto
+Su uso es fundamental para establecer el **estado inicial** de un objeto
 
 Se usa en todos los contextos para preparar un objeto antes de su uso
 
@@ -163,24 +158,25 @@ Se usa en todos los contextos para preparar un objeto antes de su uso
 
 #### Ejemplo 01
 
-Crear el archivo `persona.py` en la carpeta `sesion07`
+Crear el archivo `persona.py` en la carpeta `sesion08`
 
 ```markdown
-Tenemos la clase `Persona` que representa a una persona
+Existe la clase `Persona` que representa a una persona
 con un nombre y una edad.
 Cada que creamos una persona, queremos inicializar
-sus atributos `nombre` y `edad` y puede saludar
+sus atributos `nombre` y `edad` y posee la acción saludar
 ```
 
 ---
-#### Análisis
+
+Análisis
 
 ```markdown
 # Análisis
 Requisitos
-- La clase debe tener un constructor que reciba `nombre` y `edad`
-- La clase debe almacenar estos valores en atributos de instancia
-- La clase debe llamarse `Persona`
+- Debe tener un constructor que reciba `nombre` y `edad`
+- Debe almacenar estos valores en atributos de instancia
+- Debe llamarse `Persona`
 - La Persona debe poder saludar
 
 Objetos
@@ -195,28 +191,29 @@ Acciones
 
 ---
 
-#### Diagrama de clases
+Diagrama de clases en Mermaid
 
 ````
 ```mermaid
 classDiagram
     class Persona {
-        + nombre
-        + edad
-        + saludar()
+        +nombre: string
+        +edad: int
+        +saludar()
     }
-```	
+```
 ````
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
     class Persona {
-        + nombre
-        + edad
-        + saludar()
+        +nombre: string
+        +edad: int
+        +saludar()
     }
-```	
+```
+<!--.element class="center-mermaid"-->
 
 ---
 
@@ -238,17 +235,37 @@ jhon.saludar()
 ```text
 Hola, soy Jhon con 30 años
 ```
+---
+
+Para el siguiente método especial `__del__` es importante entender el uso de la palabra reservada `del`
 
 ---
 
-#### Uso de "`del`"
+#### Palabra reservada "`del`"
 
 
-La palabra reservada "`del`" se utiliza para eliminar una referencia a un objeto
+La palabra reservada `del` se utiliza para eliminar una *referencia* a un objeto
 
-Después de eliminar la referencia, la instancia se destruye y ya no se puede acceder a ella.
+Después de eliminar la referencia, la instancia se destruye y ya no se puede acceder a ella
+
+Puede ser utilizada para eliminar **variables**, **atributos** de objetos, **elementos** de listas o diccionarios
+
+Incluso para eliminar **instancias** de clases
 
 ---
+
+Usos comunes de `del`:
+
+| Uso                | Ejemplo               |
+| ------------------ | --------------------- |
+| Eliminar variable  | `del variable`        |
+| Eliminar atributo  | `del objeto.atributo` |
+| Eliminar elemento  | `del lista[indice]`   |
+| Eliminar instancia | `del instancia`       |
+
+---
+
+Uso de `del` para eliminar una variable
 
 ```python
 try:
@@ -267,51 +284,58 @@ name 'edad' is not defined
 
 ---
 
+Veamos ahora el método especial `__del__`
+
+---
+
 #### `__del__`
 
 | Característica     | Descripción                                          |
 | ------------------ | ---------------------------------------------------- |
 | Propósito          | Realiza acción antes de destruir                     |
-| Cuándo se llama    | Al eliminar una instancia o al finalizar el programa |
-| Primer parámetro   | `self` (instancia)                                   |
-| Otros parámetros   | Ninguno                                              |
+| Cuándo se llama    | Al eliminar la referencia o al finalizar el programa |
+| 1er parámetro      | `self` (instancia)                                   |
+| Otros parámetros   | *Ninguno*                                            |
 | Nombre alternativo | Destructor                                           |
 
 ---
 
-El método `__del__` se utiliza para liberar recursos o realizar acciones antes de que una instancia de la clase sea destruida.
+El método `__del__` se utiliza para liberar recursos o realizar acciones antes de que una instancia de la clase sea **eliminada o destruida**
 
 ---
 
-Se llama automáticamente cuando el recolector de basura de Python elimina la instancia o cuando se utiliza la función "`del`" para eliminar una referencia a la instancia.
+Se llama **automáticamente** cuando el recolector de basura de Python elimina la instancia o cuando se utiliza la función `del` al eliminar una referencia a la instancia
 
-Su uso es menos común, ya que Python maneja automáticamente la memoria.
+Su uso es menos común, ya que Python maneja **automáticamente** la memoria
 
 ---
 
-Es útil para liberar recursos externos, como archivos abiertos o conexiones de red
+Es útil para liberar recursos externos, como
+
+**archivos abiertos** o **conexiones de red**
 
 ---
 
 #### Ejemplo 02
 
-En el archivo `persona.py`
+Modifica los archivos `persona.md` y `persona.py` en la carpeta `sesion08`
 
 ```markdown
 Tenemos la clase `Persona` que representa a una persona
 con un nombre y una edad y queremos que al eliminar una persona
-se despida con un mensaje y su nombre.
+se despida con un mensaje y su nombre antes de ser destruida
 ```
 
 ---
-#### Análisis
 
-```markdown
+Modificando `persona.md`
+
+```markdown [7,16]
 # Análisis
 Requisitos
-- La clase debe tener un constructor que reciba `nombre` y `edad`
-- La clase debe almacenar estos valores en atributos de instancia
-- La clase debe llamarse `Persona`
+- Debe tener un constructor que reciba `nombre` y `edad`
+- Debe almacenar estos valores en atributos de instancia
+- Debe llamarse `Persona`
 - La Persona debe poder saludar
 - La Persona debe despedirse al ser destruida
 
@@ -327,38 +351,39 @@ Acciones
 
 ---
 
-#### Diagrama de clases
+Diagrama de clases en Mermaid
 
 ````
 ```mermaid
 classDiagram
     class Persona {
-        + nombre
-        + edad
+        + nombre: string
+        + edad: int
         + saludar()
         + despedirse()
     }
-```	
+```
 ````
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
     class Persona {
-        + nombre
-        + edad
+        + nombre: string
+        + edad: int
         + saludar()
         + despedirse()
     }
-```	
+```
+<!--.element class="center-mermaid"-->
 
 ---
 
-En el archivo `persona.py` 
+En el archivo `persona.py`
 
-Cuando se termina la ejecución del programa
+Cuando termina la ejecución
 
-```python [1-14|15-17]
+```python [10-14|15-17]
 # Definición
 class Persona:
     def __init__(self, nombre, edad): # Constructor
@@ -388,7 +413,7 @@ En el archivo `persona.py`
 
 Cuando se elimina la instancia
 
-```python [1-14|15-18]
+```python [10-14|15-18]
 # Definición
 class Persona:
     def __init__(self, nombre, edad): # Constructor
@@ -417,13 +442,13 @@ Adiós, soy Jhon
 ---
 #### Métodos de Representación
 
-Permiten definir cómo se representa una instancia de la clase cuando se imprime o se convierte a una cadena.
+Permiten definir cómo se **ve** una instancia de la clase cuando se **imprime** o se **convierte a una cadena**
 
 Se utilizan para facilitar la depuración y la visualización de objetos
 
 ---
 
-Métodos más comunes:
+Métodos más comunes
 
 | Método     | Descripción                         |
 | ---------- | ----------------------------------- |
@@ -435,12 +460,12 @@ Métodos más comunes:
 
 #### `__repr__`
 
-| Característica   | Descripción                                   |
-| ---------------- | --------------------------------------------- |
-| Propósito        | Representación oficial del objeto             |
-| Cuándo se llama  | Al usar "`repr()`" o en entornos interactivos |
-| Primer parámetro | `self` (instancia)                            |
-| Retorno          | Cadena que representa el objeto               |
+| Característica  | Descripción                                 |
+| --------------- | ------------------------------------------- |
+| Propósito       | Representación oficial del objeto           |
+| Cuándo se llama | Al usar `repr()` o en entornos interactivos |
+| 1er parámetro   | `self` (instancia)                          |
+| Retorno         | Cadena que representa el objeto             |
 
 ---
 
@@ -448,26 +473,32 @@ Se utiliza principalmente para proporcionar una representación clara y precisa 
 
 ---
 
-#### Uso de "`repr()`"
+#### Palabras reservadas `repr` - `eval`
 
-Es un método que devuelve una cadena que representa el objeto de manera que pueda ser evaluada por Python.	
+`repr` es un método que devuelve una cadena que representa el objeto de manera que pueda ser evaluada por Python
 
-Significa que pueda ser evaluada por la función `eval()` para recrear el objeto original.
+Significa que pueda ser evaluada por la función `eval()` para recrear el objeto original
+
+`eval` es un método que evalúa una cadena como código Python y ejecuta la expresión contenida en ella
 
 ---
 
-Se utiliza al llamar a la función `repr()` o al imprimir un objeto en un entorno interactivo.
+Se utiliza al llamar a la función `repr()` o al imprimir un objeto en un entorno interactivo
 
-Es diferente del `str()` que se utiliza para mostrar una representación legible del objeto.
+Es diferente del `str()` que se utiliza para mostrar una representación en cadena más amigable para el usuario
 
 ```python
-edad = 'Hola\nMundo'
-print(repr(edad))  # Representación oficial del objeto
-print(str(edad))   # Representación en cadena del objeto
+msj = 'Hola\nMundo'
+print(repr(msj))  # Representación oficial del objeto
+print(str(msj))   # Representación en cadena del objeto
+msj2 = eval(repr(msj))  # Recrea el objeto original
+print(msj2)
 ```
 
 ```text
 'Hola\nMundo'
+Hola
+Mundo
 Hola
 Mundo
 ```
@@ -475,25 +506,25 @@ Mundo
 ---
 #### Ejemplo 03
 
-En el archivo `persona.py`
+Modifica los archivos `persona.md` y `persona.py` en la carpeta `sesion08`
 
 ```markdown
 Tenemos la clase `Persona` que representa a una persona
 con un nombre y una edad.
 La representación oficial del objeto debe mostrar
-su nombre y edad de manera clara.
+su nombre y edad de manera clara para poder recrear el objeto
 ```
 
 ---
 
-#### Análisis
+Análisis
 
-```markdown
+```markdown[8,17]
 # Análisis
 Requisitos
-- La clase debe tener un constructor que reciba `nombre` y `edad`
-- La clase debe almacenar estos valores en atributos de instancia
-- La clase debe llamarse `Persona`
+- Debe tener un constructor que reciba `nombre` y `edad`
+- Debe almacenar estos valores en atributos de instancia
+- Debe llamarse `Persona`
 - La Persona debe poder saludar
 - La Persona debe despedirse al ser destruida
 - Debe tener una representación oficial del objeto
@@ -510,36 +541,39 @@ Acciones
 
 ---
 
-#### Diagrama de clases
+Diagrama de clases en Mermaid
 
 ````
 ```mermaid
 classDiagram
     class Persona {
-        + nombre
-        + edad
-        + saludar()
-        + despedirse()
-        + __repr__()
+        +nombre: string
+        +edad: int
+        +saludar()
+        +despedirse()
+        +__repr__()
     }
-```	
+```
 ````
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
     class Persona {
-        + nombre
-        + edad
-        + saludar()
-        + despedirse()
-        + __repr__()
+        +nombre: string
+        +edad: int
+        +saludar()
+        +despedirse()
+        +__repr__()
     }
-```	
+```
+<!--.element class="center-mermaid"-->
 
 ---
 
-```python [1-13|14-17]
+En el archivo `persona.py`
+
+```python [12-13|14-19]
 # Definición
 class Persona:
     def __init__(self, nombre, edad): # Constructor
@@ -556,12 +590,16 @@ class Persona:
 # Uso
 jhon = Persona('Jhon', 30)
 jhon.saludar()
+# del jhon
 print(repr(jhon))  # Representación oficial
+print(eval(repr(jhon)))  # Recrea el objeto original
 ```
 
 ```text
 Hola, soy Jhon con 30 años
 Persona('Jhon', 30)
+Persona('Jhon', 30)
+Adiós, soy Jhon
 Adiós, soy Jhon
 ```
 
@@ -569,31 +607,31 @@ Adiós, soy Jhon
 
 #### `__str__`
 
-| Característica   | Descripción                         |
-| ---------------- | ----------------------------------- |
-| Propósito        | Representación en cadena del objeto |
-| Cuándo se llama  | Al usar "`print()`" o "`str()`"     |
-| Primer parámetro | `self` (instancia)                  |
-| Retorno          | Cadena que representa el objeto     |
+| Característica  | Descripción                         |
+| --------------- | ----------------------------------- |
+| Propósito       | Representación en cadena del objeto |
+| Cuándo se llama | Al usar "`print()`" o "`str()`"     |
+| 1er parámetro   | `self` (instancia)                  |
+| Retorno         | Cadena que representa el objeto     |
 
 ---
 
-El método `__str__` se utiliza para proporcionar una representación legible del objeto, que es más amigable para el usuario.
+El método `__str__` se utiliza para proporcionar una representación legible del objeto, **más amigable** para el usuario
 
-Se utiliza al llamar a la función `print()` o al convertir un objeto a una cadena con `str()`.
+Se utiliza al llamar a la función `print()` o al convertir un objeto a una cadena con `str()`
 
 ---
 
-Es útil para mostrar información al usuario de manera clara y concisa, como en la impresión de objetos en la consola o en la interfaz de usuario.
+Es útil para mostrar información al usuario de manera **clara y concisa**, como en la impresión de objetos en la consola o en la interfaz de usuario
 
 ---
 
 #### Ejemplo 04
 
-En el archivo `persona.py`
+Modifica los archivos `persona.md` y `persona.py` en la carpeta `sesion08`
 
 ```markdown
-Tenemos la clase `Persona` que representa a una persona
+La clase `Persona` que representa a una persona
 con un nombre y una edad.
 La representación en cadena del objeto debe mostrar el
  nombre y la edad de manera legible.
@@ -602,14 +640,14 @@ Con el formato `"[Nombre] ➡ [Edad] años"`
 
 ---
 
-#### Análisis
+Análisis
 
-```markdown
+```markdown[9,19]
 # Análisis
 Requisitos
-- La clase debe tener un constructor que reciba `nombre` y `edad`
-- La clase debe almacenar estos valores en atributos de instancia
-- La clase debe llamarse `Persona`
+-  Debe tener un constructor que reciba `nombre` y `edad`
+-  Debe almacenar estos valores en atributos de instancia
+-  Debe llamarse `Persona`
 - La Persona debe poder saludar
 - La Persona debe despedirse al ser destruida
 - Debe tener una representación oficial del objeto
@@ -628,38 +666,41 @@ Acciones
 
 ---
 
-#### Diagrama de clases
+Diagrama de clases en Mermaid
 
 ````
 ```mermaid
 classDiagram
     class Persona {
-        + nombre
-        + edad
-        + saludar()
-        + despedirse()
-        + __repr__()
-        + __str__()
+        +nombre: string
+        +edad: int
+        +saludar()
+        +despedirse()
+        +__repr__()
+        +__str__()
     }
-```	
+```
 ````
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
     class Persona {
-        + nombre
-        + edad
-        + saludar()
-        + despedirse()
-        + __repr__()
-        + __str__()
+        +nombre: string
+        +edad: int
+        +saludar()
+        +despedirse()
+        +__repr__()
+        +__str__()
     }
-```	
+```
+<!--.element class="center-mermaid"-->
 
 ---
 
-```python [1-15|16-20]
+En el archivo `persona.py`
+
+```python [14-15|16-22]
 # Definición
 class Persona:
     def __init__(self, nombre, edad): # Constructor
@@ -678,7 +719,9 @@ class Persona:
 # Uso
 jhon = Persona('Jhon', 30)
 jhon.saludar()
-print(repr(jhon))
+# del jhon
+print(repr(jhon))  # Representación oficial
+# print(eval(repr(jhon)))
 print(jhon)  # Representación en cadena
 ```
 
@@ -693,8 +736,8 @@ Adiós, soy Jhon
 
 Al momento de programar
 
-Una buena práctica es definir al menos uno o ambos métodos `__repr__` y `__str__` para proporcionar 
-una representación oficial y una representación amigable del objeto.
+Una **buena práctica** es definir al menos uno o ambos métodos `__repr__` y `__str__` para proporcionar 
+una representación oficial y una representación amigable del objeto
 
 ---
 
@@ -737,7 +780,7 @@ Se usa para facilitar la conversión de objetos a tipos de datos nativos de Pyth
 
 #### Ejemplo 05
 
-Creamos el archivo `vector.py` en la carpeta `sesion07`
+Creamos el archivo `vector.py` en la carpeta `sesion08`
 
 ```markdown
 Un físico necesita representar un Vector en el espacio
@@ -1115,7 +1158,7 @@ Permite personalizar la comparación lógica de igualdad entre objetos.
 
 #### Ejemplo 08
 
-Creamos el archivo `fruta.py` en la carpeta `sesion07`
+Creamos el archivo `fruta.py` en la carpeta `sesion08`
 
 ```markdown
 Un agrónomo necesita guardar información sobre frutas.
