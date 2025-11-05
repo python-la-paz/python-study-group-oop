@@ -2039,30 +2039,100 @@ psg-oop-2025/
 
 ---
 
-1. Un profesor de matemáticas va enseñar números romanos. Necesita que los alumnos puedan definir un número romano y convertirlo a entero.
+1. Un profesor de matemáticas necesita una calculadora de fracciones para enseñar conceptos básicos
 
-- Deben poder sumar, restar, multiplicar y dividir números romanos entre sí. 
-- Además, deben poder comparar números romanos entre sí.
-- Los números romanos deben ser representados como una cadena de caracteres.
+de aritmética. Cada fracción se representa mediante un numerador y un denominador
 
-```python
-Ejemplo:
-uno = Romano("I")
-dos = Romano("II")
-print(uno + dos)  # III
-```
+Una fracción como 3/4 tiene un numerador de 3 y un denominador de 4
+
+*(1/4)*
 
 ---
 
-2. Un supermercado quiere llevar un control de sus productos. Necesitan guardar todos los productos que tienen disponibles en un inventario de cada producto tienen el siguiente dato:
+Crea la clase `Fraccion` con los siguientes requisitos:
+- Tiene dos atributos: `numerador` y `denominador`
+- Representación: `"numerador/denominador"`
+- Puede sumar con otra fracción, operador: `+`
+- Puede restar con otra fracción,  operador: `-`
+- Puede multiplicar con otra fracción, operador: `*`
+- Puede dividir con otra fracción, operador: `/`
 
-```markdown
-nombre, precio, cantidad
+*(2/4)*
+
+---
+
+Además, la clase `Fraccion` debe permitir comparar:
+
+- Con otra fracción para igualdad, operador: `==`
+- Con otra fracción para menor que, operador: `<`
+- Con otra fracción para mayor que, operador: `>`
+- Con otra fracción para desigualdad, operador: `!=`
+
+*(3/4)*
+
+---
+
+- Realiza el **análisis** y **diagrama de clases** para la clase `Fraccion` en el archivo `ejercicio_01.md`
+- Escribe el código en Python para la clase `Fraccion` en el archivo `ejercicio_01.py`
+- Asegúrate de que la clase incluya *atributos* y *métodos* coherentes con su propósito
+- Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*
+- Implementa fracciones para probar todas las operaciones y comparaciones
+
+*(4/4)*
+
+---
+
+Una **agencia de viajes** gestiona un **catálogo digital** de destinos turísticos
+
+Cada destino tiene un destino y costo, y la agencia quiere que su catálogo permita:
+
+- Destino se representa:
+
+`"[destino] ➡ [costo] USD"`
+
+- Catálogo se representa:
+
+```text
+🗺 Destinos 🗺
+1. destino
+2. destino
+...
 ```
 
-- Cuando un cliente añada un producto al carrito, se debe restar la cantidad del inventario
-- Si se elimina un producto del carrito, se debe sumar la cantidad al inventario
-- Si se finaliza la compra se vaciará el carrito sin afectar al inventario
+*(1/4)*
+
+---
+
+Crea la clase `Destino` con los siguientes requisitos:
+- Tiene dos atributos: `destino` y `costo`
+
+Crea la clase `Catalogo` con los siguientes requisitos:
+- Tiene una colección de **destinos** turísticos
+
+*(2/4)*
+
+---
+
+El catálogo debe permitir:
+- Ver la longitud del catálogo, `len(catalogo)`
+- Acceder por su índice, `catalogo[indice]`
+- Agregar destinos, `catalogo[indice]=destino`
+- Eliminar destinos, `del catalogo[indice]`
+- Iterar sobre los destinos, `for destino in catalogo`
+- Ver el catálogo en el formato especificado
+- Ver un destino en el formato especificado
+
+*(3/4)*
+
+---
+
+- Realiza el **análisis** y **diagrama de clases** para las clases `Destino` y `Catalogo` en el archivo `ejercicio_02.md`
+- Escribe el código en Python para las clases `Destino` y `Catalogo` en el archivo `ejercicio_02.py`
+- Asegúrate de que la clase incluya *atributos* y *métodos* coherentes con su propósito
+- Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*
+- Implementa un catálogo con almenos 4 destinos
+
+*(4/4)*
 
 ---
 <!-- .slide: data-background-image="../../content/psg-bg-dark.png" data-background-size="100%"-->
@@ -2073,7 +2143,7 @@ nombre, precio, cantidad
 <br>
 <br>
 
-[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/content/sesion08)
+[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/tree/main/content/sesion08)
 
 Repositorio de la Sesión
 
