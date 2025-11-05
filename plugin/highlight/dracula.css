@@ -1,0 +1,173 @@
+/*!
+  Theme: Dracula
+  Author: Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
+  License: ~ MIT (or more permissive) [via base16-schemes-source]
+  Maintainer: @highlightjs/core-team
+  Version: 2021.09.0
+*/
+
+.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    background: #282936;
+    color: #e9e9f4
+}
+
+.hljs ::-moz-selection,.hljs::-moz-selection {
+    background-color: #4d4f68;
+    color: #e9e9f4
+}
+
+.hljs ::selection,.hljs::selection {
+    background-color: #4d4f68;
+    color: #e9e9f4
+}
+
+.hljs-comment {
+    color: #626483
+}
+
+.hljs-tag {
+    color: #62d6e8
+}
+
+.hljs-operator,.hljs-punctuation,.hljs-subst {
+    color: #e9e9f4
+}
+
+.hljs-operator {
+    opacity: .7
+}
+
+.hljs-bullet,.hljs-deletion,.hljs-name,.hljs-selector-tag,.hljs-template-variable,.hljs-variable {
+    color: #ea51b2
+}
+
+.hljs-attr,.hljs-link,.hljs-literal,.hljs-number,.hljs-symbol,.hljs-variable.constant_ {
+    color: #b45bcf
+}
+
+.hljs-class .hljs-title,.hljs-strong,.hljs-title,.hljs-title.class_ {
+    color: #00f769
+}
+
+.hljs-strong {
+    font-weight: 700
+}
+
+.hljs-addition,.hljs-code,.hljs-string,.hljs-title.class_.inherited__ {
+    color: #ebff87
+}
+
+.hljs-built_in,.hljs-doctag,.hljs-keyword.hljs-atrule,.hljs-quote,.hljs-regexp {
+    color: #a1efe4
+}
+
+.hljs-attribute,.hljs-function .hljs-title,.hljs-section,.hljs-title.function_,.ruby .hljs-property {
+    color: #62d6e8
+}
+
+.diff .hljs-meta,.hljs-keyword,.hljs-template-tag,.hljs-type {
+    color: #b45bcf
+}
+
+.hljs-emphasis {
+    color: #b45bcf;
+    font-style: italic
+}
+
+.hljs-meta,.hljs-meta .hljs-keyword,.hljs-meta .hljs-string {
+    color: #00f769
+}
+
+.hljs-meta .hljs-keyword,.hljs-meta-keyword {
+    font-weight: 700
+}
+
+main code:not(.hljs)[class*=language-],main pre[class*=language-] {
+    background: none;
+    color: #f8f8f2;
+    font-family: Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
+    text-align: left;
+    text-shadow: 0 1px rgba(0,0,0,.3);
+    white-space: pre;
+    word-break: normal;
+    word-spacing: normal;
+    word-wrap: normal;
+    -webkit-hyphens: none;
+    hyphens: none;
+    line-height: 1.5;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4
+}
+
+main pre[class*=language-] {
+    border-radius: .3em;
+    margin: .5em 0;
+    overflow: auto;
+    padding: 1em
+}
+
+main :not(pre)>code:not(.hljs)[class*=language-],main pre[class*=language-] {
+    background: #282a36
+}
+
+main :not(pre)>code:not(.hljs)[class*=language-] {
+    border-radius: .3em;
+    padding: .1em;
+    white-space: normal
+}
+
+main .token.cdata,main .token.comment,main .token.doctype,main .token.prolog {
+    color: #6272a4
+}
+
+main .token.punctuation {
+    color: #f8f8f2
+}
+
+main .namespace {
+    opacity: .7
+}
+
+main .token.constant,main .token.deleted,main .token.property,main .token.symbol,main .token.tag {
+    color: #ff79c6
+}
+
+main .token.boolean,main .token.number {
+    color: #bd93f9
+}
+
+main .token.attr-name,main .token.builtin,main .token.char,main .token.inserted,main .token.selector,main .token.string {
+    color: #50fa7b
+}
+
+main .language-css .token.string,main .style .token.string,main .token.entity,main .token.operator,main .token.url,main .token.variable {
+    color: #f8f8f2
+}
+
+main .token.atrule,main .token.attr-value,main .token.class-name,main .token.function {
+    color: #f1fa8c
+}
+
+main .token.keyword {
+    color: #8be9fd
+}
+
+main .token.important,main .token.regex {
+    color: #ffb86c
+}
+
+main .token.bold,main .token.important {
+    font-weight: 700
+}
+
+main .token.italic {
+    font-style: italic
+}
+
+main .token.entity {
+    cursor: help
+}
