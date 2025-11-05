@@ -743,13 +743,13 @@ una representación oficial y una representación amigable del objeto
 
 #### Métodos de Conversión
 
-Permiten definir cómo se convierte una instancia de la clase a otros tipos de datos.
+Permiten definir cómo se **convierte** una instancia de la clase a otros tipos de datos
 
-Son utilizados para facilitar la conversión de objetos a tipos de datos nativos de Python.
+Son utilizados para facilitar la conversión de objetos a **tipos de datos nativos** de Python
 
 ---
 
-Métodos más comunes:
+Métodos más comunes
 
 
 | Método      | Descripción                          |
@@ -757,51 +757,53 @@ Métodos más comunes:
 | `__int__`   | Conversión a entero                  |
 | `__float__` | Conversión a flotante                |
 | `__bool__`  | Conversión a booleano                |
-| `__str__`   | Conversión a cadena (representación) |
+| `__str__`   | Conversión a cadena *representación* |
 
 ---
 
 #### `__int__`
 
-| Característica   | Descripción                     |
-| ---------------- | ------------------------------- |
-| Propósito        | Conversión a entero             |
-| Cuándo se llama  | Al usar `int()`                 |
-| Primer parámetro | `self` (instancia)              |
-| Retorno          | Entero que representa el objeto |
+| Característica  | Descripción                     |
+| --------------- | ------------------------------- |
+| Propósito       | Conversión a entero             |
+| Cuándo se llama | Al usar `int()`                 |
+| 1er parámetro   | `self` (instancia)              |
+| Retorno         | Entero que representa el objeto |
 
 ---
 
-Su uso es fundamental para permitir que los objetos se comporten correctamente al ser convertidos a enteros
+Su uso permite que los **objetos** se comporten correctamente al ser convertidos a **enteros**
 
-Se usa para facilitar la conversión de objetos a tipos de datos nativos de Python.
+Facilita la conversión de objetos a tipos de datos nativos de Python
 
 ---
 
 #### Ejemplo 05
 
-Creamos el archivo `vector.py` en la carpeta `sesion08`
+En los archivos `vector.md` y `vector.py` en la carpeta `sesion08`
 
 ```markdown
-Un físico necesita representar un Vector en el espacio
-bidimensional, el vector tiene dos componentes `x` e `y`
+Un profesor de física tiene una calculadora de vectores
+bidimensionales, los vectores tiene dos componentes x , y
 la magnitud del vector es la suma de los componentes
-absolutos de `x` e `y`.
+absolutos de x , y.
 Se representa visualmente con la forma `[x, y]`
+Se convierte un vector a entero utilizando su magnitud
+Los componentes son números flotantes
 ```
 
 ---
 
-#### Análisis
+Análisis
 
 ```markdown
 # Análisis
 Requisitos
-- El vector debe tener un constructor que reciba `x` e `y`
-- El vector debe almacenar estos valores en atributos de instancia
-- El vector debe poder convertirse a entero utilizando su magnitud
-- El vector debe poder calcular su magnitud
-- El vector debe poder representarse visualmente como `[x, y]`
+- Debe tener un constructor que reciba x , y flotantes
+- Debe almacenar estos valores en atributos de instancia
+- Debe poder convertirse a entero utilizando su magnitud
+- Debe poder calcular su magnitud
+- Debe poder representarse visualmente como `[x, y]`
 
 Objetos
 - Vector
@@ -810,58 +812,60 @@ Características
 - Vector: x, y
 
 Acciones
-- Vector: calcular magnitud, conversión a entero, representación
+- Vector: magnitud, conversión a entero, representación
 
 ```
 
 ---
 
-#### Diagrama de clases
+Diagrama de clases en Mermaid
 
 ````
 ```mermaid
 classDiagram
     class Vector {
-        + x
-        + y
-        + calcular_magnitud()
-        + __int__()
-        + __str__()
+        +x: float
+        +y: float
+        +magnitud()
+        +__int__()
+        +__str__()
     }
-```	
+```
 ````
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
     class Vector {
-        + x
-        + y
-        + calcular_magnitud()
-        + __int__()
-        + __str__()
+        +x: float
+        +y: float
+        +magnitud()
+        +__int__()
+        +__str__()
     }
 ```
+<!--.element class="center-mermaid"-->
 
 ---
 
 En el archivo `vector.py`
 
-```python [1-14|15-19]
+```python [1-14|10-14|15-20]
 # Definición
 class Vector:
     def __init__(self, x, y):  # Constructor
-        self.x = x
-        self.y = y
-
-    def calcular_magnitud(self):
-        return abs(self.x) + abs(self.y)
-
-    def __int__(self):  # Método de conversión a entero
-        return int(self.calcular_magnitud())
+        self.x = float(x)
+        self.y = float(y)
 
     def __str__(self):  # Método de representación en cadena
         return f"[{self.x}, {self.y}]"
+
+    def magnitud(self):
+        return abs(self.x) + abs(self.y)
+
+    def __int__(self):  # Método de conversión a entero
+        return int(self.magnitud())
+
 # Uso
 a = Vector(3.1, -4.1)
 print(a)  # Representación visual
@@ -877,39 +881,42 @@ print(magnitud)
 ---
 #### `__float__`
 
-| Característica   | Descripción                       |
-| ---------------- | --------------------------------- |
-| Propósito        | Conversión a flotante             |
-| Cuándo se llama  | Al usar `float()`                 |
-| Primer parámetro | `self` (instancia)                |
-| Retorno          | Flotante que representa el objeto |
+| Característica  | Descripción                       |
+| --------------- | --------------------------------- |
+| Propósito       | Conversión a flotante             |
+| Cuándo se llama | Al usar `float()`                 |
+| 1er parámetro   | `self` (instancia)                |
+| Retorno         | Flotante que representa el objeto |
 
 ---
 
-Su uso es fundamental para permitir que los objetos se comporten correctamente al ser convertidos a flotantes.
-Se usa para facilitar la conversión de objetos a tipos de datos nativos de Python.
+Permite que los **objetos** se comporten correctamente al ser convertidos a **flotantes**
+
+Facilita la conversión de objetos a tipos de datos nativos de Python
 
 ---
 
 #### Ejemplo 06
 
-En el archivo `vector.py`
+Modifica los archivos `vector.md` y `vector.py` en la carpeta `sesion08`
 
 ```markdown
-El vector debe poder convertirse a flotante utilizando su magnitud
+El profesor de física necesita que su calculadora de vectores
+bidimensionales también pueda convertir vectores a flotantes
+utilizando su magnitud
 ```
 
 ---
 
-#### Análisis
+Análisis
 
-```markdown
+```markdown [8,18]
 # Análisis
 Requisitos
-- El vector debe tener un constructor que reciba `x` e `y`
-- El vector debe almacenar estos valores en atributos de instancia
-- El vector debe poder calcular su magnitud
-- El vector debe poder representarse visualmente como `[x, y]`
+- Debe tener un constructor que reciba x , y flotantes
+- Debe almacenar estos valores en atributos de instancia
+- Debe poder calcular su magnitud
+- Debe poder representarse visualmente como `[x, y]`
 - Debe poder convertirse a entero utilizando su magnitud
 - Debe poder convertirse a flotante utilizando su magnitud
 
@@ -920,25 +927,25 @@ Características
 - Vector: x, y
 
 Acciones
-- Vector: calcular magnitud, conversión a entero, representación
+- Vector: magnitud, conversión a entero, representación
 - Vector: conversión a flotante
 
 ```
 
 ---
 
-#### Diagrama de clases
+Diagrama de clases en Mermaid
 
-````
+```` [9]
 ```mermaid
 classDiagram
     class Vector {
-        + x
-        + y
-        + calcular_magnitud()
-        + __int__()
-        + __str__()
-        + __float__()
+        +x: float
+        +y: float
+        +magnitud()
+        +__int__()
+        +__str__()
+        +__float__()
     }
 ```	
 ````
@@ -947,33 +954,34 @@ classDiagram
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
     class Vector {
-        + x
-        + y
-        + calcular_magnitud()
-        + __int__()
-        + __str__()
-        + __float__()
+        +x: float
+        +y: float
+        +magnitud()
+        +__int__()
+        +__str__()
+        +__float__()
     }
 ```
+<!--.element class="center-mermaid"-->
 
 ---
 
 En el archivo `vector.py`
 
-```python [1-13|14-20]
+```python [12-13|14-20]
 # Definición
 class Vector:
     def __init__(self, x, y):  # Constructor
-        self.x = x
-        self.y = y
-    def calcular_magnitud(self):
-        return abs(self.x) + abs(self.y)
-    def __int__(self):
-        return int(self.calcular_magnitud())
+        self.x = float(x)
+        self.y = float(y)
     def __str__(self):
         return f"[{self.x}, {self.y}]"
+    def magnitud(self):
+        return abs(self.x) + abs(self.y)
+    def __int__(self):
+        return int(self.magnitud())
     def __float__(self):  # Método de conversión a flotante
-        return float(self.calcular_magnitud())
+        return float(self.magnitud())
 # Uso
 a = Vector(3.1, -4.1)
 print(a)
@@ -993,18 +1001,18 @@ print(magnitud)
 
 #### `__bool__`
 
-| Característica   | Descripción                                                           |
-| ---------------- | --------------------------------------------------------------------- |
-| Propósito        | Conversión a booleano                                                 |
-| Cuándo se llama  | Al usar `bool()` o en contextos booleanos (`if`, operadores lógicos ) |
-| Primer parámetro | `self` (instancia)                                                    |
-| Retorno          | `True` o `False` dependiendo del estado del objeto                    |
+| Característica  | Descripción                                                        |
+| --------------- | ------------------------------------------------------------------ |
+| Propósito       | Conversión a booleano                                              |
+| Cuándo se llama | Al usar `bool()` o en contextos booleanos `if`, operadores lógicos |
+| 1er parámetro   | `self` (instancia)                                                 |
+| Retorno         | `True` o `False` dependiendo del estado del objeto                 |
 
 ---
 
-Se usa para definir el comportamiento de un objeto en condicionales, como en sentencias `if` o bucles `while`.
+Se usa para definir el comportamiento de un objeto en condicionales, como en sentencias `if` o bucles `while`
 
-Permite definir el truthiness de un objeto, es decir, si el objeto se considera verdadero o falso en un contexto booleano.
+Permite definir el **truthiness** de un objeto, es decir, si el objeto se considera **verdadero o falso** en un contexto booleano
 
 ---
 
@@ -1013,25 +1021,27 @@ Permite definir el truthiness de un objeto, es decir, si el objeto se considera 
 En el archivo `vector.py`
 
 ```markdown
-Tenemos la clase `Vector` que representa un vector en
-el espacio bidimensional con dos componentes `x` e `y`.
-Un vector se considera "verdadero" si su magnitud es mayor que cero
+Para la calculadora de vectores bidimensionales
+es importante poder evaluar si un vector es "verdadero" o "falso"
+Se considera "verdadero" si su magnitud es mayor que cero
+Se considera "falso" si su magnitud es igual a cero
 ```
 
 ---
-#### Análisis
 
-```markdown
+Análisis
+
+```markdown [9-10,20]
 # Análisis
 Requisitos
-- El vector debe tener un constructor que reciba `x` e `y`
-- El vector debe almacenar estos valores en atributos de instancia
-- El vector debe poder calcular su magnitud
-- El vector debe poder representarse visualmente como `[x, y]`
+- Debe tener un constructor que reciba x , y flotantes
+- Debe almacenar estos valores en atributos de instancia
+- Debe poder calcular su magnitud
+- Debe poder representarse visualmente como `[x, y]`
 - Debe poder convertirse a entero utilizando su magnitud
 - Debe poder convertirse a flotante utilizando su magnitud
-- El vector debe poder convertirse a booleano, 
-  si su magnitud es mayor que cero
+- Debe poder convertirse a booleano utilizando su magnitud
+- Se considera "verdadero" si su magnitud es mayor que cero
 
 Objetos
 - Vector
@@ -1040,64 +1050,69 @@ Características
 - Vector: x, y
 
 Acciones
-- Vector: calcular magnitud, conversión a entero, representación
+- Vector: magnitud, conversión a entero, representación
 - Vector: conversión a flotante, conversión a booleano
 
 ```
 
 ---
 
-#### Diagrama de clases
+Diagrama de clases en Mermaid
 
-````
+```` [10]
 ```mermaid
 classDiagram
     class Vector {
-        + x
-        + y
-        + calcular_magnitud()
-        + __int__()
-        + __str__()
-        + __float__()
-        + __bool__()
+        +x: float
+        +y: float
+        +magnitud()
+        +__int__()
+        +__str__()
+        +__float__()
+        +__bool__()
     }
 ```	
 ````
+
+---
+
+Diagrama de clases en Mermaid
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
     class Vector {
-        + x
-        + y
-        + calcular_magnitud()
+        +x: float
+        +y: float
+        + magnitud()
         + __int__()
         + __str__()
         + __float__()
         + __bool__()
     }
 ```
+<!--.element class="center-mermaid"-->
 
 ---
 
 En el archivo `vector.py`
 
-```python [1-15|16-25]
+```python [14-15|16-25]
 # Definición
 class Vector:
     def __init__(self, x, y):  # Constructor
-        self.x = x
-        self.y = y
-    def calcular_magnitud(self):
-        return abs(self.x) + abs(self.y)
-    def __int__(self):
-        return int(self.calcular_magnitud())
+        self.x = float(x)
+        self.y = float(y)
     def __str__(self):
         return f"[{self.x}, {self.y}]"
+    def magnitud(self):
+        return abs(self.x) + abs(self.y)
+    def __int__(self):
+        return int(self.magnitud())
     def __float__(self):
-        return float(self.calcular_magnitud())
+        return float(self.magnitud())
     def __bool__(self):  # Método de conversión a booleano
-        return self.calcular_magnitud() > 0
+        return self.magnitud() > 0
 # Uso
 a = Vector(3.1, -4.1)
 print(a)
@@ -1130,819 +1145,445 @@ Los más comunes son:
 | Método   | Descripción                        |
 | -------- | ---------------------------------- |
 | `__eq__` | Método de igualdad (`==`)          |
-| `__ne__` | Método de desigualdad (`!=`)       |
 | `__lt__` | Método de menor que (`<`)          |
-| `__le__` | Método de menor o igual que (`<=`) |
 | `__gt__` | Método de mayor que (`>`)          |
+| `__ne__` | Método de desigualdad (`!=`)       |
+| `__le__` | Método de menor o igual que (`<=`) |
 | `__ge__` | Método de mayor o igual que (`>=`) |
 
 
 ---
+
 #### `__eq__`
 
-| Característica    | Descripción                           |
-| ----------------- | ------------------------------------- |
-| Propósito         | Comparar dos instancias para igualdad |
-| Cuándo se llama   | Al usar `==`                          |
-| Primer parámetro  | `self` (instancia)                    |
-| Segundo parámetro | `otro` (otra instancia)               |
-| Retorno           | `True` o `False`                      |
+| Característica  | Descripción                           |
+| --------------- | ------------------------------------- |
+| Propósito       | Comparar dos instancias para igualdad |
+| Cuándo se llama | Al usar `==`                          |
+| 1er parámetro   | `self` (instancia)                    |
+| 2do parámetro   | `otro` (otra instancia)               |
+| Retorno         | `True` o `False`                      |
 
 ---
 
-El método `__eq__` se utiliza para definir cómo se comparan dos instancias de la clase para determinar si son iguales.
+El método `__eq__` se utiliza para definir cómo se **comparan** dos instancias de la clase para determinar si **son iguales**
 
-Permite personalizar la comparación lógica de igualdad entre objetos.
-
----
-
-#### Ejemplo 08
-
-Creamos el archivo `fruta.py` en la carpeta `sesion08`
-
-```markdown
-Un agrónomo necesita guardar información sobre frutas.
-Cada fruta tiene un nombre y un peso.
-Y quiere poder comparar dos frutas para ver si son iguales
-Mediante el nombre y el peso.
-```
+Permite personalizar la comparación lógica de igualdad entre objetos
 
 ---
 
-#### Análisis
-
-```markdown
-# Análisis
-Requisitos
-- La fruta debe debe tener dos atributos: `nombre` y `peso`
-- La fruta debe poder compararse con otra fruta
-- La fruta debe poder representarse como `"[nombre] ➡ [peso] g"`
-- La clase debe llamarse `Fruta`
-Objetos
-- Fruta
-Características
-- Fruta: nombre, peso
-Acciones
-- Fruta: igualdad, representación
-```
-
----
-
-#### Diagrama de clases
-
-````
-```mermaid
-classDiagram
-    class Fruta {
-        + nombre
-        + peso
-        + __eq__()
-        + __str__()
-    }
-```	
-````
-
-```mermaid
-%%{init: {"theme": "dark", "look": "handDrawn"  }}%%
-classDiagram
-    class Fruta {
-        + nombre
-        + peso
-        + __eq__()
-        + __str__()
-    }
-```
-
----
-En el archivo `fruta.py`
-
-```python [1-13|14-20]
-# Definición
-class Fruta:
-    def __init__(self, nombre, peso):  # Constructor
-        self.nombre = nombre
-        self.peso = peso
-
-    def __eq__(self, otro):  # Método de igualdad
-        if isinstance(otro, Fruta):
-            return self.nombre == otro.nombre and self.peso == otro.peso
-        return False
-
-    def __str__(self):  # Método de representación en cadena
-        return f"{self.nombre} ➡ {self.peso} g"
-# Uso
-manzana = Fruta('🍎', 150)
-pera = Fruta('🍐', 120)
-manzana2 = Fruta('🍎', 150)
-print(f'{manzana} | {pera} | {manzana2}')
-print(manzana == pera)  # Comparación de igualdad
-print(manzana == manzana2)  # Comparación de igualdad
-```
-
-```text
-🍎 ➡ 150 g | 🍐 ➡ 120 g | 🍎 ➡ 150 g
-False
-True
-```
-
----
-
-#### `__ne__`
-
-| Característica    | Descripción                              |
-| ----------------- | ---------------------------------------- |
-| Propósito         | Comparar dos instancias para desigualdad |
-| Cuándo se llama   | Al usar `!=`                             |
-| Primer parámetro  | `self` (instancia)                       |
-| Segundo parámetro | `otro` (otra instancia)                  |
-| Retorno           | `True` o `False`                         |
-
----
-
-El método `__ne__` se utiliza para definir cómo se comparan dos instancias de la clase para determinar si son diferentes.
-
-Permite personalizar la comparación lógica de desigualdad entre objetos.
-
----
-
-#### Ejemplo 09
-
-En el archivo `fruta.py`
-
-```markdown
-La fruta debe poder compararse con otra fruta
-para ver si son diferentes
-Mediante el nombre y el peso.
-```
-
----
-#### Análisis
-
-```markdown
-# Análisis
-Requisitos
-- La fruta debe debe tener dos atributos: `nombre` y `peso`
-- La fruta debe poder compararse con otra fruta
-- La fruta debe poder representarse como `"[nombre] ➡ [peso] g"`
-- La clase debe llamarse `Fruta`
-- La fruta debe poder compararse para ver si son diferentes
-Objetos
-- Fruta
-Características
-- Fruta: nombre, peso
-Acciones
-- Fruta: igualdad, representación, desigualdad
-```
-
----
-
-#### Diagrama de clases
-
-````
-```mermaid
-classDiagram
-    class Fruta {
-        + nombre
-        + peso
-        + __eq__()
-        + __ne__()
-        + __str__()
-    }
-```    
-````
-
-```mermaid
-%%{init: {"theme": "dark", "look": "handDrawn"  }}%%
-classDiagram
-    class Fruta {
-        + nombre
-        + peso
-        + __eq__()
-        + __ne__()
-        + __str__()
-    }
-```
-
----
-
-En el archivo `fruta.py`
-
-```python [1-15|16-23]
-# Definición
-class Fruta:
-    def __init__(self, nombre, peso):  # Constructor
-        self.nombre = nombre
-        self.peso = peso
-    def __eq__(self, otro): 
-        if isinstance(otro, Fruta):
-            return self.nombre == otro.nombre and self.peso == otro.peso
-        return False
-    def __ne__(self, otro):  # Método de desigualdad
-        if isinstance(otro, Fruta):
-            return self.nombre != otro.nombre or self.peso != otro.peso
-        return True
-    def __str__(self):  
-        return f"{self.nombre} ➡ {self.peso} g"
-# Uso
-manzana = Fruta('🍎', 150)
-pera = Fruta('🍐', 120)
-manzana2 = Fruta('🍎', 150)
-print(f'{manzana} | {pera} | {manzana2}')
-print(manzana == manzana2) 
-print(manzana != pera)  # Comparación de desigualdad
-print(manzana != manzana2)  # Comparación de desigualdad
-```
-
-```text
-🍎 ➡ 150 g | 🍐 ➡ 120 g | 🍎 ➡ 150 g
-False
-True
-True
-False
-```
-
----
 ##### `__lt__`
 
-| Característica    | Descripción                            |
-| ----------------- | -------------------------------------- |
-| Propósito         | Comparar dos instancias para menor que |
-| Cuándo se llama   | Al usar `<`                            |
-| Primer parámetro  | `self` (instancia)                     |
-| Segundo parámetro | `otro` (otra instancia)                |
-| Retorno           | `True` o `False`                       |
+| Característica  | Descripción                            |
+| --------------- | -------------------------------------- |
+| Propósito       | Comparar dos instancias para menor que |
+| Cuándo se llama | Al usar `<`                            |
+| 1er parámetro   | `self` (instancia)                     |
+| 2do parámetro   | `otro` (otra instancia)                |
+| Retorno         | `True` o `False`                       |
 
 ---
 
-El método `__lt__` se utiliza para definir cómo se comparan dos instancias de la clase para determinar si una es menor que la otra.
+El método `__lt__` se utiliza para definir cómo se **comparan** dos instancias de la clase para determinar si una **es menor** que la otra
 
-Permite personalizar la comparación lógica de menor que entre objetos.
-
----
-
-#### Ejemplo 10
-
-En el archivo `fruta.py`
-
-```markdown
-La fruta debe poder compararse con otra fruta
-para ver si es menor que otra fruta
-Mediante el peso y si ambas tienen el mismo nombre.
-```
-
----
-
-#### Análisis
-
-```markdown
-# Análisis
-Requisitos
-- La fruta debe debe tener dos atributos: `nombre` y `peso`
-- La fruta debe poder compararse con otra fruta
-- La fruta debe poder representarse como `"[nombre] ➡ [peso] g"`
-- La clase debe llamarse `Fruta`
-- La fruta debe poder compararse para ver si son diferentes
-- La fruta debe poder compararse para ver si es menor que otra fruta
-  Mediante el peso y si ambas tienen el mismo nombre.
-Objetos
-- Fruta
-Características
-- Fruta: nombre, peso
-Acciones
-- Fruta: igualdad, representación, desigualdad
-- Fruta: menor que
-```
-
----
-
-#### Diagrama de clases
-
-````
-```mermaid
-classDiagram
-    class Fruta {
-        + nombre
-        + peso
-        + __eq__()
-        + __ne__()
-        + __lt__()
-        + __str__()
-    }
-```
-````
-
-```mermaid
-%%{init: {"theme": "dark", "look": "handDrawn"  }}%%
-classDiagram
-    class Fruta {
-        + nombre
-        + peso
-        + __eq__()
-        + __ne__()
-        + __lt__()
-        + __str__()
-    }
-``` 
-
----
-
-En el archivo `fruta.py`
-
-```python [1-20|21-29]
-# Definición
-class Fruta:
-    def __init__(self, nombre, peso):  # Constructor
-        self.nombre = nombre
-        self.peso = peso
-    def __eq__(self, otro): 
-        if isinstance(otro, Fruta):
-            return self.nombre == otro.nombre and self.peso == otro.peso
-        return False
-    def __ne__(self, otro): 
-        if isinstance(otro, Fruta):
-            return self.nombre != otro.nombre or self.peso != otro.peso
-        return True
-    def __lt__(self, otro):  # Método de menor que
-        if isinstance(otro, Fruta):
-            if self.nombre == otro.nombre:
-                return self.peso < otro.peso
-        return False
-    def __str__(self):  
-        return f"{self.nombre} ➡ {self.peso} g"
-# Uso
-manzana = Fruta('🍎', 150)
-pera = Fruta('🍐', 120)
-manzana2 = Fruta('🍎', 150)
-print(f'{manzana} | {pera} | {manzana2}')
-print(manzana == manzana2) 
-print(manzana != manzana2) 
-print(manzana < pera)  # Comparación de menor que
-print(pera < manzana)  # Comparación de menor que
-```
-
-```text
-🍎 ➡ 150 g | 🍐 ➡ 120 g | 🍎 ➡ 150 g
-True
-False
-False
-True
-```
-
----
-
-##### `__le__`
-
-| Característica    | Descripción                                    |
-| ----------------- | ---------------------------------------------- |
-| Propósito         | Comparar dos instancias para menor o igual que |
-| Cuándo se llama   | Al usar `<=`                                   |
-| Primer parámetro  | `self` (instancia)                             |
-| Segundo parámetro | `otro` (otra instancia)                        |
-| Retorno           | `True` o `False`                               |
-
----
-
-El método `__le__` se utiliza para definir cómo se comparan dos instancias de la clase para determinar si una es menor o igual que la otra
-
-Permite personalizar la comparación lógica de menor o igual que entre objetos
-
----
-
-#### Ejemplo 11
-
-En el archivo `fruta.py`
-
-```markdown
-La fruta debe poder compararse con otra fruta
-para ver si es menor o igual que otra fruta
-Mediante el peso y si ambas tienen el mismo nombre.
-```
-
----
-
-#### Análisis
-
-```markdown
-# Análisis
-Requisitos
-- La fruta debe debe tener dos atributos: `nombre` y `peso`
-- La fruta debe poder compararse con otra fruta
-- La fruta debe poder representarse como `"[nombre] ➡ [peso] g"`
-- La clase debe llamarse `Fruta`
-- La fruta debe poder compararse para ver si son diferentes
-- La fruta debe poder compararse para ver si es menor que
-  otra fruta mediante el peso y si ambas tienen el mismo nombre
-- La fruta debe poder compararse para ver si es 
-  menor o igual que otra fruta , mediante el peso 
-  y si ambas tienen el mismo nombre.
-Objetos
-- Fruta
-Características
-- Fruta: nombre, peso
-Acciones
-- Fruta: igualdad, representación, desigualdad
-- Fruta: menor que, menor o igual que
-```
-
----
-
-#### Diagrama de clases
-
-````
-```mermaid
-classDiagram
-    class Fruta {
-        + nombre
-        + peso
-        + __eq__()
-        + __ne__()
-        + __lt__()
-        + __le__()
-        + __str__()
-    }
-```
-````
-
-```mermaid
-%%{init: {"theme": "dark", "look": "handDrawn"  }}%%
-classDiagram
-    class Fruta {
-        + nombre
-        + peso
-        + __eq__()
-        + __ne__()
-        + __lt__()
-        + __le__()
-        + __str__()
-    }
-``` 
-
----
-
-En el archivo `fruta.py`
-
-```python [1-25|26-35]
-# Definición
-class Fruta:
-    def __init__(self, nombre, peso):  # Constructor
-        self.nombre = nombre
-        self.peso = peso
-    def __eq__(self, otro): 
-        if isinstance(otro, Fruta):
-            return self.nombre == otro.nombre and self.peso == otro.peso
-        return False
-    def __ne__(self, otro): 
-        if isinstance(otro, Fruta):
-            return self.nombre != otro.nombre or self.peso != otro.peso
-        return True
-    def __lt__(self, otro):
-        if isinstance(otro, Fruta):
-            if self.nombre == otro.nombre:
-                return self.peso < otro.peso
-        return False
-    def __le__(self, otro):  # Método de menor o igual que
-        if isinstance(otro, Fruta):
-            if self.nombre == otro.nombre:
-                return self.peso <= otro.peso
-        return False
-    def __str__(self):  
-        return f"{self.nombre} ➡ {self.peso} g"
-# Uso
-manzana = Fruta('🍎', 150)
-pera = Fruta('🍐', 120)
-manzana2 = Fruta('🍎', 150)
-print(f'{manzana} | {pera} | {manzana2}')
-print(manzana == manzana2) 
-print(manzana != manzana2) 
-print(manzana < pera)
-print(pera < manzana)
-print(manzana <= manzana2)  # Comparación de menor o igual
-```
-
-```text
-🍎 ➡ 150 g | 🍐 ➡ 120 g | 🍎 ➡ 150 g
-True
-False
-False
-False
-True
-```
+Permite personalizar la comparación lógica de menor que entre objetos
 
 
 ---
 
 ##### `__gt__`
 
-| Característica    | Descripción                            |
-| ----------------- | -------------------------------------- |
-| Propósito         | Comparar dos instancias para mayor que |
-| Cuándo se llama   | Al usar `>`                            |
-| Primer parámetro  | `self` (instancia)                     |
-| Segundo parámetro | `otro` (otra instancia)                |
-| Retorno           | `True` o `False`                       |
+| Característica  | Descripción                            |
+| --------------- | -------------------------------------- |
+| Propósito       | Comparar dos instancias para mayor que |
+| Cuándo se llama | Al usar `>`                            |
+| 1er parámetro   | `self` (instancia)                     |
+| 2do parámetro   | `otro` (otra instancia)                |
+| Retorno         | `True` o `False`                       |
 
 ---
 
-El método `__gt__` se utiliza para definir cómo se comparan dos instancias de la clase para determinar si una es mayor que la otra.
+El método `__gt__` se utiliza para definir cómo se **comparan** dos instancias de la clase para determinar si una **es mayor** que la otra
+
 Permite personalizar la comparación lógica de mayor que entre objetos.
 
 ---
 
-#### Ejemplo 12
+#### `__ne__`
 
-En el archivo `fruta.py`
-
-```markdown
-La fruta debe poder compararse con otra fruta
-para ver si es mayor que otra fruta
-Mediante el peso y si ambas tienen el mismo nombre.
-```
-
----
-
-#### Análisis
-
-```markdown
-# Análisis
-Requisitos
-- La fruta debe debe tener dos atributos: `nombre` y `peso`
-- La fruta debe poder compararse con otra fruta
-- La fruta debe poder representarse como `"[nombre] ➡ [peso] g"`
-- La clase debe llamarse `Fruta`
-- La fruta debe poder compararse para ver si son diferentes
-- La fruta debe poder compararse para ver si es menor que
-  otra fruta mediante el peso y si ambas tienen el mismo nombre
-- La fruta debe poder compararse para ver si es 
-  menor o igual que otra fruta , mediante el peso 
-  y si ambas tienen el mismo nombre.
-- La fruta debe poder compararse para ver si es mayor que
-  otra fruta mediante el peso y si ambas tienen el mismo nombre.
-Objetos
-- Fruta
-Características
-- Fruta: nombre, peso
-Acciones
-- Fruta: igualdad, representación, desigualdad
-- Fruta: menor que, menor o igual que
-- Fruta: mayor que
-```
+| Característica  | Descripción                              |
+| --------------- | ---------------------------------------- |
+| Propósito       | Comparar dos instancias para desigualdad |
+| Cuándo se llama | Al usar `!=`                             |
+| 1er parámetro   | `self` (instancia)                       |
+| 2do parámetro   | `otro` (otra instancia)                  |
+| Retorno         | `True` o `False`                         |
 
 ---
 
-#### Diagrama de clases
+El método `__ne__` se utiliza para definir cómo se **comparan** dos instancias de la clase para determinar si son **diferentes**.
 
-````
-```mermaid
-classDiagram
-    class Fruta {
-        + nombre
-        + peso
-        + __eq__()
-        + __ne__()
-        + __lt__()
-        + __le__()
-        + __gt__()
-        + __str__()
-    }
-```
-````
+Permite personalizar la comparación lógica de desigualdad entre objetos.
 
 ---
 
-#### Diagrama de clases
+##### `__le__`
 
-```mermaid
-%%{init: {"theme": "dark", "look": "handDrawn"  }}%%
-classDiagram
-    class Fruta {
-        + nombre
-        + peso
-        + __eq__()
-        + __ne__()
-        + __lt__()
-        + __le__()
-        + __gt__()
-        + __str__()
-    }
-``` 
+| Característica  | Descripción                                    |
+| --------------- | ---------------------------------------------- |
+| Propósito       | Comparar dos instancias para menor o igual que |
+| Cuándo se llama | Al usar `<=`                                   |
+| 1er parámetro   | `self` (instancia)                             |
+| 2do parámetro   | `otro` (otra instancia)                        |
+| Retorno         | `True` o `False`                               |
 
 ---
 
-En el archivo `fruta.py`
+El método `__le__` se utiliza para definir cómo se **comparan** dos instancias de la clase para determinar si una es **menor o igual** que la otra
 
-```python [1-30|31-41]
-# Definición
-class Fruta:
-    def __init__(self, nombre, peso):  # Constructor
-        self.nombre = nombre
-        self.peso = peso
-    def __eq__(self, otro): 
-        if isinstance(otro, Fruta):
-            return self.nombre == otro.nombre and self.peso == otro.peso
-        return False
-    def __ne__(self, otro): 
-        if isinstance(otro, Fruta):
-            return self.nombre != otro.nombre or self.peso != otro.peso
-        return True
-    def __lt__(self, otro):
-        if isinstance(otro, Fruta):
-            if self.nombre == otro.nombre:
-                return self.peso < otro.peso
-        return False
-    def __le__(self, otro): 
-        if isinstance(otro, Fruta):
-            if self.nombre == otro.nombre:
-                return self.peso <= otro.peso
-        return False
-    def __gt__(self, otro):  # Método de mayor que
-        if isinstance(otro, Fruta):
-            if self.nombre == otro.nombre:
-                return self.peso > otro.peso
-        return False
-    def __str__(self):  
-        return f"{self.nombre} ➡ {self.peso} g"
-# Uso
-manzana = Fruta('🍎', 150)
-pera = Fruta('🍐', 120)
-manzana2 = Fruta('🍎', 150)
-pera2 = Fruta('🍐', 180)
-print(f'{manzana} | {pera} | {manzana2} | {pera2}')
-print(manzana == manzana2) 
-print(manzana != manzana2) 
-print(pera < manzana)
-print(manzana <= manzana2)
-print(pera2 > pera)  # Comparación de mayor que
-```
-
-```text
-🍎 ➡ 150 g | 🍐 ➡ 120 g | 🍎 ➡ 150 g | 🍐 ➡ 180 g
-True
-False
-False
-True
-True
-```
+Permite personalizar la comparación lógica de menor o igual que entre objetos
 
 ---
 
 ##### `__ge__`
 
-| Característica    | Descripción                                    |
-| ----------------- | ---------------------------------------------- |
-| Propósito         | Comparar dos instancias para mayor o igual que |
-| Cuándo se llama   | Al usar `>=`                                   |
-| Primer parámetro  | `self` (instancia)                             |
-| Segundo parámetro | `otro` (otra instancia)                        |
-| Retorno           | `True` o `False`                               |
+| Característica  | Descripción                                    |
+| --------------- | ---------------------------------------------- |
+| Propósito       | Comparar dos instancias para mayor o igual que |
+| Cuándo se llama | Al usar `>=`                                   |
+| 1er parámetro   | `self` (instancia)                             |
+| 2do parámetro   | `otro` (otra instancia)                        |
+| Retorno         | `True` o `False`                               |
 
 ---
 
-El método `__ge__` se utiliza para definir cómo se comparan dos instancias de la clase para determinar si una es mayor o igual que la otra.
-Permite personalizar la comparación lógica de mayor o igual que entre objetos.
+El método `__ge__` se utiliza para definir cómo se **comparan** dos instancias de la clase para determinar si una es **mayor o igual** que la otra
+
+Permite personalizar la comparación lógica de mayor o igual que entre objetos
 
 ---
 
-#### Ejemplo 13
+#### Ejemplo 08
 
-En el archivo `fruta.py`
+En los archivos `fruta.md` y `fruta.py` en la carpeta `sesion08`
 
 ```markdown
-La fruta debe poder compararse con otra fruta
-para ver si es mayor o igual que otra fruta
-Mediante el peso y si ambas tienen el mismo nombre.
+Un agrónomo tiene una herramienta para comparar frutas y
+clasificarlas. Cada fruta tiene un nombre y un peso
+Mediante el nombre y peso
+- Quiere comparar si dos frutas son iguales
+- Quiere comparar si dos frutas si una es menor que otra
+- Quiere comparar si dos frutas si una es mayor que otra
+- Se representa una fruta como `"[nombre] ➡ [peso] g"`
+El peso de la fruta es un número entero que representa gramos
 ```
 
 ---
 
-#### Análisis
+Análisis
 
 ```markdown
 # Análisis
 Requisitos
-- La fruta debe debe tener dos atributos: `nombre` y `peso`
-- La fruta debe poder compararse con otra fruta
-- La fruta debe poder representarse como `"[nombre] ➡ [peso] g"`
-- La clase debe llamarse `Fruta`
-- La fruta debe poder compararse para ver si son diferentes
-- La fruta debe poder compararse para ver si es menor que
-  otra fruta mediante el peso y si ambas tienen el mismo nombre
-- La fruta debe poder compararse para ver si es 
-  menor o igual que otra fruta , mediante el peso 
-  y si ambas tienen el mismo nombre.
-- La fruta debe poder compararse para ver si es mayor que
-  otra fruta mediante el peso y si ambas tienen el mismo nombre.
-- La fruta debe poder compararse para ver si es mayor o igual que
-  otra fruta mediante el peso y si ambas tienen el mismo nombre.
+- Debe debe tener dos atributos: nombre y peso
+- Debe poder representarse como "[nombre] ➡ [peso] g"
+- Debe poder compararse con otra fruta
+- Debe poder compararse para ver si son iguales
+- Debe poder compararse para ver si es menor que otra fruta
+  Mediante el peso y si ambas tienen el mismo nombre.
+- Debe poder compararse para ver si es mayor que otra fruta
+  Mediante el peso y si ambas tienen el mismo nombre.
+
+
 Objetos
 - Fruta
 Características
 - Fruta: nombre, peso
 Acciones
-- Fruta: igualdad, representación, desigualdad
-- Fruta: menor que, menor o igual que
-- Fruta: mayor que, mayor o igual que
+- Fruta: igualdad, representación
+- Fruta: menor que, mayor que
 ```
 
 ---
 
-#### Diagrama de clases
+Diagrama de clases en Mermaid
 
 ````
 ```mermaid
 classDiagram
     class Fruta {
-        + nombre
-        + peso
-        + __eq__()
-        + __ne__()
-        + __lt__()
-        + __le__()
-        + __gt__()
-        + __ge__()
+        + nombre: string
+        + peso: int
         + __str__()
+        + __eq__()
+        + __lt__()
+        + __gt__()
     }
 ```
 ````
 
 ---
 
-#### Diagrama de clases
+Diagrama de clases en Mermaid
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
     class Fruta {
-        + nombre
-        + peso
-        + __eq__()
-        + __ne__()
-        + __lt__()
-        + __le__()
-        + __gt__()
-        + __ge__()
+        + nombre: string
+        + peso: int
         + __str__()
+        + __eq__()
+        + __lt__()
+        + __gt__()
     }
-``` 
+```
+<!--.element class="center-mermaid"-->
 
 ---
+En el archivo `fruta.py`
 
-
-```python [1-35|36-47]
+```python [1-8|10-13|15-18|20-23|24-33]
 # Definición
 class Fruta:
     def __init__(self, nombre, peso):  # Constructor
         self.nombre = nombre
-        self.peso = peso
-    def __eq__(self, otro): 
+        self.peso = int(peso)
+
+    def __str__(self):  # Método de representación en cadena
+        return f"{self.nombre} ➡ {self.peso} g"
+
+    def __eq__(self, otro):  # Método de igualdad
         if isinstance(otro, Fruta):
             return self.nombre == otro.nombre and self.peso == otro.peso
         return False
-    def __ne__(self, otro): 
+    
+    def __lt__(self, otro):  # Método de menor que
         if isinstance(otro, Fruta):
-            return self.nombre != otro.nombre or self.peso != otro.peso
-        return True
-    def __lt__(self, otro):
-        if isinstance(otro, Fruta):
-            if self.nombre == otro.nombre:
-                return self.peso < otro.peso
+            return self.nombre == otro.nombre and self.peso < otro.peso
         return False
-    def __le__(self, otro): 
+
+    def __gt__(self, otro):  # Método de mayor que
         if isinstance(otro, Fruta):
-            if self.nombre == otro.nombre:
-                return self.peso <= otro.peso
+            return self.nombre == otro.nombre and self.peso > otro.peso
         return False
-    def __gt__(self, otro):
-        if isinstance(otro, Fruta):
-            if self.nombre == otro.nombre:
-                return self.peso > otro.peso
-        return False
-    def __ge__(self, otro):  # Método de mayor o igual que
-        if isinstance(otro, Fruta):
-            if self.nombre == otro.nombre:
-                return self.peso >= otro.peso
-        return False
-    def __str__(self):  
-        return f"{self.nombre} ➡ {self.peso} g"
 # Uso
-manzana = Fruta('🍎', 150)
-pera = Fruta('🍐', 120)
-manzana2 = Fruta('🍎', 150)
-pera2 = Fruta('🍐', 180)
-print(f'{manzana} | {pera} | {manzana2} | {pera2}')
-print(manzana == manzana2) 
-print(manzana != manzana2) 
-print(pera < manzana)
-print(manzana <= manzana2)
-print(pera2 > pera)
-print(manzana2 >= manzana)  # Comparación de mayor o igual que
+manzana1 = Fruta('🍎', 150)
+manzana2 = Fruta('🍎', 120)
+manzana3 = Fruta('🍎', 150)
+print(f'{manzana1} | {manzana2} | {manzana3}')
+print(manzana1 == manzana3) 
+print(manzana1 < manzana2)  
+print(manzana1 > manzana2)
+print(manzana2 < manzana3)
+print(manzana2 > manzana3)
+```
+
+---
+
+Ejecución del código
+
+```bash
+python fruta.py
 ```
 
 ```text
-🍎 ➡ 150 g | 🍐 ➡ 120 g | 🍎 ➡ 150 g | 🍐 ➡ 180 g
+🍎 ➡ 150 g | 🍎 ➡ 120 g | 🍎 ➡ 150 g
+True
+False
+True
+True
+False
+```
+
+---
+
+#### Ejercicio para ti (09)
+
+```markdown
+El agrónomo mediante el nombre y el peso de la fruta
+quiere ampliar la comparación de frutas
+- Quiere comparar si dos frutas son diferentes
+- Quiere comparar si dos frutas son menores o iguales
+- Quiere comparar si dos frutas son mayores o iguales
+```
+
+Obtener el *Análisis*
+
+2 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+Modifica al archivo `fruta.md`
+
+---
+#### Análisis
+
+```markdown
+# Análisis
+Requisitos
+- Debe debe tener dos atributos: nombre y peso
+- Debe poder representarse como "[nombre] ➡ [peso] g"
+- Debe poder compararse con otra fruta
+- Debe poder compararse para ver si son iguales
+- Debe poder compararse para ver si es menor que otra fruta
+  Mediante el peso y si ambas tienen el mismo nombre.
+- Debe poder compararse para ver si es mayor que otra fruta
+  Mediante el peso y si ambas tienen el mismo nombre.
+
+
+Objetos
+- Fruta
+Características
+- Fruta: nombre, peso
+Acciones
+- Fruta: igualdad, representación
+- Fruta: menor que, mayor que
+- Fruta: desigualdad, menor o igual que, mayor o igual que
+```
+
+---
+
+#### Ejercicio para ti (09)
+
+Ahora obtenemos el diseño del *diagrama de clase*
+
+2 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+Modificar al archivo `fruta.md`
+
+
+---
+
+Diagrama de clases en Mermaid
+
+````
+```mermaid
+classDiagram
+    class Fruta {
+        + nombre: string
+        + peso: int
+        + __str__()
+        + __eq__()
+        + __lt__()
+        + __gt__()
+        + __ne__()
+        + __le__()
+        + __ge__()
+    }
+```
+````
+
+---
+
+Diagrama de clases en Mermaid
+
+```mermaid
+%%{init: {"theme": "dark", "look": "handDrawn"  }}%%
+classDiagram
+    class Fruta {
+        + nombre: string
+        + peso: int
+        + __str__()
+        + __eq__()
+        + __lt__()
+        + __gt__()
+        + __ne__()
+        + __le__()
+        + __ge__()
+    }
+```
+<!--.element class="center-mermaid"-->
+
+---
+
+#### Ejercicio para ti (08)
+
+Ya tenemos el *análisis y diseño* de la clase
+
+3 minutos
+
+<iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
+
+Modifica el archivo `fruta.py`
+
+---
+
+En el archivo `fruta.py`
+
+```python [25-38|49-51]
+# Definición
+class Fruta:
+    def __init__(self, nombre, peso):  # Constructor
+        self.nombre = nombre
+        self.peso = int(peso)
+
+    def __str__(self):  # Método de representación en cadena
+        return f"{self.nombre} ➡ {self.peso} g"
+
+    def __eq__(self, otro):  # Método de igualdad
+        if isinstance(otro, Fruta):
+            return self.nombre == otro.nombre and self.peso == otro.peso
+        return False
+    
+    def __lt__(self, otro):  # Método de menor que
+        if isinstance(otro, Fruta):
+            return self.nombre == otro.nombre and self.peso < otro.peso
+        return False
+
+    def __gt__(self, otro):  # Método de mayor que
+        if isinstance(otro, Fruta):
+            return self.nombre == otro.nombre and self.peso > otro.peso
+        return False
+    
+    def __ne__(self, otro):  # Método de desigualdad
+        if isinstance(otro, Fruta):
+            return self.nombre != otro.nombre or self.peso != otro.peso
+        return True
+
+    def __le__(self, otro):  # Método de menor o igual que
+        if isinstance(otro, Fruta):
+            return self.nombre == otro.nombre and self.peso <= otro.peso
+        return False
+
+    def __ge__(self, otro):  # Método de mayor o igual que
+        if isinstance(otro, Fruta):
+            return self.nombre == otro.nombre and self.peso >= otro.peso
+        return False
+# Uso
+manzana1 = Fruta('🍎', 150)
+manzana2 = Fruta('🍎', 120)
+manzana3 = Fruta('🍎', 150)
+print(f'{manzana1} | {manzana2} | {manzana3}')
+print(manzana1 == manzana3) 
+print(manzana1 < manzana2)  
+print(manzana1 > manzana2)
+print(manzana2 < manzana3)  
+print(manzana2 > manzana3)
+print(manzana1 != manzana3)
+print(manzana2 <= manzana3)
+print(manzana1 >= manzana3)
+```
+
+---
+
+Ejecución del código
+
+```bash
+python fruta.py
+```
+
+
+```text
+🍎 ➡ 150 g | 🍎 ➡ 120 g | 🍎 ➡ 150 g
+True
+False
+True
 True
 False
 False
-True
 True
 True
 ```
@@ -1951,13 +1592,18 @@ True
 
 #### Operadores Aritméticos
 
-Los métodos especiales de operadores aritméticos permiten definir cómo se comportan las instancias de una clase al utilizar operadores aritméticos como suma, resta, multiplicación, división y otros.
+Los métodos especiales de **operadores aritméticos** permiten definir cómo se comportan las instancias de una clase al utilizar operadores aritméticos de:
 
-En la sobrecarga de operadores en Polimorfismo son definidos para facilitar las operaciones matemáticas entre objetos.
+- `+` Suma
+- `-` Resta
+- `*` Multiplicación
+- `/` División
+
+Son definidos para facilitar las operaciones matemáticas entre objetos
 
 ---
 
-Los métodos más comunes son:
+Los métodos más comunes son
 
 | Método         | Descripción                        |
 | -------------- | ---------------------------------- |
@@ -1972,7 +1618,9 @@ Los métodos más comunes son:
 
 ---
 
-En la sección de Polimorfismo y sobrecarga de operadores, ya vimos el uso de los métodos para realizar operaciones aritméticas entre instancias de una clase.
+En la sesión de Polimorfismo, vimos el uso de los métodos para realizar operaciones aritméticas entre instancias de una clase.
+
+[Sobrecarga de operadores](../../content/sesion07/#/69)
 
 Ahora detallaremos sus características
 
@@ -1980,135 +1628,208 @@ Ahora detallaremos sus características
 
 #### `__add__`
 
-| Característica    | Descripción                                 |
-| ----------------- | ------------------------------------------- |
-| Propósito         | Definir la suma de dos instancias           |
-| Cuándo se llama   | Al usar `+`                                 |
-| Primer parámetro  | `self` (instancia)                          |
-| Segundo parámetro | `otro` (otra instancia)                     |
-| Retorno           | Nueva instancia con el resultado de la suma |
+| Característica  | Descripción                                 |
+| --------------- | ------------------------------------------- |
+| Propósito       | Definir la suma de dos instancias           |
+| Cuándo se llama | Al usar `+`                                 |
+| 1er parámetro   | `self` (instancia)                          |
+| 2do parámetro   | `otro` (otra instancia)                     |
+| Retorno         | Nueva instancia con el resultado de la suma |
 
 ---
 
 #### `__sub__`
 
-| Característica    | Descripción                                  |
-| ----------------- | -------------------------------------------- |
-| Propósito         | Definir la resta de dos instancias           |
-| Cuándo se llama   | Al usar `-`                                  |
-| Primer parámetro  | `self` (instancia)                           |
-| Segundo parámetro | `otro` (otra instancia)                      |
-| Retorno           | Nueva instancia con el resultado de la resta |
+| Característica  | Descripción                                  |
+| --------------- | -------------------------------------------- |
+| Propósito       | Definir la resta de dos instancias           |
+| Cuándo se llama | Al usar `-`                                  |
+| 1er parámetro   | `self` (instancia)                           |
+| 2do parámetro   | `otro` (otra instancia)                      |
+| Retorno         | Nueva instancia con el resultado de la resta |
 
 ---
 
 #### `__mul__`
 
-| Característica    | Descripción                                           |
-| ----------------- | ----------------------------------------------------- |
-| Propósito         | Definir la multiplicación de dos instancias           |
-| Cuándo se llama   | Al usar `*`                                           |
-| Primer parámetro  | `self` (instancia)                                    |
-| Segundo parámetro | `otro` (otra instancia)                               |
-| Retorno           | Nueva instancia con el resultado de la multiplicación |
+| Característica  | Descripción                                           |
+| --------------- | ----------------------------------------------------- |
+| Propósito       | Definir la multiplicación de dos instancias           |
+| Cuándo se llama | Al usar `*`                                           |
+| 1er parámetro   | `self` (instancia)                                    |
+| 2do parámetro   | `otro` (otra instancia)                               |
+| Retorno         | Nueva instancia con el resultado de la multiplicación |
 
 ---
 #### `__truediv__`
 
-| Característica    | Descripción                                     |
-| ----------------- | ----------------------------------------------- |
-| Propósito         | Definir la división de dos instancias           |
-| Cuándo se llama   | Al usar `/`                                     |
-| Primer parámetro  | `self` (instancia)                              |
-| Segundo parámetro | `otro` (otra instancia)                         |
-| Retorno           | Nueva instancia con el resultado de la división |
+| Característica  | Descripción                                     |
+| --------------- | ----------------------------------------------- |
+| Propósito       | Definir la división de dos instancias           |
+| Cuándo se llama | Al usar `/`                                     |
+| 1er parámetro   | `self` (instancia)                              |
+| 2do parámetro   | `otro` (otra instancia)                         |
+| Retorno         | Nueva instancia con el resultado de la división |
 
 ---
 #### `__floordiv__`
 
-| Característica    | Descripción                                            |
-| ----------------- | ------------------------------------------------------ |
-| Propósito         | Definir la división entera de dos instancias           |
-| Cuándo se llama   | Al usar `//`                                           |
-| Primer parámetro  | `self` (instancia)                                     |
-| Segundo parámetro | `otro` (otra instancia)                                |
-| Retorno           | Nueva instancia con el resultado de la división entera |
+| Característica  | Descripción                                            |
+| --------------- | ------------------------------------------------------ |
+| Propósito       | Definir la división entera de dos instancias           |
+| Cuándo se llama | Al usar `//`                                           |
+| 1er parámetro   | `self` (instancia)                                     |
+| 2do parámetro   | `otro` (otra instancia)                                |
+| Retorno         | Nueva instancia con el resultado de la división entera |
 
 ---
 #### `__mod__`
 
-| Característica    | Descripción                                 |
-| ----------------- | ------------------------------------------- |
-| Propósito         | Definir el módulo de dos instancias         |
-| Cuándo se llama   | Al usar `%`                                 |
-| Primer parámetro  | `self` (instancia)                          |
-| Segundo parámetro | `otro` (otra instancia)                     |
-| Retorno           | Nueva instancia con el resultado del módulo |
+| Característica  | Descripción                                 |
+| --------------- | ------------------------------------------- |
+| Propósito       | Definir el módulo de dos instancias         |
+| Cuándo se llama | Al usar `%`                                 |
+| 1er parámetro   | `self` (instancia)                          |
+| 2do parámetro   | `otro` (otra instancia)                     |
+| Retorno         | Nueva instancia con el resultado del módulo |
 
 ---
 #### `__pow__`
 
-| Característica    | Descripción                                     |
-| ----------------- | ----------------------------------------------- |
-| Propósito         | Definir la potencia de dos instancias           |
-| Cuándo se llama   | Al usar `**`                                    |
-| Primer parámetro  | `self` (instancia)                              |
-| Segundo parámetro | `otro` (otra instancia)                         |
-| Retorno           | Nueva instancia con el resultado de la potencia |
+| Característica  | Descripción                                     |
+| --------------- | ----------------------------------------------- |
+| Propósito       | Definir la potencia de dos instancias           |
+| Cuándo se llama | Al usar `**`                                    |
+| 1er parámetro   | `self` (instancia)                              |
+| 2do parámetro   | `otro` (otra instancia)                         |
+| Retorno         | Nueva instancia con el resultado de la potencia |
 
 ---
 
 #### Métodos para colecciones
 
-Los métodos especiales para colecciones permiten definir cómo se comportan las instancias de una clase al utilizar operaciones comunes de colecciones, como obtener la longitud, acceder a elementos
+Los métodos especiales para **colecciones** permiten definir cómo se comportan las instancias de una clase al utilizar operaciones comunes de colecciones, como obtener la longitud y acceder a elementos
 
 ---
 
-Los métodos de colecciones se utilizan cuando se trabaja con objetos que actúan como colecciones con elementos indexados, como listas o diccionarios.
+Los métodos de colecciones se utilizan cuando se trabaja con **objetos que actúan como colecciones** con elementos indexados, como listas o diccionarios
 
 ---
 
 Algunos de los más comunes son:
 
-| Método        | Descripción                              |
-| ------------- | ---------------------------------------- |
-| `__len__`     | Longitud, al utilizar, `len()`           |
-| `__getitem__` | Obtener elementos, `obj[indice]`         |
-| `__setitem__` | Asignar elementos, `obj[indice] = valor` |
-| `__delitem__` | Eliminar elementos, `del obj[indice]`    |
-| `__iter__`    | Iterar con, `for elemento in obj`        |
+| Método        | Descripción                    |
+| ------------- | ------------------------------ |
+| `__len__`     | Longitud, `len()`              |
+| `__getitem__` | Obtener, `obj[indice]`         |
+| `__setitem__` | Asignar, `obj[indice] = valor` |
+| `__delitem__` | Eliminar, `del obj[indice]`    |
+| `__iter__`    | Iterar, `for elemento in obj`  |
 
 ---
 #### `__len__`
 
-| Característica   | Descripción                          |
-| ---------------- | ------------------------------------ |
-| Propósito        | Definir la longitud de una instancia |
-| Cuándo se llama  | Al usar `len()`                      |
-| Primer parámetro | `self` (instancia)                   |
-| Retorno          | Longitud del objeto (entero)         |
+| Característica  | Descripción                          |
+| --------------- | ------------------------------------ |
+| Propósito       | Definir la longitud de una instancia |
+| Cuándo se llama | Al usar `len()`                      |
+| 1er parámetro   | `self` (instancia)                   |
+| Retorno         | Longitud del objeto (entero)         |
 
 ---
-El método `__len__` se utiliza para definir cómo se obtiene la longitud de una instancia
+El método `__len__` se utiliza para definir cómo se **obtiene la longitud** de 
 
-Es utilizado de manera similar al len en cadenas, listas, diccionarios y otros tipos de colecciones.
+**una instancia** o de **sus atributos**
+
+Es utilizado de manera similar al len en cadenas, listas, diccionarios y otros tipos de colecciones
 
 ---
 
-Se usa en entornos donde se maneja colecciones de datos, como bases de datos, sistemas de archivos
+#### `__getitem__`
 
-Un caso de uso común es en carritos de compras, donde se necesita saber cuántos productos hay en el carrito.
+| Característica  | Descripción                        |
+| --------------- | ---------------------------------- |
+| Propósito       | Definir cómo se obtienen elementos |
+| Cuándo se llama | Al usar `objeto[indice]`           |
+| 1er parámetro   | `self` (instancia)                 |
+| 2do parámetro   | `indice` (índice del elemento)     |
+| Retorno         | Elemento en el índice dado         |
+
+---
+El método `__getitem__` se utiliza para definir cómo se **obtienen los elementos** de una instancia de la clase al utilizar notación de corchetes `[]`
+
+Se utiliza para acceder a elementos de objetos personalizados como **listas o diccionarios**
+
+---
+
+#### `__setitem__`
+
+| Característica  | Descripción                          |
+| --------------- | ------------------------------------ |
+| Propósito       | Definir cómo se establecen elementos |
+| Cuándo se llama | `objeto[indice] = valor`             |
+| 1er parámetro   | `self` (instancia)                   |
+| 2do parámetro   | `indice` (índice del elemento)       |
+| 3er parámetro   | `valor` (valor nuevo)                |
+| Retorno         | No retorna ningún valor              |
+
+---
+
+El método `__setitem__` se utiliza para definir cómo se **establecen los elementos** de una instancia de la clase al utilizar notación de corchetes `[]`
+
+Se utiliza para asignar valores a elementos de objetos personalizados como **listas o diccionarios**
+
+---
+
+#### `__delitem__`
+
+| Característica  | Descripción                        |
+| --------------- | ---------------------------------- |
+| Propósito       | Definir cómo se eliminan elementos |
+| Cuándo se llama | Al usar `del objeto[indice]`       |
+| 1er parámetro   | `self` (instancia)                 |
+| 2do parámetro   | `indice` (índice del elemento)     |
+| Retorno         | No retorna ningún valor            |
+
+---
+
+El método `__delitem__` se utiliza para definir cómo se **eliminan los elementos** de una instancia de la clase al utilizar notación de corchetes `[]`
+
+Se utiliza para eliminar elementos de objetos personalizados como **listas o diccionarios**
+
+---
+
+#### `__iter__`
+
+| Característica  | Descripción                              |
+| --------------- | ---------------------------------------- |
+| Propósito       | Definir cómo se itera sobre la instancia |
+| Cuándo se llama | En, `for elemento in objeto`             |
+| 1er parámetro   | `self` (instancia)                       |
+| Retorno         | Iterador de la instancia                 |
+
+---
+
+El método `__iter__` se utiliza para definir cómo se **itera sobre una instancia** de la clase al utilizar un bucle `for`
+
+Permite que la instancia **sea iterable**, lo que significa que se puede **recorrer elemento por elemento**
+
 
 ---
 
 #### Ejemplo 14
 
 ```markdown
-La biblioteca almacena una colección de libros.
+La biblioteca almacena una colección digital de libros
 Quieren poder saber cuántos libros hay en la colección
 De cada libro se guarda su título y autor.
-Se puede ver los libros en formato `"[título] - [autor]"`.
-Se puede ver la biblioteca en formato `"[libro1], [libro2], ..."`.
+- Ver los libros en formato `"[título] - [autor]"`.
+- Ver la biblioteca en formato `"[libro1], [libro2], ..."`
+- Los libros se almacenan en una lista dentro de la biblioteca
+- La biblioteca debe permitir ver algunos libros por su índice
+- La biblioteca debe permitir agregar nuevos libros
+- La biblioteca debe permitir eliminar libros
+- Se debe poder iterar sobre los libros de la biblioteca
 ```
 
 En el archivo `biblioteca.py`
@@ -2123,10 +1844,13 @@ Requisitos
 - La biblioteca debe tener una colección de libros
 - Cada libro debe tener un título y un autor
 - La biblioteca debe poder saber cuántos libros hay
-- La clase debe llamarse `Biblioteca`
 - Existe una relación de agregación entre Biblioteca y Libro
 - El libro se representa como `"(título - autor)"`
 - La biblioteca se representa como `"libro1, libro2, ..."`
+- La biblioteca debe poder acceder a los libros por su índice
+- La biblioteca debe poder agregar nuevos libros
+- La biblioteca debe poder eliminar libros
+- La biblioteca debe poder iterar sobre los libros
 Objetos
 - Biblioteca
 - Libro
@@ -2135,25 +1859,30 @@ Características
 - Libro: título, autor
 Acciones
 - Biblioteca: longitud, representación
+- Biblioteca: acceso a libros por índice, agregar, eliminar, iterar
 - Libro: representación
 ```
 
 ---
 
-#### Diagrama de clases
+Diagrama de clases en Mermaid
 
 ````
 ```mermaid
 classDiagram
     class Libro {
-        + titulo: str
-        + autor: str
+        + titulo: string
+        + autor: string
         + __str__()
     }
     class Biblioteca {
-        + libros: List[Libro]
-        + __len__()
-        + __str__()
+        +libros: List[Libro]
+        +__str__()
+        +__len__()
+        +__getitem__()
+        +__setitem__()
+        +__delitem__()
+        +__iter__()
     }
     Biblioteca o-- Libro
 ```
@@ -2166,24 +1895,30 @@ classDiagram
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
+direction LR
     class Libro {
-        + titulo: str
-        + autor: str
+        + titulo: string
+        + autor: string
         + __str__()
     }
     class Biblioteca {
-        + libros: List[Libro]
-        + __len__()
-        + __str__()
+        +libros: List[Libro]
+        +__str__()
+        +__len__()
+        +__getitem__()
+        +__setitem__()
+        +__delitem__()
+        +__iter__()
     }
     Biblioteca o-- Libro
 ```
+<!--.element class="center-mermaid"-->
 
 ---
 
 En el archivo `biblioteca.py`
 
-```python [1-15|16-22]
+```python [1-7,9-13|14-23|25-30|31-32|33-34|35-36|37-38]
 # Definición
 class Libro:
     def __init__(self, titulo, autor):  # Constructor
@@ -2199,668 +1934,47 @@ class Biblioteca:
         return ', '.join(str(libro) for libro in self.libros) 
     def __len__(self):  # Método de longitud
         return len(self.libros)
-# Uso
-biblioteca = Biblioteca()
-biblioteca.libros.append(Libro("1984", "George Orwell"))
-biblioteca.libros.append(Libro("La odisea", "Homero"))
-print(biblioteca)
-longiud = len(biblioteca)  # Obtener la longitud 
-print(f"Número de libros: {longiud}")
-```
-
-```text
-(1984 - George Orwell), (La odisea - Homero)
-Número de libros: 2
-```
-
----
-
-#### `__getitem__`
-
-| Característica    | Descripción                        |
-| ----------------- | ---------------------------------- |
-| Propósito         | Definir cómo se obtienen elementos |
-| Cuándo se llama   | Al usar `objeto[indice]`           |
-| Primer parámetro  | `self` (instancia)                 |
-| Segundo parámetro | `indice` (índice del elemento)     |
-| Retorno           | Elemento en el índice dado         |
-
----
-El método `__getitem__` se utiliza para definir cómo se obtienen los elementos de una instancia de la clase al utilizar notación de corchetes `[]`.
-
-Se utiliza para acceder a elementos de objetos personalizados como listas o diccionarios.
-
----
-
-El índice puede ser un número entero, una cadena u otro tipo de dato, dependiendo de cómo se haya implementado la clase.
-
----
-
-#### Ejemplo 15
-
-En el archivo `biblioteca.py`
-
-```markdown
-La biblioteca almacena una colección de libros.
-Pueden acceder a los libros por su índice.
-Y ver el título y autor de cada libro.
-```
-
----
-
-#### Análisis
-
-```markdown
-# Análisis
-Requisitos
-- La biblioteca debe tener una colección de libros
-- Cada libro debe tener un título y un autor
-- La biblioteca debe poder saber cuántos libros hay
-- La clase debe llamarse `Biblioteca`
-- Existe una relación de agregación entre Biblioteca y Libro
-- El libro se representa como `"(título - autor)"`
-- La biblioteca se representa como `"libro1, libro2, ..."`
-- La biblioteca debe poder acceder a los libros por su índice
-Objetos
-- Biblioteca
-- Libro
-Características
-- Biblioteca: colección de libros
-- Libro: título, autor
-Acciones
-- Biblioteca: longitud, representación
-- Libro: representación
-- Biblioteca: acceso a libros por índice
-```
-
----
-
-#### Diagrama de clases
-
-````
-```mermaid
-classDiagram
-    class Libro {
-        + titulo: str
-        + autor: str
-        + __str__()
-    }
-    class Biblioteca {
-        + libros: List[Libro]
-        + __len__()
-        + __str__()
-        + __getitem__()
-    }
-    Biblioteca o-- Libro
-```
-````
-
----
-
-#### Diagrama de clases
-
-```mermaid
-%%{init: {"theme": "dark", "look": "handDrawn"  }}%%
-classDiagram
-    class Libro {
-        + titulo: str
-        + autor: str
-        + __str__()
-    }
-    class Biblioteca {
-        + libros: List[Libro]
-        + __len__()
-        + __str__()
-        + __getitem__()
-    }
-    Biblioteca o-- Libro
-```
-
----
-
-En el archivo `biblioteca.py`
-
-```python [1-17|18-25]
-# Definición
-class Libro:
-    def __init__(self, titulo, autor):  # Constructor
-        self.titulo = titulo
-        self.autor = autor
-    def __str__(self):
-        return f"({self.titulo} - {self.autor})"
-
-class Biblioteca:
-    def __init__(self):  # Constructor
-        self.libros = []
-    def __str__(self):
-        return ', '.join(str(libro) for libro in self.libros) 
-    def __len__(self):
-        return len(self.libros)
     def __getitem__(self, indice):  # Obtención de elementos
         return self.libros[indice]
-# Uso
-biblioteca = Biblioteca()
-biblioteca.libros.append(Libro("1984", "George Orwell"))
-biblioteca.libros.append(Libro("La odisea", "Homero"))
-print(biblioteca)
-longiud = len(biblioteca)  # Obtener la longitud 
-print(f"Número de libros: {longiud}")
-print(biblioteca[0])
-```
-
-```text
-(1984 - George Orwell), (La odisea - Homero)
-Número de libros: 2
-(1984 - George Orwell)
-```
-
----
-#### `__setitem__`
-
-| Característica    | Descripción                          |
-| ----------------- | ------------------------------------ |
-| Propósito         | Definir cómo se establecen elementos |
-| Cuándo se llama   | `objeto[indice] = valor`             |
-| Primer parámetro  | `self` (instancia)                   |
-| Segundo parámetro | `indice` (índice del elemento)       |
-| Tercer parámetro  | `valor` (valor a establecer)         |
-| Retorno           | No retorna ningún valor              |
-
----
-
-El método `__setitem__` se utiliza para definir cómo se establecen los elementos de una instancia de la clase al utilizar notación de corchetes `[]`.
-
-Se utiliza para asignar valores a elementos de objetos personalizados como listas o diccionarios.
-
-Se usa en entornos donde se maneja colecciones de datos, como bases de datos, sistemas de archivos.
-
----
-
-Un caso de uso común es en carritos de compras, donde se necesita agregar o actualizar productos en el carrito.
-
-El índice puede ser un número entero, una cadena u otro tipo de dato, dependiendo de cómo se haya implementado la clase.
-
----
-
-#### Ejemplo 16
-
-En el archivo `biblioteca.py`
-
-```markdown
-La biblioteca almacena una colección de libros.
-Pueden acceder a los libros por su índice.
-Pueden establecer un libro en un índice específico.
-```
-
-
----
-
-#### Análisis
-
-```markdown
-# Análisis
-Requisitos
-- La biblioteca debe tener una colección de libros
-- Cada libro debe tener un título y un autor
-- La biblioteca debe poder saber cuántos libros hay
-- La clase debe llamarse `Biblioteca`
-- Existe una relación de agregación entre Biblioteca y Libro
-- El libro se representa como `"(título - autor)"`
-- La biblioteca se representa como `"libro1, libro2, ..."`
-- La biblioteca debe poder acceder a los libros por su índice
-- La biblioteca debe poder establecer un libro en un índice 
-Objetos
-- Biblioteca
-- Libro
-Características
-- Biblioteca: colección de libros
-- Libro: título, autor
-Acciones
-- Biblioteca: longitud, representación
-- Libro: representación
-- Biblioteca: acceso a libros por índice
-- Biblioteca: establecer libro en índice
-```
-
----
-
-#### Diagrama de clases
-
-````
-```mermaid
-classDiagram
-    class Libro {
-        + titulo: str
-        + autor: str
-        + __str__()
-    }
-    class Biblioteca {
-        + libros: List[Libro]
-        + __len__()
-        + __str__()
-        + __getitem__()
-        + __setitem__()
-    }
-    Biblioteca o-- Libro
-```
-````
-
----
-
-#### Diagrama de clases
-
-```mermaid
-%%{init: {"theme": "dark", "look": "handDrawn"  }}%%
-classDiagram
-    class Libro {
-        + titulo: str
-        + autor: str
-        + __str__()
-    }
-    class Biblioteca {
-        + libros: List[Libro]
-        + __len__()
-        + __str__()
-        + __getitem__()
-        + __setitem__()
-    }
-    Biblioteca o-- Libro
-```
-
----
-
-En el archivo `biblioteca.py`
-
-```python [1-26|27-34]
-# Definición
-class Libro:
-    def __init__(self, titulo, autor):  # Constructor
-        self.titulo = titulo
-        self.autor = autor
-    def __str__(self):
-        return f"({self.titulo} - {self.autor})"
-
-class Biblioteca:
-    def __init__(self):  # Constructor
-        self.libros = []
-    def __str__(self):
-        return ', '.join(str(libro) for libro in self.libros) 
-    def __len__(self):
-        return len(self.libros)
-    def __getitem__(self, indice):
-        return self.libros[indice]
-    def __setitem__(self, indice, valor):  # Asignación
-        if not isinstance(valor, Libro):
-                raise ValueError("Debe ser un Libro")
-        if indice < len(self.libros):
-            self.libros[indice] = valor
-        elif indice == len(self.libros):
-            self.libros.append(valor)
-        else:
-            raise IndexError("No puedes dejar huecos en la lista")
-# Uso
-biblioteca = Biblioteca()
-biblioteca[0] = Libro("1984", "George Orwell") 
-biblioteca[1] = Libro("La odisea", "Homero")
-print(biblioteca)
-longiud = len(biblioteca)
-print(f"Número de libros: {longiud}")
-print(biblioteca[0])
-```
-
-```text
-(1984 - George Orwell), (La odisea - Homero)
-Número de libros: 2
-(1984 - George Orwell)
-```
-
-
----
-#### `__delitem__`
-
-| Característica    | Descripción                        |
-| ----------------- | ---------------------------------- |
-| Propósito         | Definir cómo se eliminan elementos |
-| Cuándo se llama   | Al usar `del objeto[indice]`       |
-| Primer parámetro  | `self` (instancia)                 |
-| Segundo parámetro | `indice` (índice del elemento)     |
-| Retorno           | No retorna ningún valor            |
-
----
-
-El método `__delitem__` se utiliza para definir cómo se eliminan los elementos de una instancia de la clase al utilizar notación de corchetes `[]`.
-
-Se utiliza para eliminar elementos de objetos personalizados como listas o diccionarios.
-
-Se usa en entornos donde se maneja colecciones de datos, como bases de datos, sistemas de archivos.
-
----
-
-Un caso de uso común es en carritos de compras, donde se necesita eliminar productos del carrito.
-
-El índice puede ser un número entero, una cadena u otro tipo de dato, dependiendo de cómo se haya implementado la clase.
-
----
-
-#### Ejemplo 17
-
-En el archivo `biblioteca.py`
-
-```markdown
-La biblioteca almacena una colección de libros.
-Pueden acceder a los libros por su índice.
-Pueden eliminar un libro por su índice.
-```
-
----
-
-#### Análisis
-
-```markdown
-# Análisis
-Requisitos
-- La biblioteca debe tener una colección de libros
-- Cada libro debe tener un título y un autor
-- La biblioteca debe poder saber cuántos libros hay
-- La clase debe llamarse `Biblioteca`
-- Existe una relación de agregación entre Biblioteca y Libro
-- El libro se representa como `"(título - autor)"`
-- La biblioteca se representa como `"libro1, libro2, ..."`
-- La biblioteca debe poder acceder a los libros por su índice
-- La biblioteca debe poder establecer un libro en un índice 
-- La biblioteca debe poder eliminar un libro por su índice
-Objetos
-- Biblioteca
-- Libro
-Características
-- Biblioteca: colección de libros
-- Libro: título, autor
-Acciones
-- Biblioteca: longitud, representación
-- Libro: representación
-- Biblioteca: acceso a libros por índice
-- Biblioteca: establecer libro por índice
-- Biblioteca: eliminar libro por índice
-```
-
----
-
-#### Diagrama de clases
-
-````
-```mermaid
-classDiagram
-    class Libro {
-        + titulo: str
-        + autor: str
-        + __str__()
-    }
-    class Biblioteca {
-        + libros: List[Libro]
-        + __len__()
-        + __str__()
-        + __getitem__()
-        + __setitem__()
-        + __delitem__()
-    }
-    Biblioteca o-- Libro
-```
-````
-
----
-
-#### Diagrama de clases
-
-```mermaid
-%%{init: {"theme": "dark", "look": "handDrawn"  }}%%
-classDiagram
-    class Libro {
-        + titulo: str
-        + autor: str
-        + __str__()
-    }
-    class Biblioteca {
-        + libros: List[Libro]
-        + __len__()
-        + __str__()
-        + __getitem__()
-        + __setitem__()
-        + __delitem__()
-    }
-    Biblioteca o-- Libro
-```
-
----
-
-En el archivo `biblioteca.py`
-
-```python [1-30|31-42]
-# Definición
-class Libro:
-    def __init__(self, titulo, autor):  # Constructor
-        self.titulo = titulo
-        self.autor = autor
-    def __str__(self):
-        return f"({self.titulo} - {self.autor})"
-
-class Biblioteca:
-    def __init__(self):  # Constructor
-        self.libros = []
-    def __str__(self):
-        return ', '.join(str(libro) for libro in self.libros) 
-    def __len__(self):
-        return len(self.libros)
-    def __getitem__(self, indice):
-        return self.libros[indice]
-    def __setitem__(self, indice, valor):  # Asignación
-        if not isinstance(valor, Libro):
-                raise ValueError("Debe ser un Libro")
-        if indice < len(self.libros):
-            self.libros[indice] = valor
-        elif indice == len(self.libros):
-            self.libros.append(valor)
-        else:
-            raise IndexError("No puedes dejar huecos en la lista")
-    def __delitem__(self, indice):  # Eliminación
-        if indice < 0 or indice >= len(self.libros):
-            raise IndexError("Índice fuera de rango")
+    def __setitem__(self, indice, valor):  # Asignación de elementos
+        self.libros[indice] = valor
+    def __delitem__(self, indice):  # Eliminación de elementos
         del self.libros[indice]
-# Uso
-biblioteca = Biblioteca()
-biblioteca[0] = Libro("1984", "George Orwell") 
-biblioteca[1] = Libro("La odisea", "Homero")
-print(biblioteca)
-longiud = len(biblioteca)
-print(f"Número de libros: {longiud}")
-print(biblioteca[0])
-del biblioteca[0]
-print(biblioteca)
-longiud = len(biblioteca)
-print(f"Número de libros: {longiud}")
-```
-
-```text
-(1984 - George Orwell), (La odisea - Homero)
-Número de libros: 2
-(1984 - George Orwell)
-(La odisea - Homero)
-Número de libros: 1
-```
-
----
-
-#### `__iter__`
-
-| Característica   | Descripción                              |
-| ---------------- | ---------------------------------------- |
-| Propósito        | Definir cómo se itera sobre la instancia |
-| Cuándo se llama  | Al usar `for elemento in objeto`         |
-| Primer parámetro | `self` (instancia)                       |
-| Retorno          | Iterador de la instancia                 |
-
----
-El método `__iter__` se utiliza para definir cómo se itera sobre una instancia de la clase al utilizar un bucle `for`.
-
-Permite que la instancia sea iterable, lo que significa que se puede recorrer elemento por elemento.
-
----
-
-Se usa en entornos donde se maneja colecciones de datos, como bases de datos, sistemas de archivos.
-
-Un caso de uso común es en carritos de compras, donde se necesita iterar sobre los productos en el carrito.
-
----
-
-#### Ejemplo 18
-
-En el archivo `biblioteca.py`
-
-```markdown
-La biblioteca almacena una colección de libros.
-Pueden iterar sobre los libros para ver sus títulos y autores.
-```
-
----
-
-#### Análisis
-
-```markdown
-# Análisis
-Requisitos
-- La biblioteca debe tener una colección de libros
-- Cada libro debe tener un título y un autor
-- La biblioteca debe poder saber cuántos libros hay
-- La clase debe llamarse `Biblioteca`
-- Existe una relación de agregación entre Biblioteca y Libro
-- El libro se representa como `"(título - autor)"`
-- La biblioteca se representa como `"libro1, libro2, ..."`
-- La biblioteca debe poder acceder a los libros por su índice
-- La biblioteca debe poder establecer un libro en un índice 
-- La biblioteca debe poder eliminar un libro por su índice
-- La biblioteca debe poder iterar sobre los libros
-Objetos
-- Biblioteca
-- Libro
-Características
-- Biblioteca: colección de libros
-- Libro: título, autor
-Acciones
-- Biblioteca: longitud, representación
-- Libro: representación
-- Biblioteca: acceso a libros por índice
-- Biblioteca: establecer libro por índice
-- Biblioteca: eliminar libro por índice
-```
-
----
-
-#### Diagrama de clases
-
-````
-```mermaid
-classDiagram
-    class Libro {
-        + titulo: str
-        + autor: str
-        + __str__()
-    }
-    class Biblioteca {
-        + libros: List[Libro]
-        + __len__()
-        + __str__()
-        + __getitem__()
-        + __setitem__()
-        + __delitem__()
-        + __iter__()
-    }
-    Biblioteca o-- Libro
-```
-````
-
----
-
-#### Diagrama de clases
-
-```mermaid
-%%{init: {"theme": "dark", "look": "handDrawn"  }}%%
-classDiagram
-    class Libro {
-        + titulo: str
-        + autor: str
-        + __str__()
-    }
-    class Biblioteca {
-        + libros: List[Libro]
-        + __len__()
-        + __str__()
-        + __getitem__()
-        + __setitem__()
-        + __delitem__()
-        + __iter__()
-    }
-    Biblioteca o-- Libro
-```
-
----
-
-En el archivo `biblioteca.py`
-
-```python [1-32|33-46]
-# Definición
-class Libro:
-    def __init__(self, titulo, autor):  # Constructor
-        self.titulo = titulo
-        self.autor = autor
-    def __str__(self):
-        return f"({self.titulo} - {self.autor})"
-
-class Biblioteca:
-    def __init__(self):  # Constructor
-        self.libros = []
-    def __str__(self):
-        return ', '.join(str(libro) for libro in self.libros) 
-    def __len__(self):
-        return len(self.libros)
-    def __getitem__(self, indice):
-        return self.libros[indice]
-    def __setitem__(self, indice, valor):
-        if not isinstance(valor, Libro):
-                raise ValueError("Debe ser un Libro")
-        if indice < len(self.libros):
-            self.libros[indice] = valor
-        elif indice == len(self.libros):
-            self.libros.append(valor)
-        else:
-            raise IndexError("No puedes dejar huecos en la lista")
-    def __delitem__(self, indice):
-        if indice < 0 or indice >= len(self.libros):
-            raise IndexError("Índice fuera de rango")
-        del self.libros[indice]
-    def __iter__(self):  # Iteración
+    def __iter__(self):  # Iterador
         return iter(self.libros)
 # Uso
 biblioteca = Biblioteca()
-biblioteca[0] = Libro("1984", "George Orwell") 
-biblioteca[1] = Libro("La odisea", "Homero")
+biblioteca.libros.append(Libro("1984", "George Orwell"))
+biblioteca.libros.append(Libro("La odisea", "Homero"))
 print(biblioteca)
-longiud = len(biblioteca)
+longiud = len(biblioteca)  # Obtener la longitud 
 print(f"Número de libros: {longiud}")
-print(biblioteca[0])
-del biblioteca[0]
+libro = biblioteca[0]  # Acceder al primer libro
+print(libro)
+biblioteca[1] = Libro("Don Quijote", "Miguel de Cervantes")
 print(biblioteca)
-longiud = len(biblioteca)
-print(f"Número de libros: {longiud}")
-for libro in biblioteca:
+for libro in biblioteca:  # Iterar sobre los libros
     print(libro)
+del biblioteca[0]  # Eliminar el primer libro
+print(biblioteca)
+```
+
+---
+
+Ejecución del código
+
+```bash
+python biblioteca.py
 ```
 
 ```text
 (1984 - George Orwell), (La odisea - Homero)
 Número de libros: 2
 (1984 - George Orwell)
-(La odisea - Homero)
-Número de libros: 1
-(La odisea - Homero)
+(1984 - George Orwell), (Don Quijote - Miguel de Cervantes)
+(1984 - George Orwell)
+(Don Quijote - Miguel de Cervantes)
+(Don Quijote - Miguel de Cervantes)
 ```
 
 ---
@@ -2890,7 +2004,7 @@ Número de libros: 1
 
 ---
 
-- Los métodos de comparación vimos:
+- Los métodos de comparación:
 - `__eq__`, `__ne__`, `__lt__`, `__le__`, `__gt__` y `__ge__` que permiten comparar instancias de una clase entre sí.
 
 ---
