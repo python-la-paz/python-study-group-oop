@@ -11,57 +11,63 @@
 
 ---
 
-#### VS Code
+### Antes de empezar
 
-Abrimos el proyecto del Study Group
+---
+
+#### Proyecto en VSCode
+
+Abre el proyecto en VSCode
 
 ```bash
 code psg-oop-2025
 ```
 
-Creamos una carpeta llamada `sesion09` dentro del proyecto
+Crea una carpeta con el nombre `sesion09`
 
 ```bash
 mkdir sesion09
 cd sesion09
 ```
 
-Aquí guardaremos los ejemplos de la sesión
+- Los archivos de esta sesión deben estar dentro de esta carpeta
+
+- Al finalizar la sesión, sube los cambios al repositorio en un commit
 
 ---
 
 #### ¿Qué es un patrón de diseño?
 
-Un patron de diseño es una idea o una solución típica para resolver un problema
-que se repite una y otra vez.
+Un patron de diseño es una **idea o solución** típica para resolver un problema
+que se repite **una y otra vez**
 
 ---
 
-Imagina que tu armas sillas de madera, cada vez que armas una silla tienes un 
-manual con pasos claros que indican como armarla.
+Imagina que armas sillas de madera, cada vez que armas una silla usas un 
+manual con **pasos claros** que indican como armarla
 
 El manual no es la silla
-pero es una forma probada para armar bien una silla.
+pero es una **forma probada** para armar **bien una silla**
 
 ### 📐📏🔨 → 🪑 🪑 🪑
 
-> Los patrones de diseño son como esos manuales, pero para construir programas.
+> Los patrones de diseño son como esos manuales, pero para construir programas
 
 ---
 
-❌ No es un fragmento de código, no es una librería, no es un framework que 
+❌ *No* es un fragmento de código, *no* es una librería, *no* es un framework que 
 puedes pegar y usar.
 
-✅ Es un concepto, una solución probada a un problema común en el desarrollo.
+✅ **Es** un concepto, **es** una solución probada a un problema común en el desarrollo
 
 ---
+
 #### ¿Por qué usar patrones de diseño?
 
 - **Reutilización**: No tienes que reinventar la rueda cada vez que enfrentas un problema
 - **Mantenibilidad**: El código es más fácil de entender y mantener
 
 ---
-#### ¿Por qué usar patrones de diseño?
 
 - **Colaboración**: Facilita la comunicación entre desarrolladores, ya que todos conocen los patrones comunes
 - **Escalabilidad**: Permite que el código crezca de manera ordenada y estructurada
@@ -70,21 +76,23 @@ puedes pegar y usar.
 
 Los patrones varían en complejidad y propósito y pueden ser clasificados en tres categorías principales:
 
-- **Creacionales**: Se centran en la creación de objetos y clases
-- **Estructurales**: Se centran en la composición de clases y objetos
-- **De Comportamiento**: Se centran en la interacción y responsabilidad entre objetos
+- **Creacionales**: Se centran en la *creación* de objetos y clases
+- **Estructurales**: Se centran en la *composición* de clases y objetos
+- **De Comportamiento**: Se centran en la *interacción y responsabilidad* entre objetos
 
 ---
-Nos enfocaremos en los patrones creacionales, que son los que nos ayudan a
-crear objetos de manera eficiente y flexible.
+
+Nos enfocaremos en los **patrones creacionales**
+
+que son los que nos ayudan a crear objetos de manera eficiente y flexible
 
 ---
 
 #### Patrones Creacionales
 
-Los patrones creacionales son aquellos que se encargan de la creación de objetos
+Son aquellos que se encargan de la **creación** de objetos
 
-Ofrecen enfoques estructurados y reutilizables para crear instancias de clases
+Ofrecen enfoques estructurados y reutilizables para crear **instancias** de clases
 
 los más comunes son:
 
@@ -95,14 +103,25 @@ los más comunes son:
 
 #### Singleton
 
-También llamado "patrón de diseño de instancia única"
+Llamado 
+
+**"patrón de diseño de instancia única"**
 
 Garantiza que una clase tenga una **ÚNICA** instancia y proporciona un punto de acceso global a ella
 
+Define una clase que solo puede ser 
+
+**instanciada una vez**
+
 ---
 
-Esto significa que no importa cuántas veces intentes crear una instancia de
-esa clase, siempre obtendrás la misma instancia.
+Significa que no importa cuántas veces intentes **crear una instancia** de esa clase
+
+**siempre obtendrás la misma instancia**
+
+y
+
+*no se crearán nuevas instancias*
 
 ---
 
@@ -116,29 +135,27 @@ esa clase, siempre obtendrás la misma instancia.
 
 #### Casos de Uso
 
-**Aplicaciones web y escritorio**
+*Aplicaciones web y escritorio*
 
-- Conexión a bases de datos: Evita múltiples conexiones a la misma base de datos
-- Configuración global: Mantiene una configuración única para toda la aplicación
-- Acceso a recursos compartidos: Controla el acceso a recursos como archivos, impresoras, etc.
-
----
-#### Casos de Uso
-
-**Juegos**
-
-- Gestor de recursos: Carga y gestiona recursos como imágenes, sonidos, etc.
-- Control de escena: Control del cambio de escenas o niveles en el juego
-- Control de puntaje: Lleva el puntaje del jugador de manera centralizada
+- **Conexión a bases de datos:** Evita múltiples conexiones a la misma base de datos
+- **Configuración global:** Mantiene una configuración única para toda la aplicación
+- **Acceso a recursos compartidos:** Controla el acceso a recursos como archivos, impresoras, etc.
 
 ---
-#### Casos de Uso
 
-**Seguridad**
+*Juegos*
 
-- Gestión de claves: Mantiene una única instancia de administración de claves de seguridad
-- Autenticación: Controla el acceso a recursos sensibles
-- Registro de actividad: Registro único de eventos y actividades realizadas
+- **Gestor de recursos:** Carga y gestiona recursos como imágenes, sonidos, etc.
+- **Control de escena:** Control del cambio de escenas o niveles en el juego
+- **Control de puntaje:** Lleva el puntaje del jugador de manera centralizada
+
+---
+
+*Seguridad*
+
+- **Gestión de claves:** Mantiene una única instancia de administración de claves de seguridad
+- **Autenticación:** Controla el acceso a recursos sensibles
+- **Registro de actividad:** Registro único de eventos y actividades realizadas
 
 ---
 
@@ -163,13 +180,14 @@ esa clase, siempre obtendrás la misma instancia.
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
     class Singleton {
-        - instance: Singleton
-        - Singleton() 
-        + getInstance() Singleton
+        -instance: Singleton
+        -Singleton() 
+        +getInstance() Singleton
     }
 ```
+<!--.element class="center-mermaid"-->
 
-- `instance`: es la instancia única de la clase, es un atributo de clase
+- `instance`: es un atributo de clase que guarda la instancia única
 - `Singleton()`: es el constructor privado que evita la creación de instancias externas
 - `getInstance()`: es un método estático que devuelve la instancia única de la clase
 
@@ -177,31 +195,33 @@ classDiagram
 
 #### Estructura del Singleton en Python
 
-```python
+```python [1|2|3|4|5|6]
 class Singleton:
-    _instance = None
+    __instance = None
     def __new__(cls):
-        if cls._instance is None:
-            cls._instance = super().__new__(cls)
-        return cls._instance
+        if cls.__instance is None:
+            cls.__instance = super().__new__(cls)
+        return cls.__instance
 ```
 
 ```markdown
-- `Singleton`: es la clase que implementa el patrón
-- `_instance`: es un atributo de clase que guarda
-  la instancia única
+- `Singleton`: la clase que implementa el patrón
+- `__instance`: atributo de clase que guarda la instancia única
 - `__new__`: es un método especial que se llama al 
-  crear una nueva instancia de la clase
-- `if cls._instance is None`: verifica si la instancia ya existe
-  si no existe, crea una nueva instancia
+            crear una nueva instancia de la clase
+- `if cls.__instance is None`: verifica si la instancia ya existe
+                            si no existe, crea una nueva instancia
 - `super().__new__(cls)`: llama al constructor de la 
-  clase base para crear una nueva instancia
-- `return cls._instance`: devuelve la instancia única de la clase
+                        clase base para crear una nueva instancia
+- `return cls.__instance`: devuelve la instancia única de la clase
 ```
 
 ---
 
 #### Ejemplo 01
+
+Crear los archivos `adivina.md` y `adivina.py` en la carpeta `sesion09`
+
 
 ```text
 El juego "Adivina el número" permite a un jugador adivinar
@@ -211,12 +231,12 @@ que el número secreto.
 Cada vez que un jugador adivina se guarda el jugador,
 el número de intentos que le tomó adivinar y se muestra el score
 El juego termina cuando el jugador escribe "salir"
+Cada jugador posee un nombre
 ```
 
-En el archivo `adivina.md` se realizará el análisis y en el archivo `adivina.py` se implementará el patrón Singleton
-
 ---
-#### Análisis
+
+Análisis
 
 ```markdown
 Requisitos:
@@ -238,89 +258,92 @@ Características:
 - Jugador: nombre
 
 Acciones:
-- Juego: iniciar(), adivinar(numero), mostrar_score()
-- Juego: estado(), finalizar()
-- Jugador: jugar(nombre), adivinar(numero)
-- Jugador: finalizar(), jugando()
+- Juego: iniciar, adivinar, score
+- Juego: estado, finalizar
+- Jugador: jugar, adivinar
+- Jugador: finalizar, jugando
 ```
 
 ---
-#### Diagrama de Clases
 
-````
+Diagrama de clases en Mermaid
+
+```` [3-9|10-24]
 ```mermaid
 classDiagram
-    class Juego {
-        - instance: Juego
-        - iniciado: bool
-        - intentos: int
-        - numero: int
-        - score: list[Jugador]
-        - Juego()
-        + getInstance() Juego
-        + iniciar()
-        + adivinar(numero)
-        + finalizar()
-        + estado()
-        + mostrar_score()
-    }
     class Jugador {
-        - nombre: str
-        + jugar(nombre)
-        + adivinar(numero)
-        + finalizar()
-        + jugando()
-        + __str__()
+        -nombre: string
+        +jugar(nombre)
+        +adivinar(numero)
+        +finalizar()
+        +jugando()
     }
-    Jugador --o Juego
+    class Juego {
+        -instance: Juego
+        -iniciado: bool
+        -intentos: int
+        -numero: int
+        -score: list[(Jugador, int)]
+        -Juego()
+        +getInstance() Juego
+        +iniciar()
+        +adivinar(numero)
+        +finalizar()
+        +estado()
+        +score()
+    }
+    Juego o-- Jugador
 ```
 ````
 
 ---
 
-#### Diagrama de Clases
+Diagrama de clases en Mermaid
+
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
-    class Juego {
-        - instance: Juego
-        - iniciado: bool
-        - intentos: int
-        - numero: int
-        - score: list[Jugador]
-        - Juego()
-        + getInstance() Juego
-        + iniciar()
-        + adivinar(numero)
-        + finalizar()
-        + estado()
-        + mostrar_score()
-    }
+direction LR
     class Jugador {
-        - nombre: str
-        + jugar(nombre)
-        + adivinar(numero)
-        + finalizar()
-        + jugando()
-        + __str__()
+        -nombre: string
+        +jugar(nombre)
+        +adivinar(numero)
+        +finalizar()
+        +jugando()
     }
-    Jugador --o Juego
+    class Juego {
+        -instance: Juego
+        -iniciado: bool
+        -intentos: int
+        -numero: int
+        -scores: list[(Jugador, int)]
+        -Juego()
+        +getInstance() Juego
+        +iniciar()
+        +adivinar(numero)
+        +finalizar()
+        +estado()
+        +score()
+    }
+    Juego o-- Jugador
 ```
+<!--.element class="center-mermaid"-->
 
 ---
+
 #### Implementación del Juego
 
 Primero tenemos el juego, sera un Singleton, 
-ya que solo debe haber una instancia del juego en curso
+ya que solo debe haber **una instancia del juego** en curso
 
 ```python
 class Juego:
-    _instancia = None
+    __instancia = None
 
     def __new__(cls):
-        if cls._instancia is None:
-            cls._instancia = super().__new__(cls)
-        return cls._instancia
+        if cls.__instancia is None:
+            cls.__instancia = super().__new__(cls)
+        return cls.__instancia
 ```
 
 ---
@@ -331,26 +354,26 @@ Estos atributos deben ser accesibles desde cualquier parte del juego
 
 ```python [3-5]
 class Juego:
-    _instancia = None
+    __instancia = None
     iniciado = False
     intentos = 0
-    score = []
+    scores = []
 
     def __new__(cls):
-        if cls._instancia is None:
-            cls._instancia = super().__new__(cls)
-        return cls._instancia
+        if cls.__instancia is None:
+            cls.__instancia = super().__new__(cls)
+        return cls.__instancia
 ```
 
 ---
 
-Para iniciar el juego se debe generar un número secreto al azar entre 1 y 100
+Para iniciar el juego, se debe generar un número secreto al azar entre 1 y 100
 
-¿Cómo lo hacemos?
+**¿Cómo lo hacemos?**
 
 Para esto usamos el módulo `random` de Python, que nos permite generar números aleatorios
 
-¿Como lo utilizamos?
+**¿Como lo utilizamos?**
 
 ---
 
@@ -367,7 +390,10 @@ class Juego:
 ```
 
 ---
-El método `randint` del módulo `random` genera un número entero aleatorio entre dos valores
+
+El módulo `random` tiene muchas funciones, una de ellas es `randint`
+
+El método `randint` genera un número entero aleatorio entre dos valores
 
 ```python
 import random
@@ -378,7 +404,8 @@ print(random.randint(1, 100))
 ```
 
 ---
-Ahora si podemos iniciar el juego, 
+Ahora si podemos crear el método `iniciar` del juego
+
 1. Si el juego ya está iniciado, no se puede reiniciar
 2. Generamos un número secreto al azar
 3. Los intentos se reinician e inicia el juego
@@ -397,6 +424,9 @@ class Juego:
 ```
 
 ---
+
+Después de iniciar el juego, necesitamos métodos para verificar el `estado` y `finalizar` el juego
+
 El juego puede mostrar su estado, si está iniciado o no
 El juego puede finalizarse, para poder reiniciarse
 
@@ -411,8 +441,11 @@ class Juego:
 ```
 
 ---
-El juego puede verificar si el número adivinado es correcto, y dar pistas
-Siempre que el juego esté iniciado
+
+El juego debe poder verificar si el número a `adivinar` es correcto y guardar el score
+dar pistas si no es correcto usando mayor o menor
+
+**Siempre** que el juego esté iniciado
 
 ```python [3-17]
 class Juego:
@@ -428,30 +461,33 @@ class Juego:
             print("💡 El número es menor.")
         else:
             print("🎉Adivinaste el número 🎉")
-            self.score.append((jugador, self.intentos))
+            self.scores.append((jugador, self.intentos))
             self.finalizar()
             return True
         return False
 ```
 
 ---
-Por último, el juego puede mostrar el score de los jugadores
+
+Por último, el juego debe poder mostrar el score de los jugadores
 
 ```python [3-11]
 class Juego:
     ...
-    def mostrar_score(self):
+    def score(self):
         print("🏁 Score")
-        for jugador, intentos in self.score:
+        for jugador, intentos in self.scores:
             print(f"{jugador}: {intentos} intentos")
 ```
 
 ---
-La lógica del juego está completa, el juego tiene sus reglas y pueden jugar
 
-Ahora necesitamos un jugador que pueda interactuar con el juego
+La lógica del juego está completa, el juego tiene sus **reglas y se puede jugar**
+
+Ahora necesitamos un jugador que pueda **interactuar** con el juego
 
 ---
+
 #### Implementación del Jugador
 
 El jugador tiene un nombre y una forma amigable de mostrarse
@@ -465,14 +501,16 @@ class Jugador:
 ```
 
 ---
-El juego por si solo no hace nada, el jugador es quien interactúa con el juego
 
-Y el patron Singleton nos permite que el jugador pueda acceder al juego
+El juego por si solo *no hace nada*, el jugador es quien **interactúa** con el juego
+
+Y el patron Singleton **permite** que el jugador pueda acceder al juego
 
 ---
-Donde el jugador puede iniciar el juego, adivinar un número, finalizar el juego y verificar si está jugando
 
-Sin acoplarse al juego, ya que el jugador no es parte del juego, solo interactúa con él
+El jugador puede iniciar el juego, adivinar un número, finalizar el juego y verificar si está jugando
+
+Sin ser parte del juego, ya que el jugador *no* es parte del juego, solo **interactúa** con él
 
 ```python [3-16]
 class Jugador:
@@ -494,6 +532,7 @@ class Jugador:
 #### Interacción del Jugador
 
 Luego de definir al Juego y al Jugador, podemos crear el ciclo de interacción
+
 Donde las personas pueden jugar de forma continua
 
 A travez de un bucle `while` infinito, que se detiene cuando el jugador escribe "salir"
@@ -525,7 +564,7 @@ while True:
 
 ---
 
-Para iniciar el juego, entra en otro bucle `while` que permite 
+Para **iniciar el juego**, entra en otro bucle `while` que permite 
 al jugador adivinar números hasta que el juego finalice o el jugador escriba "salir"
 
 Es importante validar la entrada del jugador, para evitar errores
@@ -537,20 +576,23 @@ while True:
         numero = input("💬 Adivina el número o 'salir': ")
         if numero.lower() == "salir":
             jugador.finalizar()
-        try:
-            jugador.adivinar(int(numero))
-        except ValueError:
-            print("💢 Ingresa un número válido")
+        else:
+            try:
+                jugador.adivinar(int(numero))
+            except ValueError:
+                print("💢 Ingresa un número válido")
 ```
 
 ---
 
-Finalmente, mostramos el score de los jugadores y agradecemos al jugador por jugar
+Finalmente, mostramos el `score` de los jugadores y agradecemos al jugador por jugar
+
+cuando finaliza el juego o el jugador escribe "salir"
 
 ```python [3-4]
 while True:
     ...
-    Juego().mostrar_score()
+    Juego().score()
 print("👋 Gracias por jugar. ¡Hasta luego!")
 ```
 
@@ -561,15 +603,15 @@ print("👋 Gracias por jugar. ¡Hasta luego!")
 ```python
 import random
 class Juego:
-    _instancia = None
+    __instancia = None
     iniciado = False
     intentos = 0
-    score = []
+    scores = []
 
     def __new__(cls):
-        if cls._instancia is None:
-            cls._instancia = super().__new__(cls)
-        return cls._instancia
+        if cls.__instancia is None:
+            cls.__instancia = super().__new__(cls)
+        return cls.__instancia
 
     def iniciar(self):
         if self.iniciado:
@@ -598,14 +640,14 @@ class Juego:
             print("💡 El número es menor.")
         else:
             print("🎉Adivinaste el número 🎉")
-            self.score.append((jugador, self.intentos))
+            self.scores.append((jugador, self.intentos))
             self.finalizar()
             return True
         return False
 
-    def mostrar_score(self):
+    def score(self):
         print("🏁 Score")
-        for jugador, intentos in self.score:
+        for jugador, intentos in self.scores:
             print(f"{jugador}: {intentos} intentos")
 
 class Jugador:
@@ -637,11 +679,12 @@ while True:
         numero = input("💬 Adivina el número o 'salir': ")
         if numero.lower() == "salir":
             jugador.finalizar()
-        try:
-            jugador.adivinar(int(numero))
-        except ValueError:
-            print("💢 Ingresa un número válido")
-    Juego().mostrar_score()
+        else:
+            try:
+                jugador.adivinar(int(numero))
+            except ValueError:
+                print("💢 Ingresa un número válido")
+    Juego().score()
 print("👋 Gracias por jugar. ¡Hasta luego!")
 ```
 
@@ -676,14 +719,14 @@ python adivina.py
 
 ---
 
-En el ejemplo anterior los Singletons son útiles para mantener un único
-estado del juego y acceder a él desde cualquier parte del código
+En el ejemplo anterior los Singletons son útiles para mantener un **único**
+estado del juego y acceder a él desde **cualquier parte** del código
 
 ---
 
-En los juegos multijugador, el patrón Singleton puede ser útil para gestionar
+En juegos multijugador, el patrón Singleton puede ser útil para gestionar
 el estado del juego y asegurar que todos los jugadores interactúan con la misma
-partida 
+partida
 
 ---
 #### Ejercicio 02
@@ -825,15 +868,15 @@ Primero el Singleton y sus atributos ya que solo debe haber una sala de cine vir
 
 ```python
 class Sala:
-    _instancia = None
+    __instancia = None
     titulo = ""
     reproducciendo = False
     clientes = []
 
     def __new__(cls):
-        if cls._instancia is None:
-            cls._instancia = super().__new__(cls)
-        return cls._instancia
+        if cls.__instancia is None:
+            cls.__instancia = super().__new__(cls)
+        return cls.__instancia
 ```
 
 ---
@@ -972,15 +1015,15 @@ while True:
 
 ```python
 class Sala:
-    _instancia = None
+    __instancia = None
     titulo = ""
     reproducciendo = False
     clientes = []
 
     def __new__(cls):
-        if cls._instancia is None:
-            cls._instancia = super().__new__(cls)
-        return cls._instancia
+        if cls.__instancia is None:
+            cls.__instancia = super().__new__(cls)
+        return cls.__instancia
 
     def iniciar(self, titulo):
         if self.reproducciendo:
