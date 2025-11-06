@@ -729,20 +729,26 @@ el estado del juego y asegurar que todos los jugadores interactúan con la misma
 partida
 
 ---
-#### Ejercicio 02
+#### Ejercicio para ti (02)
+
+Crea los archivos `cine.md` y `cine.py` en la carpeta `sesion09`
+
+Obtener el *Análisis*
+
+---
 
 ```markdown
 Una empresa de cine desea llevar el cine a casa de sus clientes,
-para ello ha creado un sistema  donde los clientes pueden unirse 
+para ello creó un sistema donde los clientes pueden unirse 
 a una sala de cine virtual y ver películas juntos.
 Todos los clientes ven la misma película
-Y si un cliente se une a la sala, se une a la misma sala de
+Si un cliente se une, se adiciona a la misma sala de
 cine virtual y continua viendo la película desde donde está
 Los clientes tienen un nombre y la película tiene un título
 y un estado de reproducción (en reproducción o detenida)
 Puedes ver cuantas personas hay en la sala y el título
-Al iniciar se debe ingresar el título de la película e iniciará la
-reproducción, después irán ingresando los clientes dando su nombre
+Al iniciar se debe ingresar el título de la película e iniciará
+reproducción, después irán ingresando clientes dando su nombre
 Cada cliente puede saber el estado y título de la película
 Tiene que tener un menú donde: 
 
@@ -754,7 +760,7 @@ Tiene que tener un menú donde:
 6. Salir
 ```
 
-Realizar el analisis en `cine.md`, 2 minutos
+4 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
@@ -765,11 +771,17 @@ Análisis
 ```markdown
 # Análisis
 Requisitos
-- Debe permitir a los clientes unirse a una sala de cine virtual
-- Debe permitir a los clientes ver una película juntos
-- Debe permitir a los clientes ver el estado de la película
-- Debe permitir a los clientes ver cuantas personas hay en la sala
-- Debe permitir a los clientes ver el título de la película
+- Los clientes pueden unirse a una sala de cine virtual
+- Los clientes pueden ver una película juntos
+- Los clientes pueden ver el estado de la película
+- Los clientes pueden ver cuantas personas hay en la sala
+- Los clientes pueden ver el título de la película
+- La película puede ser iniciada y finalizada
+- El sistema debe tener un menú para interactuar
+- La película tiene un título y un estado de reproducción
+- Los clientes tienen un nombre
+- La sala de cine es única
+- La sala tiene una lista de clientes
 Objetos
 - Sala: Representa la sala de cine virtual
 - Cliente: Representa al cliente que se une a la sala
@@ -777,48 +789,49 @@ Características
 - Sala: titulo, reproducciendo, clientes
 - Cliente: nombre
 Acciones
-- Sala: iniciar(titulo), unirse(cliente), estado(), ver_clientes()
-- Cliente: unirse(sala), estado()
+- Sala: iniciar, unirse, estado, listar
+- Cliente: unirse, estado
 ```
 
 ---
 
-Ahora que tenemos los requisitos, características y acciones podemos definir el diseño
+#### Ejercicio para ti (02)
+
+Ahora obtenemos el diseño del *diagrama de clase*
 
 2 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-Añadir al archivo `cine.md` el diseño
+Modifica el archivo `cine.md`
 
 ---
 
-#### Diagrama de Clases
+Modificando el diseño de diagrama de clases
 
 ````
 ```mermaid
-%%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
-    class Sala {
-        - instance: Sala
-        - titulo: str
-        - reproducciendo: bool
-        - clientes: list[Cliente]
-        - Sala()
-        + getInstance() Sala
-        + iniciar(titulo)
-        + unirse(cliente)
-        + estado()
-        + ver_clientes()
-        + finalizar()
-    }
     class Cliente {
-        - nombre: str
-        + unirse(sala)
-        + estado()
-        + __str__()
+        -nombre: string
+        +unirse(sala)
+        +estado()
+        +__str__()
     }
-    Cliente --o Sala
+    class Sala {
+        -instance: Sala
+        -titulo: string
+        -reproducciendo: bool
+        -clientes: list[Cliente]
+        -Sala()
+        +getInstance() Sala
+        +iniciar(titulo)
+        +unirse(cliente)
+        +estado()
+        +listar()
+        +finalizar()
+    }
+    Sala o-- Cliente
 ```
 ````
 
@@ -827,44 +840,50 @@ classDiagram
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
-    class Sala {
-        - instance: Sala
-        - titulo: str
-        - reproducciendo: bool
-        - clientes: list[Cliente]
-        - Sala()
-        + getInstance() Sala
-        + iniciar(titulo)
-        + unirse(cliente)
-        + estado()
-        + ver_clientes()
-        + finalizar()
-    }
+direction LR
     class Cliente {
-        - nombre: str
-        + unirse(sala)
-        + estado()
-        + __str__()
+        -nombre: string
+        +unirse(sala)
+        +estado()
+        +__str__()
     }
-    Cliente --o Sala
+    class Sala {
+        -instance: Sala
+        -titulo: string
+        -reproducciendo: bool
+        -clientes: list[Cliente]
+        -Sala()
+        +getInstance() Sala
+        +iniciar(titulo)
+        +unirse(cliente)
+        +estado()
+        +listar()
+        +finalizar()
+    }
+    Sala o-- Cliente
 ```
+<!--.element class="center-mermaid"-->
 
 ---
 
-#### Implementación de la Sala
+#### Ejercicio para ti (02)
 
-Ahora  que tenemos el diseño, podemos implementar primero la sala
-ya que tendrá el estado de la película y los clientes que se unen a la sala
+Ya tenemos el *análisis y diseño* de la clase
 
-3 minutos
+Ahora podemos **programar**
+
+Modifica el archivo `cine.py`
+
+2 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-Añadir al archivo `cine.py` la implementación de la sala
 
 Primero el Singleton y sus atributos ya que solo debe haber una sala de cine virtual
 
 ---
+
+Singleton de la Sala de Cine
 
 ```python
 class Sala:
@@ -880,15 +899,18 @@ class Sala:
 ```
 
 ---
-Luego los métodos para iniciar la película, unirse a la sala, ver el estado, título y clientes
+Adicionar los **métodos** para iniciar la película, unirse a la sala, ver el estado, listar clientes y finalizar la película
 
-En el archivo `cine.py` añadir los siguientes métodos
+Modificar el archivo `cine.py`
 
 4 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
+
 ---
+
+Adicionar los métodos a la clase `Sala`
 
 ```python
 class Sala:
@@ -909,7 +931,7 @@ class Sala:
         estado = "En reproducción" if self.reproducciendo else "Detenida"
         print(f"🎥 Película: {self.titulo} | Estado: {estado}")
 
-    def ver_clientes(self):
+    def listar(self):
         print(f"👥 Clientes en la sala: {len(self.clientes)}")
         for cliente in self.clientes:
             print(f"- {cliente}")
@@ -923,16 +945,22 @@ class Sala:
 
 #### Implementación del Cliente
 
+
 Luego de implementar la sala, podemos implementar el cliente
-ya que el cliente interactuará con la sala
+ya que el cliente **interactuará** con la sala
 
 El cliente tiene un nombre y una forma amigable de mostrarse
+
+Modificar el archivo `cine.py`
 
 3 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
+
 ---
+
+Adicionar la clase `Cliente`
 
 ```python
 class Cliente:
@@ -943,9 +971,12 @@ class Cliente:
 ```
 
 ---
-El cliente puede unirse a la sala y ver el estado de la película
 
-Implementar los siguientes métodos en la clase `Cliente`, uniéndose a la sala y viendo el título y estado de la película
+El cliente puede **unirse** a la sala y ver el estado de la película
+
+Implementar el método en la clase `Cliente`, uniéndose a la sala
+
+Modificar el archivo `cine.py`
 
 2 minutos
 
@@ -958,23 +989,25 @@ class Cliente:
     ...
     def unirse(self):
         Sala().unirse(self)
-
-    def estado(self):
-        print (f"{self} está viendo:")
-        Sala().estado()
 ```
 
 ---
+
 #### Interacción del Cliente
 
-Luego de definir la sala y el cliente, podemos crear el ciclo de interacción
+Luego de definir la sala y el cliente, podemos crear el ciclo de **interacción**
+
 Donde los clientes pueden unirse a la sala, iniciar la película y ver el estado
+
+Modificar el archivo `cine.py`
 
 3 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
 ---
+
+Ciclo de interacción del cliente
 
 ```python
 while True:
@@ -1000,7 +1033,7 @@ while True:
     elif opcion == "3":
         Sala().estado()
     elif opcion == "4":
-        Sala().ver_clientes()
+        Sala().listar()
     elif opcion == "5":
         Sala().finalizar()
     elif opcion == "6":
@@ -1041,7 +1074,7 @@ class Sala:
         estado = "En reproducción" if self.reproducciendo else "Detenida"
         print(f"🎥 Película: {self.titulo} | Estado: {estado}")
 
-    def ver_clientes(self):
+    def listar(self):
         print(f"👥 Clientes en la sala: {len(self.clientes)}")
         for cliente in self.clientes:
             print(f"- {cliente}")
@@ -1058,9 +1091,6 @@ class Cliente:
     def unirse(self):
         Sala().unirse(self)
 
-    def estado(self):
-        print (f"{self} está viendo:")
-        Sala().estado()
 
 while True:
     print("="*30)
@@ -1085,7 +1115,7 @@ while True:
     elif opcion == "3":
         Sala().estado()
     elif opcion == "4":
-        Sala().ver_clientes()
+        Sala().listar()
     elif opcion == "5":
         Sala().finalizar()
     elif opcion == "6":
@@ -1162,7 +1192,16 @@ Selecciona una opción: 5
 ```
 
 ---
-    
+
+Subimos los avances de la sesión al repositorio en **GitHub**
+
+```bash
+git add .
+git commit -m "Sesión 09"
+git push origin main
+```
+
+---    
 
 #### Resumen
 
@@ -1185,7 +1224,7 @@ Selecciona una opción: 5
 ---
 
 - Las desventajas del Singleton incluyen dificultad en pruebas, alto acoplamiento y posibles problemas de persistencia de estado.
-- El Singleton en Python se implementa usando un atributo de clase para almacenar la instancia única y el método especial __new__ para controlar su creación.
+- El Singleton en Python se implementa usando un atributo de clase para almacenar la instancia única y el método especial `__new__` para controlar su creación.
 
 ---
 
@@ -1203,7 +1242,8 @@ Crear una carpeta con el nombre "retos_sesion_09" dentro del proyecto en la raí
 ```bash
 # Estructura de carpetas
 psg-oop-2025/
-    retos_sesion_07/
+    sesion09/
+    retos_sesion_09/
         ejercicio_01.md
         ejercicio_01.py
 ```
@@ -1220,15 +1260,6 @@ psg-oop-2025/
  
 ---
 
-2. Crear un sistema de gestión de inventario utilizando el patrón Singleton.
-   - El sistema debe permitir agregar, eliminar y listar productos en el inventario.
-   - Cada producto debe tener un nombre, cantidad y precio.
-   - El sistema debe llevar un registro del total de productos en el inventario.
-   - Debe tener un menú para agregar productos, eliminar productos, listar productos y salir.
-   - El sistema debe ser ejecutable desde la terminal.
-
----
-
 
 <!-- .slide: data-background-image="../../content/psg-bg-dark.png" data-background-size="100%"-->
 
@@ -1238,7 +1269,7 @@ psg-oop-2025/
 <br>
 <br>
 
-[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/content/sesion09)
+[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/tree/main/content/sesion09)
 
 Repositorio de la Sesión
 
