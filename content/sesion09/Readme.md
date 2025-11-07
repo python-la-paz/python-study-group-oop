@@ -1250,16 +1250,50 @@ psg-oop-2025/
 
 ---
 
-1. Crear el juego "Piedra, Papel o Tijera" utilizando el patrón Singleton.
-   - El juego debe permitir a un jugador jugar contra la computadora 
-     (la computadora elige al azar entre piedra, papel o tijera).
-   - El juego debe llevar un registro de las partidas ganadas por el jugador y la computadora.
-   - El juego debe permitir reiniciar el juego y mostrar el score.
-   - Debe tener un menú para iniciar el juego, jugar una partida, reiniciar el juego y salir.
-   - El juego debe ser ejecutable desde la terminal.
+1. Crea el juego **"Piedra, Papel o Tijera"** utilizando el patrón **Singleton**
+para asegurar que solo exista **una única instancia del juego** en ejecución
+
+El juego permite que un jugador compita contra la computadora, la cual elige aleatoriamente entre las tres opciones:
+
+`Piedra` , `Papel` , `Tijera`
+
+El objetivo es registrar las partidas ganadas por el jugador y por la computadora, manteniendo el control del puntaje dentro de la **única instancia** del juego
+
+*(1/3)*
+
+---
+
+Crea la clase `JuegoPPT` implementando el patrón **Singleton**
+Debe incluir:
+
+- Un método para **iniciar una partida**
+- Un método para **mostrar el puntaje actual**
+- Un método para **reiniciar el juego** (puntajes en cero)
+- Un **menú interactivo en consola** que permita:
+```markdown
+1. Iniciar una nueva partida
+2. Mostrar puntajes
+3. Reiniciar el juego
+4. Salir
+```
+
+*(2/3)*
  
 ---
 
+Realiza el **análisis** y el **diagrama de clases** para la clase `JuegoPPT` en el archivo `ejercicio_04.md`
+
+Escribe el código Python en el archivo `ejercicio_04.py`
+
+- Asegúrate de que las clases incluyan *atributos* y *métodos* coherentes con su propósito
+ 
+- Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*
+
+- Prueba el juego en la consola para verificar su correcto funcionamiento
+
+*(3/3)*
+
+---
 
 <!-- .slide: data-background-image="../../content/psg-bg-dark.png" data-background-size="100%"-->
 
