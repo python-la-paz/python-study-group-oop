@@ -11,49 +11,58 @@
 
 ---
 
-#### VS Code
+### Antes de empezar
 
-Abrimos el proyecto del Study Group
+---
+
+#### Proyecto en VSCode
+
+Abre el proyecto en VSCode
 
 ```bash
 code psg-oop-2025
 ```
 
-Creamos una carpeta llamada `sesion10` dentro del proyecto
+Crea una carpeta con el nombre `sesion10`
 
 ```bash
 mkdir sesion10
 cd sesion10
 ```
 
-Aquí guardaremos los ejemplos de la sesión
+- Los archivos de esta sesión deben estar dentro de esta carpeta
+
+- Al finalizar la sesión, sube los cambios al repositorio en un commit
 
 ---
 
 #### ¿Qué es un patrón de diseño?
 
-Un patron de diseño es una idea o una solución típica para resolver un problema
-que se repite una y otra vez.
+Un patron de diseño es una **idea o solución** típica para resolver un problema
+
+que se repite **una y otra vez**
 
 ---
 
 Los patrones varían en complejidad y propósito y pueden ser clasificados en tres categorías principales:
 
-- **Creacionales**: Se centran en la creación de objetos y clases
-- **Estructurales**: Se centran en la composición de clases y objetos
-- **De Comportamiento**: Se centran en la interacción y responsabilidad entre objetos
+- **Creacionales**: Se centran en la *creación* de objetos y clases
+- **Estructurales**: Se centran en la *composición* de clases y objetos
+- **De Comportamiento**: Se centran en la *interacción y responsabilidad* entre objetos
 
 ---
-Nos enfocaremos en los patrones creacionales, que son los que nos ayudan a
-crear objetos de manera eficiente y flexible.
+
+Nos enfocaremos en los **patrones creacionales**
+
+que son los que nos ayudan a crear objetos de manera eficiente y flexible
 
 ---
 
 #### Patrones Creacionales
 
-Los patrones creacionales son aquellos que se encargan de la creación de objetos
+Son aquellos que se encargan de la **creación** de objetos
 
-Ofrecen enfoques estructurados y reutilizables para crear instancias de clases
+Ofrecen enfoques estructurados y reutilizables para crear **instancias** de clases
 
 los más comunes son:
 
@@ -64,14 +73,15 @@ los más comunes son:
 
 #### Factory
 
-Pertenece al grupo de patrones creacionales
+Llamado
 
-Es como tener una fábrica que crea objetos diferentes según las necesidades
+**"metodo de fábrica"**
+
+Es como tener una **fábrica** que crea **objetos diferentes** según las **necesidades**
 
 ---
 
-> "El patrón Factory es como pedir en una cafetería: tú solo dices qué quieres, y alguien más se encarga de prepararlo por ti."
-
+> "El patrón Factory es como pedir en una **cafetería**: tú solo dices qué quieres, y alguien más se encarga de prepararlo por ti."
 
 ---
 
@@ -81,74 +91,70 @@ Es como tener una fábrica que crea objetos diferentes según las necesidades
 
 #### ¿Por qué usar Factory?
 
-- **Flexibilidad**: Permite crear diferentes tipos de objetos sin necesidad de conocer la clase exacta que se va a instanciar.
+- **Flexibilidad**: Permite crear diferentes tipos de objetos sin necesidad de conocer la clase exacta que se va a instanciar
 - **Desacoplamiento**: Separa la lógica de creación de objetos de su uso
 - **Mantenimiento**: Facilita la modificación y extensión del código sin afectar a las clases que lo utilizan
 
 ---
+#### Ejemplos comunes
 
+*Aplicaciones web y escritorio*
 
-
+- **Creación de tipos de usuarios:** (administrador, cliente, etc.)
+- **Generación de reportes:** (PDF, Excel, etc.)
+- **Creación de notificaciones:** (correo electrónico, SMS, etc.)
 
 ---
 #### Ejemplos comunes
 
-**Aplicaciones web y escritorio**
+*Juegos y simulaciones*
 
-- Creación de diferentes tipos de usuarios (administrador, cliente, etc.)
-- Generación de diferentes tipos de reportes (PDF, Excel, etc.)
-- Creación de diferentes tipos de notificaciones (correo electrónico, SMS, etc.)
-
----
-#### Ejemplos comunes
-
-**Juegos y simulaciones**
-
-- Creación de diferentes tipos de personajes (guerrero, mago, arquero, etc.)
-- Generación de diferentes tipos de enemigos (zombies, dragones, robots, etc.)
-- Creación de diferentes tipos de vehículos (coche, moto, avión, etc.)
+- **Creación de personajes:** (guerrero, mago, arquero, etc.)
+- **Generación de enemigos:** (zombies, dragones, robots, etc.)
+- **Creación de vehículos:** (coche, moto, avión, etc.)
 
 ---
 
 #### Ejemplos comunes
 
-**Seguridad y autenticación**
+*Seguridad y autenticación*
 
-- Generación de diferentes tipos de autenticación (Google, Facebook, etc.)
-- Generación de diferentes tipos de permisos (lectura, escritura, ejecución, etc.)
-- Creación de diferentes tipos de autenticación biométrica (huella dactilar, reconocimiento facial, etc.)
+- **Generación de autenticación:** (Google, Facebook, GitHub, etc.)
+- **Generación de permisos:** (lectura, escritura, ejecución, etc.)
+- **Creación de autenticación biométrica:** (huella dactilar, reconocimiento facial, etc.)
 
 
 ---
 #### Ejemplos comunes
 
-**IoT y dispositivos inteligentes**
+*IoT y dispositivos inteligentes*
 
-- Estados de diferentes tipos de sensores (temperatura, humedad, luz, etc.)
-- Generación de diferentes tipos de dispositivos (termómetro, cámara, bombilla, etc.)
-- Generación de diferentes tipos de protocolos de comunicación (MQTT, HTTP, etc.)
+- **Estados de sensores:** (temperatura, humedad, luz, etc.)
+- **Generación de dispositivos:** (termómetro, cámara, bombilla, etc.)
+- **Generación de protocolos de comunicación:** (MQTT, HTTP, etc.)
 
 ---
 
 #### Ventajas de usar Factory
 
-- **Reutilización de código**: Permite reutilizar el código de creación de objetos en diferentes partes.
-- **Facilidad de mantenimiento**: Si se necesita cambiar la forma en que se crean los objetos, solo se modifica el Factory.
-- **Escalabilidad**: Facilita la adición de nuevos tipos de objetos sin afectar al código existente.
+- **Reutilización de código**: Permite reutilizar el código de creación de objetos en diferentes partes
+- **Facilidad de mantenimiento**: Si se necesita cambiar la forma en que se crean los objetos, solo se modifica el Factory
+- **Escalabilidad**: Facilita la adición de nuevos tipos de objetos sin afectar al código existente
 
 ---
 
 #### Desventajas de usar Factory
 
-- **Complejidad adicional**: Introduce una capa adicional de abstracción que puede hacer el código más complejo.
-- **Sobrecarga de rendimiento**: En algunos casos, la creación de objetos a través de un Factory puede ser menos eficiente que la creación directa.
-- **Granularidad**: Puede llevar a una sobreabundancia de clases y fábricas si no se gestiona adecuadamente.
+- **Complejidad adicional**: Introduce una capa adicional de abstracción que puede hacer el código más complejo
+- **Sobrecarga de rendimiento**: En algunos casos, la creación de objetos a través de un Factory puede ser menos eficiente que la creación directa
+- **Granularidad**: Puede llevar a una sobreabundancia de clases y fábricas si no se gestiona adecuadamente
 
 ---
+
 #### Diagrama de clases
 
-Lo primero es definir las clases que van a participar en el patrón Factory
-los productos que van a ser creados en la fábrica
+1. definir las clases que van a participar en el patrón Factory
+los productos que van a ser creados
 
 ````
 ```mermaid
@@ -156,15 +162,12 @@ classDiagram
     class Producto {
 	    +usar()
     }
-
     class ProductoA {
 	    +usar()
     }
-
     class ProductoB {
 	    +usar()
     }
-
     Producto <|-- ProductoA
     Producto <|-- ProductoB
 ```
@@ -173,7 +176,7 @@ classDiagram
 ---
 #### Diagrama de clases
 
-Los productos A y B heredan de la clase Producto y serán creados por una fábrica
+Los productos A y B **heredan** de la clase Producto y serán creados por una fábrica
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
@@ -182,23 +185,21 @@ direction LR
     class Producto {
 	    +usar()
     }
-
     class ProductoA {
 	    +usar()
     }
-
     class ProductoB {
 	    +usar()
     }
-
     Producto <|-- ProductoA
     Producto <|-- ProductoB
 ```
+<!--.element class="center-mermaid"-->
 ---
 
 #### Diagrama de clases
 
-Ahora definimos la clase Fábrica y las fábricas concretas que crearán los productos A y B
+2. Ahora definimos la clase **Fábrica** y las fábricas concretas que crearán los productos A y B
 
 ````
 ```mermaid
@@ -206,15 +207,12 @@ classDiagram
     class Fabrica {
 	    +crear()
     }
-
     class FabricaA {
 	    +crear()
     }
-
     class FabricaB {
 	    +crear()
     }
-
     Fabrica <|-- FabricaA
     Fabrica <|-- FabricaB
 ```
@@ -232,24 +230,22 @@ direction LR
     class Fabrica {
 	    +crear()
     }
-
     class FabricaA {
 	    +crear()
     }
-
     class FabricaB {
 	    +crear()
     }
-
     Fabrica <|-- FabricaA
     Fabrica <|-- FabricaB
 ```
+<!--.element class="center-mermaid"-->
+
 ---
 #### Diagrama de clases
 
-Ahora unimos las fábricas con los productos que crean se realiza mediante
-una relación de asociación, donde la fábrica crea productos de tipo Producto
-
+3. Unimos las fábricas con los productos que crean se realiza mediante
+una **relación de asociación**, donde la fábrica crea productos de tipo Producto
 
 ````
 ```mermaid
@@ -257,27 +253,21 @@ classDiagram
     class Producto {
 	    +usar()
     }
-
     class ProductoA {
 	    +usar()
     }
-
     class ProductoB {
 	    +usar()
     }
-
     class Fabrica {
 	    +crear() Producto
     }
-
     class FabricaA {
 	    +crear() Producto
     }
-
     class FabricaB {
 	    +crear() Producto
     }
-
     Producto <|-- ProductoA
     Producto <|-- ProductoB
     Fabrica <|-- FabricaA
@@ -298,86 +288,91 @@ direction LR
     class Producto {
 	    +usar()
     }
-
     class ProductoA {
 	    +usar()
     }
-
     class ProductoB {
 	    +usar()
     }
-
     class Fabrica {
 	    +crear() Producto
     }
-
     class FabricaA {
 	    +crear() Producto
     }
-
     class FabricaB {
 	    +crear() Producto
     }
-
     Producto <|-- ProductoA
     Producto <|-- ProductoB
     Fabrica <|-- FabricaA
     Fabrica <|-- FabricaB
     Fabrica --> Producto
 ```
+<!--.element class="center-mermaid"-->
+
 ---
 
 #### Estructura de Factory en Python
 
-El patron Factory implementa Herencia y polimorfismo conceptos ya vistos en sesiones anteriores
+**Factory** implementa **Herencia** y **polimorfismo** pilares de la programación orientada a objetos
 
-Por lo que la estructura de un Factory se puede ver mejor en un ejemplo práctico
+La estructura de un Factory se puede ver mejor en un ejemplo **práctico**
 
 ---
 
 #### Ejemplo 01
 
+Crear los archivos `cafeteria.md` y `cafeteria.py` en la carpeta `sesion10`
 ```markdown
 Una cafetería prepara Expresos y Cappuccinos,
 el cliente (tú) solo debes pedir el tipo de café que desea
 el barista utilizará las maquinas adecuadas para preparar el café
-Todos los cafes tienen la misma cantidad y se pueden tomar
+Todos los cafes se pueden tomar
 Las cafeteras preparan un tipo de café, después son consumidos
 por el cliente
 Al ingresar salir se termina la ejecución
 ```
 
 
-En el archivo `cafeteria.md` se realizará el análisis y en el archivo `cafeteria.py` se implementará el patrón Factory
+Se implementará el patrón Factory
 
 ---
-#### Análisis
+
+Análisis
 
 ```markdown
+# Análisis
 Requisitos:
-- En la cafetería se preparan dos tipos de café: Expreso y Cappuccino
+- Se preparan dos tipos de café: Expreso y Cappuccino
 - El cliente solo debe pedir el tipo de café que desea
 - Se utiliza la máquina adecuada para cada café
-- Todos los cafés tienen la misma cantidad y se pueden tomar
+- Todos los cafés se pueden tomar
 - Las cafeteras preparan un tipo de café
 - Si se ingresa "salir" se termina la ejecución
 
-
-
 Objetos:
 - Café (Expreso, Cappuccino)
-- Cafetera
+- Cafetera (CafeteraExpreso, CafeteraCappuccino)
 - Barista
 
 Características:
-- Café: cantidad
-- Cafetera: tipo de café que prepara
+- Café: (sin características)
+- Expreso: (Café)
+- Cappuccino: (Café)
+- Cafetera: (sin características)
+- CafeteraExpreso: (Cafetera)
+- CafeteraCappuccino: (Cafetera)
 - Barista: (sin características)
 
 Acciones:
-- Café: tomar()
-- Cafetera: preparar()
-- Barista: (sin acciones)
+- Café: tomar
+- Expreso: tomar
+- Cappuccino: tomar
+- Cafetera: preparar
+- CafeteraExpreso: preparar
+- CafeteraCappuccino: preparar
+- Barista: preparar cafe
 ```
 
 ---
@@ -405,6 +400,7 @@ classDiagram
         +preparar()
     }
     class Barista {
+        +preparar_cafe()
     }
     Cafe <|-- Expreso
     Cafe <|-- Cappuccino
@@ -441,6 +437,7 @@ direction LR
         +preparar()
     }
     class Barista {
+        +preparar_cafe()
     }
     Cafe <|-- Expreso
     Cafe <|-- Cappuccino
@@ -449,6 +446,7 @@ direction LR
     Cafetera --> Cafe
     Barista --> Cafetera
 ```
+<!--.element class="center-mermaid"-->
 
 ---
 #### Implementación en Python
@@ -492,14 +490,13 @@ class Barista:
     def preparar_cafe(self, tipo):
         if tipo == "expreso":
             return CafeteraExpreso().preparar()
-        elif tipo == "cappuccino":
+        if tipo == "cappuccino":
             return CafeteraCappuccino().preparar()
-        else:
-            raise ValueError("❌ Café no disponible. Intente de nuevo")
+        raise ValueError("❌ Café no disponible. Intente de nuevo")
 ```
 
 ---
-Finalmente probamos el patrón Factory siendo nosotros el cliente que pide el café
+Finalmente creamos la lógica donde como clientes pedimos el **café** al barista
 
 ```python
 while True:
@@ -550,10 +547,9 @@ class Barista:
     def preparar_cafe(self, tipo):
         if tipo == "expreso":
             return CafeteraExpreso().preparar()
-        elif tipo == "cappuccino":
+        if tipo == "cappuccino":
             return CafeteraCappuccino().preparar()
-        else:
-            raise ValueError("❌ Café no disponible. Intente de nuevo")
+        raise ValueError("❌ Café no disponible. Intente de nuevo")
 
 # Cliente (No conoce las fábricas, solo pide el café)
 while True:
@@ -571,6 +567,8 @@ while True:
 ```
 
 ---
+
+#### Ejecución
 
 ```bash
 python cafeteria.py
@@ -590,36 +588,39 @@ python cafeteria.py
 ---
 
 En el ejemplo anterior se muestra cómo el patrón Factory
-permite crear diferentes tipos de café sin que el cliente 
+permite **crear diferentes** tipos de café sin que el cliente 
 conozca los detalles de la creación
 
 ---
 
-El único que conoce los detalles de la creación es el Barista
-que utiliza las fábricas adecuadas para preparar el café solicitado
+El único que conoce los detalles de la creación es el **Barista**
+que utiliza las **fábricas adecuadas** para preparar el café solicitado
 
 ---
 
-#### Ejemplo 02
+#### Ejercicio para ti (02)
+
+Crea los archivos `juego.md` y `juego.py` en la carpeta `sesion10`
+
+Obtener el *Análisis*
+
+---
+
 
 ```markdown
 En un juego de rol, los jugadores pueden elegir diferentes
 tipos de armas.
-
 Cuando un jugador solicita un arma, el armero utiliza
-la herramienta adecuada para crearla.
-
+la herramienta adecuada para crearla
 Cada herramienta crea un solo tipo de arma:
-- El martillo crea espadas.
-- La Sierra crea arcos.
-
-Todas las armas pueden usarse para atacar.
-
+- El martillo crea espadas
+- La Sierra crea arcos
+Todas las armas pueden usarse para atacar
 Si el jugador escribe "salir" en lugar de un tipo de arma,
 el programa finaliza.
 ```
 
-Realizar el análisis en `juego.md` en 3 minutos
+3 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
@@ -638,32 +639,39 @@ Requisitos:
 
 Objetos:
 - Arma (Espada, Arco)
-- Herramienta
+- Herramienta (Martillo, Sierra)
 - Armero
 
 Características:
 - Arma: (sin características extra)
-- Herramienta: tipo de arma que fabrica
+- Espada: (Arma)
+- Arco: (Arma)
+- Herramienta: (sin características)
+- Martillo: (Herramienta)
+- Sierra: (Herramienta)
 - Armero: (sin características)
 
 Acciones:
 - Arma: atacar()
+- Espada: atacar()
+- Arco: atacar()
 - Herramienta: fabricar()
+- Martillo: fabricar()
+- Sierra: fabricar()
 - Armero: (sin acciones)
 ```
 
 ---
 
-#### Diagrama de clases
+#### Ejercicio para ti (02)
 
+Ahora obtenemos el diseño del *diagrama de clase*
 
-Ahora que tenemos los requisitos, características y acciones podemos definir el diseño
-
-3 minutos
+2 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-Añadir al archivo `juego.md`
+Modifica el archivo `juego.md`
 
 ---
 
@@ -737,21 +745,28 @@ direction LR
     Herramienta --> Arma
     Armero --> Herramienta
 ```
+<!--.element class="center-mermaid"-->
 
 
 ---
 
-#### Implementación de las armas
+#### Ejercicio para ti (02)
 
-Ahora que tenemos el diseño, podemos implementar primero las armas
+Ya tenemos el *análisis y diseño* de la clase
 
-3 minutos
+Ahora podemos **programar**
+
+Modifica el archivo `juego.py`
+
+2 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-Añadir al archivo `juego.py`
+Primero implementamos las armas
 
 ---
+
+Clases de las armas
 
 ```python
 class Arma:
@@ -770,17 +785,13 @@ class Arco(Arma):
 
 ---
 
-#### Implementación de las herramientas
+Segundo implementamos las herramientas que fabrican las armas
 
-Ya tenemos las armas, ahora implementamos las herramientas que fabrican las armas
-
-Cada herramienta crea un tipo de arma específico
-
-3 minutos
+2 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-Añadir al archivo `juego.py`
+Modifica el archivo `juego.py`
 
 ---
 ```python
@@ -801,13 +812,13 @@ class Sierra(Herramienta):
 
 #### Implementación del Armero
 
-Ahora implementamos el Armero que utiliza las herramientas para fabricar las armas
+Tercero implementar el Armero que utiliza las herramientas para fabricar las armas
 
 2 minutos
 
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
-Añadir al archivo `juego.py`
+Modifica el archivo `juego.py`
 
 ---
 
@@ -816,17 +827,16 @@ class Armero:
     def fabricar_arma(self, tipo):
         if tipo == "espada":
             return Martillo().fabricar()
-        elif tipo == "arco":
+        if tipo == "arco":
             return Sierra().fabricar()
-        else:
-            raise ValueError("❌ Arma no disponible. Intente de nuevo")
+        raise ValueError("❌ Arma no disponible. Intente de nuevo")
 ```
 
 ---
 
-#### Implementación del juego
+#### Interacción del jugador
 
-Ahora que tenemos el Armero, podemos implementar la lógica del juego donde el jugador solicita un arma
+Ahora que tenemos el Armero, implementar la lógica del juego donde el jugador solicita un arma
 al armero y si ingresa "salir" se termina la ejecución
 
 2 minutos
@@ -883,10 +893,9 @@ class Armero:
     def fabricar_arma(self, tipo):
         if tipo == "espada":
             return Martillo().fabricar()
-        elif tipo == "arco":
+        if tipo == "arco":
             return Sierra().fabricar()
-        else:
-            raise ValueError("❌ Arma no disponible. Intente de nuevo")
+        raise ValueError("❌ Arma no disponible. Intente de nuevo")
 
 while True:
     tipo_arma = input("💬 ¿Qué arma desea? (espada/arco/salir): ")
@@ -903,6 +912,9 @@ while True:
 ```
 
 ---
+
+#### Ejecución
+
 ```bash
 python juego.py
 ```
@@ -919,6 +931,17 @@ python juego.py
 ```
 
 ---
+
+Subimos los avances de la sesión al repositorio en **GitHub**
+
+```bash
+git add .
+git commit -m "Sesión 10"
+git push origin main
+```
+
+---
+
 #### Resumen
 
 - Un patrón de diseño es una solución típica para resolver problemas recurrentes en el desarrollo de software.
