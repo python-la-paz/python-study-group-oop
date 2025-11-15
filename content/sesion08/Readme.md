@@ -2088,7 +2088,7 @@ Una agencia de viajes gestiona un **catálogo digital** que contiene informació
 
 `"[destino] ➡ [costo] USD"`
 
-- El Catálogo de Destino se representa como:
+- El Catálogo de Destinos se representa como:
 
 ```text
 🗺 Destinos 🗺
@@ -2118,7 +2118,7 @@ El catálogo debe permitir:
 - Realiza el **análisis** y **diagrama de clases** para las clases `Destino` y `Catalogo` en el archivo `ejercicio_02.md`
 - Escribe el código en Python para las clases `Destino` y `Catalogo` en el archivo `ejercicio_02.py`
 - Asegúrate de que la clase implemente correctamente los métodos especiales (dunder methods).
-- Crea un catálogo con al menos 4 destinos turísticos y verifica el correcto funcionamiento de las operaciones y representaciones.
+- Crea un *catálogo* con al menos 4 *destinos* turísticos y verifica el correcto funcionamiento de las operaciones y representaciones.
 
 *(4/4)*
 
