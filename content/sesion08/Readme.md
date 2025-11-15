@@ -2039,18 +2039,16 @@ psg-oop-2025/
 
 ---
 
-1. Un profesor de matemáticas necesita una calculadora de fracciones para enseñar conceptos básicos
+1. Un profesor de matemáticas necesita una calculadora de fracciones para enseñar conceptos básicos de aritmética. Cada fracción se representa mediante un numerador y un denominador.
 
-de aritmética. Cada fracción se representa mediante un numerador y un denominador
+Por ejemplo, la fracción **3/4** tiene un *numerador* igual a *3* y un *denominador* igual a *4*.
 
-Una fracción como 3/4 tiene un numerador de 3 y un denominador de 4
 
 *(1/4)*
 
 ---
 
-Crea la clase `Fraccion` con los siguientes requisitos:
-- Tiene dos atributos: `numerador` y `denominador`
+Crea la clase `Fraccion` que permita representar y operar con fracciones de forma intuitiva utilizando métodos especiales (dunder methods) y cumpla con lo siguientes:
 - Representación: `"numerador/denominador"`
 - Puede sumar con otra fracción, operador: `+`
 - Puede restar con otra fracción,  operador: `-`
@@ -2074,45 +2072,35 @@ Además, la clase `Fraccion` debe permitir comparar:
 
 - Realiza el **análisis** y **diagrama de clases** para la clase `Fraccion` en el archivo `ejercicio_01.md`
 - Escribe el código en Python para la clase `Fraccion` en el archivo `ejercicio_01.py`
-- Asegúrate de que la clase incluya *atributos* y *métodos* coherentes con su propósito
-- Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*
-- Implementa fracciones para probar todas las operaciones y comparaciones
+- Asegúrate de que la clase implemente correctamente los métodos especiales para operaciones y comparaciones.
+- Crea varias instancias de `Fraccion` y realiza operaciones y comparaciones entre ellas para verificar el correcto funcionamiento de la clase.
 
 *(4/4)*
 
 ---
 
-Una **agencia de viajes** gestiona un **catálogo digital** de destinos turísticos
-
-Cada destino tiene un destino y costo, y la agencia quiere que su catálogo permita:
-
-- Destino se representa:
-
-`"[destino] ➡ [costo] USD"`
-
-- Catálogo se representa:
-
-```text
-🗺 Destinos 🗺
-1. destino
-2. destino
-...
-```
+Una agencia de viajes gestiona un **catálogo digital** que contiene información sobre destinos turísticos. Cada **destino** tiene un *nombre* y un *costo* asociado, y la agencia desea que el catálogo permita visualizar, modificar y recorrer los destinos de forma intuitiva.
 
 *(1/4)*
 
 ---
+- Los Destino se representan como:
 
-Crea la clase `Destino` con los siguientes requisitos:
-- Tiene dos atributos: `destino` y `costo`
+`"[destino] ➡ [costo] USD"`
 
-Crea la clase `Catalogo` con los siguientes requisitos:
-- Tiene una colección de **destinos** turísticos
+- El Catálogo de Destino se representa como:
+
+```text
+🗺 Destinos 🗺
+1. destino1
+2. destino2
+...
+n. destinoN
+```
 
 *(2/4)*
 
 ---
-
 El catálogo debe permitir:
 - Ver la longitud del catálogo, `len(catalogo)`
 - Acceder por su índice, `catalogo[indice]`
@@ -2124,13 +2112,13 @@ El catálogo debe permitir:
 
 *(3/4)*
 
+
 ---
 
 - Realiza el **análisis** y **diagrama de clases** para las clases `Destino` y `Catalogo` en el archivo `ejercicio_02.md`
 - Escribe el código en Python para las clases `Destino` y `Catalogo` en el archivo `ejercicio_02.py`
-- Asegúrate de que la clase incluya *atributos* y *métodos* coherentes con su propósito
-- Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*
-- Implementa un catálogo con almenos 4 destinos
+- Asegúrate de que la clase implemente correctamente los métodos especiales (dunder methods).
+- Crea un catálogo con al menos 4 destinos turísticos y verifica el correcto funcionamiento de las operaciones y representaciones.
 
 *(4/4)*
 
