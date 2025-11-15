@@ -2030,7 +2030,7 @@ Crear una carpeta con el nombre "retos_sesion_08" dentro del proyecto en la raí
 ```bash
 # Estructura de carpetas
 psg-oop-2025/
-    retos_sesion_07/
+    retos_sesion_08/
         ejercicio_01.md
         ejercicio_01.py
         ejercicio_02.md
