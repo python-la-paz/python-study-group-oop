@@ -2048,7 +2048,7 @@ Por ejemplo, la fracción **3/4** tiene un *numerador* igual a *3* y un *denomin
 
 ---
 
-Crea la clase `Fraccion` que permita representar y operar con fracciones de forma intuitiva utilizando métodos especiales (dunder methods) y cumpla con lo siguientes:
+Crea la clase `Fraccion` que permita representar y operar con fracciones de forma intuitiva utilizando métodos especiales (dunder methods) y cumpla con los siguientes:
 - Representación: `"numerador/denominador"`
 - Puede sumar con otra fracción, operador: `+`
 - Puede restar con otra fracción,  operador: `-`
