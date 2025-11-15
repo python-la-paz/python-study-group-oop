@@ -2084,7 +2084,7 @@ Una agencia de viajes gestiona un **catálogo digital** que contiene informació
 *(1/4)*
 
 ---
-- Los Destino se representan como:
+- Los Destinos se representan como:
 
 `"[destino] ➡ [costo] USD"`
 
