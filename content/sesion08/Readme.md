@@ -1979,6 +1979,16 @@ Número de libros: 2
 
 ---
 
+Subimos los avances de la sesión al repositorio en **GitHub**
+
+```bash
+git add .
+git commit -m "Sesión 08"
+git push origin main
+```
+
+---    
+
 #### Resumen
 
 - Los Dunder Methods son métodos especiales en Python que permiten personalizar el comportamiento de las instancias de una clase.
