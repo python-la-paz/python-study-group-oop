@@ -1246,6 +1246,8 @@ psg-oop-2025/
     retos_sesion_09/
         ejercicio_01.md
         ejercicio_01.py
+        ejercicio_02.md
+        ejercicio_02.py
 ```
 
 ---
@@ -1263,7 +1265,7 @@ El objetivo es registrar las partidas ganadas por el jugador y por la computador
 
 ---
 
-Crea la clase `JuegoPPT` implementando el patrón **Singleton**
+Crea la clase `PiedraPapelTijera` implementando el patrón **Singleton**
 Debe incluir:
 
 - Un método para **iniciar una partida**
@@ -1281,7 +1283,7 @@ Debe incluir:
  
 ---
 
-Realiza el **análisis** y el **diagrama de clases** para la clase `JuegoPPT` en el archivo `ejercicio_04.md`
+Realiza el **análisis** y el **diagrama de clases** para la clase `PiedraPapelTijera` en el archivo `ejercicio_04.md`
 
 Escribe el código Python en el archivo `ejercicio_04.py`
 
@@ -1290,6 +1292,47 @@ Escribe el código Python en el archivo `ejercicio_04.py`
 - Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*
 
 - Prueba el juego en la consola para verificar su correcto funcionamiento
+
+*(3/3)*
+
+---
+
+2. Un DJ necesita una nueva consola de mezcla `BeatBox` que permita mezclar pistas de audio en tiempo real
+Utiliza el patrón **Singleton** para asegurar que solo exista una única instancia de la consola de mezcla en ejecución
+La consola debe permitir:
+- Seleccionar pista de audio
+- Subir y bajar volumen
+- Mostrar el estado actual de la consola (pista seleccionada y volumen)
+- Puede aplicar un efecto de sonido a la vez (eco, reverb, distorsión)
+
+*(1/3)*
+
+---
+
+Crea la clase `BeatBox` implementando el patrón **Singleton**
+Debe incluir:
+- Un método para **seleccionar pista de audio**
+- Un método para **ajustar el volumen**
+- Un método para **aplicar un efecto de sonido**
+- Un método para **mostrar el estado actual** de la consola
+- Un **menú interactivo en consola** que permita:
+```markdown
+1. Ingresar el nombre de la pista de audio
+2. Ajustar volumen
+3. Aplicar efecto de sonido
+4. Mostrar estado actual
+5. Salir
+```
+
+*(2/3)*
+
+---
+
+Realiza el **análisis** y el **diagrama de clases** para la clase `BeatBox` en el archivo `ejercicio_05.md`
+Escribe el código Python en el archivo `ejercicio_05.py`
+- Asegúrate de que las clases incluyan *atributos* y *métodos* coherentes con su propósito
+- Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*
+- Prueba la consola de mezcla en la consola para verificar su correcto funcionamiento
 
 *(3/3)*
 
