@@ -1201,7 +1201,7 @@ git commit -m "Sesión 09"
 git push origin main
 ```
 
----    
+---
 
 #### Resumen
 
@@ -1252,25 +1252,28 @@ psg-oop-2025/
 
 ---
 
-1. Crea el juego **“Piedra, Papel o Tijera”** implementando el patrón de diseño **Singleton**, con el fin de garantizar que exista **una única instancia del juego** en ejecución.  
-
+1. Crea el juego **Piedra, Papel o Tijera** implementando el patrón de diseño **Singleton**
 En esta versión, un jugador compite contra la computadora, la cual selecciona aleatoriamente entre las tres opciones disponibles:  
 
 `Piedra` , `Papel` , `Tijera`
 
-El sistema debe registrar las partidas ganadas tanto por el jugador como por la computadora, manteniendo el control del puntaje dentro de la **única instancia** del juego.  
+Se debe registrar las partidas ganadas tanto por el jugador como por la computadora, manteniendo el control del puntaje dentro de la **única instancia** del juego.  
 
-*(1/3)*
+*(1/4)*
 
 ---
 
-Implementa la clase **`PiedraPapelTijera`** aplicando el patrón de diseño **Singleton**, asegurando que exista **una única instancia del juego** durante toda la ejecución.  
+Implementa la clase **PiedraPapelTijera** aplicando el patrón de diseño **Singleton**, asegurando que exista **una única instancia del juego** durante toda la ejecución.  
 
 La clase debe incluir los siguientes métodos:  
 
-- **`iniciarPartida()`** → Permite jugar una ronda contra la computadora, que selecciona aleatoriamente entre `Piedra`, `Papel` o `Tijera`.  
-- **`mostrarPuntaje()`** → Muestra el puntaje acumulado del jugador y de la computadora.  
-- **`reiniciarJuego()`** → Restablece los puntajes a cero.  
+- `iniciarPartida()`: Permite jugar una ronda contra la computadora
+- `mostrarPuntaje()`: Muestra el puntaje acumulado del jugador y de la computadora.  
+- `reiniciarJuego()`: Restablece los puntajes a cero.  
+
+*(2/4)*
+
+---
 
 Además, se debe implementar un **menú interactivo en consola** con las siguientes opciones:  
 
@@ -1281,38 +1284,40 @@ Además, se debe implementar un **menú interactivo en consola** con las siguien
 4. Salir
 ```
 
-*(2/3)*
+*(3/4)*
  
 ---
 
 - Elabora el **análisis** y el **diagrama de clases** de la clase `PiedraPapelTijera` en el archivo `ejercicio_01.md`.  
 - Implementa el código en **Python** dentro del archivo `ejercicio_01.py`.
-- Asegúrate de que la clase incluya **atributos** y **métodos** coherentes con su propósito.  
-- Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*
 - Prueba el juego en la consola para verificar su correcto funcionamiento antes de enviar tu solución
 
-*(3/3)*
+*(4/4)*
 
 ---
 
-2. Un DJ requiere una nueva consola de mezcla llamada **`BeatBox`**, capaz de mezclar pistas de audio en tiempo real.  
-Para garantizar que exista **una única instancia de la consola en ejecución**, se debe implementar el patrón de diseño **Singleton**.  
+2. Un DJ requiere una nueva consola de mezcla llamada **`BeatBox`**, capaz de mezclar pistas de audio en tiempo real.   
 La consola debe permitir:  
 - **Seleccionar una pista de audio**  
 - **Ajustar el volumen** (subir o bajar)  
 - **Mostrar el estado actual** de la consola (pista seleccionada y nivel de volumen)  
 - **Aplicar un único efecto de sonido a la vez**, entre las opciones: `eco`, `reverb` o `distorsión`  
 
-*(1/3)*
+*(1/4)*
 
 ---
 
-Crea la clase **`BeatBox`** implementando el patrón de diseño **Singleton**, de manera que exista **una única instancia de la consola de mezcla** durante la ejecución.  
+Crea la clase **`BeatBox`** implementando el patrón de diseño **Singleton**
 La clase debe incluir los siguientes métodos:  
 - **`seleccionar_pista()`** → Permite elegir una pista de audio.  
 - **`ajustar_volumen()`** → Permite subir o bajar el volumen.  
 - **`aplicar_efecto()`** → Aplica un efecto de sonido (eco, reverb o distorsión).  
 - **`mostrar_estado()`** → Muestra el estado actual de la consola (pista seleccionada y nivel de volumen).  
+
+*(24)*
+
+---
+
 El programa debe ofrecer un menú con las siguientes opciones:  
 ```markdown
 1. Ingresar el nombre de la pista de audio
@@ -1322,7 +1327,7 @@ El programa debe ofrecer un menú con las siguientes opciones:
 5. Salir
 ```
 
-*(2/3)*
+*(3/4)*
 
 ---
 
@@ -1332,7 +1337,7 @@ El programa debe ofrecer un menú con las siguientes opciones:
 - Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*
 - Prueba el juego en la consola para verificar su correcto funcionamiento antes de enviar tu solución
 
-*(3/3)*
+*(4/4)*
 
 ---
 
