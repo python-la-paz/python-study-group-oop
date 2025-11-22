@@ -985,37 +985,141 @@ psg-oop-2025/
 
 ---
 
-1. Utilizando el patron Factory
+1. Utilizando el patrón **Factory**
 
-```markdown
-En una heladería, los clientes pueden pedir helado de vainilla o chocolate.
-Puedes pedir en cono o en vaso los helados.
-El encargado usa la máquina adecuada para preparar cada sabor.
+En una heladería, los clientes pueden pedir helados de **vainilla** o **chocolate**.  
+Además, pueden elegir si desean su helado en **cono** o en **vaso**.  
 
-La máquina de vainilla solo prepara helados de vainilla.
-La máquina de chocolate solo prepara helados de chocolate.
+El encargado utiliza la **máquina adecuada** para preparar cada sabor:
 
-Todos los helados se pueden comer y tienen un envase.
-Escribe "salir" para terminar.
-```
+- La *máquina de vainilla* solo prepara helados de vainilla.  
+- La *máquina de chocolate* solo prepara helados de chocolate.
+
+Todos los helados comparten características en común:  
+- Se pueden **comer**.  
+- Tienen un **envase** (cono o vaso).
+
+El sistema debe permitir al usuario realizar pedidos de helado mediante un **Factory**, y escribir `"salir"` para terminar el proceso.
+
+*(1/4)*
 
 ---
 
-2. Utilizando el patron Factory
+- Los helados se representan como:
 
-```markdown
-Simulador de batalla de monstruos
-Dos jugadores pueden elegir un monstruo para luchar.
-Cada jugador selecciona un monstruo: dragón, zombi o vampiro.
-Donde cada uno tiene debilidades contra otros monstruos.
-- Dragon: Fuerte contra Zombi, débil contra Vampiro, igual contra Dragón.
-- Zombi: Fuerte contra Vampiro, débil contra Dragón, igual contra Zombi.
-- Vampiro: Fuerte contra Dragón, débil contra Zombi, igual contra Vampiro.
+`"[sabor] 🍦 en [envase]"`
 
-Muestra el resultado de la batalla.
-Si alguno escribir “salir” se termina el juego.
+- El menú de opciones se representa como:
+
+```text
+🍨 Pedidos de Helado 🍨
+1. Vainilla en Cono
+2. Vainilla en Vaso
+3. Chocolate en Cono
+4. Chocolate en Vaso
+Escribe "salir" para terminar.
 ```
 
+*(2/4)*
+
+---
+
+El sistema debe permitir:
+
+Crear helados mediante una **fábrica**
+
+Representar cada helado en el formato especificado.
+
+Registrar varios pedidos hasta que el usuario escriba "salir".
+
+*(3/4)*
+
+---
+
+Instrucciones:
+
+- Realiza el **análisis** y **diagrama de clases** para las clases `Helado`, `HeladoVainilla`, `HeladoChocolate`, `Maquina`, `MaquinaVainilla`, `MaquinaChocolate` en `ejercicio_01.md`
+- Escribe el código en Python implementando el patrón Factory en `ejercicio_01.py`
+- Prueba varios pedidos de helado para verificar el correcto funcionamiento
+
+*(4/4)*
+
+---
+
+2. Utilizando el patrón **Factory**
+
+Simulador de Batalla de Monstruos
+
+Dos jugadores pueden elegir un **monstruo** para luchar.  
+Cada jugador selecciona uno de los siguientes tipos:
+
+- **Dragón**
+- **Zombi**
+- **Vampiro**
+
+*(1/5)*
+
+---
+
+Cada monstruo tiene fortalezas y debilidades:
+
+```markdown
+- Dragón:
+  - Fuerte contra Zombi
+  - Débil contra Vampiro
+  - Igual contra Dragón
+- Zombi:
+  - Fuerte contra Vampiro
+  - Débil contra Dragón
+  - Igual contra Zombi
+- Vampiro:
+  - Fuerte contra Dragón
+  - Débil contra Zombi
+  - Igual contra Vampiro
+```
+
+El simulador debe determinar el **resultado de la batalla** entre los monstruos elegidos, si alguno de los jugadores escribe `"salir"`, el juego termina.
+
+*(2/5)*
+
+---
+
+
+Los monstruos se representan como:
+
+`"[monstruo] 🧟‍♂️ listo para luchar"`
+
+El menú de selección se representa como:
+
+```text
+🧩 Selección de Monstruos 🧩
+Jugador 1: Elige tu monstruo (dragón/zombi/vampiro):
+Jugador 2: Elige tu monstruo (dragón/zombi/vampiro):
+Escribe "salir" para terminar.
+```
+
+*(3/5)*
+
+---
+
+El sistema debe permitir:
+
+- Crear monstruos mediante una **fábrica**
+- Representar cada monstruo en el formato especificado.
+- Determinar el resultado de la batalla según las fortalezas y debilidades.
+- Registrar varias batallas hasta que un jugador escriba "salir".
+
+*(4/5)*
+
+---
+
+Instrucciones:
+
+- Realiza el **análisis** y **diagrama de clases** para las clases `Monstruo`, `Dragon`, `Zombi`, `Vampiro`, `Spawner`, `SpawnerDragon`, `SpawnerZombi`, `SpawnerVampiro` en `ejercicio_02.md`
+- Escribe el código en Python implementando el patrón Factory en `ejercicio_02.py`
+- Prueba las batallas entre diferentes monstruos para verificar el correcto funcionamiento
+
+*(5/5)*
 
 ---
 <!-- .slide: data-background-image="../../content/psg-bg-dark.png" data-background-size="100%"-->
@@ -1026,7 +1130,7 @@ Si alguno escribir “salir” se termina el juego.
 <br>
 <br>
 
-[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/content/sesion10)
+[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/tree/main/content/sesion10)
 
 Repositorio de la Sesión
 
