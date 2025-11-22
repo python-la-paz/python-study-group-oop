@@ -916,7 +916,7 @@ Adicionar los métodos a la clase `Sala`
 class Sala:
     ...
     def iniciar(self, titulo):
-        if self.estado
+        if self.reproducciendo:
             print("💢 La película ya está en reproducción.")
             return
         self.titulo = titulo
