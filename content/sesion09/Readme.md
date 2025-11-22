@@ -1252,28 +1252,26 @@ psg-oop-2025/
 
 ---
 
-1. Crea el juego **“Piedra, Papel o Tijera”** implementando el patrón de diseño **Singleton**, con el fin de garantizar que exista **una única instancia del juego** en ejecución.  
+1. Crea el juego **"Piedra, Papel o Tijera"** utilizando el patrón **Singleton**
+para asegurar que solo exista **una única instancia del juego** en ejecución
 
-En esta versión, un jugador compite contra la computadora, la cual selecciona aleatoriamente entre las tres opciones disponibles:  
+El juego permite que un jugador compita contra la computadora, la cual elige aleatoriamente entre las tres opciones:
 
 `Piedra` , `Papel` , `Tijera`
 
-El sistema debe registrar las partidas ganadas tanto por el jugador como por la computadora, manteniendo el control del puntaje dentro de la **única instancia** del juego.  
+El objetivo es registrar las partidas ganadas por el jugador y por la computadora, manteniendo el control del puntaje dentro de la **única instancia** del juego
 
 *(1/3)*
 
 ---
 
-Implementa la clase **`PiedraPapelTijera`** aplicando el patrón de diseño **Singleton**, asegurando que exista **una única instancia del juego** durante toda la ejecución.  
+Crea la clase `PiedraPapelTijera` implementando el patrón **Singleton**
+Debe incluir:
 
-La clase debe incluir los siguientes métodos:  
-
-- **`iniciarPartida()`** → Permite jugar una ronda contra la computadora, que selecciona aleatoriamente entre `Piedra`, `Papel` o `Tijera`.  
-- **`mostrarPuntaje()`** → Muestra el puntaje acumulado del jugador y de la computadora.  
-- **`reiniciarJuego()`** → Restablece los puntajes a cero.  
-
-Además, se debe implementar un **menú interactivo en consola** con las siguientes opciones:  
-
+- Un método para **iniciar una partida**
+- Un método para **mostrar el puntaje actual**
+- Un método para **reiniciar el juego** (puntajes en cero)
+- Un **menú interactivo en consola** que permita:
 ```markdown
 1. Iniciar una nueva partida
 2. Mostrar puntajes
@@ -1285,35 +1283,39 @@ Además, se debe implementar un **menú interactivo en consola** con las siguien
  
 ---
 
-- Elabora el **análisis** y el **diagrama de clases** de la clase `PiedraPapelTijera` en el archivo `ejercicio_01.md`.  
-- Implementa el código en **Python** dentro del archivo `ejercicio_01.py`.
-- Asegúrate de que la clase incluya **atributos** y **métodos** coherentes con su propósito.  
+Realiza el **análisis** y el **diagrama de clases** para la clase `PiedraPapelTijera` en el archivo `ejercicio_04.md`
+
+Escribe el código Python en el archivo `ejercicio_04.py`
+
+- Asegúrate de que las clases incluyan *atributos* y *métodos* coherentes con su propósito
+ 
 - Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*
-- Prueba el juego en la consola para verificar su correcto funcionamiento antes de enviar tu solución
+
+- Prueba el juego en la consola para verificar su correcto funcionamiento
 
 *(3/3)*
 
 ---
 
-2. Un DJ requiere una nueva consola de mezcla llamada **`BeatBox`**, capaz de mezclar pistas de audio en tiempo real.  
-Para garantizar que exista **una única instancia de la consola en ejecución**, se debe implementar el patrón de diseño **Singleton**.  
-La consola debe permitir:  
-- **Seleccionar una pista de audio**  
-- **Ajustar el volumen** (subir o bajar)  
-- **Mostrar el estado actual** de la consola (pista seleccionada y nivel de volumen)  
-- **Aplicar un único efecto de sonido a la vez**, entre las opciones: `eco`, `reverb` o `distorsión`  
+2. Un DJ necesita una nueva consola de mezcla `BeatBox` que permita mezclar pistas de audio en tiempo real
+Utiliza el patrón **Singleton** para asegurar que solo exista una única instancia de la consola de mezcla en ejecución
+La consola debe permitir:
+- Seleccionar pista de audio
+- Subir y bajar volumen
+- Mostrar el estado actual de la consola (pista seleccionada y volumen)
+- Puede aplicar un efecto de sonido a la vez (eco, reverb, distorsión)
 
 *(1/3)*
 
 ---
 
-Crea la clase **`BeatBox`** implementando el patrón de diseño **Singleton**, de manera que exista **una única instancia de la consola de mezcla** durante la ejecución.  
-La clase debe incluir los siguientes métodos:  
-- **`seleccionar_pista()`** → Permite elegir una pista de audio.  
-- **`ajustar_volumen()`** → Permite subir o bajar el volumen.  
-- **`aplicar_efecto()`** → Aplica un efecto de sonido (eco, reverb o distorsión).  
-- **`mostrar_estado()`** → Muestra el estado actual de la consola (pista seleccionada y nivel de volumen).  
-El programa debe ofrecer un menú con las siguientes opciones:  
+Crea la clase `BeatBox` implementando el patrón **Singleton**
+Debe incluir:
+- Un método para **seleccionar pista de audio**
+- Un método para **ajustar el volumen**
+- Un método para **aplicar un efecto de sonido**
+- Un método para **mostrar el estado actual** de la consola
+- Un **menú interactivo en consola** que permita:
 ```markdown
 1. Ingresar el nombre de la pista de audio
 2. Ajustar volumen
@@ -1326,11 +1328,11 @@ El programa debe ofrecer un menú con las siguientes opciones:
 
 ---
 
-- Realiza el **análisis** y el **diagrama de clases** para la clase `BeatBox` en el archivo `ejercicio_02.md`
-- Implementa el código en **Python** dentro del archivo `ejercicio_02.py`
-- Asegúrate de que la clase incluya **atributos** y **métodos** coherentes con su propósito.  
+Realiza el **análisis** y el **diagrama de clases** para la clase `BeatBox` en el archivo `ejercicio_05.md`
+Escribe el código Python en el archivo `ejercicio_05.py`
+- Asegúrate de que las clases incluyan *atributos* y *métodos* coherentes con su propósito
 - Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*
-- Prueba el juego en la consola para verificar su correcto funcionamiento antes de enviar tu solución
+- Prueba la consola de mezcla en la consola para verificar su correcto funcionamiento
 
 *(3/3)*
 
