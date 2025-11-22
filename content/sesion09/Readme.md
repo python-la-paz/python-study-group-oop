@@ -1327,7 +1327,7 @@ El programa debe ofrecer un menú con las siguientes opciones:
 ---
 
 - Realiza el **análisis** y el **diagrama de clases** para la clase `BeatBox` en el archivo `ejercicio_02.md`
-- Implementa el código en **Python** dentro del archivo`ejercicio_02.py`
+- Implementa el código en **Python** dentro del archivo `ejercicio_02.py`
 - Asegúrate de que la clase incluya **atributos** y **métodos** coherentes con su propósito.  
 - Utiliza buenas prácticas de *nomenclatura*, *encapsulamiento* y *legibilidad*
 - Prueba el juego en la consola para verificar su correcto funcionamiento antes de enviar tu solución
