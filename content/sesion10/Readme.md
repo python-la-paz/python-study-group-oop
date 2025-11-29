@@ -38,7 +38,7 @@ cd sesion10
 
 #### ¿Qué es un patrón de diseño?
 
-Un patron de diseño es una **idea o solución** típica para resolver un problema
+Un patrón de diseño es una **idea o solución** típica para resolver un problema
 
 que se repite **una y otra vez**
 
