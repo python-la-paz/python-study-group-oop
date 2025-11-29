@@ -737,6 +737,7 @@ direction LR
         +fabricar()
     }
     class Armero {
+        +fabricar_arma()
     }
     Arma <|-- Espada
     Arma <|-- Arco
