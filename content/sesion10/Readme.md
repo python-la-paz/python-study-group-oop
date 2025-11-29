@@ -1148,5 +1148,5 @@ Repositorio de la Sesión
 - [Guía PEP 8](https://peps.python.org/pep-0008/#class-names)
 - [Mermaid Charts](https://www.mermaidchart.com/play)
 - [Draw.io](https://app.diagrams.net/)
-- [Python 3 Object-oriented Programming, Second Edition, Dusty PhillipsDusty Phillips](https://github.com/PacktPublishing/Python-3-Object-Oriented-Programming-Second-Edition)
+- [Python 3 Object-oriented Programming, Second Edition, Dusty Phillips](https://github.com/PacktPublishing/Python-3-Object-Oriented-Programming-Second-Edition)
 
