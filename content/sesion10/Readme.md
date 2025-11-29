@@ -327,7 +327,7 @@ Crear los archivos `cafeteria.md` y `cafeteria.py` en la carpeta `sesion10`
 ```markdown
 Una cafetería prepara Expresos y Cappuccinos,
 el cliente (tú) solo debes pedir el tipo de café que desea
-el barista utilizará las maquinas adecuadas para preparar el café
+el barista utilizará las máquinas adecuadas para preparar el café
 Todos los cafes se pueden tomar
 Las cafeteras preparan un tipo de café, después son consumidos
 por el cliente
