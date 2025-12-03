@@ -996,13 +996,17 @@ El encargado utiliza la **máquina adecuada** para preparar cada sabor:
 - La *máquina de vainilla* solo prepara helados de vainilla.  
 - La *máquina de chocolate* solo prepara helados de chocolate.
 
+*(1/5)*
+
+---
+
 Todos los helados comparten características en común:  
 - Se pueden **comer**.  
 - Tienen un **envase** (cono o vaso).
 
 El sistema debe permitir al usuario realizar pedidos de helado mediante un **Factory**, y escribir `"salir"` para terminar el proceso.
 
-*(1/4)*
+*(2/5)*
 
 ---
 
@@ -1021,7 +1025,7 @@ El sistema debe permitir al usuario realizar pedidos de helado mediante un **Fac
 Escribe "salir" para terminar.
 ```
 
-*(2/4)*
+*(3/5)*
 
 ---
 
@@ -1033,7 +1037,7 @@ Representar cada helado en el formato especificado.
 
 Registrar varios pedidos hasta que el usuario escriba "salir".
 
-*(3/4)*
+*(4/5)*
 
 ---
 
@@ -1043,7 +1047,7 @@ Instrucciones:
 - Escribe el código en Python implementando el patrón Factory en `ejercicio_01.py`
 - Prueba varios pedidos de helado para verificar el correcto funcionamiento
 
-*(4/4)*
+*(5/5)*
 
 ---
 

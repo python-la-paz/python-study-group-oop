@@ -11,106 +11,118 @@
 
 ---
 
-#### VS Code
+### Antes de empezar
 
-Abrimos el proyecto del Study Group
+---
+
+#### Proyecto en VSCode
+
+Abre el proyecto en VSCode
 
 ```bash
 code psg-oop-2025
 ```
 
-Creamos una carpeta llamada `sesion11` dentro del proyecto
+Crea una carpeta con el nombre `sesion11`
 
 ```bash
 mkdir sesion11
 cd sesion11
 ```
 
-Aquí guardaremos los ejemplos de la sesión
+- Los archivos de esta sesión deben estar dentro de esta carpeta
+
+- Al finalizar la sesión, sube los cambios al repositorio en un commit
 
 ---
 
 #### Introducción a la refactorización
 
-La refactorización es el proceso de mejorar el código existente sin cambiar su funcionalidad externa.
+La refactorización es el proceso de mejorar el código existente sin cambiar su **funcionalidad** externa
 
 ---
 
 #### ¿Por qué refactorizar?
 
-- Mejora la legibilidad del código.
-- Facilita el mantenimiento y la evolución del software.
-- Reduce la complejidad y el riesgo de errores.
+- Mejora la **legibilidad** del código
+- Facilita el **mantenimiento** y la evolución del software
+- Reduce la **complejidad** y el riesgo de errores
 
 ---
 
 #### ¿Qué implica la refactorización?
 
-- Reorganizar el código en módulos y clases.
-- Eliminar código duplicado.
-- Renombrar variables y funciones para que sean más descriptivas.
-- Dividir funciones grandes en funciones más pequeñas y manejables.
+- *Reorganizar* el código en módulos y clases
+- *Eliminar* código duplicado
+- *Renombrar* variables y funciones para que sean más descriptivas
+- *Dividir* funciones grandes en funciones más pequeñas y manejables
 
 ---
 
 #### Reorganización del código
 
-En python se puede organizar el código en archivos y carpetas para mejorar la estructura del proyecto.
+En python se puede organizar el código en **archivos y carpetas** para mejorar la estructura del proyecto
 
 ![Estructura de carpetas](./img/folders.png) <!-- .element width="25%"-->
 
 ---
 
-En lugar de tener un archivo gigante con todo el código, podemos dividirlo en varios archivos y carpetas.
+En lugar de tener un *archivo gigante* con todo el código, podemos dividirlo en **varios archivos** y carpetas
 
 ---
 
 #### Buenas prácticas de organización
 
-- Utilizar nombres descriptivos para archivos y carpetas.
-- Agrupar archivos relacionados en carpetas.
-- Mantener una estructura coherente en todo el proyecto.
+- Utilizar **nombres descriptivos** para archivos y carpetas
+- **Agrupar** archivos relacionados en carpetas
+- **Mantener una estructura** coherente en todo el proyecto
 
 ---
 
-En Python se recomienda seguir la convención de nombres PEP 8:
+En Python se recomienda seguir la convención [PEP 8](https://peps.python.org/pep-0008/)
 
-```markdown
-- Clases: `CamelCase` (ejemplo: `MiClase`)
-- Funciones y variables: `snake_case` (ejemplo: `mi_funcion`)
-- Constantes: `UPPER_CASE` (ejemplo: `MI_CONSTANTE`)
-- Archivos y carpetas: `snake_case` (ejemplo: `mi_archivo.py`)
-- Módulos y paquetes: `snake_case` (ejemplo: `mi_modulo`)
-````
+| Elemento              | Convención | Ejemplo                        |
+| --------------------- | ---------- | ------------------------------ |
+| Clases                | CamelCase  | `MiClase`                      |
+| Funciones y variables | snake_case | `mi_funcion`, `mi_variable`    |
+| Constantes            | UPPER_CASE | `MI_CONSTANTE`                 |
+| Archivos y carpetas   | snake_case | `mi_archivo.py`, `mi_carpeta/` |
+| Módulos y paquetes    | snake_case | `mi_modulo`                    |
 
 ---
 
 #### Ejemplo 01 
 
 ```markdown
-Juega "Piedra, Papel o Tijera" con un jugador y una computadora.
-Ingresa tu nombre y elige entre piedra, papel o tijera.
+Juega "Piedra, Papel o Tijera" con un jugador y una computadora
+Ingresa el nombre del jugador y elige piedra, papel o tijera
 La computadora hará su elección al azar
-y se determinará el ganador según las reglas del juego.
-Cuenta con un menú para 1. jugar o 2. salir.
+y se determinará el ganador según las reglas del juego
+Puede jugar varias rondas hasta que el jugador decida salir
+El juego esta compuesto por ambos jugadores
+Cuenta con un menú
+
+1. jugar 
+2. salir
 ```
 
-Crearemos un archivo llamado `juego.py` con la lógica del juego.
-y el análisis y diagrama en el archivo `juego.md`
+Crearemos un archivo llamado `juego.md` con el **análisis y diagrama**
+y el archivo `juego.py` con la **lógica** del juego
 
 ---
 
-#### Análisis
+Análisis
 
 ```markdown
 Requisitos:
-- El jugador debe ingresar su nombre.
-- El jugador debe elegir entre piedra, papel o tijera.
-- La computadora debe elegir al azar entre piedra, papel o tijera.
-- El juego debe determinar el ganador según las reglas del juego.
-- El juego debe mostrar el resultado de cada partida.
-- El juego debe permitir al jugador jugar varias partidas.
-- El juego debe tener un menú para jugar o salir.
+- El jugador debe ingresar su nombre
+- El jugador debe elegir entre piedra, papel o tijera
+- La computadora debe elegir al azar entre piedra, papel o tijera
+- El juego debe determinar el ganador según las reglas del juego
+- El juego debe mostrar el resultado de cada partida
+- El juego debe permitir al jugador jugar varias partidas
+- El juego debe tener un menú para jugar o salir
+- El juego esta compuesto por ambos jugadores (Jugador y Computadora)
 
 Objetos:
 - Jugador
@@ -118,69 +130,81 @@ Objetos:
 - Juego
 
 Características:
-- Jugador: (nombre)
-- Computadora: (nombre)
-- Juego: (jugador, computadora)
+- Jugador:
+    - nombre
+- Computadora:
+    - nombre
+- Juego: 
+    - jugador
+    - computadora
 
 Acciones:
-- Jugador: elegir()
-- Computadora: elegir()
-- Juego: jugar(), determinar_ganador()
+- Jugador:
+    - elegir
+- Computadora:
+    - elegir
+- Juego:
+    - jugar
+    - determinar ganador
 ```
 
 ---
-#### Diagrama de clases
+
+Diagrama de clases en Mermaid
 
 ````
 ```mermaid
-%%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
-direction LR
     class Jugador {
-        +nombre
+        +nombre: string
         +elegir()
     }
     class Computadora {
-        +nombre
+        +nombre: string
         +elegir()
     }
     class Juego {
-        +determinar_ganador(jugador, computadora)
+        +jugador: Jugador
+        +computadora: Computadora
+        +determinar_ganador(eleccion_jugador, eleccion_cpu)
         +jugar()
     }
-    Jugador --* Juego
-    Computadora --* Juego
+    Juego *-- Jugador
+    Juego *-- Computadora
 ```
 ````
 
 ---
-#### Diagrama de clases
+
+Diagrama de clases en Mermaid
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
-direction LR
     class Jugador {
-        +nombre
+        +nombre: string
         +elegir()
     }
     class Computadora {
-        +nombre
+        +nombre: string
         +elegir()
     }
     class Juego {
-        +determinar_ganador(jugador, computadora)
+        +jugador: Jugador
+        +computadora: Computadora
+        +determinar_ganador(eleccion_jugador, eleccion_cpu)
         +jugar()
     }
-    Jugador --* Juego
-    Computadora --* Juego
+    Juego *-- Jugador
+    Juego *-- Computadora
 ```
+<!--.element class="center-mermaid"-->
 
 ---
 
 Código del juego de Piedra, Papel o Tijera
 
-```python
+```python [1|2-11|13-18|20-45|47-65]
 import random
 
 class Jugador:
@@ -193,14 +217,12 @@ class Jugador:
             eleccion = input("Opción inválida. Intenta de nuevo: ").lower()
         return eleccion
 
-
 class Computadora:
     def __init__(self):
         self.nombre = "Computadora"
 
     def elegir(self):
         return random.choice(["piedra", "papel", "tijera"])
-
 
 class Juego:
     def __init__(self, jugador, computadora):
@@ -251,10 +273,46 @@ while True:
 ```
 
 ---
-Vamos ahora a reorganizar el juego en una estructura de archivos dentro
-de una carpeta llamada `juego`.
 
-Donde primero separaremos las partes del juego en diferentes archivos:
+Probamos el juego para asegurarnos que funciona **correctamente**
+
+```bash
+python juego.py
+```
+
+```text
+🎮 Bienvenido al juego de Piedra, Papel o Tijera
+Introduce tu nombre: Jhon
+--- Menú ---
+1. Jugar
+2. Salir
+Elige una opción: 1
+Jhon, elige piedra, papel o tijera: piedra
+Jhon eligió: piedra
+Computadora eligió: tijera
+Jhon gana!
+--- Menú ---
+1. Jugar
+2. Salir
+Elige una opción: 2
+¡Gracias por jugar! 👋
+```
+
+---
+
+**Reorganizaremos** el juego en archivos dentro de una carpeta llamada `juego`
+
+Donde primero separaremos las partes del juego en diferentes archivos
+
+```mermaid
+%%{init: {"theme": "dark", "look": "handDrawn"  }}%%
+graph TD;
+    A["📄 juego.py"]
+    B["📕 juego.md"] 
+```
+<!-- .element class="center-mermaid"-->
+
+⬇
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
@@ -271,16 +329,18 @@ graph TD;
     A --> E
     A --> F
 ```
+<!-- .element class="center-mermaid"-->
 
 ---
-#### 1: Crear la carpeta y los archivos
 
-Vamos a crear la carpeta `juego` y los archivos vacíos necesarios para el juego.
+#### 1. Crear la carpeta y los archivos
+
+**Crear** la carpeta `juego` y los archivos vacíos dentro
 
 ```markdown
 Con `mkdir` creamos la carpeta
 Con `cd` entramos a la carpeta
-Con `touch` creamos los archivos 
+Con `touch` creamos los archivos vacíos
 Con `tree` vemos la estructura de carpetas y archivos
 ```
 
@@ -303,7 +363,7 @@ tree
 
 ---
 
-Movemos el archivo `juego.md` a la carpeta `juego` para mantener todo organizado:
+**Mover** el archivo `juego.md` a la carpeta `juego` para mantener todo organizado
 
 ```markdown
 Con `cd ..` volvemos a la carpeta anterior
@@ -314,7 +374,7 @@ Con `tree` vemos la estructura de carpetas y archivos
 
 ```bash
 cd ..
-mv juego.md juego/
+mv juego.md juego
 cd juego
 tree
 ```
@@ -333,11 +393,11 @@ tree
 
 ---
 
-#### 2: Llenar los archivos con el código correspondiente
+#### 2. Llenar los archivos con el código
 
-Ya con la estructura creada, vamos a llenar cada archivo con el código correspondiente.
+Ya con la estructura creada, **llenar** cada archivo con el código correspondiente
 
-Primero, el archivo `jugador.py` contendrá la clase `Jugador`:
+El archivo `jugador.py` contendrá la clase `Jugador`
 
 ```python
 # jugador.py
@@ -353,7 +413,10 @@ class Jugador:
 
 ---
 
-Luego, el archivo `computadora.py` contendrá la clase `Computadora`:
+El archivo `computadora.py` contendrá la clase `Computadora`
+
+
+**Importamos** el módulo `random` porque el método `elegir` de la clase `Computadora` utiliza la función `choice` de este módulo para seleccionar una opción al azar
 
 ```python
 # computadora.py
@@ -366,12 +429,10 @@ class Computadora:
         return random.choice(["piedra", "papel", "tijera"])
 ```
 
-En el caso de computadora, importamos el módulo `random` porque 
-el método `elegir` de la clase `Computadora` utiliza la función `choice` de este módulo para seleccionar una opción al azar.
 
 ---
 
-Luego, el archivo `juego.py` quedaría así
+En el archivo `juego.py` **copiar** la clase `Juego`
 
 ```python
 # juego.py
@@ -405,20 +466,20 @@ class Juego:
 
 ---
 
-Finalmente, el archivo `main.py` contendrá la lógica para iniciar el juego:
+Por último, el archivo `main.py` contendrá la lógica para iniciar e interactuar con el juego
 
-Pero primero el juego necesita tener acceso a las clases `Jugador`, `Computadora` y `Juego` 
+Pero primero el juego necesita tener acceso a las clases `Jugador`, `Computadora` y `Juego` que están definidas en **otros archivos**
 
-Por lo que debemos importar nuestros archivos
+Por lo que debemos **importar** los archivos correspondientes
 
 ---
 #### Importación de módulos
 
-Python permite importar módulos para reutilizar código
+Python permite **importar** módulos para reutilizar código
 
-Podemos importar un módulo completo o solo partes específicas de él.
+Podemos importar un **módulo completo** o solo **partes** específicas de él
 
-Para importar un módulo completo utilizamos la palabra clave `import` seguida del nombre del módulo.
+Para importar un módulo completo utilizamos la palabra clave `import` seguida del nombre del módulo
 
 ```python
 import random
@@ -426,8 +487,11 @@ import random
 
 ---
 
-Para importar una parte específica de un módulo como una función o clase, 
-utilizamos la palabra clave `from` seguida del módulo y luego `import` seguido del nombre de la función o clase.
+Para importar **una parte** específica de un módulo como una función o clase
+
+Utilizamos la palabra clave `from` seguida del **módulo**
+
+Luego la palabra `import` seguido del nombre de la **función o clase**
 
 ```python
 from random import choice
@@ -435,17 +499,23 @@ from random import choice
 
 ---
 
-Es recomendable importar solo lo que se necesita para evitar conflictos de nombres y mejorar la legibilidad del código.
+Es **recomendable** importar solo lo que se necesita para evitar *conflictos de nombres* y mejorar la **legibilidad** del código
 
-No es necesario importar todo el módulo si solo se utiliza una parte de él.
-
----
-Cada archivo que hemos creado puede ser importado como un módulo en Python.
-
-Para importar las clases desde los archivos que hemos creado, utilizamos la sintaxis `from nombre_archivo import NombreClase`.
+> No es necesario importar todo el módulo,
+> 
+> si solo se utiliza una parte de él
 
 ---
-Por ejemplo, en el archivo `main.py`, importamos las clases de la siguiente manera:
+
+Cada archivo que hemos creado **puede ser importado** en Python
+
+Para importar las clases desde los archivos que hemos creado, utilizamos la sintaxis 
+
+`from nombre_archivo import NombreClase`.
+
+---
+
+En el archivo `main.py`, importamos las clases de la siguiente manera
 
 ```python
 # main.py
@@ -458,7 +528,7 @@ Esto nos permite utilizar las clases `Jugador`, `Computadora` y `Juego` en el ar
 
 ---
 
-Finalmente, el archivo `main.py` quedaría así:
+El archivo `main.py` quedaría así
 
 ```python
 # main.py
@@ -489,11 +559,22 @@ while True:
 ```
 
 ---
-#### 3: Ejecutar el juego
 
-Para ejecutar el juego, debemos asegurarnos de estar en el directorio `juego` y ejecutar el archivo `main.py`
+#### 3. Ejecutar el juego
+
+Después de organizar el código en **archivos separados**, probamos que todo funcione correctamente
+
+donde el archivo `main.py` es el **punto de entrada** del juego
+
+Para ejecutar, debemos estar en el directorio `juego` y ejecutar el archivo `main.py`
+
+
+---
+
+Ejecutamos el juego
 
 ```bash
+cd juego # Si no estamos ya en la carpeta juego
 python main.py
 ```
 
@@ -527,16 +608,16 @@ Elige una opción: 2
 
 ---
 
-Hasta aquí conseguimos refactorizar el código del juego de Piedra, Papel o Tijera
-y organizarlo en una estructura de archivos pero de un sólo nivel.
+Refactorizamos el código del juego de Piedra, Papel o Tijera
+y lo **organizamos** en una estructura de archivos pero de *un sólo nivel*
 
-Podemos seguir mejorando la organización del código creando una estructura de carpetas
-para ordenar los archivos de nuestro proyecto.
+Podemos seguir mejorando la organización del código creando una **estructura de carpetas**
+para ordenar los archivos según su **funcionalidad**
 
 ---
 #### Estructura de carpetas
 
-Podemos organizar el proyecto en carpetas para separar la lógica del juego y las clases
+Organizaremos en carpetas para **agrupar** clases y lógica del juego
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
@@ -557,10 +638,13 @@ graph LR;
     A --> G
     A --> H
 ```
+<!-- .element class="center-mermaid"-->
 
 ---
-#### 1: Crear las carpetas y los archivos
-Vamos a crear las carpetas `clases` y `logica` dentro de la carpeta `juego`
+
+#### 1. Crear las carpetas y los archivos
+
+**Crear** las carpetas `clases` y `logica` dentro de la carpeta `juego`
 
 ```markdown
 Con `cd` entramos a la carpeta `juego`
@@ -573,7 +657,8 @@ mkdir clases logica
 ```
 
 ---
-Luego, movemos los archivos correspondientes a cada carpeta
+
+**Mover** los archivos correspondientes a cada carpeta
 
 ```markdown
 Con `mv` movemos los archivos `jugador.py` y `computadora.py`
@@ -588,7 +673,8 @@ mv juego.py logica
 ```
 
 ---
-Nos quedará la siguiente estructura de carpetas y archivos:
+
+**Quedará** la siguiente estructura de carpetas y archivos:
 
 ```markdown
 Con `tree` vemos la estructura de carpetas y archivos
@@ -614,12 +700,15 @@ tree
 
 ---
 
-#### 2: Actualizar las importaciones
-Ahora debemos actualizar las importaciones en los archivos para reflejar la nueva estructura de carpetas.
+#### 2. Actualizar las importaciones
 
-En el archivo `main.py`, debemos importar las clases desde las nuevas ubicaciones:
+Hay que **actualizar** las importaciones en los archivos para reflejar la nueva estructura de carpetas
 
-Como hemos movido los archivos para importar ahora se utiliza la sintaxis `from carpeta.archivo import Clase`
+En `main.py` **importar** las clases desde las nuevas ubicaciones
+
+Como se movió los archivos para importar ahora se utiliza la sintaxis
+
+`from carpeta.archivo import Clase`
 
 ```python
 # main.py
@@ -630,10 +719,11 @@ from logica.juego import Juego
 
 ---
 
-#### 3: Ejecutar el juego
+#### 3. Ejecutar el juego
 
-Con esto, hemos actualizado las importaciones para reflejar la nueva estructura de carpetas y podemos ejecutar
-el juego de la misma manera que antes:
+Actualizado las importaciones para reflejar la nueva estructura de carpetas
+
+**Ejecutamos** el juego de la misma manera que antes:
 
 ```bash
 python main.py
@@ -641,24 +731,25 @@ python main.py
 
 ---
 
-Aun podemos mejorar más la organización del código,
-creando un archivo `__init__.py` en cada carpeta para convertirlas en paquetes de Python.
+Podemos mejorar más la organización del código
+
+creando un archivo `__init__.py` en cada carpeta para convertir las *carpetas* en **paquetes** de Python
 
 ---
 
 #### `__init__.py`
 
-El archivo `__init__.py` es un archivo especial en Python que indica que una carpeta debe ser tratada como un paquete.
+El archivo `__init__.py` es un **archivo especial** en Python que indica que una carpeta debe ser tratada como un **paquete**
 
-Esto permite importar módulos desde esa carpeta de manera más sencilla.
+Esto permite importar módulos desde esa carpeta de manera más sencilla
 
-Son opcionales pero es recomendable incluirlos para indicar que la carpeta es un paquete de Python.
+Son **opcionales** pero es recomendable incluirlos para indicar que la carpeta es un paquete de Python
 
 ---
 
-#### 1: Crear los archivos `__init__.py`
+#### 1. Crear los archivos `__init__.py`
 
-Podemos crear un archivo `__init__.py` vacío en cada carpeta para indicar que son paquetes.
+**Crear** un archivo `__init__.py` vacío en cada carpeta para indicar que son paquetes
 
 ```markdown
 Con `cd` entramos a la carpeta `juego` 
@@ -673,7 +764,7 @@ touch clases/__init__.py logica/__init__.py
 
 ---
 
-Ahora, la estructura de carpetas y archivos quedará así:
+La **estructura** de carpetas y archivos quedará así:
 
 ```bash
 tree
@@ -696,11 +787,11 @@ tree
 
 ---
 
-#### 2: Importar desde los paquetes
+#### 2. Importar desde los paquetes
 
-En el archivo `__init__.py` añadimos los archivos que podremos importar directamente desde el paquete.
+En el archivo `__init__.py` añadimos los archivos que podremos importar directamente desde el paquete
 
-En el archivo `clases/__init__.py` añadimos:
+En `clases/__init__.py` añadimos:
 
 ```python
 # clases/__init__.py
@@ -708,23 +799,24 @@ from .jugador import Jugador
 from .computadora import Computadora
 ```
 
-Donde al utilizar el punto `.` antes del nombre del archivo, indicando que importamos el archivo desde la misma carpeta
+Al utilizar el punto `.` antes del **nombre del archivo**, indicando que importamos el archivo desde la **misma carpeta**
 
 ---
 
-En el archivo `logica/__init__.py` añadimos:
+En `logica/__init__.py` añadimos:
 
 ```python
 # logica/__init__.py
 from .juego import Juego
 ```
 
-Asi cada paquete podrá importar sus clases correspondientes sin necesidad de especificar el archivo.
+Asi cada paquete podrá **importar** sus clases correspondientes sin necesidad de especificar el archivo
 
 ---
 
-#### 2: Importar desde los paquetes
-Ahora podemos importar las clases desde los paquetes de la siguiente manera:
+#### 2. Importar desde los paquetes
+
+Para importar desde los paquetes en `main.py`, uilizamos el **nombre del paquete** seguido de la clase
 
 ```python
 # main.py
@@ -732,13 +824,13 @@ from clases import Jugador, Computadora
 from logica import Juego
 ```
 
-Esto nos permite importar las clases directamente desde los paquetes sin necesidad de especificar el archivo.
+Esto permite **importar directamente** desde los paquetes sin especificar el archivo donde se encuentra
 
 ---
 
-#### 3: Ejecutar el juego
+#### 3. Ejecutar el juego
 
-Con esto, hemos organizado el código en paquetes y podemos ejecutar el juego de la misma manera que antes:
+**Organizamos** el código en **paquetes** y podemos ejecutar el juego de la misma manera que antes:
 
 ```bash
 python main.py
@@ -746,34 +838,37 @@ python main.py
 
 ---
 
-Después de reestructurar el código, podemos continuar refactorizando.
+Después de **organizar el código**, podemos continuar **refactorizando**
 
-Ahora eliminaremos el código duplicado y dividir en funciones más pequeñas
+Ahora *eliminaremos* el código duplicado y dividir en funciones más pequeñas
 
 ---
+
 #### Eliminación de código duplicado
 
-El código duplicado es un problema común en la programación que puede hacer que el código sea más difícil de mantener y entender.
+El código duplicado es un *problema* común en la programación que hace que el código sea más difícil de *mantener y entender*
 
-La eliminación de código duplicado implica identificar y eliminar partes del código que se repiten innecesariamente.
+La eliminación de código duplicado implica **identificar y eliminar** partes del **código que se repiten** innecesariamente
 
-y reemplazarlas por funciones o métodos reutilizables.
+y reemplazarlas por funciones o métodos reutilizables
 
 ---
+
 #### ¿Por qué eliminar el código duplicado?
 
-- Mejora la legibilidad del código.
-- Facilita el mantenimiento y la evolución del software.
-- Reduce el riesgo de errores al modificar el código.
+- **Mejora** la legibilidad del código
+- **Facilita** el mantenimiento y la evolución del software
+- **Reduce** el riesgo de errores al modificar el código
 
 ---
 
 #### Refactorización del código duplicado
 
 En el Jugador podemos notar que al elegir piedra, papel o tijera,
-se repite el código para validar la elección del jugador.
+**se repite el código** para validar la elección del jugador
 
 ```python [4-8]
+# original
 class Jugador:
     def __init__(self, nombre):
         self.nombre = nombre
@@ -785,10 +880,11 @@ class Jugador:
 ```
 
 ---
-Podemos refactorizar separando las opciones válidas en una constante y 
-la validación de la elección en un método separado.
 
-```python
+**Refactorizamos** separando las opciones válidas en una constante y 
+la validación de la elección en un método separado
+
+```python [1|6-9|11-14]
 OPCIONES = ["piedra", "papel", "tijera"]
 class Jugador:
     def __init__(self, nombre):
@@ -807,11 +903,11 @@ class Jugador:
 
 ---
 
-También podemos refactorizar el input del jugador para que sea más claro y reutilizable.
-Tambien definir un `__str__` para la clase Jugador
+**Refactorizar** el `input` del jugador para que sea más claro y reutilizable.
 
+**Definir** un `__str__` para la clase Jugador
 
-```python
+```python [6-7|9-10|14,19]
 OPCIONES = ["piedra", "papel", "tijera"]
 class Jugador:
     def __init__(self, nombre):
@@ -836,11 +932,14 @@ class Jugador:
 
 ---
 
-En el caso de la computadora, podemos hacer algo similar
-Incluso importar sólo lo necesario del módulo `random` y no todo el módulo
-y también definir un `__str__` para la clase Computadora
+En la clase Computadora, se puede hacer algo similar
 
-```python [1,7]
+**Importar** sólo lo necesario del módulo `random` y no todo el módulo
+
+**Definir** un `__str__` para la clase Computadora
+
+```python [2,8]
+# original
 import random
 class Computadora:
     def __init__(self):
@@ -852,9 +951,12 @@ class Computadora:
 
 ---
 
-Queda así:
+**Importando** solo lo necesario del módulo `random`
 
-```python
+**Refactorizar** la clase Computadora, separando las opciones válidas en una constante y definiendo el método `__str__`
+
+
+```python [1|2,11| 7-8]
 from random import choice
 OPCIONES = ["piedra", "papel", "tijera"]
 class Computadora:
@@ -870,8 +972,7 @@ class Computadora:
 
 ---
 
-Por último, podemos refactorizar el archivo `juego.py` usando el método `__str__` de las clases `Jugador` y `Computadora`
-Tambien adicionar un método para mostrar las elecciones
+**Identificar** el código duplicado en la clase `Juego` como la impresión de las elecciones de los jugadores y sus nombres
 
 
 ```python [14-16,22-23]
@@ -904,7 +1005,10 @@ class Juego:
 ```
 
 ---
-Queda así:
+
+**Refactorizar** el archivo `juego.py` usando el método `__str__` de las clases `Jugador` y `Computadora`
+
+**Adicionar** un método para mostrar las elecciones
 
 ```python [14,15,17,18,23,24]
 class Juego:
@@ -937,70 +1041,88 @@ class Juego:
 
 ---
 
-Y asi hemos eliminado algunos duplicados y mejorado la legibilidad del código.
-Pero aún podemos seguir mejorando y refactorizando el código y dividiendo
-en funciones más pequeñas y manejables.
+Se **eliminó** algunos duplicados y mejorado la legibilidad del código
+
+**Podemos** seguir mejorando y refactorizando el código y dividiendo
+en funciones más pequeñas y manejables
 
 ---
 
-El objetivo es tener un código limpio y fácil de mantener. También es importante
-saber cuando detenerse, ya que la refactorización excesiva puede llevar a un código innecesariamente complejo.
+El objetivo es tener un **código limpio y fácil de mantener** y también es importante
+saber cuando detenerse, ya que la *refactorización excesiva* puede llevar a un código innecesariamente complejo
 
 ---
 
-Por último actualizamos el análisis y 
-el diagrama de clases para reflejar los cambios realizados
+Al final **actualizar** el análisis y el diagrama de clases para reflejar los cambios realizados
 
 ---
+
 #### Análisis actualizado
 
 ```markdown
 Requisitos:
-- El jugador debe ingresar su nombre.
-- El jugador debe elegir entre piedra, papel o tijera.
-- La computadora debe elegir al azar entre piedra, papel o tijera.
-- El juego debe determinar el ganador según las reglas del juego.
-- El juego debe mostrar el resultado de cada partida.
-- El juego debe permitir al jugador jugar varias partidas.
-- El juego debe tener un menú para jugar o salir.
+- El jugador debe ingresar su nombre
+- El jugador debe elegir entre piedra, papel o tijera
+- La computadora debe elegir al azar entre piedra, papel o tijera
+- El juego debe determinar el ganador según las reglas del juego
+- El juego debe mostrar el resultado de cada partida
+- El juego debe permitir al jugador jugar varias partidas
+- El juego debe tener un menú para jugar o salir
+- El juego esta compuesto por ambos jugadores (Jugador y Computadora)
+
 Objetos:
 - Jugador
 - Computadora
 - Juego
+
 Características:
-- Jugador: (nombre)
-- Computadora: (nombre)
-- Juego: (jugador, computadora)
+- Jugador:
+    - nombre
+- Computadora:
+    - nombre
+- Juego: 
+    - jugador
+    - computadora
+
 Acciones:
-- Jugador: elegir(), validar_eleccion(), ingresar()
-- Computadora: elegir()
-- Juego: determinar_ganador(), mostrar_elecciones(), jugar()
+- Jugador:
+    - elegir
+    - validar eleccion
+    - ingresar
+- Computadora:
+    - elegir
+- Juego:
+    - jugar
+    - determinar ganador
+    - mostrar elecciones
 ```
 
 ---
+
 #### Diagrama de clases actualizado
 
 ````
 ```mermaid
 classDiagram
-direction LR
     class Jugador {
-        +nombre
+        +nombre: string
         +ingresar(mensaje)
         +validar_eleccion(eleccion)
         +elegir()
     }
     class Computadora {
-        +nombre
+        +nombre: string
         +elegir()
     }
     class Juego {
-        +determinar_ganador(jugador, computadora)
+        +jugador: Jugador
+        +computadora: Computadora
+        +determinar_ganador(eleccion_jugador, eleccion_cpu)
         +mostrar_elecciones(jugador, eleccion)
         +jugar()
     }
-    Jugador --* Juego
-    Computadora --* Juego
+    Juego *-- Jugador
+    Juego *-- Computadora
 ```
 ````
 
@@ -1011,30 +1133,32 @@ direction LR
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
 classDiagram
-direction LR
     class Jugador {
-        +nombre
+        +nombre: string
         +ingresar(mensaje)
         +validar_eleccion(eleccion)
         +elegir()
     }
     class Computadora {
-        +nombre
+        +nombre: string
         +elegir()
     }
     class Juego {
-        +determinar_ganador(jugador, computadora)
+        +jugador: Jugador
+        +computadora: Computadora
+        +determinar_ganador(eleccion_jugador, eleccion_cpu)
         +mostrar_elecciones(jugador, eleccion)
         +jugar()
     }
-    Jugador --* Juego
-    Computadora --* Juego
+    Juego *-- Jugador
+    Juego *-- Computadora
 ```
+<!-- .element class="center-mermaid"-->
 
 ---
 
-Por último,  cambiamos el nombre del archivo `juego.md` a `README.md`
-para que sea reconocido como el archivo de documentación principal del juego.
+Cambiar el nombre de `juego.md` a `README.md`
+será reconocido como la documentación principal
 
 ```markdown
 Con `mv` cambiamos el nombre del archivo `juego.md` a `README.md`
@@ -1065,47 +1189,59 @@ tree
 
 ![Dependencia circular](./img/dependencia_circular.jpeg) <!-- .element width="45%"-->
 
-Ocurre cuando dos o más módulos dependen entre sí directa o indirectamente.
+Ocurre cuando dos o más módulos *dependen entre sí* directa o indirectamente
 
 ---
 
-La dependencia circular es mala
+La dependencia circular es *mala*
 
 Esto puede llevar a problemas como:
-- Dificultad para entender y mantener el código.
-- Problemas de rendimiento debido a la carga repetida de módulos.
-- Errores en tiempo de ejecución si los módulos no se cargan en el orden correcto.
+
+- *Dificultad* para entender y mantener el código
+- *Problemas de rendimiento* debido a la carga repetida de módulos
+- *Errores en tiempo de ejecución* si los módulos no se cargan en el orden correcto
 
 ---
+
 Para evitar dependencias circulares, es recomendable:
 
-- Reorganizar el código para reducir las dependencias.
-- Dividir módulos grandes en módulos más pequeños y manejables.
+- **Reorganizar el código** para reducir las dependencias
+- **Dividir módulos grandes** en módulos más pequeños y manejables
+
+---
+
+Para definir el **punto de entrada** de un programa, utilizamos la variable especial `__name__` en Python
 
 ---
 
 #### La variable `__name__`
 
 En Python, la variable especial `__name__` se utiliza para determinar si un módulo
-se está ejecutando como el programa principal o si se está importando desde otro módulo.
+se está ejecutando como **programa principal** o si se está **importando** desde otro módulo
 
 ---
 
-Cuando un módulo se ejecuta directamente, su variable `__name__` se establece en `"__main__"`.
-Cuando se importa desde otro módulo, su variable `__name__` se establece en el nombre del módulo.
+Cuando un módulo se **ejecuta directamente**, su variable `__name__` se establece en `"__main__"`
+
+Cuando *se importa* desde otro módulo, su variable `__name__` se establece en el nombre del módulo
 
 ---
 
-Esto permite que el código dentro de un bloque `if __name__ == "__main__":` se ejecute solo cuando el módulo se ejecuta directamente,
-y no cuando se importa desde otro módulo.
+Esto permite que el código dentro de un bloque
 
-Es una buena práctica utilizar este bloque para definir el punto de entrada del programa.
+`if __name__ == "__main__":`
+
+se ejecute cuando el módulo se **ejecuta directamente**, y NO cuando se *importa* desde otro módulo
+
+Es una buena práctica utilizar este bloque para definir el **punto de entrada** del programa
 
 ---
 
-En nuestro caso, agregamos al final del archivo `main.py` y crearemos la función `main()` para encapsular la lógica del juego
+**Encapsular** la lógica principal del juego dentro de una función `main`
 
-```python
+**Agregar** al final del archivo `main.py` el bloque `if` para llamar a la función `main`
+
+```python [3|24-25]
 from clases import Jugador, Computadora
 from logica import Juego
 def main():
@@ -1135,7 +1271,7 @@ if __name__ == "__main__":
 
 ---
 
-Con esto hemos completado la refactorización y podemos subir los cambios al repositorio de GitHub.
+Con esto se completó la **refactorización** y se puede los cambios al repositorio de GitHub
 
 ```bash
 git add .
@@ -1148,13 +1284,18 @@ git push
 #### Ejemplo 02
 
 ```text
-1. Al ejemplo anterior aún faltan algunas mejoras que podemos hacer.
-Elimina la duplicidad del código en OPCIONES almacenando en una 
-carpeta que se llame `constantes` y crea un archivo `opciones.py`
-donde almacenes las opciones válidas del juego y reglas
+Al ejemplo anterior aún faltan algunas mejoras que hacer
 
-2. Ahora el juego debe funcionar con emojis: 🧱, 📄 y ✂️
-sólo cambiando en las constantes sin modificar el resto del código.
+Elimina la duplicidad del código en OPCIONES almacenando
+en paquete que se llame `constantes` y crea un 
+archivo `opciones.py` donde almacenes las opciones 
+válidas del juego y reglas
+
+El juego debe funcionar con emojis: 🧱, 📄 y ✂️
+cambiando en las constantes y la lógica del juego
+
+Crea las reglas del juego en un diccionario 
+para determinar el ganador
 ```
 
 Realizar los cambios 4 minutos
@@ -1193,8 +1334,7 @@ tree
 
 #### 2. Opciones válidas
 
-En el archivo `constantes/opciones.py`, definimos las opciones válidas del juego
-y en el archivo `constantes/__init__.py` importamos las opciones para que estén disponibles al importar el paquete `constantes`.
+En `constantes/opciones.py` definir las opciones válidas del juego y las reglas
 
 ```python
 # constantes/opciones.py
@@ -1211,6 +1351,8 @@ REGLAS = {
 
 ---
 
+En `constantes/__init__.py` importamos las opciones para que estén disponibles al importar el paquete `constantes`.
+
 ```python
 # constantes/__init__.py
 from .opciones import OPCIONES, REGLAS
@@ -1219,7 +1361,8 @@ from .opciones import OPCIONES, REGLAS
 ---
 
 #### 3. Actualizar el código
-Ahora actualizamos el código en los archivos `jugador.py`, `computadora.py`
+
+Actualizar el código en los archivos `jugador.py`, `computadora.py` utilizando las constantes definidas
 
 ```python
 # clases/jugador.py
@@ -1235,9 +1378,10 @@ from random import choice
 ```
 
 ---
-En el archivo `juego.py` actualizamos las importaciones y el método `determinar_ganador` para utilizar las constantes:
 
-```python
+En `juego.py` actualizar las importaciones y el método `determinar_ganador` para utilizar las constantes y reglas definidas
+
+```python [2|4-9]
 # logica/juego.py
 from constantes import REGLAS
 ...
@@ -1250,9 +1394,10 @@ from constantes import REGLAS
 ```
 
 ---
-Finalmente, actualizamos el archivo `main.py` para que muestre las opciones válidas al jugador:
 
-```python
+Actualizar `main.py` para que muestre las opciones válidas al jugador
+
+```python [2,6]
 # main.py
 from constantes import OPCIONES
 from clases import Jugador, Computadora
@@ -1267,8 +1412,26 @@ def main():
 ```
 
 ---
-Con esto hemos refactorizado el código para utilizar constantes y mejorar
-la flexibilidad del juego.
+Reafactorizado el código para utilizar constantes y mejorar la flexibilidad del juego
+
+Ejecutar el juego para verificar que todo funciona correctamente:
+
+```bash
+python main.py
+```
+
+---
+
+Al final *modificar* las constantes para utilizar emojis en lugar de texto
+
+```python
+# constantes/opciones.py
+PIEDRA = "🧱"
+PAPEL = "📄"
+TIJERA = "✂️"
+``` 
+
+---
 
 Ejecutamos el juego para verificar que todo funciona correctamente:
 
@@ -1292,12 +1455,12 @@ Empate
 
 ---
 
-Subimos los cambios al repositorio de GitHub:
+Subimos los avances de la sesión al repositorio en **GitHub**
 
 ```bash
 git add .
-git commit -m "Refactorización y uso de constantes"
-git push
+git commit -m "Sesión 11"
+git push origin main
 ```
 
 ---
@@ -1341,13 +1504,13 @@ Crear una carpeta con el nombre "retos_sesion_11" dentro del proyecto en la raí
 # Estructura de carpetas
 psg-oop-2025/
     retos_sesion_11/
-        reto_01/
-            Readme.md
+        ejercicio_01/
+            README.md
             <carpetas>
                 <scripts>.py
             main.py
-        reto_02/
-            Readme.md
+        ejercicio_02/
+            README.md
             <carpetas>
                 <scripts>.py
             main.py
@@ -1355,20 +1518,22 @@ psg-oop-2025/
 
 ---
 
-#### Reto 01
+1. Organiza el siguiente ejemplo en una estructura de carpetas y archivos
 
 ```text
-Una aplicación para gestionar una lista de tareas pendientes.
-Permite agregar, eliminar y marcar tareas como completadas.
-También permite eliminar tareas completadas y eliminar todas las tareas.
+Un programa para gestionar una lista de tareas pendientes
+Permite agregar, eliminar y marcar tareas como completadas
+También permite eliminar tareas completadas
+y eliminar todas las tareas
 ```
 
-Refactoriza el código en una estructura de carpetas y añade la documentación
-en un archivo `README.md` dentro de la carpeta `reto_01`.
-
+- Renombra las variables y métodos siguiendo las convenciones de PEP 8 y buenas prácticas de nomenclatura
+- Refactoriza el código en una estructura de carpetas y añade la documentación de análisis y diagrama de clases
+en un archivo `README.md` dentro de la carpeta `ejercicio_01`.
 
 ---
 
+Diagrama de clases
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
@@ -1390,6 +1555,7 @@ direction LR
     }
     Tarea --* ListaTareas
 ```
+<!-- .element class="center-mermaid"-->
 
 ---
 Código del ejemplo 01
@@ -1469,7 +1635,8 @@ while True:
 ```
 
 ---
-#### Reto 02
+
+2. Crea el siguiente programa siguiendo las buenas prácticas de PEP 8 y organiza el código en una estructura de carpetas y archivos
 
 ```text
 La Biblioteca Municipal va digitalizar su registro 
@@ -1477,19 +1644,24 @@ de préstamos de libros. Actualmente, los encargados
  anotan todo en un cuaderno:
 
 Los libros con su título, autor e ISBN.
-Los usuarios tienen un nombre.
-La biblioteca cuenta con un flujo de préstamos que es el siguiente:
-1. Un usuario ingresa su nombre.
-2. Se lista los libros disponibles.
-3. El usuario elige un libro para prestar.
-4. Se registra la lista de prestados con el nombre del usuario y el libro prestado
-5. Puede prestarse más de un libro al mismo usuario.
-6. Los usuarios tienen que devolver todos los libros a la vez.
-7. Se puede ver la lista de libros prestados y los usuarios que los tienen.
-8. Para salir se debe ingresar "salir".
+Los usuarios tienen un nombre
+La biblioteca cuenta con un flujo de préstamos:
+1. Un usuario ingresa su nombre
+2. Se lista los libros disponibles
+3. El usuario elige un libro para prestar
+4. Se registra la lista de prestados con el 
+   nombre del usuario y el libro prestado
+5. Puede prestarse más de un libro al mismo usuario
+6. Los usuarios tienen que devolver todos los libros a la vez
+7. Se puede ver la lista de libros prestados y
+   los usuarios que los tienen
+8. Para salir se debe ingresar "salir"
 ```
 
-Realizar el código del reto en una estructura de carpetas y añade la documentación
+---
+
+Añade la documentación con análisis y diagrama de clases en un archivo `README.md` dentro de la carpeta `ejercicio_02` y
+crea el código para el ejercicio
 
 ---
 <!-- .slide: data-background-image="../../content/psg-bg-dark.png" data-background-size="100%"-->
@@ -1500,7 +1672,7 @@ Realizar el código del reto en una estructura de carpetas y añade la documenta
 <br>
 <br>
 
-[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/content/sesion11)
+[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/tree/main/content/sesion11)
 
 Repositorio de la Sesión
 
