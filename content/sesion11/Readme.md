@@ -1518,22 +1518,53 @@ psg-oop-2025/
 
 ---
 
-1. Organiza el siguiente ejemplo en una estructura de carpetas y archivos
+1. **Refactoriza** el siguiente ejemplo en una estructura de carpetas y archivos
 
-```text
-Un programa para gestionar una lista de tareas pendientes
-Permite agregar, eliminar y marcar tareas como completadas
-También permite eliminar tareas completadas
-y eliminar todas las tareas
-```
+Un programa para gestionar una lista de tareas pendientes:
 
-- Renombra las variables y métodos siguiendo las convenciones de PEP 8 y buenas prácticas de nomenclatura
-- Refactoriza el código en una estructura de carpetas y añade la documentación de análisis y diagrama de clases
-en un archivo `README.md` dentro de la carpeta `ejercicio_01`.
+- Permite agregar nuevas tareas
+- Eliminar tareas
+- Marcar tareas como completadas
+- Eliminar solo tareas completadas
+- Eliminar todas las tareas
+
+*(1/6)*
 
 ---
 
-Diagrama de clases
+El programa debe ser **refactorizado**:
+
+- **Utilizar** convenciones de estilo PEP 8
+- **Mejorar** nombres en clases, variables y métodos
+- **Crear** una estructura ordenada de carpetas y módulos de Python
+- **Incluir** la documentación del análisis y diagrama en un archivo README.md
+
+*(2/6)*
+
+---
+
+
+Separar las clases en **archivos individuales** dentro de la carpeta `ejercicio_01/models`
+
+Implementar una organización de carpetas y archivos como la siguiente:
+
+```bash
+ejercicio_01/
+  ├── models/
+  │     ├── __init__.py
+  │     ├── tarea.py
+  │     └── lista_tareas.py
+  ├── main.py
+  └── README.md
+```
+
+Mantener la misma funcionalidad del programa original
+
+*(3/6)*
+
+---
+
+Diagrama de clases original
 
 ```mermaid
 %%{init: {"theme": "dark", "look": "handDrawn"  }}%%
@@ -1557,8 +1588,13 @@ direction LR
 ```
 <!-- .element class="center-mermaid"-->
 
+Debe incluirse  el análisis y diagramas en `README.md`
+
+*(4/6)*
+
 ---
-Código del ejemplo 01
+
+Código original
 
 ```python
 class Tarea:
@@ -1634,36 +1670,89 @@ while True:
         print("Opción inválida, intenta de nuevo.")
 ```
 
+Debe refactorizarse y organizarse en archivos y carpetas en la carpeta `ejercicio_01`
+
+*(5/6)*
+
 ---
 
-2. Crea el siguiente programa siguiendo las buenas prácticas de PEP 8 y organiza el código en una estructura de carpetas y archivos
+- Realiza el **análisis** y **diagrama de clases** para el programa en `README.md` dentro de la carpeta `ejercicio_01`
+- Refactoriza el código manteniendo la misma funcionalidad
+- Escribe el código en archivos separados y organiza en carpetas en `ejercicio_01`
+- Utiliza **nombres descriptivos** y sigue las buenas prácticas de **PEP 8**
+- Prueba que el programa funcione correctamente
 
-```text
-La Biblioteca Municipal va digitalizar su registro 
-de préstamos de libros. Actualmente, los encargados
- anotan todo en un cuaderno:
+*(6/6)*
 
-Los libros con su título, autor e ISBN.
-Los usuarios tienen un nombre
-La biblioteca cuenta con un flujo de préstamos:
+---
+
+2. La Biblioteca Municipal iniciará la digitalización de su registro de préstamos
+Actualmente, todos los datos se anotan manualmente en un cuaderno:
+
+Información de **libros**: título, autor e ISBN
+Información de **usuarios**: nombre
+
+El objetivo es digitalizar el flujo de préstamos de libros
+
+*(1/5)*
+
+---
+
+El flujo de préstamos es el **siguiente**:
+
 1. Un usuario ingresa su nombre
-2. Se lista los libros disponibles
+2. Se lista los libros
 3. El usuario elige un libro para prestar
-4. Se registra la lista de prestados con el 
-   nombre del usuario y el libro prestado
+4. Se registra la lista de prestados con el nombre del usuario y el libro prestado
 5. Puede prestarse más de un libro al mismo usuario
 6. Los usuarios tienen que devolver todos los libros a la vez
-7. Se puede ver la lista de libros prestados y
-   los usuarios que los tienen
+7. Se puede ver la lista de libros prestados y los usuarios que los tienen
 8. Para salir se debe ingresar "salir"
+
+*(2/5)*
+
+---
+
+El programa debe ser **creado** siguiendo las buenas prácticas de PEP 8 y organizado en una estructura de carpetas y archivos
+- **Crear** clases para representar `Libro`, `Usuario`
+- **Organizar** el código en una estructura ordenada de carpetas y módulos de Python
+- **Incluir** la documentación del análisis y diagrama en un archivo `README.md`
+- **Mantener** la funcionalidad descrita en el flujo de préstamos
+- **Utilizar** nombres descriptivos para clases, variables y métodos
+
+*(3/5)*
+
+---
+
+La estructura de carpetas y archivos debe ser similar a la siguiente:
+
+```bash
+ejercicio_02/
+  ├── modelos/
+  │     ├── __init__.py
+  │     ├── libro.py
+  │     └── usuario.py
+  ├── logica/
+  │     │── __init__.py
+  │     └── biblioteca.py
+  ├── main.py
+  └── README.md
 ```
 
----
-
-Añade la documentación con análisis y diagrama de clases en un archivo `README.md` dentro de la carpeta `ejercicio_02` y
-crea el código para el ejercicio
+*(4/5)*
 
 ---
+
+Realizar el análisis y diagrama de clases para el programa en `README.md` dentro de la carpeta `ejercicio_02`
+Refactorizar el código manteniendo la misma funcionalidad
+Escribir el código en archivos separados y organizar en carpetas en `ejercicio_02`
+Utilizar nombres descriptivos y seguir las buenas prácticas de PEP 8
+Probar que el programa funcione correctamente
+
+*(5/5)*
+
+---
+
 <!-- .slide: data-background-image="../../content/psg-bg-dark.png" data-background-size="100%"-->
 
 <br>

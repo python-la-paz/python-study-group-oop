@@ -1004,7 +1004,7 @@ Todos los helados comparten características en común:
 - Se pueden **comer**.  
 - Tienen un **envase** (cono o vaso).
 
-El sistema debe permitir al usuario realizar pedidos de helado mediante un **Factory**, y escribir `"salir"` para terminar el proceso.
+Debe permitir al usuario realizar pedidos de helado mediante un **Factory**, y escribir `"salir"` para terminar el proceso.
 
 *(2/5)*
 
@@ -1029,7 +1029,7 @@ Escribe "salir" para terminar.
 
 ---
 
-El sistema debe permitir:
+Debe permitir:
 
 Crear helados mediante una **fábrica**
 
@@ -1107,7 +1107,7 @@ Escribe "salir" para terminar.
 
 ---
 
-El sistema debe permitir:
+Debe permitir:
 
 - Crear monstruos mediante una **fábrica**
 - Representar cada monstruo en el formato especificado.
