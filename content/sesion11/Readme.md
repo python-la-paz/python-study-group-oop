@@ -1705,7 +1705,7 @@ El flujo de préstamos es el **siguiente**:
 3. El usuario elige un libro para prestar
 4. Se registra la lista de prestados con el nombre del usuario y el libro prestado
 5. Puede prestarse más de un libro al mismo usuario
-6. Los usuarios tienen que devolver todos los libros a la vez
+6. Deben devolver todos los libros a la vez
 7. Se puede ver la lista de libros prestados y los usuarios que los tienen
 8. Para salir se debe ingresar "salir"
 
@@ -1713,7 +1713,6 @@ El flujo de préstamos es el **siguiente**:
 
 ---
 
-El programa debe ser **creado** siguiendo las buenas prácticas de PEP 8 y organizado en una estructura de carpetas y archivos
 - **Crear** clases para representar `Libro`, `Usuario`
 - **Organizar** el código en una estructura ordenada de carpetas y módulos de Python
 - **Incluir** la documentación del análisis y diagrama en un archivo `README.md`
@@ -1743,11 +1742,11 @@ ejercicio_02/
 
 ---
 
-Realizar el análisis y diagrama de clases para el programa en `README.md` dentro de la carpeta `ejercicio_02`
-Refactorizar el código manteniendo la misma funcionalidad
-Escribir el código en archivos separados y organizar en carpetas en `ejercicio_02`
-Utilizar nombres descriptivos y seguir las buenas prácticas de PEP 8
-Probar que el programa funcione correctamente
+- Realizar el análisis y diagrama de clases para el programa en `README.md` dentro de la carpeta `ejercicio_02`
+- Refactorizar el código manteniendo la misma funcionalidad
+- Escribir el código en archivos separados y organizar en carpetas en `ejercicio_02`
+- Utilizar nombres descriptivos y seguir las buenas prácticas de PEP 8
+- Probar que el programa funcione correctamente
 
 *(5/5)*
 
