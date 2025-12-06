@@ -1602,7 +1602,7 @@ class Tarea:
         self.des = d
         self.comp = 0
     def completada(self):
-        self.comp == 1
+        self.comp = 1
 
 class ListaTareas:
     def __init__(self):
