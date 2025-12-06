@@ -11,41 +11,46 @@
 
 ---
 
-#### VS Code
+### Antes de empezar
 
-Abrimos el proyecto del Study Group
+---
+
+#### Proyecto en VSCode
+
+Abre el proyecto en VSCode
 
 ```bash
 code psg-oop-2025
 ```
 
-Creamos una carpeta llamada `sesion12` dentro del proyecto
+Crea una carpeta con el nombre `sesion12`
 
 ```bash
 mkdir sesion12
 cd sesion12
 ```
 
-Aquí guardaremos los ejemplos de la sesión
+- Los archivos de esta sesión deben estar dentro de esta carpeta
 
+- Al finalizar la sesión, sube los cambios al repositorio en un commit
 
 ---
 
-Python es uno de los lenguajes más populares y entre sus características
-se encuentra la facilidad para escribir código.
+**Python** es uno de los lenguajes más populares y entre sus características
+se encuentra la **facilidad** para escribir código
 
-El tipado dinámico de Python permite a los desarrolladores escribir código
+El **tipado dinámico** de Python permite a los desarrolladores escribir código
 rápido y flexible
 
 ---
-Pero esto también puede llevar a errores difíciles de detectar
-si no se tiene cuidado.
+
+Pero esto también puede llevar a *errores* difíciles de detectar si no se tiene *cuidado*
 
 ---
-Una variable puede cambiar de tipo en cualquier momento, lo que puede causar
-errores en tiempo de ejecución.
 
-Desde la terminal interactiva de Python:
+Una **variable** puede **cambiar de tipo** en cualquier momento, lo que puede causar *errores* en tiempo de ejecución
+
+Desde la terminal interactiva de Python
 
 ```python
 def sumar(a, b):
@@ -67,18 +72,18 @@ TypeError: unsupported operand type(s) for +: 'int' and 'str'
 ```
 
 ---
-Este tipo de errores puede ser difícil de detectar y corregir,
-especialmente en proyectos grandes.
 
-Para lo cual, en Python se ha introducido el concepto de "anotaciones de tipo"
+Este tipo de *errores* puede ser difícil de *detectar y corregir*, especialmente en proyectos grandes
+
+Para lo cual, en **Python** se ha introducido el concepto de **anotaciones de tipo**
 
 ---
 
 #### Anotaciones
 
-Python desde su versión 3.6 introdujo el concepto de "anotaciones de tipo"
+Python desde su versión **3.6** introdujo el concepto de **anotaciones de tipo**
 que permiten a los desarrolladores especificar el tipo de datos esperado
-para:
+para
 
 - Variables
 - Parámetros de funciones
@@ -87,11 +92,11 @@ para:
 
 ---
 
-Esto ayuda a mejorar la legibilidad del código y a detectar errores
-antes de que se ejecuten.
+Esto **ayuda** a mejorar la **legibilidad** del código y a **detectar errores**
+antes de que se ejecuten
 
-Además, los editores de código y herramientas de análisis estático
-pueden utilizar estas anotaciones para proporcionar sugerencias y advertencias.
+Además, los **editores de código** y herramientas de análisis estático
+pueden utilizar estas anotaciones para proporcionar **sugerencias** y *advertencias*
 
 ![Anotaciones de tipo](./img/annotation_01.png) <!-- .element width="50%"-->
 
@@ -107,8 +112,8 @@ touch anotaciones.py
 
 #### Anotaciones en variables
 
-Las anotaciones de tipo en variables se utilizan para indicar el tipo de datos
-que se espera que contenga una variable.
+Las anotaciones de tipo en **variables** se utilizan para indicar el tipo de dato
+que se espera que contenga una variable
 
 ```python
 edad: int = 30  
@@ -121,37 +126,55 @@ print(type(altura))  # <class 'float'>
 print(type(activo))  # <class 'bool'>
 ```
 
-Estas anotaciones no afectan el comportamiento del código,
-pero proporcionan información adicional para los desarrolladores
+Estas **anotaciones** no afectan el comportamiento del código,
+pero proporcionan **información adicional** para los desarrolladores
 
 ---
 
-De esta manera, podemos ver que la variable `edad` es un entero,
-`nombre` es una cadena, `altura` es un flotante y `activo` es un booleano.
+De esta manera, podemos ver que
 
-Esto ayuda a los desarrolladores a entender mejor el código
-y a detectar errores antes de que se ejecuten.
+- `edad` es un **entero**
+- `nombre` es una **cadena**
+- `altura` es un **flotante**
+- `activo` es un **booleano**
 
----
-
-#### Anotaciones en variables
-
-También se pueden utilizar anotaciones de tipo para estructuras de datos donde
-se incluyen los tipos de los elementos que contienen
-
-En el caso de listas se utiliza la sintaxis `list[tipo]`:
-Donde `tipo` es el tipo de los elementos que contiene la lista.
+Esto ayuda a los desarrolladores a entender mejor el **propósito** de cada variable
 
 ---
 
-En el caso de diccionarios se utiliza la sintaxis `dict[clave_tipo, valor_tipo]`:
-Donde `clave_tipo` es el tipo de las claves y `valor_tipo` es el tipo de los valores.
+También se pueden utilizar anotaciones de tipo para **estructuras** de datos donde
+se incluyen los **tipos de los elementos** que contienen
 
-En el caso de tuplas se utiliza la sintaxis `tuple[tipo1, tipo2, ...]`:
-Donde `tipo1`, `tipo2`, etc. son los tipos de los elementos que contiene la tupla.
+En el caso de listas se utiliza la sintaxis 
+
+`list[tipo]`
+
+- `list` es la estructura de datos
+- `tipo` es el tipo de los elementos que contiene la lista
+
+---
+
+En el caso de diccionarios se utiliza la sintaxis
+
+`dict[clave_tipo, valor_tipo]`
+
+- `dict` es la estructura de datos
+- `clave_tipo` es el tipo de las claves
+- `valor_tipo` es el tipo de los valores
+
+---
+
+En el caso de tuplas se utiliza la sintaxis
+
+`tuple[tipo1, tipo2, ...]`
+
+- `tuple` es la estructura de datos
+- `tipo1`, `tipo2`, `...` Son los tipos de los elementos que contiene la tupla
 
 
 ---
+
+Ejemplos de anotaciones en estructuras de datos
 
 ```python
 numeros: list[int] = []
@@ -168,11 +191,11 @@ print(type(tuplas))  # <class 'tuple'>
 
 ---
 
-Sin anotaciones:
+*Sin* anotaciones
 
 ![Sin anotaciones](./img/annotation_02.png) <!-- .element width="50%"-->
 
-Con anotaciones:
+**Con** anotaciones
 
 ![Con anotaciones](./img/annotation_03.png) <!-- .element width="50%"-->
 
@@ -180,45 +203,49 @@ Con anotaciones:
 
 #### Anotaciones en funciones
 
-Se utilizan para indicar los tipos de datos que se espera que contengan los parámetros 
-y el tipo de dato que se espera que retorne
+Se utilizan para indicar los tipos de datos que se espera que contengan los **parámetros** 
+y el tipo de dato que se espera que **retorne**
 
-Los parámetros de una función se anotan utilizando la sintaxis `parametro: tipo`
-y el valor de retorno se anota utilizando la sintaxis `-> tipo` 
+Los parámetros de una función se anotan utilizando la sintaxis 
+
+`parametro: tipo`
+
+y el tipo de retorno se anota utilizando la sintaxis 
+
+`-> tipo` 
 
 El tipo de retorno se coloca antes de los dos puntos `:`
 
 ---
 
-Por ejemplo, si tenemos una función que suma dos números enteros
+Por ejemplo, si tenemos una función que suma **dos números enteros** y retorna un **entero**
 
 ```python
 def sumar(a: int, b: int) -> int:
     return a + b
 ```
 
-En este ejemplo, la función `sumar` espera dos parámetros de tipo entero
-y retorna un valor de tipo entero.
+- La función `sumar` espera dos parámetros
+- `a` y `b` de tipo entero
+- Retorna un valor de tipo entero
 
 ---
 
-Sin anotaciones:
+*Sin* anotaciones
 
 ![Sin anotaciones](./img/annotation_04.png) <!-- .element width="40%"-->
 
-Con anotaciones:
+**Con** anotaciones
 
 ![Con anotaciones](./img/annotation_05.png) <!-- .element width="40%"-->
 
 ---
 
-#### Anotaciones en funciones
+Se pueden utilizar anotaciones de tipo para funciones que aceptan
+parámetros de **estructuras** de datos
 
-También se pueden utilizar anotaciones de tipo para funciones que aceptan
-parámetros de tipo genérico, como listas o diccionarios.
-
-Por ejemplo, si tenemos una función que recibe una lista de enteros y 
-retorna una lista de cuadrados de esos enteros
+Por ejemplo, si tenemos una función que recibe una **lista de enteros** y 
+retorna una **lista de enteros** que son los cuadrados de los números
 
 ```python
 def cuadrados(numeros: list[int]) -> list[int]:
@@ -227,9 +254,14 @@ numeros = cuadrados([2,4,6])
 print (numeros)
 ```
 
+- La función `cuadrados` espera un parámetro
+- `numeros` que es una lista de enteros
+- Retorna una lista de enteros
+
 ---
 
-Las anotaciones nos ayudan a saber que la variable `numeros` es una lista de enteros
+Las anotaciones nos ayudan a saber que la variable `numeros` que almacena el resultado de la función
+es una **lista de enteros**
 
 ![Con anotaciones](./img/annotation_06.png) <!-- .element width="60%"-->
 
@@ -238,12 +270,14 @@ Las anotaciones nos ayudan a saber que la variable `numeros` es una lista de ent
 #### Anotaciones en clases
 
 Las anotaciones de tipo también se pueden utilizar en clases para indicar
-los tipos de datos de los atributos de una clase.
+los tipos de datos de los **atributos** de una clase
 
 Por ejemplo, si tenemos una clase `Persona` con atributos de clase `especie`
 y atributos de instancia `nombre` y `edad`
 
 ---
+
+Ejemplo de anotaciones en clases
 
 ```python
 class Persona:
@@ -253,29 +287,27 @@ class Persona:
         self.edad: int = edad
 ```
 
-
-La clase `Persona` tiene un atributo de clase `especie` de tipo cadena
-con el valor por defecto "Humano"
-
-Atributos de instancia `nombre` y `edad` de tipo cadena e entero
+- Clase `Persona` tiene un atributos
+- Atributo `especie` es de tipo cadena con valor por defecto `"Homo sapiens"`
+- Atributo `nombre` de tipo cadena
+- Atributo `edad` de tipo entero
 
 ---
 
-Con anotaciones:
+**Con** anotaciones en atributos y en el constructor al **instanciar** la clase
+muestra el editor los tipos de datos que necesita la clase
 
 ![Con anotaciones](./img/annotation_07.png) <!-- .element width="50%"-->
 
+---
+
+Existe otro estilo de anotaciones usado mayormente en versiones anteriores a *Python 3.8*
+
+importando el módulo `typing`  y las clases `List`, `Dict`, `Tuple`, etc.
 
 ---
 
-Existe otro estilo de anotaciones usado mayormente en versiones anteriores a Python 3.8
-
-utilizando el módulo `typing` y las clases `List`, `Dict`, `Tuple`, etc.
-
-
----
-
-Por ejemplo, si tenemos una función que recibe una lista de enteros y retorna una lista de enteros
+Si tenemos una función que recibe una **lista de enteros** y retorna una **lista de enteros**
 
 ```python
 from typing import List
@@ -290,34 +322,36 @@ directamente sin importar el módulo `typing`
 
 ---
 
-Es importante recordar que las anotaciones de tipo en Python son opcionales
-y no afectan el comportamiento del código en tiempo de ejecución.
+Es importante recordar que las anotaciones de tipo en Python **son opcionales**
+y **NO afectan el comportamiento** del código en tiempo de ejecución
 
 ---
 
-Pero no es suficiente, también es importante documentar el código
-para que se pueda entender fácilmente su propósito y funcionamiento.
+Pero no es suficiente para escribir código limpio y mantenible
+
+También es importante **documentar el código**
+para que se pueda entender fácilmente su propósito y funcionamiento
 
 ---
 
 #### Documentación
 
-La documentación es una parte esencial del desarrollo de software
-ya que ayuda a los desarrolladores a entender el propósito y funcionamiento del código.
+La documentación es una **parte esencial** del desarrollo de software
+ya que ayuda a los desarrolladores a entender el **propósito y funcionamiento** del código
 
-En las clases podemos utilizar cadenas de documentación (docstrings)
+En las **clases** podemos utilizar cadenas de documentación *docstrings*
 para documentar el propósito de la clase, sus atributos y métodos.
 
 ---
 
-La documentación se coloca entre comillas triples `"""` justo después de la definición de la clase
-o del método.
+Se coloca entre comillas triples `"""` justo después de la definición de la clase
+o del método
 
-Los editores de código y herramientas de análisis estático pueden utilizar
-estas cadenas de documentación para proporcionar sugerencias de autocompletado y advertencias.
+Los **editores de código** y herramientas de análisis estático utilizan
+estas cadenas de documentación para mostrar **sugerencias** y *advertencias* sobre el uso del código
 
 ---
-Creamos un archivo llamado `documentacion.py` en la carpeta `sesion12`
+Crearemos un archivo llamado `documentacion.py` en la carpeta `sesion12`
 
 ```bash
 touch documentacion.py
@@ -327,11 +361,11 @@ touch documentacion.py
 
 #### Documentación en clases
 
-Por ejemplo, si tenemos una clase `Persona` con un atributo `nombre` y un método `saludar`
+Por ejemplo, Una clase `Persona` con un atributo `nombre` y un método `saludar`
+
+*Sin* documentación
 
 ```python
-Sin documentación:
-
 class Persona:
     def __init__(self, nombre: str):
         self.nombre: str = nombre
@@ -347,7 +381,7 @@ jhon.saludar()
 
 ---
 
-Con documentación:
+**Con** documentación
 
 ```python
 class Persona:
@@ -375,14 +409,20 @@ jhon.saludar()
 
 ---
 
-Existen diferentes convenciones para escribir documentación en Python 
+Existen diferentes convenciones para escribir **documentación en Python** 
 la [PEP 257](https://peps.python.org/pep-0257/) establece la base para las cadenas de documentación
 
-Existen diferentes estilos de documentación, como el estilo Google, NumPy y reStructuredText (reST)
+Existen diferentes estilos de documentación
 
-Donde cada uno tiene su propia sintaxis y convenciones
+- Google
+- NumPy
+- reStructuredText (reST)
+
+Cada uno tiene su propia **sintaxis y convenciones**
 
 ---
+
+Usos **típicos** de cada estilo
 
 | Estilo                  | Uso típico                                   |
 | ----------------------- | -------------------------------------------- |
@@ -393,6 +433,8 @@ Donde cada uno tiene su propia sintaxis y convenciones
 
 ---
 
+**Comparación** entre estilos
+
 | Estilo | Ventajas                    | Desventajas                                      |
 | ------ | --------------------------- | ------------------------------------------------ |
 | Google | Fácil de leer y escribir    | Menos detallado para proyectos complejos         |
@@ -400,6 +442,8 @@ Donde cada uno tiene su propia sintaxis y convenciones
 | reST   | Muy detallado y profesional | Más complejo de escribir menos amigable          |
 
 ---
+
+**Legibilidad** de cada estilo
 
 | Estilo | Legibilidad                                                                       |
 | ------ | --------------------------------------------------------------------------------- |
@@ -412,9 +456,53 @@ Donde cada uno tiene su propia sintaxis y convenciones
 
 #### Estilo Google
 
-Para documentar una función o método, se utiliza la siguiente sintaxis:
+Se utiliza la siguiente sintaxis para documentar 
+
+```python [2-17]
+def funcion(parametro1: tipo, parametro2: tipo) -> tipo:
+    """Descripción breve de la función
+
+    Args:
+        parametro1 (tipo): Descripción del primer parámetro
+        parametro2 (tipo): Descripción del segundo parámetro
+
+    Returns:
+        tipo: Descripción del valor de retorno
+
+    Raises:
+        TipoDeError: Condiciones que causan este error
+
+    Examples:
+        >>> funcion(valor1, valor2)
+        resultado_esperado
+    """
+    pass
+```
+
+
+---
+
+Crea el archivo `estilo_google.py` en la carpeta `sesion12`
+
+Documenta la siguiente función que devuelve la secuencia de Fibonacci hasta el n-ésimo número
+usando el estilo Google
 
 ```python
+def fibonacci(n: int) -> str:
+    if n < 0:
+        raise ValueError("El índice no puede ser negativo")
+    fib = [0, 1]
+    for i in range(2, n):
+        fib.append(fib[i - 1] + fib[i - 2])
+    return ', '.join(str(x) for x in fib[:n])
+print (fibonacci(5))
+```
+
+---
+
+Documentación estilo Google
+
+```python [2|4-5|7-8|10-11|13-16]
 def fibonacci(n: int) -> str:
     """Devuelve la secuencia de Fibonacci hasta el n-ésimo número.
 
@@ -441,15 +529,67 @@ print (fibonacci(5))
 ```
 
 ---
-El editor de código puede interpretar la documentación y proporcionar sugerencias de autocompletado
+El editor de código **interpreta la documentación** y proporcionar sugerencias de autocompletado
 
 ![Estilo Google](./img/documentation_05.png) <!-- .element width="50%"-->
 
 
 ---
+
 #### Estilo NumPy
 
-Para documentar una función o método, se utiliza la siguiente sintaxis:
+Se utiliza la siguiente sintaxis para documentar
+
+```python
+def funcion(parametro1: tipo, parametro2: tipo) -> tipo:
+    """
+    Descripción breve de la función.
+
+    Parameters
+    ----------
+    parametro1 : tipo
+        Descripción del primer parámetro.
+    parametro2 : tipo
+        Descripción del segundo parámetro.
+
+    Returns
+    -------
+    tipo
+        Descripción del valor de retorno.
+
+    Raises
+    ------
+    TipoDeError
+        Condiciones que causan este error.
+
+    Examples
+    --------
+    >>> funcion(valor1, valor2)
+    resultado_esperado
+    """
+    pass
+```
+
+---
+
+Crea el archivo `estilo_numpy.py` en la carpeta `sesion12`
+
+Documenta la siguiente función que devuelve la secuencia de Fibonacci hasta el n-ésimo número
+
+```python
+def fibonacci(n: int) -> str:
+    if n < 0:
+        raise ValueError("El índice no puede ser negativo")
+    fib = [0, 1]
+    for i in range(2, n):
+        fib.append(fib[i - 1] + fib[i - 2])
+    return ', '.join(str(x) for x in fib[:n])
+print (fibonacci(5))
+```
+
+---
+
+Documentación estilo NumPy
 
 ```python
 def fibonacci(n: int) -> str:
@@ -487,13 +627,55 @@ print(fibonacci(5))
 ```
 
 ---
-El editor de código puede interpretar la documentación y proporcionar sugerencias de autocompletado
+El editor de código **interpretar la documentación** y proporcionar sugerencias de autocompletado
 
 ![Estilo NumPy](./img/documentation_06.png) <!-- .element width="40%"-->
 
 ---
+
 #### Estilo reStructuredText (reST)
-Para documentar una función o método, se utiliza la siguiente sintaxis:
+
+Se utiliza la siguiente sintaxis para documentar
+
+```python
+def funcion(parametro1: tipo, parametro2: tipo) -> tipo:
+    """
+    Descripción breve de la función.
+
+    :param parametro1: Descripción del primer parámetro.
+    :type parametro1: tipo
+    :param parametro2: Descripción del segundo parámetro.
+    :type parametro2: tipo
+    :return: Descripción del valor de retorno.
+    :rtype: tipo
+    :raises TipoDeError: Condiciones que causan este error.
+    :example:
+        >>> funcion(valor1, valor2)
+        resultado_esperado
+    """
+    pass
+```
+
+---
+
+Crea el archivo `estilo_rest.py` en la carpeta `sesion12`
+
+Documenta la siguiente función que devuelve la secuencia de Fibonacci hasta el n-ésimo número
+
+```python
+def fibonacci(n: int) -> str:
+    if n < 0:
+        raise ValueError("El índice no puede ser negativo")
+    fib = [0, 1]
+    for i in range(2, n):
+        fib.append(fib[i - 1] + fib[i - 2])
+    return ', '.join(str(x) for x in fib[:n])
+print (fibonacci(5))
+```
+
+---
+
+Documentación estilo reST
 
 ```python
 def fibonacci(n: int) -> str:
@@ -520,77 +702,96 @@ print(fibonacci(5))
 ```
 
 ---
-El editor de código puede interpretar la documentación y proporcionar sugerencias de autocompletado
+
+El editor de código **interpretar la documentación** y proporcionar sugerencias de autocompletado
 
 ![Estilo reST](./img/documentation_07.png) <!-- .element width="40%"-->
 
 ---
 
-Elige un estilo de documentación y sé consistente en su uso a lo largo de tu código
+Todos los estilos son **válidos** y tienen sus propias ventajas y desventajas
 
-Esto facilitará la lectura y comprensión del código para ti y para otros desarrolladores
+![Estilo Google](./img/documentation_05.png) <!-- .element width="30%"-->
+![Estilo NumPy](./img/documentation_06.png) <!-- .element width="30%"-->
+![Estilo reST](./img/documentation_07.png) <!-- .element width="30%"-->
+
+---
+
+**Elige** un estilo de documentación y sé **consistente** en su uso a lo largo de tu código
+
+Esto **facilitará** la lectura y comprensión del código para ti y para otros desarrolladores
+
+---
+
+Añadir anotaciones de tipo y documentación a tu código es una **buena práctica**
+
+Existen otras buenas prácticas como los **principios de desarrollo**
+
+que ayudan a escribir código elegante y mantenible
 
 ---
 
 #### Principios de desarrollo
 
-Los principios de desarrollo son un conjunto de buenas prácticas
-que ayudan a los desarrolladores a escribir código limpio, mantenible y escalable.
+Los principios de desarrollo son un conjunto de **buenas prácticas**
+que ayudan a los desarrolladores a escribir código limpio, mantenible y escalable
 
-Al igual que los patrones de diseño, los principios de desarrollo
-proporcionan soluciones a problemas comunes en el desarrollo de software.
+Al igual que los *patrones de diseño*, los principios de desarrollo
+proporcionan soluciones a problemas comunes en el desarrollo de software
 
 ---
+
 Algunos de los principios más importantes son:
 
-- KISS (Keep It Simple, Stupid)
-- DRY (Don't Repeat Yourself)
-- YAGNI (You Aren't Gonna Need It)
+- **KISS** (Keep It Simple, Stpid)
+- **DRY** (Don't Repeat Yourself)
+- **YAGNI** (You Aren't Gonna Need It)
 
 ---
 
-#### KISS (Keep It Simple, Stupid)
+#### KISS (Keep It Simple, St*pid)
 
-El principio KISS enfatiza la importancia de mantener el código simple y fácil de entender.
+El principio KISS enfatiza la importancia de mantener **el código simple** y fácil de entender
 
-Un código simple es más fácil de leer, mantener y depurar.
-
----
-
-Se puede resumir en:
-
-- Simplicidad: Las soluciones deben ser lo más simples posible evitando características innecesarias.
-- Claridad: El código debe ser claro y fácil de entender
+Un código simple es **más fácil** de leer, mantener y depurar
 
 ---
 
-- Minimalismo: Evitar la complejidad innecesaria y centrarse en lo esencial.
-- Eficiencia: Las soluciones simples son más eficientes
-- Evite la sobreingeniería: No agregue características o funcionalidades innecesarias.
+Se resume en
+
+- **Simplicidad**: Las soluciones deben ser lo más simples posible evitando características innecesarias
+- **Claridad**: El código debe ser claro y fácil de entender
+
+---
+
+- **Minimalismo**: Evitar la complejidad innecesaria y centrarse en lo esencial
+- **Eficiencia**: Las soluciones simples son más eficientes
+- *Evite la sobreingeniería*: No agregue características o funcionalidades innecesarias
 
 
 ---
 
-Una forma de aplicarlo es:
+Una forma de aplicarlo es
 
-- Dividir problemas complejos en partes más pequeñas y manejables.
-- Evitar la sobreingeniería y centrarse en lo esencial.
-- Utilizar nombres claros y descriptivos para variables, funciones y clases.
+- **Dividir** problemas complejos en partes más pequeñas y manejables
+- *Evitar* la sobreingeniería y **centrarse** en lo esencial
+- **Utilizar** nombres claros y descriptivos para variables, funciones y clases
 
 ---
 
 #### Ejemplo KISS
 
+Crear el archivo `kiss.py` en la carpeta `sesion12`
+
 ```text
 La primera calculadora de un estudiante sólo sabe
-sumar dos números, tiene una clase SumaDeNumeros 
+sumar dos números enteros, tiene una clase SumaDeNumeros 
 con el método operar que realiza la suma.
 Sin embargo, no es muy claro, ni simple.
 Simplifica el código aplicando el principio KISS
 ```
 
 ```python [1-11|13-18]
-# Complejidad innecesaria
 class SumaDeNumeros:
     def __init__(self, a, b):
         self.a = a
@@ -601,8 +802,13 @@ class SumaDeNumeros:
 
 suma = SumaDeNumeros(5, 7)
 print(suma.operar())
+```
 
-# Solución simple
+---
+
+Solución simple
+
+```python
 class Calculadora:
     def sumar(self, a, b):
         return a + b
@@ -611,16 +817,41 @@ print(calc.sumar(5, 7))
 ```
 
 ---
-#### Ejercicio 01
+
+Solución con anotaciones y documentación
+
+```python
+class Calculadora:
+    """Clase que representa una calculadora simple."""
+    
+    def sumar(self, a: int, b: int) -> int:
+        """Suma dos números enteros.
+
+        Args:
+            a (int): El primer número.
+            b (int): El segundo número.
+
+        Returns:
+            int: La suma de los dos números.
+        """
+        return a + b
+calc = Calculadora()
+print(calc.sumar(5, 7))
+```
+
+---
+
+#### Ejercicio para ti (01)
 
 ```text
 Una calculadora de areas que pueda calcular
 el área de rectángulos y cuadrados.
 Donde el código tiene mucha complejidad
 Simplifica el código aplicando el principio KISS
+Después de simplificar, agrega anotaciones y documentación
 ```
 
-En el archivo `areas.py` en la carpeta `sesion12`
+Crea el archivo `areas.py` en la carpeta `sesion12`
 
 ---
 
@@ -647,15 +878,15 @@ print(area_cuadrado.calcular())
 
 ---
 
-#### Solución simple
+Solución simple
 
 ```python
 class Calculadora:
     def area(self, lado1, lado2):
         return lado1 * lado2
-calc = Calculadora()
-print(calc.area(5, 10))  # Área del rectángulo
-print(calc.area(5, 5))   # Área del cuadrado
+calculadora = Calculadora()
+print(calculadora.area(5, 10))  # Área del rectángulo
+print(calculadora.area(5, 5))   # Área del cuadrado
 ```
 
 ```bash
@@ -669,38 +900,74 @@ python areas.py
 
 ---
 
+Solución con anotaciones y documentación
+
+```python
+class Calculadora:
+    """Clase que representa una calculadora simple."""
+    
+    def area(self, lado1: int, lado2: int) -> int:
+        """Calcula el área de un rectángulo o cuadrado.
+
+        Args:
+            lado1 (int): El primer lado.
+            lado2 (int): El segundo lado.
+
+        Returns:
+            int: El área calculada.
+        """
+        return lado1 * lado2
+calculadora = Calculadora()
+print(calculadora.area(5, 10))  # Área del rectángulo
+print(calculadora.area(5, 5))   # Área del cuadrado
+```
+
+
+---
+
 #### DRY (Don't Repeat Yourself)
 
-El principio DRY enfatiza la importancia de evitar la duplicación de código.
+El principio DRY enfatiza la importancia de **evitar la duplicación** de código
 
-El código duplicado puede llevar a errores y dificultades en el mantenimiento.
-
----
-
-Se puede resumir en:
-
-- Unicidad: Cada pieza de conocimiento o lógica debe tener una única representación en el código.
-- Mantenimiento: El código duplicado es más difícil de mantener y actualizar.
-- Reutilización: Fomenta la reutilización de código a través de funciones, clases y módulos.
+El código *duplicado* puede llevar a errores y dificultades en el mantenimiento
 
 ---
 
-- Reducción de errores: Menos duplicación significa menos oportunidades para errores.
-- Eficiencia: Un código sin duplicación es más eficiente
-- Claridad: Un código sin duplicación es más claro y fácil de entender.
+Se resume en
+
+- **Unicidad**: Cada pieza de conocimiento o lógica debe tener una única representación en el código
+- **Mantenimiento**: El código duplicado es más difícil de mantener y actualizar
+- **Reutilización**: Fomenta la reutilización de código a través de funciones, clases y módulos
+
+---
+
+- **Reducción de errores**: Menos duplicación significa menos oportunidades para errores
+- **Eficiencia**: Un código sin duplicación es más eficiente
+- **Claridad**: Un código sin duplicación es más claro y fácil de entender
 
 
 ---
 
 Una forma de aplicarlo es:
 
-- Identificar y eliminar código duplicado.
-- Utilizar funciones, clases y módulos para reutilizar código.
-- Mantener el código DRY durante el desarrollo y la refactorización.
+- **Identificar** y eliminar código duplicado
+- **Utilizar** funciones, clases y módulos para reutilizar código
+- **Mantener** el código DRY durante el desarrollo y la refactorización
 
 ---
 
 #### Ejemplo DRY
+
+Crear el archivo `dry.py` en la carpeta `sesion12`
+
+```text
+Calcular el área de un rectángulo y un cuadrado, 
+pero el código tiene duplicación
+Utiliza el principio DRY para eliminar la duplicación
+Unifica el código para que el cálculo del área 
+sea realizado por una sola función
+```
+
 
 ```python [1-7|9-13]
 # Código duplicado
@@ -710,6 +977,13 @@ def area_cuadrado(lado):
     return lado * lado
 print(area_rectangulo(5, 10))
 print(area_cuadrado(5))
+```
+
+---
+
+Código sin duplicación
+
+```python
 
 # Código sin duplicación
 def area(lado1, lado2):
@@ -720,7 +994,27 @@ print(area(5, 5))      # Área del cuadrado
 
 ---
 
-#### Ejercicio 02
+Código sin duplicación con anotaciones y documentación
+
+```python
+def area(lado1: int, lado2: int) -> int:
+    """Calcula el área de un rectángulo o cuadrado.
+
+    Args:
+        lado1 (int): El primer lado.
+        lado2 (int): El segundo lado.
+
+    Returns:
+        int: El área calculada.
+    """
+    return lado1 * lado2
+print(area(5, 10))  # Área del rectángulo
+print(area(5, 5))      # Área del cuadrado
+```
+
+---
+
+#### Ejercicio para ti (02)
 
 ```text
 Una tienda en línea permite pagar con diferentes métodos de pago:
@@ -734,7 +1028,7 @@ Y por cada canal aplica un impuesto diferente
 Simplifica el código aplicando el principio DRY
 ```
 
-En el archivo `tienda.py` en la carpeta `sesion12`
+Crea archivo `tienda.py` en la carpeta `sesion12`
 
 ---
 
@@ -770,7 +1064,7 @@ tienda.pagar_qr(100)
 
 ---
 
-#### Solución simple
+Solución simple
 
 ```python
 class Tienda:
@@ -800,6 +1094,42 @@ python tienda.py
 Pago con tarjeta: Monto=100, Impuesto=5.0, Total=105.0
 Pago con transferencia: Monto=100, Impuesto=2.0, Total=102.0
 Pago con qr: Monto=100, Impuesto=1.0, Total=101.0
+```
+
+---
+
+Solución con anotaciones y documentación
+
+```python
+class Tienda:
+    """Clase que representa una tienda en línea."""
+
+    def calcular_impuesto(self, monto: float, tasa: float) -> float:
+        """Calcula el impuesto basado en el monto y la tasa.
+
+        Args:
+            monto (float): El monto sobre el cual se calcula el impuesto.
+            tasa (float): La tasa de impuesto.
+
+        Returns:
+            float: El monto del impuesto calculado.
+        """
+        return monto * tasa
+    def pagar(self, monto: float, metodo: str) -> None:
+        """Procesa el pago utilizando el método especificado.
+        Args:
+            monto (float): El monto a pagar.
+            metodo (str): El método de pago (tarjeta, transferencia, qr).
+        """
+        tasas = {
+            "tarjeta": 0.05,
+            "transferencia": 0.02,
+            "qr": 0.01
+        }
+tienda = Tienda()
+tienda.pagar(100, "tarjeta")
+tienda.pagar(100, "transferencia")
+tienda.pagar(100, "qr")
 ```
 
 ---
