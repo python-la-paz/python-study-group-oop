@@ -1408,6 +1408,8 @@ psg-oop-2025/
 
 ---
 
+---
+
 1. Un juego de dados de la suerte, el jugador lanza dos dados y si la suma es 7 o 11 gana, si es 2, 3 o 12 pierde, cualquier otro valor puede volver a lanzar los dados. En un futuro podrías registrar el nombre del jugador y su puntuación más alta.
 
 ```markdown
