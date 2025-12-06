@@ -948,7 +948,7 @@ Se resume en
 
 ---
 
-Una forma de aplicarlo es:
+Una forma de aplicarlo es
 
 - **Identificar** y eliminar código duplicado
 - **Utilizar** funciones, clases y módulos para reutilizar código
@@ -1136,50 +1136,56 @@ tienda.pagar(100, "qr")
 
 #### YAGNI (You Aren't Gonna Need It)
 
-El principio YAGNI enfatiza la importancia de no agregar funcionalidades
-o características que no son necesarias en el momento.
+El principio YAGNI enfatiza la importancia de *NO agregar* funcionalidades
+o características que *no son necesarias* en el momento
 
-Esto ayuda a evitar la sobreingeniería y a mantener el código simple y enfocado.
-
----
-
-Se puede resumir en:
-
-- Necesidad: No agregue funcionalidades o características que no son necesarias.
-- Simplicidad: Mantenga el código simple y enfocado en el propósito actual.
-- Eficiencia: Evite la complejidad innecesaria que puede afectar el rendimiento.
+Ayuda a evitar la *sobreingeniería* y a mantener el código simple y enfocado
 
 ---
 
-- Mantenimiento: Un código sin características innecesarias es más fácil de mantener.
-- Claridad: Un código sin características innecesarias es más claro y fácil de entender.
-- Flexibilidad: Un código sin características innecesarias es más flexible y adaptable a cambios futuros.
+Se resume en
+
+- **Necesidad**: No agregue funcionalidades o características que no son necesarias
+- **Simplicidad**: Mantenga el código simple y enfocado en el propósito actual
+- **Eficiencia**: Evite la complejidad innecesaria que puede afectar el rendimiento
 
 ---
 
-Una forma de aplicarlo es:
-
-- Enfocarse en los requisitos actuales y no en posibles requisitos futuros.
-- Evitar la sobreingeniería y centrarse en lo esencial.
-- Revisar y eliminar características innecesarias durante la refactorización.
+- **Mantenimiento**: Un código sin características innecesarias es más fácil de mantener
+- **Claridad**: Un código sin características innecesarias es más fácil de entender
+- **Flexibilidad**: Un código sin características innecesarias es más flexible y adaptable a cambios futuros
 
 ---
 
-- Priorizar la simplicidad y claridad del código.
-- Mantener el código enfocado en el propósito actual.
-- Evitar la tentación de agregar características "por si acaso".
+Una forma de aplicarlo es
+
+- **Enfocarse** en los **requisitos actuales** y NO en posibles requisitos futuros
+- *Evitar* la sobreingeniería y centrarse en lo esencial
+- Revisar y *eliminar características innecesarias* durante la refactorización
+
+---
+
+- **Priorizar** la simplicidad y claridad del código
+- **Mantener** el código enfocado en el propósito actual
+- **Evitar** la tentación de agregar características
+
+*"por si acaso"*
 
 ---
 #### Ejemplo YAGNI
 
+Crear el archivo `yagni.py` en la carpeta `sesion12`
+
 ```text
 Un estudiante esta aprendiendo a sumar dos números, y le dieron
 una calculadora para para que pueda practicar la suma, pero
-la calculadora tiene muchas funciones que no va a usar aún.
+tiene muchas funciones que no va a usar aún
+Simplifica el código aplicando el principio YAGNI
+Deja solo la funcionalidad necesaria para sumar dos números
+agrega anotaciones y documentación
 ```
 
-```python [1-14|15-20]
-# Característica innecesaria
+```python [1-14]
 class Calculadora:
     def sumar(self, a, b):
         return a + b
@@ -1188,12 +1194,16 @@ class Calculadora:
     def multiplicar(self, a, b):
         return a * b
     def dividir(self, a, b):
-        if b == 0:
-            raise ValueError("No se puede dividir por cero")
         return a / b
 calc = Calculadora()
 print(calc.sumar(5, 7))
-# Solución enfocada
+```
+
+---
+
+Solución simple
+
+```python
 class Calculadora:
     def sumar(self, a, b):
         return a + b
@@ -1202,7 +1212,28 @@ print(calc.sumar(5, 7))
 ```
 
 ---
-#### Ejercicio 03
+Solución con anotaciones y documentación
+
+```python
+class Calculadora:
+    """Clase que representa una calculadora simple."""
+    def sumar(self, a: int, b: int) -> int:
+        """Suma dos números enteros.
+
+        Args:
+            a (int): El primer número.
+            b (int): El segundo número.
+
+        Returns:
+            int: La suma de los dos números.
+        """
+        return a + b
+calc = Calculadora()
+print(calc.sumar(5, 7))
+```
+
+---
+#### Ejercicio para ti (03)
 
 ```text
 Un profesor necesita una forma sencilla de llevar
@@ -1211,11 +1242,12 @@ las notas de sus exámenes. Quiere poder calcular
 fácilmente el promedio de cada estudiante y saber 
 de si ha aprobado o no el curso, 
 con nota mayor a  51, además de tener 
-un resumen claro de sus resultados para mostrárselos.
+un resumen claro de sus resultados para mostrárselos
 Simplifica el código aplicando el principio YAGNI
+Agrega anotaciones y documentación
 ```
 
-En el archivo `estudiantes.py` en la carpeta `sesion12`
+Crea archivo `estudiantes.py` en la carpeta `sesion12`
 
 ---
 Realizar los cambios 4 minutos
@@ -1261,7 +1293,7 @@ print(estudiante1.resumen())
 <iframe src="https://time-stuff.com/embed.html" frameborder="0" scrolling="no" width="391" height="140"></iframe>
 
 ---
-#### Solución simple
+Solución simple
 
 ```python
 class Estudiante:
@@ -1287,6 +1319,48 @@ python estudiantes.py
 ```
 ```text
 Estudiante: Ana, Notas: [85, 90, 78], Promedio: 84.33333333333333, Aprobado: True
+```
+
+---
+
+Solución con anotaciones y documentación
+
+```python
+class Estudiante:
+    """Clase que representa a un estudiante."""
+    def __init__(self, nombre: str, notas: list[int]) -> None:
+        """Inicializa una nueva instancia de la clase Estudiante.
+
+        Args:
+            nombre (str): El nombre del estudiante.
+            notas (list[int]): Las notas del estudiante.
+        """
+        self.nombre = nombre
+        self.notas = notas
+    def calcular_promedio(self) -> float:
+        """Calcula el promedio de las notas del estudiante.
+        Returns:
+            float: El promedio de las notas.
+        """
+        return sum(self.notas) / len(self.notas)
+    def aprobo(self) -> bool:
+        """Determina si el estudiante aprobó el curso.
+        Returns:
+            bool: True si aprobó, False en caso contrario.
+        """
+        return self.calcular_promedio() >= 51
+    def resumen(self) -> str:
+        """Genera un resumen del estudiante.
+        Returns:
+            str: Un resumen con el nombre, notas, promedio y estado de aprobación.
+        """
+        mensaje = f"Estudiante: {self.nombre}"
+        mensaje += f", Notas: {self.notas}"
+        mensaje += f", Promedio: {self.calcular_promedio()}"
+        mensaje += f", Aprobado: {self.aprobo()}"
+        return mensaje
+estudiante1 = Estudiante("Ana", [85, 90, 78])
+print(estudiante1.resumen())
 ```
 
 ---
