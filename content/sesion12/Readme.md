@@ -1532,7 +1532,7 @@ Gracias por Participar del
 <br>
 <br>
 
-[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/content/sesion01)
+[![GitHub](../../content/github_logo.png) <!-- .element width="20%"-->](https://github.com/python-la-paz/python-study-group-oop/tree/main/content/sesion12)
 
 Repositorio de la Sesión
 
