@@ -591,7 +591,7 @@ print (fibonacci(5))
 
 Documentación estilo NumPy
 
-```python
+```python [3|5-8|10-13|15-18|20-23]
 def fibonacci(n: int) -> str:
     """
     Devuelve la secuencia de Fibonacci hasta el n-ésimo número.
@@ -677,7 +677,7 @@ print (fibonacci(5))
 
 Documentación estilo reST
 
-```python
+```python [3|5-6|7-8|9|10-12]
 def fibonacci(n: int) -> str:
     """
     Devuelve la secuencia de Fibonacci hasta el n-ésimo número.
@@ -1408,27 +1408,112 @@ psg-oop-2025/
 
 ---
 
+1. Una empresa de juegos moviles crea un nuevo juego **Dados de la Suerte**, las reglas son sencillas:
+
+- El jugador lanza **dos** dados
+- Si la suma es **7 o 11 gana**
+- Si es **2, 3 o 12 pierde**
+- Con cualquier otro valor puede volver a lanzar los dados.
+
+En el futuro tiene planificado registrar el nombre del jugador y su puntuación más alta
+pero para el lanzamiento inicial no es necesario
+
+*(1/5)*
+
 ---
 
-1. Un juego de dados de la suerte, el jugador lanza dos dados y si la suma es 7 o 11 gana, si es 2, 3 o 12 pierde, cualquier otro valor puede volver a lanzar los dados. En un futuro podrías registrar el nombre del jugador y su puntuación más alta.
 
-```markdown
-- Crea el análisis, diagrama de clases y el código.
-- Documenta el código y usa anotaciones de tipo.
+Cuenta con un flujo básico:
+
+- Jugador inicia el juego
+- Juego lanza los dados automáticamente
+- Juego muestra el resultado y si ganó, perdió o si puede volver a lanzar
+- Jugador responde SI o NO para volver a lanzar los dados
+- El juego termina cuando el jugador decide NO lanzar más o gana o pierde
+- El juego muestra un mensaje final con el resultado
+
+*(2/5)*
+
+
+---
+
+- Crea la clase `DadosDeLaSuerte` donde se implemente el flujo básico del juego
+- Identifica atributos y métodos relevantes para la clase
+- Implementa la **lógica del juego** según las reglas descritas
+- Documenta el código y usa **anotaciones de tipo**
 - Utiliza los principios KISS, DRY y YAGNI
-- Utiliza algún estilo de documentación
-```
+
+*(3/5)*
 
 ---
 
-2. Un sistema de gestión de tareas, donde se pueden agregar, eliminar y marcar tareas como completadas. En un futuro podrías agregar fechas de vencimiento y prioridades a las tareas.
+Realiza el **análisis** y **diagrama de clases** en el archivo `ejercicio_01.md`
 
-```markdown
-Crea el análisis, diagrama de clases y el código.
-Documenta el código y usa anotaciones de tipo.
-Utiliza los principios KISS, DRY y YAGNI
-Utiliza algún estilo de documentación
-```
+Escribe el código en Python para la clase de tu diagrama de clases en el archivo `ejercicio_01.py`
+
+*(4/5)*
+
+---
+
+- Asegúrate de que la clase incluyan *atributos* y *métodos* coherentes con su propósito
+- Utiliza buenas prácticas de *nomenclatura*, *legibilidad* y *PEP 8*
+- Juega varias veces para verificar que la lógica del juego funciona correctamente
+
+*(5/5)*
+
+---
+
+2. Una empresa de citas necesita un programa para gestionar tareas.
+
+El programa puede:
+
+- Agregar nuevas tareas
+- Eliminar tareas existentes
+- Marcar tareas como completadas
+
+En el futuro se planea agregar fechas de vencimiento y prioridades a las tareas
+
+*(1/5)*
+
+---
+
+Cada tarea tiene un *título*, una *descripción* y un *estado* (completada o no completada).
+
+Cuenta con un menú básico:
+
+1. **Agregar** una nueva tarea proporcionando un título y una descripción
+2. **Eliminar** una tarea por su título
+3. **Marcar** una tarea como completada por su título
+4.  **Listar** todas las tareas con su estado actual
+
+*(2/5)*
+
+---
+
+- Crea la clase `Tarea` para representar una tarea individual con atributos y métodos relevantes
+- Crea la clase `GestorDeTareas` para gestionar **una colección** de tareas, incluyendo métodos para agregar, eliminar y marcar tareas como completadas
+- Documenta el código y usa **anotaciones de tipo**
+- Utiliza los principios KISS, DRY y YAGNI
+
+*(3/5)*
+
+---
+
+- Realiza el **análisis** y **diagrama de clases** en el archivo `ejercicio_02.md`
+- Escribe el código en Python para las clases de tu diagrama de clases en el archivo `ejercicio_02.py`
+- Implementa un menú interactivo para que el usuario pueda gestionar las tareas
+- Documenta el código y usa **anotaciones de tipo**
+- Utiliza los principios KISS, DRY y YAGNI
+
+*(4/5)*
+
+---
+
+- Asegúrate de que las clases incluyan *atributos* y *métodos* coherentes con su propósito
+- Utiliza buenas prácticas de *nomenclatura*, *legibilidad* y *PEP 8*
+- Prueba las clases creando instancias y realizando operaciones de agregar, eliminar y marcar tareas como completadas
+
+*(5/5)*
 
 ---
 
